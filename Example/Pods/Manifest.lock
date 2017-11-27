@@ -1,0 +1,16 @@
+PODS:
+  - ModelSynchro (0.1.0)
+
+DEPENDENCIES:
+  - ModelSynchro (from `../`)
+
+EXTERNAL SOURCES:
+  ModelSynchro:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ModelSynchro: 2f02f549706e42745ad77993a61b4010f6226f8d
+
+PODFILE CHECKSUM: 75a3e08767753ed873ac3c1217c8aab5739f2aa4
+
+COCOAPODS: 1.3.1

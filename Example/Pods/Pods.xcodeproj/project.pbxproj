@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E452F8ED0935883D963EFBF450F8AB /* Pods-ModelSynchro_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D916F16AEBC4AB7BAE3434726247A2DF /* Pods-ModelSynchro_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2258FD7B72A367CDF3B5FFD6AE52D983 /* Pods-ModelSynchro_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FFC988DD9AA20E343C0A1CA223CDD /* Pods-ModelSynchro_Example-dummy.m */; };
+		6D3CFA3F87D3148CC3E2A5E9907B0B06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		87E93FD947FEB03064CFDD87925C7EAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A7FE9B5E57D9FE6D8F67EB6A351B2137 /* Pods-ModelSynchro_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE182D7C7315C9A8220B7F3A29D51A8 /* Pods-ModelSynchro_Tests-dummy.m */; };
+		B9F655BA7FF250E084FB99394174BF8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C45EF0295AE8CF345EF0D0F7495E218E /* ModelSynchro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A10803FBF1BC1F3B0E23F7428675EC3 /* ModelSynchro-dummy.m */; };
+		E6EC8F73FD396B08AF18CA6C7DA94E05 /* Pods-ModelSynchro_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 571A3BB01A2B899586396C89F2B457B1 /* Pods-ModelSynchro_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECB29159CC693598DE92F6391CCE1F9F /* ModelSynchro-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C04FA0945D66714038DDA5126F0B4348 /* ModelSynchro-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70770685C8153FDBC8A77A55932DE846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A803D9482ED850529029CC24E22B897D;
+			remoteInfo = ModelSynchro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04E81B25E651C5F6C5D10CF380722450 /* Pods-ModelSynchro_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Example-resources.sh"; sourceTree = "<group>"; };
+		08D2BD80DC1ADFFFE76F5FFD1C351CD4 /* Pods-ModelSynchro_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ModelSynchro_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		0A10803FBF1BC1F3B0E23F7428675EC3 /* ModelSynchro-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModelSynchro-dummy.m"; sourceTree = "<group>"; };
+		0F5272D629EDB5CC452DE4FADE01F1FA /* ModelSynchro.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ModelSynchro.modulemap; sourceTree = "<group>"; };
+		2D9F8B778D0DE2A2C8C8503578BEC30F /* Pods-ModelSynchro_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ModelSynchro_Tests.modulemap"; sourceTree = "<group>"; };
+		2EB6116A674D145FA734332E8A0107E7 /* Pods-ModelSynchro_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ModelSynchro_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3B66795616AEB144AC61195BB3C69C75 /* Pods-ModelSynchro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3DBFEE2B6B1D04693F5CB54F6DCFFFA9 /* Pods-ModelSynchro_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ModelSynchro_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		571A3BB01A2B899586396C89F2B457B1 /* Pods-ModelSynchro_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ModelSynchro_Example-umbrella.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		72DB9D6AB437BFDA3E4E971E4BD30B65 /* ModelSynchro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModelSynchro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		745D0648CD56E5A076A4B6E212A72AE7 /* ModelSynchro-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-prefix.pch"; sourceTree = "<group>"; };
+		828057623E0D58CACA83B9A2E28E8C0F /* Pods-ModelSynchro_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ModelSynchro_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		84B80658F2B99A834FDE61747BD45426 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92654AC58D612762577EED24F6EFD57A /* Pods_ModelSynchro_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelSynchro_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97D6CF67630B12B26D7C1699BAE1B0C8 /* Pods-ModelSynchro_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Tests-resources.sh"; sourceTree = "<group>"; };
+		9BC26126BFFDDD4AFB3FF443F9A3D455 /* Pods-ModelSynchro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9C20F8FA352E53AB6243E3504F2287DC /* Pods-ModelSynchro_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		9F38FA7BD0148181888627A5ACF6215E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FAB1765E24FB614DEF9B69C09106591 /* Pods-ModelSynchro_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A7ACFA0A313F6E900183052435CE6F70 /* Pods_ModelSynchro_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelSynchro_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2601A20C1D6D9FF659250069457043C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDE182D7C7315C9A8220B7F3A29D51A8 /* Pods-ModelSynchro_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ModelSynchro_Tests-dummy.m"; sourceTree = "<group>"; };
+		C04FA0945D66714038DDA5126F0B4348 /* ModelSynchro-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-umbrella.h"; sourceTree = "<group>"; };
+		D7FB5F68F7422263C48A7EAE302D1D59 /* ModelSynchro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModelSynchro.xcconfig; sourceTree = "<group>"; };
+		D916F16AEBC4AB7BAE3434726247A2DF /* Pods-ModelSynchro_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ModelSynchro_Tests-umbrella.h"; sourceTree = "<group>"; };
+		EDAF5A3B37FD242A4480B2A257CA522F /* Pods-ModelSynchro_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ModelSynchro_Example.modulemap"; sourceTree = "<group>"; };
+		F19FFC988DD9AA20E343C0A1CA223CDD /* Pods-ModelSynchro_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ModelSynchro_Example-dummy.m"; sourceTree = "<group>"; };
+		F31846386E9290BFFA774F78C30EA16B /* Pods-ModelSynchro_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Example-frameworks.sh"; sourceTree = "<group>"; };
+		FB6CFEF1FC16EFFD767A86634A3B8CA4 /* Pods-ModelSynchro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CFC5FCF7FD5EDC7988B22EAAD6910AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D3CFA3F87D3148CC3E2A5E9907B0B06 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BCEDCEBCF81E93DD911724D1DE21D75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9F655BA7FF250E084FB99394174BF8C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1F0944E3E9D6E25D8BE6A0A5584F76B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87E93FD947FEB03064CFDD87925C7EAF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		131269BA0AC360C20EA973ADC2A9D031 /* Pods-ModelSynchro_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B2601A20C1D6D9FF659250069457043C /* Info.plist */,
+				2D9F8B778D0DE2A2C8C8503578BEC30F /* Pods-ModelSynchro_Tests.modulemap */,
+				828057623E0D58CACA83B9A2E28E8C0F /* Pods-ModelSynchro_Tests-acknowledgements.markdown */,
+				3DBFEE2B6B1D04693F5CB54F6DCFFFA9 /* Pods-ModelSynchro_Tests-acknowledgements.plist */,
+				BDE182D7C7315C9A8220B7F3A29D51A8 /* Pods-ModelSynchro_Tests-dummy.m */,
+				9C20F8FA352E53AB6243E3504F2287DC /* Pods-ModelSynchro_Tests-frameworks.sh */,
+				97D6CF67630B12B26D7C1699BAE1B0C8 /* Pods-ModelSynchro_Tests-resources.sh */,
+				D916F16AEBC4AB7BAE3434726247A2DF /* Pods-ModelSynchro_Tests-umbrella.h */,
+				FB6CFEF1FC16EFFD767A86634A3B8CA4 /* Pods-ModelSynchro_Tests.debug.xcconfig */,
+				9FAB1765E24FB614DEF9B69C09106591 /* Pods-ModelSynchro_Tests.release.xcconfig */,
+			);
+			name = "Pods-ModelSynchro_Tests";
+			path = "Target Support Files/Pods-ModelSynchro_Tests";
+			sourceTree = "<group>";
+		};
+		330F95CD3AA85F77706E6A758E3CCFC6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1C71AC7A17FBDFE8FE75D3C7D0BAE91 /* Pods-ModelSynchro_Example */,
+				131269BA0AC360C20EA973ADC2A9D031 /* Pods-ModelSynchro_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		53187F0986065EFD9913D380919C72D3 /* ModelSynchro */ = {
+			isa = PBXGroup;
+			children = (
+				D0BD191810C880F7D1EEDF43CD7E4F80 /* Support Files */,
+			);
+			name = ModelSynchro;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				E263B49DCADC2245A7191462DC051166 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				943EB70FACA2781FC50242D6A670CC1E /* Products */,
+				330F95CD3AA85F77706E6A758E3CCFC6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		943EB70FACA2781FC50242D6A670CC1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72DB9D6AB437BFDA3E4E971E4BD30B65 /* ModelSynchro.framework */,
+				A7ACFA0A313F6E900183052435CE6F70 /* Pods_ModelSynchro_Example.framework */,
+				92654AC58D612762577EED24F6EFD57A /* Pods_ModelSynchro_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0BD191810C880F7D1EEDF43CD7E4F80 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				84B80658F2B99A834FDE61747BD45426 /* Info.plist */,
+				0F5272D629EDB5CC452DE4FADE01F1FA /* ModelSynchro.modulemap */,
+				D7FB5F68F7422263C48A7EAE302D1D59 /* ModelSynchro.xcconfig */,
+				0A10803FBF1BC1F3B0E23F7428675EC3 /* ModelSynchro-dummy.m */,
+				745D0648CD56E5A076A4B6E212A72AE7 /* ModelSynchro-prefix.pch */,
+				C04FA0945D66714038DDA5126F0B4348 /* ModelSynchro-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ModelSynchro";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E1C71AC7A17FBDFE8FE75D3C7D0BAE91 /* Pods-ModelSynchro_Example */ = {
+			isa = PBXGroup;
+			children = (
+				9F38FA7BD0148181888627A5ACF6215E /* Info.plist */,
+				EDAF5A3B37FD242A4480B2A257CA522F /* Pods-ModelSynchro_Example.modulemap */,
+				2EB6116A674D145FA734332E8A0107E7 /* Pods-ModelSynchro_Example-acknowledgements.markdown */,
+				08D2BD80DC1ADFFFE76F5FFD1C351CD4 /* Pods-ModelSynchro_Example-acknowledgements.plist */,
+				F19FFC988DD9AA20E343C0A1CA223CDD /* Pods-ModelSynchro_Example-dummy.m */,
+				F31846386E9290BFFA774F78C30EA16B /* Pods-ModelSynchro_Example-frameworks.sh */,
+				04E81B25E651C5F6C5D10CF380722450 /* Pods-ModelSynchro_Example-resources.sh */,
+				571A3BB01A2B899586396C89F2B457B1 /* Pods-ModelSynchro_Example-umbrella.h */,
+				9BC26126BFFDDD4AFB3FF443F9A3D455 /* Pods-ModelSynchro_Example.debug.xcconfig */,
+				3B66795616AEB144AC61195BB3C69C75 /* Pods-ModelSynchro_Example.release.xcconfig */,
+			);
+			name = "Pods-ModelSynchro_Example";
+			path = "Target Support Files/Pods-ModelSynchro_Example";
+			sourceTree = "<group>";
+		};
+		E263B49DCADC2245A7191462DC051166 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53187F0986065EFD9913D380919C72D3 /* ModelSynchro */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		09D131DCDEDED09D541F2774B54DCF46 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB29159CC693598DE92F6391CCE1F9F /* ModelSynchro-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDCE7AA3014AA431DC3FE1C7A6877F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6EC8F73FD396B08AF18CA6C7DA94E05 /* Pods-ModelSynchro_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EB18E953375068A2711E9BAE1E35F82 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E452F8ED0935883D963EFBF450F8AB /* Pods-ModelSynchro_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3980DAECA9A8CBEFED4A20B4A6844C6F /* Pods-ModelSynchro_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 076074E11A965907C04B4332671DA393 /* Build configuration list for PBXNativeTarget "Pods-ModelSynchro_Tests" */;
+			buildPhases = (
+				03684E2AC83410E228170FE4CF1D34C1 /* Sources */,
+				B1F0944E3E9D6E25D8BE6A0A5584F76B /* Frameworks */,
+				2EB18E953375068A2711E9BAE1E35F82 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ModelSynchro_Tests";
+			productName = "Pods-ModelSynchro_Tests";
+			productReference = 92654AC58D612762577EED24F6EFD57A /* Pods_ModelSynchro_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8B916F4984CCB0772E768FBB09E140F1 /* Pods-ModelSynchro_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69CC3A1733DFBC45DECC8AE524C2A2C6 /* Build configuration list for PBXNativeTarget "Pods-ModelSynchro_Example" */;
+			buildPhases = (
+				B39ABAB41D6AA3386978288DCC2B4C2C /* Sources */,
+				3CFC5FCF7FD5EDC7988B22EAAD6910AA /* Frameworks */,
+				1EDCE7AA3014AA431DC3FE1C7A6877F3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EC3AA434F0F593C3D14AC8BA4655804 /* PBXTargetDependency */,
+			);
+			name = "Pods-ModelSynchro_Example";
+			productName = "Pods-ModelSynchro_Example";
+			productReference = A7ACFA0A313F6E900183052435CE6F70 /* Pods_ModelSynchro_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A803D9482ED850529029CC24E22B897D /* ModelSynchro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 060E36B883C6B73AF34615094DCE8B1E /* Build configuration list for PBXNativeTarget "ModelSynchro" */;
+			buildPhases = (
+				D1302EB5E258A2DB89D0B58EECFA308C /* Sources */,
+				7BCEDCEBCF81E93DD911724D1DE21D75 /* Frameworks */,
+				09D131DCDEDED09D541F2774B54DCF46 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModelSynchro;
+			productName = ModelSynchro;
+			productReference = 72DB9D6AB437BFDA3E4E971E4BD30B65 /* ModelSynchro.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 943EB70FACA2781FC50242D6A670CC1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A803D9482ED850529029CC24E22B897D /* ModelSynchro */,
+				8B916F4984CCB0772E768FBB09E140F1 /* Pods-ModelSynchro_Example */,
+				3980DAECA9A8CBEFED4A20B4A6844C6F /* Pods-ModelSynchro_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03684E2AC83410E228170FE4CF1D34C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7FE9B5E57D9FE6D8F67EB6A351B2137 /* Pods-ModelSynchro_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39ABAB41D6AA3386978288DCC2B4C2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2258FD7B72A367CDF3B5FFD6AE52D983 /* Pods-ModelSynchro_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1302EB5E258A2DB89D0B58EECFA308C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45EF0295AE8CF345EF0D0F7495E218E /* ModelSynchro-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EC3AA434F0F593C3D14AC8BA4655804 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ModelSynchro;
+			target = A803D9482ED850529029CC24E22B897D /* ModelSynchro */;
+			targetProxy = 70770685C8153FDBC8A77A55932DE846 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04716BDD7A61119BA0894CBC3898BC80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FAB1765E24FB614DEF9B69C09106591 /* Pods-ModelSynchro_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ModelSynchro_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ModelSynchro_Tests/Pods-ModelSynchro_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ModelSynchro_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3363E17E9A99282C272E8931B1D197DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB6CFEF1FC16EFFD767A86634A3B8CA4 /* Pods-ModelSynchro_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ModelSynchro_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ModelSynchro_Tests/Pods-ModelSynchro_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ModelSynchro_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		597BFCDFC7BF749091531848684F1903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B66795616AEB144AC61195BB3C69C75 /* Pods-ModelSynchro_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ModelSynchro_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ModelSynchro_Example/Pods-ModelSynchro_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ModelSynchro_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		731DC216E1A58545B559F6E0A2418060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D04ACADA7932A176B63D4E63C8F21F3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7FB5F68F7422263C48A7EAE302D1D59 /* ModelSynchro.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ModelSynchro/ModelSynchro-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ModelSynchro/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ModelSynchro/ModelSynchro.modulemap";
+				PRODUCT_NAME = ModelSynchro;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D800148CF0CC5987D267B163FD1A98CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BC26126BFFDDD4AFB3FF443F9A3D455 /* Pods-ModelSynchro_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ModelSynchro_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ModelSynchro_Example/Pods-ModelSynchro_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ModelSynchro_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E431908D522C75C9F16BE17E4087FD02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7FB5F68F7422263C48A7EAE302D1D59 /* ModelSynchro.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ModelSynchro/ModelSynchro-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ModelSynchro/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ModelSynchro/ModelSynchro.modulemap";
+				PRODUCT_NAME = ModelSynchro;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		060E36B883C6B73AF34615094DCE8B1E /* Build configuration list for PBXNativeTarget "ModelSynchro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D04ACADA7932A176B63D4E63C8F21F3D /* Debug */,
+				E431908D522C75C9F16BE17E4087FD02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		076074E11A965907C04B4332671DA393 /* Build configuration list for PBXNativeTarget "Pods-ModelSynchro_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3363E17E9A99282C272E8931B1D197DB /* Debug */,
+				04716BDD7A61119BA0894CBC3898BC80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */,
+				731DC216E1A58545B559F6E0A2418060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69CC3A1733DFBC45DECC8AE524C2A2C6 /* Build configuration list for PBXNativeTarget "Pods-ModelSynchro_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D800148CF0CC5987D267B163FD1A98CC /* Debug */,
+				597BFCDFC7BF749091531848684F1903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

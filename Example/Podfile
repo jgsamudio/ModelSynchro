@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ModelSynchro_Example' do
+  pod 'ModelSynchro', :path => '../'
+
+  target 'ModelSynchro_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
