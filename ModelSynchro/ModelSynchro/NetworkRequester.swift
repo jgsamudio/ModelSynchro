@@ -13,7 +13,7 @@ typealias JSON = [String : Any]
 final class NetworkRequester {
     
     private let config: ConfigurationFile
-    private var models = [ModelGenerator]()
+    private var modelDict = [String : ModelGenerator]()
     
     init(config: ConfigurationFile) {
         self.config = config
@@ -26,6 +26,10 @@ final class NetworkRequester {
             }
             requestJSONData(request: request)
         }
+        
+        modelDict.forEach({ (key, value) in
+            value.writeToFile()
+        })
     }
     
     func requestJSONData(request: URLRequest) {
@@ -37,10 +41,6 @@ final class NetworkRequester {
                     return
                 }
                 self.parse(json: json, modelName: "sample")
-                
-                self.models.forEach {
-                    $0.writeToFile()
-                }
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -48,7 +48,6 @@ final class NetworkRequester {
             sema.signal()
         }
         
-        // Network call
         task.resume()
         sema.wait()
     }
@@ -68,8 +67,7 @@ final class NetworkRequester {
     }
     
     func parse(json: JSON, modelName: String) {
-        let model = ModelGenerator(name: modelName.capitalizedFirstLetter(), config: config)
-        models.append(model)
+        let model = modelGenerator(modelName: modelName)
         
         for (key, value) in json {
             guard let type = parse(key: key, value: value) else {
@@ -77,6 +75,16 @@ final class NetworkRequester {
                 continue
             }
             model.add(property: key, type: type.toString())
+        }
+    }
+    
+    func modelGenerator(modelName: String) -> ModelGenerator {
+        if let model = modelDict[modelName] {
+            return model
+        } else {
+            let model = ModelGenerator(name: modelName.capitalizedFirstLetter(), config: config)
+            modelDict[modelName] = model
+            return model
         }
     }
     
@@ -147,14 +155,44 @@ final class ModelGenerator {
     var contents = [String]()
     var config: ConfigurationFile
     
+    var fileHeader: String {
+        return """
+        //
+        //  \(name).swift
+        //  \(config.projectName)
+        //
+        //  Created by \(config.authorName) on 11/27/17.
+        //  Copyright © 2017 \(config.companyName). All rights reserved.
+        //
+        
+        """
+    }
+    
     init(name: String, config: ConfigurationFile) {
         self.name = name
         self.config = config
+        contents.append(fileHeader)
         contents.append("struct " + name + ": Codable {")
     }
     
     func add(property: String, type: String) {
-        contents.append("\tlet " + property + ": " + type)
+        let variableDefinition = variableString(property: property, type: type)
+        if !variableFound(variableDefinition: variableDefinition) {
+            contents.append(variableDefinition)
+        }
+    }
+    
+    func variableString(property: String, type: String) -> String {
+        return "\tlet " + property + ": " + type
+    }
+    
+    func variableFound(variableDefinition: String) -> Bool {
+        for line in contents {
+            if line == variableDefinition {
+                return true
+            }
+        }
+        return false
     }
     
     func writeToFile() {
