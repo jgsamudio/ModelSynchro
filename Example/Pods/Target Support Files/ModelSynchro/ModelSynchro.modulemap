@@ -1,6 +1,0 @@
-framework module ModelSynchro {
-  umbrella header "ModelSynchro-umbrella.h"
-
-  export *
-  module * { export * }
-}
