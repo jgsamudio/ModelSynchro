@@ -51,7 +51,6 @@ final class NetworkRequester {
         // Network call
         task.resume()
         sema.wait()
-        exit(0)
     }
     
     func urlRequest(urlString: String) -> URLRequest?  {

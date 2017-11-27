@@ -22,7 +22,7 @@ final class ConfigurationParser {
             return
         }
     #else
-        guard let projectDirectory = ConfigurationParser.getEnvironmentVar("projectDirectory") else {
+        guard let projectDirectory = ConfigurationParser.getEnvironmentVar("PROJECT_DIR") else {
             print("Error: Project Directory Not Found")
             return
         }

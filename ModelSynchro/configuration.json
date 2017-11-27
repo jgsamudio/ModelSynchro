@@ -2,7 +2,7 @@
   "authorName" : "Jonathan Samudio",
   "companyName" : "Prolific Interactive",
   "projectName" : "ModelSynchro",
-  "outputDirectory" : "./ModelSynchro/Models/",
+  "outputDirectory" : "SampleModels/",
   "endpoints" : [
     "https://staging.ams.prolific.io/v1/demo/all.json",
   ],

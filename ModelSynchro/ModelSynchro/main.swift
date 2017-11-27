@@ -8,7 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+print("Fetching JSON...")
 
 let parser = ConfigurationParser()
 guard let config = parser.configFile else {
@@ -17,3 +17,5 @@ guard let config = parser.configFile else {
 let requester = NetworkRequester(config: config)
 requester.generateModels()
 
+print("Models Generated!")
+exit(0)
