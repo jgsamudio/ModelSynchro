@@ -2,15 +2,20 @@ PODS:
   - ModelSynchro (0.1.0)
 
 DEPENDENCIES:
-  - ModelSynchro (from `../`)
+  - ModelSynchro (from `git@github.com:jgsamudio/ModelSynchro.git`)
 
 EXTERNAL SOURCES:
   ModelSynchro:
-    :path: ../
+    :git: git@github.com:jgsamudio/ModelSynchro.git
+
+CHECKOUT OPTIONS:
+  ModelSynchro:
+    :commit: 79a551581cb39a3d850eb119a0a8f76c1993a7ff
+    :git: git@github.com:jgsamudio/ModelSynchro.git
 
 SPEC CHECKSUMS:
   ModelSynchro: 38c40cec514bae1c518ab97427b3e78e8b1b355e
 
-PODFILE CHECKSUM: 75a3e08767753ed873ac3c1217c8aab5739f2aa4
+PODFILE CHECKSUM: ef92b74a458444125f65637b03982f8282b1f1ae
 
 COCOAPODS: 1.3.1

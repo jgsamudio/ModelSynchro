@@ -1,11 +1,10 @@
 use_frameworks!
 
 target 'ModelSynchro_Example' do
-  pod 'ModelSynchro', :path => '../'
-
+  pod 'ModelSynchro', :git => 'git@github.com:jgsamudio/ModelSynchro.git'
+  
   target 'ModelSynchro_Tests' do
     inherit! :search_paths
 
-    
   end
 end

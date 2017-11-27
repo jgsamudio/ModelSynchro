@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		00E452F8ED0935883D963EFBF450F8AB /* Pods-ModelSynchro_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D916F16AEBC4AB7BAE3434726247A2DF /* Pods-ModelSynchro_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2258FD7B72A367CDF3B5FFD6AE52D983 /* Pods-ModelSynchro_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FFC988DD9AA20E343C0A1CA223CDD /* Pods-ModelSynchro_Example-dummy.m */; };
-		5DA9493CABB756C50759EBAAA7A28A55 /* ModelSynchro in Sources */ = {isa = PBXBuildFile; fileRef = EBD329DBA677717F3453F161721858E6 /* ModelSynchro */; };
+		5DA9493CABB756C50759EBAAA7A28A55 /* ModelSynchro in Sources */ = {isa = PBXBuildFile; fileRef = CDE236CD30FC08437B9EBB1F0F3838C0 /* ModelSynchro */; };
 		6D3CFA3F87D3148CC3E2A5E9907B0B06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		87E93FD947FEB03064CFDD87925C7EAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A7FE9B5E57D9FE6D8F67EB6A351B2137 /* Pods-ModelSynchro_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE182D7C7315C9A8220B7F3A29D51A8 /* Pods-ModelSynchro_Tests-dummy.m */; };
 		B9F655BA7FF250E084FB99394174BF8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D63385D0DAEC4C3E754560E51740A14B /* ModelSynchro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EE6D3FD72BEB1DCC3402143FCD001F /* ModelSynchro-dummy.m */; };
+		D63385D0DAEC4C3E754560E51740A14B /* ModelSynchro-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 456A17C1E8948C735ECD08F5F570BF70 /* ModelSynchro-dummy.m */; };
 		E6EC8F73FD396B08AF18CA6C7DA94E05 /* Pods-ModelSynchro_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 571A3BB01A2B899586396C89F2B457B1 /* Pods-ModelSynchro_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECB29159CC693598DE92F6391CCE1F9F /* ModelSynchro-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE6A9F96DE90EC9BE18858D9AD7056F /* ModelSynchro-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECB29159CC693598DE92F6391CCE1F9F /* ModelSynchro-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E35CBCB6E0865DE4EE9C3947B602EF0 /* ModelSynchro-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,35 +32,35 @@
 /* Begin PBXFileReference section */
 		04E81B25E651C5F6C5D10CF380722450 /* Pods-ModelSynchro_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Example-resources.sh"; sourceTree = "<group>"; };
 		08D2BD80DC1ADFFFE76F5FFD1C351CD4 /* Pods-ModelSynchro_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ModelSynchro_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		0E8CB6FEAE6222C98D125512684FC0DC /* ModelSynchro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModelSynchro.xcconfig; sourceTree = "<group>"; };
-		29223C06668587F7F52E9D66F3F70606 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12A97653FCE3DD9211DD60D123D35EE9 /* ModelSynchro-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-prefix.pch"; sourceTree = "<group>"; };
+		1E35CBCB6E0865DE4EE9C3947B602EF0 /* ModelSynchro-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-umbrella.h"; sourceTree = "<group>"; };
 		2D9F8B778D0DE2A2C8C8503578BEC30F /* Pods-ModelSynchro_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ModelSynchro_Tests.modulemap"; sourceTree = "<group>"; };
 		2EB6116A674D145FA734332E8A0107E7 /* Pods-ModelSynchro_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ModelSynchro_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		348BF80BDEC9664DC04C88FAE6886C83 /* ModelSynchro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModelSynchro.xcconfig; sourceTree = "<group>"; };
 		3B66795616AEB144AC61195BB3C69C75 /* Pods-ModelSynchro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3DBFEE2B6B1D04693F5CB54F6DCFFFA9 /* Pods-ModelSynchro_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ModelSynchro_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		456A17C1E8948C735ECD08F5F570BF70 /* ModelSynchro-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModelSynchro-dummy.m"; sourceTree = "<group>"; };
 		571A3BB01A2B899586396C89F2B457B1 /* Pods-ModelSynchro_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ModelSynchro_Example-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72DB9D6AB437BFDA3E4E971E4BD30B65 /* ModelSynchro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ModelSynchro.framework; path = ModelSynchro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BE6A9F96DE90EC9BE18858D9AD7056F /* ModelSynchro-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-umbrella.h"; sourceTree = "<group>"; };
 		828057623E0D58CACA83B9A2E28E8C0F /* Pods-ModelSynchro_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ModelSynchro_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8C84D8A1A89B31ED9C913AEC3E44F6A5 /* ModelSynchro-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModelSynchro-prefix.pch"; sourceTree = "<group>"; };
+		8C6484E460EE070FC7D6BEA2FEE73A73 /* ModelSynchro.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ModelSynchro.modulemap; sourceTree = "<group>"; };
 		92654AC58D612762577EED24F6EFD57A /* Pods_ModelSynchro_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ModelSynchro_Tests.framework; path = "Pods-ModelSynchro_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97D6CF67630B12B26D7C1699BAE1B0C8 /* Pods-ModelSynchro_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Tests-resources.sh"; sourceTree = "<group>"; };
-		9BA596643662FE5EA84242840D1973B6 /* ModelSynchro.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ModelSynchro.modulemap; sourceTree = "<group>"; };
 		9BC26126BFFDDD4AFB3FF443F9A3D455 /* Pods-ModelSynchro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9C20F8FA352E53AB6243E3504F2287DC /* Pods-ModelSynchro_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		9F38FA7BD0148181888627A5ACF6215E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FAB1765E24FB614DEF9B69C09106591 /* Pods-ModelSynchro_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A7ACFA0A313F6E900183052435CE6F70 /* Pods_ModelSynchro_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ModelSynchro_Example.framework; path = "Pods-ModelSynchro_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8BC6292C7FC84B3D013BF84A14127AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2601A20C1D6D9FF659250069457043C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE182D7C7315C9A8220B7F3A29D51A8 /* Pods-ModelSynchro_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ModelSynchro_Tests-dummy.m"; sourceTree = "<group>"; };
+		CDE236CD30FC08437B9EBB1F0F3838C0 /* ModelSynchro */ = {isa = PBXFileReference; includeInIndex = 1; name = ModelSynchro; path = ModelSynchro/Source/ModelSynchro; sourceTree = "<group>"; };
 		D916F16AEBC4AB7BAE3434726247A2DF /* Pods-ModelSynchro_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ModelSynchro_Tests-umbrella.h"; sourceTree = "<group>"; };
-		EBD329DBA677717F3453F161721858E6 /* ModelSynchro */ = {isa = PBXFileReference; includeInIndex = 1; name = ModelSynchro; path = ModelSynchro/Source/ModelSynchro; sourceTree = "<group>"; };
 		EDAF5A3B37FD242A4480B2A257CA522F /* Pods-ModelSynchro_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ModelSynchro_Example.modulemap"; sourceTree = "<group>"; };
 		F19FFC988DD9AA20E343C0A1CA223CDD /* Pods-ModelSynchro_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ModelSynchro_Example-dummy.m"; sourceTree = "<group>"; };
 		F31846386E9290BFFA774F78C30EA16B /* Pods-ModelSynchro_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModelSynchro_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F7EE6D3FD72BEB1DCC3402143FCD001F /* ModelSynchro-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModelSynchro-dummy.m"; sourceTree = "<group>"; };
 		FB6CFEF1FC16EFFD767A86634A3B8CA4 /* Pods-ModelSynchro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModelSynchro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EC1B43BA88F9E1D84356A3614B0017E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				688644B8EE7C59E3F7BB7DC0D6561C66 /* ModelSynchro */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		131269BA0AC360C20EA973ADC2A9D031 /* Pods-ModelSynchro_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,18 +118,18 @@
 			path = "Target Support Files/Pods-ModelSynchro_Tests";
 			sourceTree = "<group>";
 		};
-		1AA3220C8AE2041294D31452D9CA1ABC /* Support Files */ = {
+		17201175DFD2F63E5E5F1217FA9B3193 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				29223C06668587F7F52E9D66F3F70606 /* Info.plist */,
-				9BA596643662FE5EA84242840D1973B6 /* ModelSynchro.modulemap */,
-				0E8CB6FEAE6222C98D125512684FC0DC /* ModelSynchro.xcconfig */,
-				F7EE6D3FD72BEB1DCC3402143FCD001F /* ModelSynchro-dummy.m */,
-				8C84D8A1A89B31ED9C913AEC3E44F6A5 /* ModelSynchro-prefix.pch */,
-				7BE6A9F96DE90EC9BE18858D9AD7056F /* ModelSynchro-umbrella.h */,
+				A8BC6292C7FC84B3D013BF84A14127AF /* Info.plist */,
+				8C6484E460EE070FC7D6BEA2FEE73A73 /* ModelSynchro.modulemap */,
+				348BF80BDEC9664DC04C88FAE6886C83 /* ModelSynchro.xcconfig */,
+				456A17C1E8948C735ECD08F5F570BF70 /* ModelSynchro-dummy.m */,
+				12A97653FCE3DD9211DD60D123D35EE9 /* ModelSynchro-prefix.pch */,
+				1E35CBCB6E0865DE4EE9C3947B602EF0 /* ModelSynchro-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "Example/Pods/Target Support Files/ModelSynchro";
+			path = "../Target Support Files/ModelSynchro";
 			sourceTree = "<group>";
 		};
 		330F95CD3AA85F77706E6A758E3CCFC6 /* Targets Support Files */ = {
@@ -133,22 +141,22 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6C3A61689DCFB4F0E368012EF32FB05F /* ModelSynchro */ = {
+		688644B8EE7C59E3F7BB7DC0D6561C66 /* ModelSynchro */ = {
 			isa = PBXGroup;
 			children = (
-				EBD329DBA677717F3453F161721858E6 /* ModelSynchro */,
-				1AA3220C8AE2041294D31452D9CA1ABC /* Support Files */,
+				CDE236CD30FC08437B9EBB1F0F3838C0 /* ModelSynchro */,
+				17201175DFD2F63E5E5F1217FA9B3193 /* Support Files */,
 			);
 			name = ModelSynchro;
-			path = ../..;
+			path = ModelSynchro;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				E263B49DCADC2245A7191462DC051166 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				0EC1B43BA88F9E1D84356A3614B0017E /* Pods */,
 				943EB70FACA2781FC50242D6A670CC1E /* Products */,
 				330F95CD3AA85F77706E6A758E3CCFC6 /* Targets Support Files */,
 			);
@@ -196,14 +204,6 @@
 			);
 			name = "Pods-ModelSynchro_Example";
 			path = "Target Support Files/Pods-ModelSynchro_Example";
-			sourceTree = "<group>";
-		};
-		E263B49DCADC2245A7191462DC051166 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6C3A61689DCFB4F0E368012EF32FB05F /* ModelSynchro */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,7 +481,7 @@
 		};
 		61447F5DEA88FB34B5577D4FE0F8283C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E8CB6FEAE6222C98D125512684FC0DC /* ModelSynchro.xcconfig */;
+			baseConfigurationReference = 348BF80BDEC9664DC04C88FAE6886C83 /* ModelSynchro.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -566,7 +566,7 @@
 		};
 		76DDFDF2C69AC5535A466375E0479AFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E8CB6FEAE6222C98D125512684FC0DC /* ModelSynchro.xcconfig */;
+			baseConfigurationReference = 348BF80BDEC9664DC04C88FAE6886C83 /* ModelSynchro.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

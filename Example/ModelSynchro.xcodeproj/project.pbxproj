@@ -294,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/ModelSynchro/ModelSynchro\" -projectDirectory /Users/jonathansamudio/Prolific-Projects/ModelSynchro/Example/";
+			shellScript = "\"${PODS_ROOT}/ModelSynchro/ModelSynchro/Source/ModelSynchro\" -projectDirectory /Users/jonathansamudio/Prolific-Projects/ModelSynchro/Example/";
 		};
 		707D1147A33435353DA2A8B9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
