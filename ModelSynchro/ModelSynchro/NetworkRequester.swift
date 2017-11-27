@@ -41,8 +41,6 @@ final class NetworkRequester {
                 self.models.forEach {
                     $0.writeToFile()
                 }
-                
-                return
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -53,6 +51,7 @@ final class NetworkRequester {
         // Network call
         task.resume()
         sema.wait()
+        exit(0)
     }
     
     func urlRequest(urlString: String) -> URLRequest?  {
