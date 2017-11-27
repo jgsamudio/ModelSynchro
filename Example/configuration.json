@@ -1,0 +1,10 @@
+{
+  "authorName" : "Jonathan Samudio",
+  "companyName" : "Prolific Interactive",
+  "projectName" : "ModelSynchro",
+  "endpoints" : [
+    "https://staging.ams.prolific.io/v1/demo/all.json",
+  ],
+  "headers" : [
+  ]
+}
