@@ -1,0 +1,2 @@
+struct Audiences: Codable {
+}

@@ -73,6 +73,7 @@ final class NetworkRequester {
         
         for (key, value) in json {
             guard let type = parse(key: key, value: value) else {
+                print(key)
                 continue
             }
             model.add(property: key, type: type.toString())
@@ -86,11 +87,28 @@ final class NetworkRequester {
                     parse(json: json, modelName: key)
                 }
             }
+            
+            if array.isEmpty {
+                parse(json: [:], modelName: key)
+            }
+            
             return .array(key.capitalizedFirstLetter())
         } else if let _ = value as? Int {
             return .int
         } else if let _ = value as? String {
             return .string
+        } else if let _ = value as? Bool {
+            return .bool
+        } else if let _ = value as? Double {
+            return .double
+        } else if let json = value as? JSON {
+            guard let firstJSON = json.first,
+                let keyType = parse(key: "Key", value: firstJSON.key)?.toString(),
+                let valueType = parse(key: "Value", value: firstJSON.value)?.toString() else {
+                return nil
+            }
+            
+            return .dictionary(keyType, valueType)
         }
         
         return nil
@@ -103,6 +121,7 @@ enum Type {
     case bool
     case double
     case array(String)
+    case dictionary(String, String)
     
     func toString() -> String {
         switch self {
@@ -116,6 +135,8 @@ enum Type {
             return "Double"
         case .array(let type):
             return "[" + type + "]"
+        case .dictionary(let keyType, let valueType):
+            return "[" + keyType + " : " + valueType + "]"
         }
     }
 }
