@@ -30,6 +30,14 @@ final class ConfigurationParser {
         ConfigurationParser.projectDirectory = projectDirectory
         parseConfigurationFile(projectDirectory: projectDirectory)
     }
+}
+
+private extension ConfigurationParser {
+  
+    private static func getEnvironmentVar(_ name: String) -> String? {
+        guard let rawValue = getenv(name) else { return nil }
+        return String(utf8String: rawValue)
+    }
     
     private func parseConfigurationFile(projectDirectory: String) {
         let fileToParse = projectDirectory + "configuration.json"
@@ -49,51 +57,5 @@ final class ConfigurationParser {
         configData?.deserializeObject(completion: { (config, _) in
             self.configFile = config
         })
-    }
-    
-    static func getEnvironmentVar(_ name: String) -> String? {
-        guard let rawValue = getenv(name) else { return nil }
-        return String(utf8String: rawValue)
-    }
-}
-
-struct ConfigurationFile: Codable {
-    let authorName: String
-    let companyName: String
-    let projectName: String
-    let outputDirectory: String?
-    let endpoints: [String]
-    let headers: [String]?
-}
-
-internal enum NetworkError: Error {
-    case network(error: Error)
-    case jsonSerialization
-    case objectSerialization(reason: String)
-    case urlInvalid
-}
-
-extension Data {
-    
-    func deserializeObject<T: Decodable>(completion: (T?, Error?)->()) {
-        let decoder = JSONDecoder()
-        do {
-            let object = try decoder.decode(T.self, from: self)
-            completion(object, nil)
-        }
-        catch {
-            completion(nil, NetworkError.objectSerialization(reason: "Object Serialization Failed"))
-        }
-    }
-    
-    func deserializeArray<T: Decodable>(completion: ([T]?, Error?)->()) {
-        let decoder = JSONDecoder()
-        do {
-            let object = try decoder.decode([T].self, from: self)
-            completion(object, nil)
-        }
-        catch {
-            completion(nil, NetworkError.objectSerialization(reason: "Array Serialization Failed"))
-        }
     }
 }

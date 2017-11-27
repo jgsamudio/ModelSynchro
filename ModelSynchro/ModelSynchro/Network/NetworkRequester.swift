@@ -34,10 +34,11 @@ final class NetworkRequester {
         let sema = DispatchSemaphore(value: 0)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             do {
-                guard let data = data, let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON else {
+                guard let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON else {
                     return
                 }
-                // TODO
+                // TODO: Handle Endpoint
                 self.jsonParser.parse(json: json, modelName: "sample")
             } catch let error as NSError {
                 print(error.localizedDescription)
