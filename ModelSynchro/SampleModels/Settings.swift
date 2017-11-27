@@ -6,6 +6,10 @@
 //  Copyright © 2017 Prolific Interactive. All rights reserved.
 //
 
+/*
+    Auto-Generated using ModelSynchro
+*/
+
 struct Settings: Codable {
 	let hotspots: [Hotspots]
 	let navigation: String
