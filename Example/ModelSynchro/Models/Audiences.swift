@@ -1,5 +1,5 @@
 //
-//  Sample.swift
+//  Audiences.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/27/17.
@@ -10,8 +10,5 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Sample: Codable {
-	let features: [Features]
-	let categories: [Categories]
-	let settings: [Settings]
+struct Audiences: Codable {
 }
