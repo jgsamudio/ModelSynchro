@@ -69,6 +69,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2059DA271FCCB74400B020C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +100,7 @@
 		607FACD21AFB9204008FA782 /* Example for ModelSynchro */ = {
 			isa = PBXGroup;
 			children = (
+				2059DA271FCCB74400B020C3 /* Models */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -167,12 +175,12 @@
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ModelSynchro_Example" */;
 			buildPhases = (
 				021B064C0C1E661E5A7DFF10 /* [CP] Check Pods Manifest.lock */,
+				2059DA251FCCB34700B020C3 /* ShellScript */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				DF30F25B55AB99FD2B142EB3 /* [CP] Embed Pods Frameworks */,
 				707D1147A33435353DA2A8B9 /* [CP] Copy Pods Resources */,
-				2059DA251FCCB34700B020C3 /* ShellScript */,
 			);
 			buildRules = (
 			);

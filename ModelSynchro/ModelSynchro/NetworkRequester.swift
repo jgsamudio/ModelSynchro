@@ -143,7 +143,7 @@ final class ModelGenerator {
         let fileText = contents.joined(separator: "\n")
         
         // FIX THIS remove ?? for output directory
-        guard let fileURL = URL(string: "file://" + (config.outputDirectory ?? ConfigurationParser.projectDirectory) + name + ".swift") else {
+        guard let fileURL = URL(string: "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name + ".swift") else {
             print("Error: Not a valid url")
             return
         }
