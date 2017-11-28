@@ -14,15 +14,14 @@ final class ModelGenerator {
     var contents = [String]()
     var config: ConfigurationFile
     
-    // TODO: Date
     private var fileHeader: String {
         return """
         //
         //  \(name).swift
         //  \(config.projectName)
         //
-        //  Created by \(config.authorName) on 11/27/17.
-        //  Copyright © 2017 \(config.companyName). All rights reserved.
+        //  Created by \(config.authorName) on \(currentDateString).
+        //  Copyright © \(yearString) \(config.companyName). All rights reserved.
         //
         
         /*
@@ -34,6 +33,19 @@ final class ModelGenerator {
     
     private var fileURLString: String {
         return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name + ".swift"
+    }
+    
+    private var currentDateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        let formattedDate = formatter.string(from: Date())
+        return formattedDate
+    }
+    
+    private var yearString: String {
+        let date = Date()
+        let calendar = Calendar.current
+        return String(calendar.component(.year, from: date))
     }
     
     init(name: String, config: ConfigurationFile) {
