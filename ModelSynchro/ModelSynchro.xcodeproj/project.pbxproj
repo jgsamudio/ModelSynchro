@@ -16,6 +16,9 @@
 		2059DA451FCCD16800B020C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA441FCCD16800B020C3 /* NetworkError.swift */; };
 		2059DA471FCCD17700B020C3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA461FCCD17700B020C3 /* Data.swift */; };
 		20642B1E1FCDCF4900E3AA2F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B1D1FCDCF4900E3AA2F /* DateExtension.swift */; };
+		20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B201FCDFCA600E3AA2F /* LineContent.swift */; };
+		20642B231FCDFCB500E3AA2F /* GeneratorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B221FCDFCB500E3AA2F /* GeneratorDataSource.swift */; };
+		20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */; };
 		208E0ED21FCCA98500EB25EA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED11FCCA98500EB25EA /* main.swift */; };
 		208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */; };
 		208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */; };
@@ -43,6 +46,9 @@
 		2059DA441FCCD16800B020C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2059DA461FCCD17700B020C3 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		20642B1D1FCDCF4900E3AA2F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		20642B201FCDFCA600E3AA2F /* LineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineContent.swift; sourceTree = "<group>"; };
+		20642B221FCDFCB500E3AA2F /* GeneratorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorDataSource.swift; sourceTree = "<group>"; };
+		20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLanguageFormatter.swift; sourceTree = "<group>"; };
 		208E0ECE1FCCA98500EB25EA /* ModelSynchro */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModelSynchro; sourceTree = BUILT_PRODUCTS_DIR; };
 		208E0ED11FCCA98500EB25EA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
@@ -84,7 +90,7 @@
 			children = (
 				208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */,
 				2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */,
-				2059DA3D1FCCCC9400B020C3 /* ModelGenerator.swift */,
+				20642B1F1FCDFC9700E3AA2F /* ModelGenerator */,
 				2059DA3F1FCCCE0600B020C3 /* ModelDataSource.swift */,
 			);
 			path = Network;
@@ -96,6 +102,24 @@
 				2059DA421FCCD15600B020C3 /* ConfigurationFile.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		20642B1F1FCDFC9700E3AA2F /* ModelGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				2059DA3D1FCCCC9400B020C3 /* ModelGenerator.swift */,
+				20642B201FCDFCA600E3AA2F /* LineContent.swift */,
+				20642B221FCDFCB500E3AA2F /* GeneratorDataSource.swift */,
+			);
+			path = ModelGenerator;
+			sourceTree = "<group>";
+		};
+		20642B241FCDFF1800E3AA2F /* LanguageFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */,
+			);
+			path = LanguageFormatter;
 			sourceTree = "<group>";
 		};
 		208E0EC51FCCA98500EB25EA = {
@@ -117,6 +141,7 @@
 		208E0ED01FCCA98500EB25EA /* ModelSynchro */ = {
 			isa = PBXGroup;
 			children = (
+				20642B241FCDFF1800E3AA2F /* LanguageFormatter */,
 				2059DA411FCCD14C00B020C3 /* Models */,
 				2059DA3A1FCCCC5E00B020C3 /* Network */,
 				2059DA371FCCCC0100B020C3 /* Enum */,
@@ -188,12 +213,15 @@
 				2059DA431FCCD15600B020C3 /* ConfigurationFile.swift in Sources */,
 				20642B1E1FCDCF4900E3AA2F /* DateExtension.swift in Sources */,
 				2059DA391FCCCC0700B020C3 /* Type.swift in Sources */,
+				20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */,
+				20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */,
 				2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */,
 				2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */,
 				2059DA471FCCD17700B020C3 /* Data.swift in Sources */,
 				208E0ED21FCCA98500EB25EA /* main.swift in Sources */,
 				2059DA401FCCCE0600B020C3 /* ModelDataSource.swift in Sources */,
 				208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */,
+				20642B231FCDFCB500E3AA2F /* GeneratorDataSource.swift in Sources */,
 				2059DA3E1FCCCC9400B020C3 /* ModelGenerator.swift in Sources */,
 				208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */,
 				2059DA451FCCD16800B020C3 /* NetworkError.swift in Sources */,

@@ -7,14 +7,14 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Disclaimers: Codable {
-	let contentHtml: String
-	let id: Int
 	let area: Int
-	let displayPosition: Int
-	let type: Int
+	let contentHtml: String
 	let description: String
+	let displayPosition: Int
+	let id: Int
+	let type: Int
 }

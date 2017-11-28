@@ -7,11 +7,13 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct GaugeInfo: Codable {
-	let type: String
-	let name: String
 	let id: String
+	let maxLabel: String
+	let minLabel: String
+	let name: String
+	let type: String
 }

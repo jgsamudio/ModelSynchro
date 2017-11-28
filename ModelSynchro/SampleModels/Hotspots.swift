@@ -7,12 +7,12 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Hotspots: Codable {
-	let name: String?
 	let coordinates: Coordinates?
+	let name: String?
 	let type: String?
 	let url: String?
 }

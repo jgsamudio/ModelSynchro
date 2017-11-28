@@ -7,11 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Rating: Codable {
-	let count: Int
-	let average: Double
+	let average: Double?
 	let average: Int?
+	let count: Int
 }

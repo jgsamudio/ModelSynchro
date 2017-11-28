@@ -7,11 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Categories: Codable {
-	let text: String
-	let navigation: String
 	let images: [Images]
+	let navigation: String
+	let text: String
 }

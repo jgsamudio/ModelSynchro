@@ -7,47 +7,46 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Product: Codable {
-	let callouts: [Callouts]
-	let hasHsnSizeChart: Int
-	let shortName: String
-	let videos: [Videos]
-	let promotions: [Promotions]
-	let matrixId: Int
-	let isPersonalizable: Int
-	let matrixGroups: MatrixGroups
-	let id: Int
 	let benefits: [Benefits]
-	let pricing: Pricing
-	let productOptions: ProductOptions
-	let name: String
-	let itemNumber: String
-	let disclaimers: [Disclaimers]
-	let productLink: ProductLink
-	let ratingAggregates: [RatingAggregates]
-	let categories: [Categories]
-	let overview: String
-	let variantInfo: [VariantInfo]
 	let brand: Brand
-	let warrantyCollection: [WarrantyCollection]
-	let sharing: Sharing
-	let isInMatrix: Int
-	let images: [Images]
-	let isSoldOut: Int
-	let matrixOptions: [MatrixOptions]
-	let note: String
-	let tabs: [Tabs]
-	let pricingDetail: PricingDetail
-	let slug: String
-	let rating: Rating
-	let isMatrixTextOnly: Int
-	let howToUse: [HowToUse]
-	let overviewHtml: String
-	let autoship: Autoship?
+	let callouts: [Callouts]
+	let categories: [Categories]
+	let disclaimers: [Disclaimers]
 	let flag: Flag?
-	let autoshipInformation: String?
+	let hasHsnSizeChart: Int
+	let howToUse: [HowToUse]
+	let id: Int
+	let images: [Images]
+	let isInMatrix: Int
+	let isMatrixTextOnly: Int
+	let isPersonalizable: Int
+	let isSoldOut: Int
+	let itemNumber: String
+	let matrixGroups: MatrixGroups
+	let matrixId: Int
 	let matrixLabel: String?
+	let matrixOptions: [MatrixOptions]
+	let name: String
+	let note: String
+	let overview: String
+	let overviewHtml: String
+	let pricing: Pricing
+	let pricingDetail: PricingDetail
+	let productLabel: ProductLabel?
+	let productLink: ProductLink
+	let productOptions: ProductOptions
+	let promotions: [Promotions]
+	let rating: Rating
+	let ratingAggregates: [RatingAggregates]
+	let sharing: Sharing
+	let shortName: String
+	let slug: String
+	let tabs: [Tabs]
+	let variantInfo: [VariantInfo]?
+	let videos: [Videos]
+	let warrantyCollection: [WarrantyCollection]
 }

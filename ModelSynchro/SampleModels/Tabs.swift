@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Tabs: Codable {
-	let name: String
 	let contents: [Contents]
+	let name: String
 }

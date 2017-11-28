@@ -7,30 +7,30 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Products: Codable {
-	let totalProductCount: Int
-	let sort: String
-	let sharing: Sharing?
-	let imageLink: ImageLink?
-	let topLine: String?
-	let moreColors: String?
-	let briefNumber: Int?
-	let note: String?
-	let rating: Rating?
-	let pricing: Pricing?
-	let flag: Flag?
-	let categories: [Categories]?
-	let productLink: ProductLink?
-	let identity: Int?
-	let isMatrix: Int?
-	let type: String?
-	let brand: Brand?
-	let callouts: [Callouts]?
+	let brand: Brand
+	let briefNumber: Int
+	let callouts: [Callouts]
+	let categories: [Categories]
+	let flag: Flag
 	let flexpay: String?
-	let products: [Products]?
-	let nextTake: Int?
+	let identity: Int
+	let imageLink: ImageLink
+	let isMatrix: Int
+	let moreColors: String?
 	let nextSkip: Int?
+	let nextTake: Int?
+	let note: String
+	let pricing: Pricing
+	let productLink: ProductLink
+	let products: [Products]?
+	let rating: Rating
+	let sharing: Sharing
+	let sort: String?
+	let topLine: String
+	let totalProductCount: Int?
+	let type: String
 }

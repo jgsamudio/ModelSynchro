@@ -7,20 +7,18 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Videos: Codable {
-	let height: Int
-	let analyticCat: String
-	let width: Int
-	let distTypeId: Int
-	let httpUrl: String
-	let thumbNailIsCustom: Int
-	let iosUrl: String
-	let thumbNailUrl: String
-	let videoType: String
-	let analyticName: String
-	let label: String
+	let analyticCat: String?
+	let analyticName: String?
+	let distTypeId: Int?
+	let height: Int?
+	let label: String?
+	let thumbNailIsCustom: Int?
+	let thumbNailUrl: String?
+	let videoType: String?
+	let width: Int?
 	let youTubeVideoId: String?
 }

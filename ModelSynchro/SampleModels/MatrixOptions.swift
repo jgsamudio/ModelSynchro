@@ -7,26 +7,19 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct MatrixOptions: Codable {
-	let images: [Images]?
-	let thumbnailUrl: String?
-	let hasHsnSizeChart: Int?
-	let productId: Int?
-	let productDescription: String?
-	let productUrl: String?
-	let pricingDetail: PricingDetail?
-	let previewUrl: String?
-	let optionDescription: String?
-	let productOptions: ProductOptions?
-	let jsonProductZoomUrls: String?
-	let productImageUrlWithToken: String?
-	let itemNumber: String?
-	let price: Price?
-	let tabs: [Tabs]?
-	let productImageUrl: String?
-	let autoship: Autoship?
-	let autoshipInformation: String?
+	let hasHsnSizeChart: Int
+	let jsonProductZoomUrls: String
+	let optionDescription: String
+	let previewUrl: String
+	let price: Price
+	let productDescription: String
+	let productId: Int
+	let productImageUrl: String
+	let productImageUrlWithToken: String
+	let productUrl: String
+	let thumbnailUrl: String
 }

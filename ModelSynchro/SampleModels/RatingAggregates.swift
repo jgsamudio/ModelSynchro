@@ -7,12 +7,13 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct RatingAggregates: Codable {
+	let averageRatingValue: Double?
+	let averageRatingValue: Int
 	let gaugeInfo: GaugeInfo
-	let averageRatingValue: Double
-	let totalRatings: Int
 	let groups: [Groups]
+	let totalRatings: Int
 }

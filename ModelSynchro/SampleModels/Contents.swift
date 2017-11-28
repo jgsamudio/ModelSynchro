@@ -7,11 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Contents: Codable {
 	let appliesToProductId: Int
 	let contentHtml: String
-	let keyValueGroups: [KeyValueGroups]?
 }

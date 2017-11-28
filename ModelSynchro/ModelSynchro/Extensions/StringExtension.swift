@@ -10,6 +10,10 @@ import Foundation
 
 extension String {
     
+    var isVariable: Bool {
+        return contains("\tlet") && contains(":")
+    }
+    
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + dropFirst()
     }

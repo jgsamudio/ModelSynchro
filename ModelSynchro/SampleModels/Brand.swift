@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Brand: Codable {
-	let name: String
 	let id: Int
+	let name: String
 }

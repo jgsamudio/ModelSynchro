@@ -7,8 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct HowToUse: Codable {
+	let dosageCount: String?
+	let dosageHtml: String?
+	let dosageType: String?
 }

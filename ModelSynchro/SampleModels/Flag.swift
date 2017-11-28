@@ -7,12 +7,12 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Flag: Codable {
 	let className: String
 	let isSoldOut: Int
-	let name: String
 	let isTodaysSpecial: Int
+	let name: String
 }

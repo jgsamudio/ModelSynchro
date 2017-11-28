@@ -7,11 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Currency: Codable {
-	let name: String
 	let isoCode: String
+	let name: String
 	let symbol: String
 }

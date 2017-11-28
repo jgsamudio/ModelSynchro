@@ -7,15 +7,14 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct PricingDetail: Codable {
-	let paymentOptions: [PaymentOptions]
-	let price: String
 	let isMatrixFlexPayAvailable: Int
+	let paymentOptions: [PaymentOptions]
 	let paymentType: String
-	let extraFlexPromotionId: String
+	let price: String
+	let shippingAndHandling: String
 	let vipPaymentMessage: String
-	let shippingAndHandlingLabel: String
 }

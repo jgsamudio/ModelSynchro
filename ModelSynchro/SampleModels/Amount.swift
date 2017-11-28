@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Amount: Codable {
-	let value: Int
 	let currency: Currency
+	let value: Double
 }

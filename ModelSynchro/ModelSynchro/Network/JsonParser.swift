@@ -26,6 +26,7 @@ final class JsonParser {
             }
             model.add(property: key, type: type.toString())
         }
+        model.incrementIteration()
     }
     
     func writeModelsToFile() {

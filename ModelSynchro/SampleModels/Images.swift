@@ -7,17 +7,17 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Images: Codable {
+	let description: String
 	let isDefault: Int
 	let jsonPlusSizeZoomUrls: String
+	let jsonZoomUrls: String
+	let name: String
+	let plusName: String
 	let plusSizeProductImageUrl: String
 	let thumbnailUrl: String
 	let url: String
-	let name: String
-	let plusName: String
-	let jsonZoomUrls: String
-	let description: String
 }

@@ -1,5 +1,5 @@
 //
-//  Pairs.swift
+//  ProductLabel.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/28/17.
@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
-struct Pairs: Codable {
-	let name: String
-	let values: [Values]
+struct ProductLabel: Codable {
+	let type: Int
+	let uri: String
 }

@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Groups: Codable {
-	let value: Int
 	let count: Int
+	let value: Int
 }

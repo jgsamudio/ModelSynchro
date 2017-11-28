@@ -7,13 +7,13 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct VariantInfo: Codable {
 	let callout: String
 	let codes: [Codes]
-	let webId: Int
-	let sku: String
 	let isPlusSize: Int
+	let sku: String
+	let webId: Int
 }

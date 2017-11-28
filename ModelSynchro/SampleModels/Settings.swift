@@ -7,13 +7,13 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Settings: Codable {
-	let hotspots: [Hotspots]
-	let navigation: String
-	let images: [Images]
 	let audiences: [Audiences]
+	let hotspots: [Hotspots]
+	let images: [Images]
+	let navigation: String
 	let text: String
 }

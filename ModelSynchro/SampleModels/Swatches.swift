@@ -7,10 +7,10 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Swatches: Codable {
-	let value: [Value]
-	let key: String
+	let key: String?
+	let value: [Value]?
 }

@@ -7,11 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct ProductLink: Codable {
+	let type: Int?
 	let type: String
 	let uri: String
-	let type: Int?
 }

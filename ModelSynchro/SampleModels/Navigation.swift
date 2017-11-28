@@ -7,11 +7,11 @@
 //
 
 /*
-    Auto-Generated using ModelSynchro
+Auto-Generated using ModelSynchro
 */
 
 struct Navigation: Codable {
-	let features: [Features]
 	let categories: [Categories]
+	let features: [Features]
 	let settings: [Settings]
 }
