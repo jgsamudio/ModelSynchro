@@ -27,8 +27,8 @@ final class ModelGenerator {
         //  \(name).swift
         //  \(config.projectName)
         //
-        //  Created by \(config.authorName) on \(currentDateString).
-        //  Copyright © \(yearString) \(config.companyName). All rights reserved.
+        //  Created by \(config.authorName) on \(Date.currentDateString).
+        //  Copyright © \(Date.currentYearString) \(config.companyName). All rights reserved.
         //
         
         /*
@@ -44,19 +44,6 @@ final class ModelGenerator {
     
     private var optional: String {
         return (currentIteration != 1) ? "?" : ""
-    }
-    
-    private var currentDateString: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy"
-        let formattedDate = formatter.string(from: Date())
-        return formattedDate
-    }
-    
-    private var yearString: String {
-        let date = Date()
-        let calendar = Calendar.current
-        return String(calendar.component(.year, from: date))
     }
     
     init(name: String, config: ConfigurationFile) {
@@ -80,6 +67,7 @@ final class ModelGenerator {
     }
     
     func writeToFile() {
+        // TODO: Alphabetize
         appendContent(line: "}")
         let fileText = contents.map{ $0.line }.joined(separator: "\n")
         
