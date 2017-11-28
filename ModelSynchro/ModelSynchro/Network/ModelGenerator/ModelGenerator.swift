@@ -31,9 +31,9 @@ final class ModelGenerator {
     }
     
     func add(property: String, type: String) {
-        var variableDefinition = variableString(property: property, type: type)
+        var variableDefinition = languageFormatter.variableString(property: property, type: type)
         if !variableFound(variableDefinition: variableDefinition) {
-            variableDefinition += optional
+            variableDefinition += languageFormatter.optional
             dataSource.appendContent(line: variableDefinition)
         }
         dataSource.currentLineContent.propertyLines.append(variableDefinition)
@@ -59,10 +59,6 @@ final class ModelGenerator {
 }
 
 private extension ModelGenerator {
-    
-    func variableString(property: String, type: String) -> String {
-        return "\tlet " + property.lowercaseFirstLetter() + ": " + type
-    }
     
     func variableFound(variableDefinition: String) -> Bool {
         return dataSource.allLines.index(of: variableDefinition) != nil ||
