@@ -40,16 +40,7 @@ private extension JsonParser {
     
     func parse(key: String, value: Any) -> Type? {
         if let array = value as? Array<Any> {
-            array.forEach {
-                if let json = $0 as? JSON {
-                    parse(json: json, modelName: key)
-                }
-            }
-            
-            if array.isEmpty {
-                parse(json: [:], modelName: key)
-            }
-            
+            parse(array: array, key: key)
             return .array(key)
         } else if let _ = value as? Bool {
             return .bool
@@ -64,5 +55,17 @@ private extension JsonParser {
             return .custom(key)
         }        
         return nil
+    }
+    
+    private func parse(array: Array<Any>, key: String) {
+        array.forEach {
+            if let json = $0 as? JSON {
+                parse(json: json, modelName: key)
+            }
+        }
+        
+        if array.isEmpty {
+            parse(json: [:], modelName: key)
+        }
     }
 }
