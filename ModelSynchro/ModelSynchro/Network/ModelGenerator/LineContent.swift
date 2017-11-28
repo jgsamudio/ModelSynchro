@@ -10,9 +10,13 @@ import Foundation
 
 final class LineContent {
     
+    /// Iteration id.
     let iteration: Int
 
+    /// Lines that are to be added to the model's file
     var fileLines = [String]()
+    
+    /// All properties found for this model's iteration.
     var propertyLines = [String]()
     
     init(iteration: Int) {

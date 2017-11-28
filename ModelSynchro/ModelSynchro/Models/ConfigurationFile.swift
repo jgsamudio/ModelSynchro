@@ -24,8 +24,3 @@ extension ConfigurationFile {
         return SwiftLanguageFormatter()
     }
 }
-
-struct Endpoint: Codable {
-    let name: String
-    let url: String
-}

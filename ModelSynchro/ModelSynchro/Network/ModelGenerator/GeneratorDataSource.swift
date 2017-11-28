@@ -33,13 +33,13 @@ final class GeneratorDataSource {
     }
     
     func fileText(name: String, config: ConfigurationFile) -> String {
-        var alphabetizedLines = [String]()
-        alphabetizedLines.append(languageFormatter.fileHeader(name: name, config: config))
-        alphabetizedLines.append(languageFormatter.modelClassDeclaration(name: name))
-        alphabetizedLines += allLines.sorted { $0 < $1 }
-        alphabetizedLines.append(languageFormatter.modelClassEndLine)
+        var fileLines = [String]()
+        fileLines.append(languageFormatter.fileHeader(name: name, config: config))
+        fileLines.append(languageFormatter.modelClassDeclaration(name: name))
+        fileLines += allLines.sorted { $0 < $1 }
+        fileLines.append(languageFormatter.modelClassEndLine)
         
-        return alphabetizedLines.joined(separator: "\n")
+        return fileLines.joined(separator: "\n")
     }
     
     func incrementModelIteration() {
