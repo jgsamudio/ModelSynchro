@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct Navigation: Codable {
-	let categories: [Categories]
-	let features: [Features]
-	let settings: [Settings]
+	let categories: [Categories]?
+	let features: [Features]?
+	let settings: [Settings]?
 }

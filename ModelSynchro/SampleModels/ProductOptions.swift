@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct ProductOptions: Codable {
-	let sizes: [Sizes]
-	let swatches: [Swatches]
-	let widths: [Widths]
+	let sizes: [Sizes]?
+	let swatches: [Swatches]?
+	let widths: [Widths]?
 }

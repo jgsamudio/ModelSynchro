@@ -11,16 +11,16 @@ Auto-Generated using ModelSynchro
 */
 
 struct Value: Codable {
-	let code: String
-	let description: String
-	let imageName: String
-	let imageUrl: String
-	let imageUrlWithToken: String
-	let jsonPlusSizeZoomUrls: String
-	let jsonZoomUrls: String
-	let plusSizeProductImageUrl: String
-	let plusSizeProductImageUrlWithToken: String
-	let productImageName: String
-	let productImageUrl: String
-	let productImageUrlWithToken: String
+	let code: String?
+	let description: String?
+	let imageName: String?
+	let imageUrl: String?
+	let imageUrlWithToken: String?
+	let jsonPlusSizeZoomUrls: String?
+	let jsonZoomUrls: String?
+	let plusSizeProductImageUrl: String?
+	let plusSizeProductImageUrlWithToken: String?
+	let productImageName: String?
+	let productImageUrl: String?
+	let productImageUrlWithToken: String?
 }

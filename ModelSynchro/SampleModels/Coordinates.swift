@@ -11,8 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct Coordinates: Codable {
-	let x1: String
-	let x2: String
-	let y1: String
-	let y2: String
+	let x1: String?
+	let x2: String?
+	let y1: String?
+	let y2: String?
 }

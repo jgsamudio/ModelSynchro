@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct Currency: Codable {
-	let isoCode: String
-	let name: String
-	let symbol: String
+	let isoCode: String?
+	let name: String?
+	let symbol: String?
 }

@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Pricing: Codable {
-	let tier1: String
+	let tier1: String?
 	let tier2: String?
 }

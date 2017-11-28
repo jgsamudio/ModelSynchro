@@ -13,5 +13,5 @@ Auto-Generated using ModelSynchro
 struct Rating: Codable {
 	let average: Double?
 	let average: Int?
-	let count: Int
+	let count: Int?
 }

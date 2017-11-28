@@ -11,9 +11,9 @@ Auto-Generated using ModelSynchro
 */
 
 struct VariantInfo: Codable {
-	let callout: String
-	let codes: [Codes]
-	let isPlusSize: Int
-	let sku: String
-	let webId: Int
+	let callout: String?
+	let codes: [Codes]?
+	let isPlusSize: Int?
+	let sku: String?
+	let webId: Int?
 }

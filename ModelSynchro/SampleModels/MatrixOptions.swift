@@ -11,15 +11,15 @@ Auto-Generated using ModelSynchro
 */
 
 struct MatrixOptions: Codable {
-	let hasHsnSizeChart: Int
-	let jsonProductZoomUrls: String
-	let optionDescription: String
-	let previewUrl: String
-	let price: Price
-	let productDescription: String
-	let productId: Int
-	let productImageUrl: String
-	let productImageUrlWithToken: String
-	let productUrl: String
-	let thumbnailUrl: String
+	let hasHsnSizeChart: Int?
+	let jsonProductZoomUrls: String?
+	let optionDescription: String?
+	let previewUrl: String?
+	let price: Price?
+	let productDescription: String?
+	let productId: Int?
+	let productImageUrl: String?
+	let productImageUrlWithToken: String?
+	let productUrl: String?
+	let thumbnailUrl: String?
 }

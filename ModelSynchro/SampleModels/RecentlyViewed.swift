@@ -11,5 +11,5 @@ Auto-Generated using ModelSynchro
 */
 
 struct RecentlyViewed: Codable {
-	let products: Products
+	let products: Products?
 }

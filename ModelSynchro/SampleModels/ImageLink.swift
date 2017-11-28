@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct ImageLink: Codable {
-	let type: String
-	let uri: String
+	let type: String?
+	let uri: String?
 }

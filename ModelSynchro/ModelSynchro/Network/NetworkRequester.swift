@@ -59,9 +59,12 @@ final class NetworkRequester {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-        request.setValue("application/json;", forHTTPHeaderField: "Content-Type")
-        // TODO: Handle Security
-//        request.setValue("Bearer \(authToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        config.headers?.forEach({ (key, value) in
+            request.setValue(key, forHTTPHeaderField: value)
+        })
+        
         return request
     }
 }

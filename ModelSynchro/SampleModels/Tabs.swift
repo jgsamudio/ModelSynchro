@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Tabs: Codable {
-	let contents: [Contents]
-	let name: String
+	let contents: [Contents]?
+	let name: String?
 }

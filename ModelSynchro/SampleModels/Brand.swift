@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Brand: Codable {
-	let id: Int
-	let name: String
+	let id: Int?
+	let name: String?
 }

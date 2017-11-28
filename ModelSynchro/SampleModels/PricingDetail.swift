@@ -11,10 +11,10 @@ Auto-Generated using ModelSynchro
 */
 
 struct PricingDetail: Codable {
-	let isMatrixFlexPayAvailable: Int
-	let paymentOptions: [PaymentOptions]
-	let paymentType: String
-	let price: String
-	let shippingAndHandling: String
-	let vipPaymentMessage: String
+	let isMatrixFlexPayAvailable: Int?
+	let paymentOptions: [PaymentOptions]?
+	let paymentType: String?
+	let price: String?
+	let shippingAndHandling: String?
+	let vipPaymentMessage: String?
 }

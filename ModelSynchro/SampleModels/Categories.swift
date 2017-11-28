@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct Categories: Codable {
-	let images: [Images]
-	let navigation: String
-	let text: String
+	let images: [Images]?
+	let navigation: String?
+	let text: String?
 }

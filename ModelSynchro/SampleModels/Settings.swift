@@ -11,9 +11,9 @@ Auto-Generated using ModelSynchro
 */
 
 struct Settings: Codable {
-	let audiences: [Audiences]
-	let hotspots: [Hotspots]
-	let images: [Images]
-	let navigation: String
-	let text: String
+	let audiences: [Audiences]?
+	let hotspots: [Hotspots]?
+	let images: [Images]?
+	let navigation: String?
+	let text: String?
 }

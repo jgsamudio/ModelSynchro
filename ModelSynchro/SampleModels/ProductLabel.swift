@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct ProductLabel: Codable {
-	let type: Int
-	let uri: String
+	let type: Int?
+	let uri: String?
 }
