@@ -19,6 +19,10 @@
     {
       "url" : "https://qa1.hsn.com/api/product/detail/7946444",
       "name" : "Product"
+    },
+    {
+      "url" : "https://staging.ams.prolific.io/killswitch/status/demo/ios",
+      "name" : "KillSwitch"
     }
   ]
 }

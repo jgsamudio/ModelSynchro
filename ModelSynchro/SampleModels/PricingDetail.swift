@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct PricingDetail: Codable {
-	let isMatrixFlexPayAvailable: Int?
+	let isMatrixFlexPayAvailable: Bool?
 	let paymentOptions: [PaymentOptions]?
 	let paymentType: String?
 	let price: String?

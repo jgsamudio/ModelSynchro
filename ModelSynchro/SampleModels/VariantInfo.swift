@@ -13,7 +13,7 @@ Auto-Generated using ModelSynchro
 struct VariantInfo: Codable {
 	let callout: String?
 	let codes: [Codes]?
-	let isPlusSize: Int?
+	let isPlusSize: Bool?
 	let sku: String?
 	let webId: Int?
 }

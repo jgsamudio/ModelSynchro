@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct MatrixOptions: Codable {
-	let hasHsnSizeChart: Int?
+	let hasHsnSizeChart: Bool?
 	let jsonProductZoomUrls: String?
 	let optionDescription: String?
 	let previewUrl: String?

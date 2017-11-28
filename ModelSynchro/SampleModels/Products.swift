@@ -12,14 +12,14 @@ Auto-Generated using ModelSynchro
 
 struct Products: Codable {
 	let brand: Brand?
-	let briefNumber: Int?
+	let briefNumber: Bool?
 	let callouts: [Callouts]?
 	let categories: [Categories]?
 	let flag: Flag?
 	let flexpay: String?
 	let identity: Int?
 	let imageLink: ImageLink?
-	let isMatrix: Int?
+	let isMatrix: Bool?
 	let moreColors: String?
 	let nextSkip: Int?
 	let nextTake: Int?

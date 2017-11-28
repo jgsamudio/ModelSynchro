@@ -11,9 +11,11 @@ Auto-Generated using ModelSynchro
 */
 
 struct Disclaimers: Codable {
+	let area: Bool?
 	let area: Int?
 	let contentHtml: String?
 	let description: String?
+	let displayPosition: Bool?
 	let displayPosition: Int?
 	let id: Int?
 	let type: Int?

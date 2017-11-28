@@ -51,12 +51,12 @@ private extension JsonParser {
             }
             
             return .array(key)
+        } else if let _ = value as? Bool {
+            return .bool
         } else if let _ = value as? Int {
             return .int
         } else if let _ = value as? String {
             return .string
-        } else if let _ = value as? Bool {
-            return .bool
         } else if let _ = value as? Double {
             return .double
         } else if let json = value as? JSON {

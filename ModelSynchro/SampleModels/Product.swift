@@ -17,16 +17,17 @@ struct Product: Codable {
 	let categories: [Categories]?
 	let disclaimers: [Disclaimers]?
 	let flag: Flag?
-	let hasHsnSizeChart: Int?
+	let hasHsnSizeChart: Bool?
 	let howToUse: [HowToUse]?
 	let id: Int?
 	let images: [Images]?
-	let isInMatrix: Int?
-	let isMatrixTextOnly: Int?
-	let isPersonalizable: Int?
-	let isSoldOut: Int?
+	let isInMatrix: Bool?
+	let isMatrixTextOnly: Bool?
+	let isPersonalizable: Bool?
+	let isSoldOut: Bool?
 	let itemNumber: String?
 	let matrixGroups: MatrixGroups?
+	let matrixId: Bool?
 	let matrixId: Int?
 	let matrixLabel: String?
 	let matrixOptions: [MatrixOptions]?

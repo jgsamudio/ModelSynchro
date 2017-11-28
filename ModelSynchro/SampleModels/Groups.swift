@@ -11,6 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct Groups: Codable {
+	let count: Bool?
 	let count: Int?
+	let value: Bool?
 	let value: Int?
 }

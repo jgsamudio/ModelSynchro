@@ -1,5 +1,5 @@
 //
-//  Flag.swift
+//  UserAgentWhiteList.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/28/17.
@@ -10,9 +10,5 @@
 Auto-Generated using ModelSynchro
 */
 
-struct Flag: Codable {
-	let className: String?
-	let isSoldOut: Bool?
-	let isTodaysSpecial: Bool?
-	let name: String?
+struct UserAgentWhiteList: Codable {
 }

@@ -15,5 +15,6 @@ struct RatingAggregates: Codable {
 	let averageRatingValue: Int?
 	let gaugeInfo: GaugeInfo?
 	let groups: [Groups]?
+	let totalRatings: Bool?
 	let totalRatings: Int?
 }
