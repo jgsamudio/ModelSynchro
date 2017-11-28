@@ -2,7 +2,7 @@
 //  Videos.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 11/27/17.
+//  Created by Jonathan Samudio on 11/28/17.
 //  Copyright © 2017 Prolific Interactive. All rights reserved.
 //
 

@@ -75,6 +75,7 @@ final class ModelGenerator {
     }
     
     func incrementIteration() {
+        // TODO: Move to post completion and update optionals
         currentIteration += 1
     }
     

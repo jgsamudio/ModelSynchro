@@ -1,5 +1,5 @@
 //
-//  Settings.swift
+//  Currency.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/28/17.
@@ -10,10 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Settings: Codable {
-	let hotspots: [Hotspots]
-	let navigation: String
-	let images: [Images]
-	let audiences: [Audiences]
-	let text: String
+struct Currency: Codable {
+	let name: String
+	let isoCode: String
+	let symbol: String
 }

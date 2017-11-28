@@ -14,7 +14,7 @@ enum Type {
     case bool
     case double
     case array(String)
-    case dictionary(String, String)
+    case custom(String)
     
     func toString() -> String {
         switch self {
@@ -27,9 +27,9 @@ enum Type {
         case .double:
             return "Double"
         case .array(let type):
-            return "[" + type + "]"
-        case .dictionary(let keyType, let valueType):
-            return "[" + keyType + " : " + valueType + "]"
+            return "[" + type.capitalizedFirstLetter() + "]"
+        case .custom(let type):
+            return type.capitalizedFirstLetter()
         }
     }
 }

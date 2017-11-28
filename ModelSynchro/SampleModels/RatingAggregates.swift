@@ -2,7 +2,7 @@
 //  RatingAggregates.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 11/27/17.
+//  Created by Jonathan Samudio on 11/28/17.
 //  Copyright © 2017 Prolific Interactive. All rights reserved.
 //
 
@@ -11,9 +11,8 @@
 */
 
 struct RatingAggregates: Codable {
-	let gaugeInfo: [String : String]
-	let averageRatingValue: Int
+	let gaugeInfo: GaugeInfo
+	let averageRatingValue: Double
 	let totalRatings: Int
 	let groups: [Groups]
-	let averageRatingValue: Double?
 }

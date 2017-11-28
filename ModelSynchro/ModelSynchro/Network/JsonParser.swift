@@ -49,7 +49,7 @@ private extension JsonParser {
                 parse(json: [:], modelName: key)
             }
             
-            return .array(key.capitalizedFirstLetter())
+            return .array(key)
         } else if let _ = value as? Int {
             return .int
         } else if let _ = value as? String {
@@ -59,15 +59,9 @@ private extension JsonParser {
         } else if let _ = value as? Double {
             return .double
         } else if let json = value as? JSON {
-            guard let firstJSON = json.first,
-                let keyType = parse(key: "Key", value: firstJSON.key)?.toString(),
-                let valueType = parse(key: "Value", value: firstJSON.value)?.toString() else {
-                    return nil
-            }
-            
-            return .dictionary(keyType, valueType)
-        }
-        
+            parse(json: json, modelName: key)
+            return .custom(key)
+        }        
         return nil
     }
 }
