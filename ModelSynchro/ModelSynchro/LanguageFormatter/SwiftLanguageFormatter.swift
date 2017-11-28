@@ -8,17 +8,6 @@
 
 import Foundation
 
-protocol LanguageFormatter {
-    
-    var fileExtension: String { get }
-    var optional: String { get }
-    var modelClassEndLine: String { get }
-    
-    func fileHeader(name: String, config: ConfigurationFile) -> String
-    func modelClassDeclaration(name: String) -> String 
-    func variableString(property: String, type: String) -> String
-}
-
 final class SwiftLanguageFormatter: LanguageFormatter {
     
     var fileExtension: String {
