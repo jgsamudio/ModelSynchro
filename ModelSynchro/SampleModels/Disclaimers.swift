@@ -1,5 +1,5 @@
 //
-//  Hotspots.swift
+//  Disclaimers.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/27/17.
@@ -10,9 +10,11 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Hotspots: Codable {
-	let name: String?
-	let coordinates: [String : String]?
-	let type: String?
-	let url: String?
+struct Disclaimers: Codable {
+	let contentHtml: String
+	let id: Int
+	let area: Int
+	let displayPosition: Int
+	let type: Int
+	let description: String
 }

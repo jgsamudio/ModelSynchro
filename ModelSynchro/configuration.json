@@ -4,8 +4,21 @@
   "projectName" : "ModelSynchro",
   "outputDirectory" : "SampleModels/",
   "endpoints" : [
-    "https://staging.ams.prolific.io/v1/demo/all.json",
-  ],
-  "headers" : [
+    {
+      "url" : "https://staging.ams.prolific.io/v1/demo/all.json",
+      "name" : "Navigation"
+    },
+    {
+      "url" : "https://qa1.hsn.com/api/product/feeds/TopRecentlyViewed",
+      "name" : "RecentlyViewed"
+    },
+    {
+      "url" : "https://www.hsn.com/api/product/detail/8507336",
+      "name" : "Product"
+    },
+    {
+      "url" : "https://www.hsn.com/api/product/detail/10075973",
+      "name" : "Product"
+    }
   ]
 }

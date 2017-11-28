@@ -11,6 +11,13 @@
 */
 
 struct Images: Codable {
-	let usage: String
+	let isDefault: Int
+	let jsonPlusSizeZoomUrls: String
+	let plusSizeProductImageUrl: String
+	let thumbnailUrl: String
 	let url: String
+	let name: String
+	let plusName: String
+	let jsonZoomUrls: String
+	let description: String
 }

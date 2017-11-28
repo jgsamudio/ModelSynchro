@@ -13,4 +13,8 @@ extension String {
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + dropFirst()
     }
+    
+    func lowercaseFirstLetter() -> String {
+        return prefix(1).lowercased() + dropFirst()
+    }
 }

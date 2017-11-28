@@ -19,6 +19,7 @@ final class ModelDataSource {
     
     func modelGenerator(modelName: String) -> ModelGenerator {
         if let model = modelDict[modelName] {
+            model.incrementIteration()
             return model
         } else {
             let model = ModelGenerator(name: modelName.capitalizedFirstLetter(), config: config)

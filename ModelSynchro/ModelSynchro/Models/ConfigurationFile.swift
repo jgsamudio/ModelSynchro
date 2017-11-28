@@ -13,6 +13,11 @@ struct ConfigurationFile: Codable {
     let companyName: String
     let projectName: String
     let outputDirectory: String?
-    let endpoints: [String]
-    let headers: [String]?
+    let endpoints: [Endpoint]
+    let headers: [String : String]?
+}
+
+struct Endpoint: Codable {
+    let name: String
+    let url: String
 }

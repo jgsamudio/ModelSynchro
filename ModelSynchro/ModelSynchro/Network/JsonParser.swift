@@ -21,7 +21,7 @@ final class JsonParser {
         
         for (key, value) in json {
             guard let type = parse(key: key, value: value) else {
-                print(key)
+                print("Warning: could not parse \"" + key + "\"")
                 continue
             }
             model.add(property: key, type: type.toString())

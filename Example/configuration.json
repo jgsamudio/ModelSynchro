@@ -4,8 +4,9 @@
   "projectName" : "ModelSynchro",
   "outputDirectory" : "ModelSynchro/Models/",
   "endpoints" : [
-    "https://staging.ams.prolific.io/v1/demo/all.json",
-  ],
-  "headers" : [
+    {
+      "url" : "https://staging.ams.prolific.io/v1/demo/all.json",
+      "name" : "Navigation"
+    }
   ]
 }

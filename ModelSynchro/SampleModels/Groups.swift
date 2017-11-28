@@ -1,5 +1,5 @@
 //
-//  Hotspots.swift
+//  Groups.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/27/17.
@@ -10,9 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Hotspots: Codable {
-	let name: String?
-	let coordinates: [String : String]?
-	let type: String?
-	let url: String?
+struct Groups: Codable {
+	let value: Int
+	let count: Int
 }
