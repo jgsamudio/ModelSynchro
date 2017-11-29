@@ -19,8 +19,8 @@ final class ModelGenerator {
         return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name + languageFormatter.fileExtension
     }
     
-    private var optional: String {
-        return (dataSource.currentIteration != 1) ? languageFormatter.optional : ""
+    private var isOptional: Bool {
+        return dataSource.currentIteration != 1
     }
     
     init(name: String, config: ConfigurationFile) {
@@ -31,12 +31,16 @@ final class ModelGenerator {
     }
     
     func add(property: String, type: String) {
-        var variableDefinition = languageFormatter.variableString(property: property, type: type)
+        // TODO: Remove this line
+        let variableDefinition = languageFormatter.variableString(property: property, type: type, isOptional: false)
+        var variableLine = Line(property: property, type: type, isOptional: isOptional)
+        
         if !variableFound(variableDefinition: variableDefinition) {
-            variableDefinition += languageFormatter.optional
-            dataSource.appendContent(line: variableDefinition)
+            variableLine.isOptional = isOptional
+            dataSource.appendContent(line: variableLine)
         }
-        dataSource.currentLineContent.propertyLines.append(variableDefinition)
+        
+        dataSource.currentLineContent.propertyLines.append(variableLine)
     }
     
     func incrementIteration() {

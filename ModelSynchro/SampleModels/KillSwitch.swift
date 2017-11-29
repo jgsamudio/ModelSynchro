@@ -11,11 +11,11 @@ Auto-Generated using ModelSynchro
 */
 
 struct KillSwitch: Codable {
-	let apiInactive: Bool?
-	let apiInactiveUserMessage: String?
-	let badVersions: [BadVersions]?
-	let forceUpdateUserMessage: String?
-	let minVersion: String?
-	let retryInterval: Int?
-	let userAgentWhiteList: [UserAgentWhiteList]?
+	let apiInactive: Bool
+	let apiInactiveUserMessage: String
+	let badVersions: [BadVersions]
+	let forceUpdateUserMessage: String
+	let minVersion: String
+	let retryInterval: Int
+	let userAgentWhiteList: [UserAgentWhiteList]
 }
