@@ -29,6 +29,7 @@ final class JsonParser {
         model.incrementIteration()
     }
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
+    //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()
