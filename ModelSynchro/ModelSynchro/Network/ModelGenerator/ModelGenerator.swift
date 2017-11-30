@@ -23,15 +23,30 @@ final class ModelGenerator {
         return dataSource.currentIteration != 1
     }
     
-    init(name: String, config: ConfigurationFile) {
+    private var previousModelLines: [String]?
+    
+    init(name: String, config: ConfigurationFile, currentModels: ModelComponents) {
         self.name = name
         self.config = config
+        previousModelLines = currentModels[name]
         languageFormatter = config.languageFormatter()
         dataSource = GeneratorDataSource(languageFormatter: config.languageFormatter())
     }
     
     func add(property: String, type: String) {
+        
+        // Line Generator
+        
+        previousModelLines?.forEach {
+            // Find the customLine
+            // 0 -> //
+            // Create the line from the custom line
+        }
+        
         let variableLine = Line(property: property, type: type, isOptional: isOptional)
+        
+        
+        
         
         if !variableFound(property: property, type: type) && !typePriorityUpdated(property: property, type: type) {
             dataSource.appendContent(line: variableLine)
@@ -68,7 +83,7 @@ private extension ModelGenerator {
     }
     // TODO: Streamline this
     func variableFound(property: String, type: String) -> Bool {
-        var variableLine = Line(property: property, type: type, isOptional: true)
+        var variableLine = Line(property: property, type: type, isOptional: true, customLine: nil)
         let optionalLine = variableLine.toString(languageFormatter: languageFormatter)
         
         variableLine.isOptional = false

@@ -26,6 +26,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return ":"
     }
     
+    var lineComment: String {
+        return "//"
+    }
+    
     func fileHeader(name: String, config: ConfigurationFile) -> String {
         return """
         //
@@ -47,7 +51,12 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "struct " + name + ": Codable {"
     }
     
-    func variableString(property: String, type: String, isOptional: Bool) -> String {
-        return "\tlet " + property.lowercaseFirstLetter() + ": " + type + (isOptional ? optional : "")
+    func variableString(line: Line) -> String {
+        var generatedLine = "\tlet " + line.property.lowercaseFirstLetter() + ": " + line.type + (line.isOptional ? optional : "")
+        
+        if let customLine = line.customLine {
+            generatedLine = customLine + "// " + generatedLine
+        }
+        return generatedLine
     }
 }

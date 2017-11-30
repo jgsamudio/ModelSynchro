@@ -12,12 +12,13 @@ struct Line {
     let property: String
     var type: String
     var isOptional: Bool
+    var customLine: String?
 }
 
 extension Line {
     
     func toString(languageFormatter: LanguageFormatter) -> String {
-        return languageFormatter.variableString(property: property, type: type, isOptional: isOptional)
+        return languageFormatter.variableString(line: self)
     }
 }
 

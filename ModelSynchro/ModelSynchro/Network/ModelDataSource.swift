@@ -12,16 +12,18 @@ final class ModelDataSource {
     
     var modelDict = [String : ModelGenerator]()
     private let config: ConfigurationFile
+    private let currentModels: ModelComponents
     
-    init(config: ConfigurationFile) {
+    init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
+        self.currentModels = currentModels
     }
     
     func modelGenerator(modelName: String) -> ModelGenerator {
         if let model = modelDict[modelName] {
             return model
         } else {
-            let model = ModelGenerator(name: modelName.capitalizedFirstLetter(), config: config)
+            let model = ModelGenerator(name: modelName.capitalizedFirstLetter(), config: config, currentModels: currentModels)
             modelDict[modelName] = model
             return model
         }

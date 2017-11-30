@@ -16,7 +16,8 @@ guard let config = parser.configFile else {
 }
 let modelParser = ModelParser(config: config)
 modelParser.loadModels()
-let requester = NetworkRequester(config: config)
+
+let requester = NetworkRequester(config: config, currentModels: modelParser.components)
 requester.generateModels()
 
 print("Models Generated!")

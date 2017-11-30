@@ -13,6 +13,6 @@
 struct Flag: Codable {
 	let className: String
 	let isSoldOut: Bool
-	let isTodaysSpecial: Bool
+	let isTodaysSpecial: Something // let isTodaysSpecial: Bool
 	let name: String
 }

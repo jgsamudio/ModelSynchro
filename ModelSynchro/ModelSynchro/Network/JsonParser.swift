@@ -12,8 +12,8 @@ final class JsonParser {
     
     private let modelDataSource: ModelDataSource
     
-    init(config: ConfigurationFile) {
-        self.modelDataSource = ModelDataSource(config: config)
+    init(config: ConfigurationFile, currentModels: ModelComponents) {
+        self.modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
     }
     
     func parse(json: JSON, modelName: String) {

@@ -15,9 +15,9 @@ final class NetworkRequester {
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
     
-    init(config: ConfigurationFile) {
+    init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
-        jsonParser = JsonParser(config: config)
+        jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
     
     func generateModels() {
