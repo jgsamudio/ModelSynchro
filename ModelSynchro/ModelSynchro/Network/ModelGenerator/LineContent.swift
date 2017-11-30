@@ -42,18 +42,19 @@ final class LineContent {
         }
     }
     
-    func updateTypePriority(property: String, type: String) {
+    func typePropertyUpdated(property: String, type: String) -> Bool {
         for index in 0..<propertyLines.count {
             let line = propertyLines[index]
             if line.property == property && line.type != type {
-                
                 propertyLines[index].type = typePriority(currentType: line.type, newType: type)
 
                 if let fileIndex = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
                     fileLines[fileIndex].type = typePriority(currentType: line.type, newType: type)
                 }
+                return true
             }
         }
+        return false
     }
 }
 

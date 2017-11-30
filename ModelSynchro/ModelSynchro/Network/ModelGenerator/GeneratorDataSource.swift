@@ -65,33 +65,6 @@ private extension GeneratorDataSource {
             if content.iteration != contents.last?.iteration {
                 content.checkOptional(otherLineContent: contents[index+1])
             }
-            
-            // Remember the index
-            var lineDict = [String : Line]()
-            
-            let fileStringArray = content.fileStringArray
-            
-            for fileLine in content.fileLines {
-                if lineDict[fileLine.property] == nil {
-                    lineDict[fileLine.property] = fileLine
-                } else {
-                    
-                    let oldLine = lineDict[fileLine.property]
-                    
-                    if let index = fileStringArray.index(of: oldLine!.toString(languageFormatter: languageFormatter)) {
-                        content.fileLines.remove(at: index)
-                    }
-                    
-                    lineDict[fileLine.property]?.type = typePriority(currentType: oldLine!.type, newType: fileLine.type)
-                    
-                    // Update file line array
-                    
-                    if let index = fileStringArray.index(of: fileLine.toString(languageFormatter: languageFormatter)) {
-                        content.fileLines[index].type = typePriority(currentType: oldLine!.type, newType: fileLine.type)
-                    }
-                    
-                }
-            }
         }
     }
     

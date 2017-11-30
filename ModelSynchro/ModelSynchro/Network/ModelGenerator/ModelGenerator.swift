@@ -37,7 +37,14 @@ final class ModelGenerator {
         
         if !variableFound(variableDefinition: variableDefinition) {
             variableLine.isOptional = isOptional
-            dataSource.appendContent(line: variableLine)
+            
+            let typeUpdated =  dataSource.contents.reduce(false, { x, y in
+                x || y.typePropertyUpdated(property: property, type: type)
+            })
+            
+            if !typeUpdated {
+                dataSource.appendContent(line: variableLine)
+            }
         }
         
         dataSource.currentLineContent.propertyLines.append(variableLine)
