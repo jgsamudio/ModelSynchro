@@ -31,20 +31,10 @@ final class ModelGenerator {
     }
     
     func add(property: String, type: String) {
-        // TODO: Remove this line
-        let variableDefinition = languageFormatter.variableString(property: property, type: type, isOptional: false)
-        var variableLine = Line(property: property, type: type, isOptional: isOptional)
+        let variableLine = Line(property: property, type: type, isOptional: isOptional)
         
-        if !variableFound(variableDefinition: variableDefinition) {
-            variableLine.isOptional = isOptional
-            
-            let typeUpdated =  dataSource.contents.reduce(false, { x, y in
-                x || y.typePropertyUpdated(property: property, type: type)
-            })
-            
-            if !typeUpdated {
-                dataSource.appendContent(line: variableLine)
-            }
+        if !variableFound(property: property, type: type) && !typePriorityUpdated(property: property, type: type) {
+            dataSource.appendContent(line: variableLine)
         }
         
         dataSource.currentLineContent.propertyLines.append(variableLine)
@@ -71,8 +61,19 @@ final class ModelGenerator {
 
 private extension ModelGenerator {
     
-    func variableFound(variableDefinition: String) -> Bool {
-        return dataSource.allLines.index(of: variableDefinition) != nil ||
-            dataSource.allLines.index(of: variableDefinition + languageFormatter.optional) != nil
+    func typePriorityUpdated(property: String, type: String) -> Bool {
+        return dataSource.contents.reduce(false, { x, y in
+            x || y.updatePriorityType(property: property, type: type)
+        })
+    }
+    
+    func variableFound(property: String, type: String) -> Bool {
+        var variableLine = Line(property: property, type: type, isOptional: true)
+        let optionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        
+        variableLine.isOptional = false
+        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        
+        return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
     }
 }

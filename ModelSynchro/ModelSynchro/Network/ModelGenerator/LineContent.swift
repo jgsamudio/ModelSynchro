@@ -42,7 +42,7 @@ final class LineContent {
         }
     }
     
-    func typePropertyUpdated(property: String, type: String) -> Bool {
+    func updatePriorityType(property: String, type: String) -> Bool {
         for index in 0..<propertyLines.count {
             let line = propertyLines[index]
             if line.property == property && line.type != type {

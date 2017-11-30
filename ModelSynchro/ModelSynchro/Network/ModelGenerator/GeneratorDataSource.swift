@@ -67,12 +67,4 @@ private extension GeneratorDataSource {
             }
         }
     }
-    
-    func typePriority(currentType: String, newType: String) -> String {
-        guard let lhsType = PriorityType.priorityType(rawValue: currentType),
-            let rhsType = PriorityType.priorityType(rawValue: newType) else {
-                return currentType
-        }
-        return lhsType.comparePriority(type: rhsType) ?? currentType
-    }
 }
