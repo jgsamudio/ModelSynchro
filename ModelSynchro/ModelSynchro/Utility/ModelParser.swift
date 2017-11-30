@@ -17,13 +17,6 @@ final class ModelParser {
     
     private let config: ConfigurationFile
     
-//    lazy var filterClosure: ((Any) throws -> Bool) = { (file) -> Bool in
-//        guard let fileName = file as? String else {
-//            return false
-//        }
-//        return fileName.contains(config.languageFormatter().fileExtension)
-//    }()
-    
     init(config: ConfigurationFile) {
         self.config = config
     }
