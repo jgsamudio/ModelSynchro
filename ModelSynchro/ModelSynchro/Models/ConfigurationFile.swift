@@ -20,6 +20,10 @@ struct ConfigurationFile: Codable {
 
 extension ConfigurationFile {
     
+    var outputPath: String {
+        return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
+    }
+    
     func languageFormatter() -> LanguageFormatter {
         return SwiftLanguageFormatter()
     }

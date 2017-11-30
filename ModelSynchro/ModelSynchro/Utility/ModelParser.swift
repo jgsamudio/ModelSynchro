@@ -15,7 +15,7 @@ final class ModelParser {
     // [Filename: [Lines]]
     var components: ModelComponents = [:]
     
-    private let config: ConfigurationFile
+    private let config: ConfigurationFile    
     
     init(config: ConfigurationFile) {
         self.config = config
@@ -25,8 +25,7 @@ final class ModelParser {
         let fileNames = retrieveFilenames()
         
         for file in fileNames {
-            let fileToParse = (ConfigurationParser.projectDirectory + (config.outputDirectory ?? "")) + file
-            
+            let fileToParse = config.outputPath + file
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
                 let fileComponents = content.components(separatedBy: "\n")
@@ -38,7 +37,7 @@ final class ModelParser {
     }
     
     private func retrieveFilenames() -> [String] {
-        let fileEnumerator = FileManager.default.enumerator(atPath: (ConfigurationParser.projectDirectory + (config.outputDirectory ?? "")))
+        let fileEnumerator = FileManager.default.enumerator(atPath: config.outputPath)
         let enumerator = fileEnumerator?.filter{ ($0 as? String)?.contains(config.languageFormatter().fileExtension) ?? false }
 
         guard let filteredFileEnumerator = enumerator as? [String] else {
