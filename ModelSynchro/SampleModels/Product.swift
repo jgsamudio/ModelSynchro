@@ -13,7 +13,7 @@ Auto-Generated using ModelSynchro
 struct Product: Codable {
 	let autoship: Autoship?
 	let autoshipInformation: String?
-	let benefits: [Benefits]
+	let benefits: [String]
 	let brand: Brand
 	let callouts: [Callouts]
 	let categories: [Categories]

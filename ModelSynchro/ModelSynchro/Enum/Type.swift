@@ -32,4 +32,13 @@ enum Type {
             return type.capitalizedFirstLetter()
         }
     }
+    
+    var isPrimitiveType: Bool {
+        switch self {
+        case .int, .string, .bool, .double:
+            return true
+        default:
+            return false
+        }
+    }
 }

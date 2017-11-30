@@ -30,6 +30,7 @@ final class JsonParser {
     }
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
+    //TODO: Array of Strings, Benefits
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()
@@ -41,8 +42,7 @@ private extension JsonParser {
     
     func parse(key: String, value: Any) -> Type? {
         if let array = value as? Array<Any> {
-            parse(array: array, key: key)
-            return .array(key)
+            return .array(parse(array: array, key: key))
         } else if let _ = value as? Bool {
             return .bool
         } else if let _ = value as? Int {
@@ -58,7 +58,11 @@ private extension JsonParser {
         return nil
     }
     
-    private func parse(array: Array<Any>, key: String) {
+    private func parse(array: Array<Any>, key: String) -> String {
+        if let firstItem = array.first, let type = parse(key: key, value: firstItem), type.isPrimitiveType  {
+            return type.toString()
+        }
+        
         array.forEach {
             if let json = $0 as? JSON {
                 parse(json: json, modelName: key)
@@ -68,5 +72,7 @@ private extension JsonParser {
         if array.isEmpty {
             parse(json: [:], modelName: key)
         }
+        
+        return key
     }
 }
