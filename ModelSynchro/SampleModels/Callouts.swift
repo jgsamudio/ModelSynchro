@@ -11,5 +11,5 @@ Auto-Generated using ModelSynchro
 */
 
 struct Callouts: Codable {
-	let type: String?
+	let type: String
 }

@@ -11,4 +11,14 @@ Auto-Generated using ModelSynchro
 */
 
 struct Videos: Codable {
+	let analyticCat: String?
+	let analyticName: String?
+	let distTypeId: Bool?
+	let height: Int?
+	let label: String?
+	let thumbNailIsCustom: Bool?
+	let thumbNailUrl: String?
+	let videoType: String?
+	let width: Int?
+	let youTubeVideoId: String?
 }

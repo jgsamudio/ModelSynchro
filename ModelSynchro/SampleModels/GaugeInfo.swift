@@ -11,9 +11,9 @@ Auto-Generated using ModelSynchro
 */
 
 struct GaugeInfo: Codable {
-	let id: String?
-	let maxLabel: String?
-	let minLabel: String?
-	let name: String?
-	let type: String?
+	let id: String
+	let maxLabel: String
+	let minLabel: String
+	let name: String
+	let type: String
 }

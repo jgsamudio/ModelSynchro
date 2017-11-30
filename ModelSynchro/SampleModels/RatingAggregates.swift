@@ -11,8 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct RatingAggregates: Codable {
-	let averageRatingValue: Int?
-	let gaugeInfo: GaugeInfo?
-	let groups: [Groups]?
-	let totalRatings: Bool?
+	let averageRatingValue: Double
+	let gaugeInfo: GaugeInfo
+	let groups: [Groups]
+	let totalRatings: Int
 }

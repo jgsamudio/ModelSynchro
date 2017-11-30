@@ -11,6 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct Product: Codable {
+	let autoship: Autoship?
+	let autoshipInformation: String?
 	let benefits: [Benefits]
 	let brand: Brand
 	let callouts: [Callouts]

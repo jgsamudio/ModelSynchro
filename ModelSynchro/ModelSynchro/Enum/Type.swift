@@ -33,38 +33,3 @@ enum Type {
         }
     }
 }
-
-enum PriorityType: Int {
-    case bool
-    case int
-    case double
-    
-    func comparePriority(type: PriorityType) -> String? {
-        let typeArray = [self, type]
-        return typeArray.sorted { $0.rawValue > $1.rawValue }.first?.toString()
-    }
-    
-    func toString() -> String {
-        switch self {
-        case .int:
-            return "Int"
-        case .bool:
-            return "Bool"
-        case .double:
-            return "Double"
-        }
-    }
-    
-    static func priorityType(rawValue: String) -> PriorityType? {
-        switch rawValue {
-        case "Bool":
-            return .bool
-        case "Int":
-            return .int
-        case "Double":
-            return .double
-        default:
-            return nil
-        }
-    }
-}

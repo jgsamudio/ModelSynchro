@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Amount: Codable {
-	let currency: Currency?
-	let value: Double?
+	let currency: Currency
+	let value: Double
 }

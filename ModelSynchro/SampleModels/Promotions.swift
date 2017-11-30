@@ -11,8 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct Promotions: Codable {
-	let articleId: Int?
-	let id: Int?
-	let message: String?
-	let type: String?
+	let articleId: Int
+	let id: Int
+	let message: String
+	let type: String
 }

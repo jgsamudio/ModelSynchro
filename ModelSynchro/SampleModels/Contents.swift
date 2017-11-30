@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Contents: Codable {
-	let appliesToProductId: Int?
-	let contentHtml: String?
+	let appliesToProductId: Int
+	let contentHtml: String
 }

@@ -35,8 +35,9 @@ final class LineContent {
     }
     
     func checkOptional(otherLineContent: LineContent) {
-        for line in propertyStringArray {
-            if otherLineContent.propertyStringArray.index(of: line) == nil, let index = fileStringArray.index(of: line) {
+        for line in propertyLines {
+            if propertyLines.find(line: line) == nil,
+                let index = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
                 fileLines[index].isOptional = true
             }
         }

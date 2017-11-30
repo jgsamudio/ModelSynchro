@@ -11,8 +11,8 @@ Auto-Generated using ModelSynchro
 */
 
 struct Flag: Codable {
-	let className: String?
-	let isSoldOut: Bool?
-	let isTodaysSpecial: Bool?
-	let name: String?
+	let className: String
+	let isSoldOut: Bool
+	let isTodaysSpecial: Bool
+	let name: String
 }

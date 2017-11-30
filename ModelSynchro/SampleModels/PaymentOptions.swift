@@ -11,7 +11,7 @@ Auto-Generated using ModelSynchro
 */
 
 struct PaymentOptions: Codable {
-	let amount: String?
-	let isExtraFlex: Bool?
-	let number: Int?
+	let amount: String
+	let isExtraFlex: Bool
+	let number: Int
 }

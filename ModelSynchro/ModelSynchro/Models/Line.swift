@@ -20,3 +20,16 @@ extension Line {
         return languageFormatter.variableString(property: property, type: type, isOptional: isOptional)
     }
 }
+
+extension Line: Equatable {
+    
+    /// Compares two variable lines. Ignores if the variable is optional.
+    ///
+    /// - Parameters:
+    ///   - lhs: Left Line.
+    ///   - rhs: Right Line.
+    /// - Returns: Flag if they are equal.
+    static func ==(lhs: Line, rhs: Line) -> Bool {
+        return lhs.property == rhs.property && lhs.type == rhs.type
+    }
+}

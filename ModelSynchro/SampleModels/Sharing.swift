@@ -11,6 +11,6 @@ Auto-Generated using ModelSynchro
 */
 
 struct Sharing: Codable {
-	let type: String?
-	let uri: String?
+	let type: Int
+	let uri: String
 }

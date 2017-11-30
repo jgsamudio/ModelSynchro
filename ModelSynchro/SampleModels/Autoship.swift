@@ -1,5 +1,5 @@
 //
-//  Disclaimers.swift
+//  Autoship.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/30/17.
@@ -10,11 +10,8 @@
 Auto-Generated using ModelSynchro
 */
 
-struct Disclaimers: Codable {
-	let area: Int
-	let contentHtml: String
+struct Autoship: Codable {
 	let description: String
-	let displayPosition: Int
-	let id: Int
-	let type: Int
+	let frequency: Int
+	let id: String
 }
