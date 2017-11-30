@@ -30,7 +30,7 @@ final class JsonParser {
     }
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
-    //TODO: Array of Strings, Benefits
+    //TODO: Handle Ignoring Model Updates
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()

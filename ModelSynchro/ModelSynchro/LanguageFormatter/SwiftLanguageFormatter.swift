@@ -37,7 +37,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         //
         
         /*
-        Auto-Generated using ModelSynchro
+            Auto-Generated using ModelSynchro
         */
         
         """

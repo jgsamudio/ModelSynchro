@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		2059DA351FCCCBEE00B020C3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2059DA381FCCCC0700B020C3 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201F096F1FD0BF8F005547A5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				201F09701FD0BF9E005547A5 /* ModelParser.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		2059DA341FCCCBDF00B020C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +166,7 @@
 		208E0ED01FCCA98500EB25EA /* ModelSynchro */ = {
 			isa = PBXGroup;
 			children = (
+				201F096F1FD0BF8F005547A5 /* Utility */,
 				20642B241FCDFF1800E3AA2F /* LanguageFormatter */,
 				2059DA411FCCD14C00B020C3 /* Models */,
 				2059DA3A1FCCCC5E00B020C3 /* Network */,
@@ -243,6 +254,7 @@
 				205C80DC1FD071920094404D /* ArrayExtension.swift in Sources */,
 				2059DA3E1FCCCC9400B020C3 /* ModelGenerator.swift in Sources */,
 				20642B2C1FCE18FB00E3AA2F /* Line.swift in Sources */,
+				201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */,
 				208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */,
 				2059DA451FCCD16800B020C3 /* NetworkError.swift in Sources */,
 			);

@@ -14,6 +14,8 @@ let parser = ConfigurationParser()
 guard let config = parser.configFile else {
     exit(1)
 }
+let modelParser = ModelParser(config: config)
+modelParser.loadModels()
 let requester = NetworkRequester(config: config)
 requester.generateModels()
 
