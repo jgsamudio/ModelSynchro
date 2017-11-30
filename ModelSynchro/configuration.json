@@ -5,24 +5,12 @@
   "outputDirectory" : "SampleModels/",
   "endpoints" : [
     {
-      "url" : "https://staging.ams.prolific.io/v1/demo/all.json",
-      "name" : "Navigation"
-    },
-    {
-      "url" : "https://qa1.hsn.com/api/product/feeds/TopRecentlyViewed",
-      "name" : "RecentlyViewed"
-    },
-    {
       "url" : "https://qa1.hsn.com/api/product/detail/7514462",
       "name" : "Product"
     },
     {
-      "url" : "https://qa1.hsn.com/api/product/detail/7946444",
+      "url" : "https://qa1.hsn.com/api/product/detail/10061902",
       "name" : "Product"
-    },
-    {
-      "url" : "https://staging.ams.prolific.io/killswitch/status/demo/ios",
-      "name" : "KillSwitch"
     }
   ]
 }

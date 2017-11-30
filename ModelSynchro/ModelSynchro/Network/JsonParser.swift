@@ -28,7 +28,8 @@ final class JsonParser {
         }
         model.incrementIteration()
     }
-    
+    //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
+    //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()
@@ -46,10 +47,10 @@ private extension JsonParser {
             return .bool
         } else if let _ = value as? Int {
             return .int
-        } else if let _ = value as? String {
-            return .string
         } else if let _ = value as? Double {
             return .double
+        } else if let _ = value as? String {
+            return .string
         } else if let json = value as? JSON {
             parse(json: json, modelName: key)
             return .custom(key)

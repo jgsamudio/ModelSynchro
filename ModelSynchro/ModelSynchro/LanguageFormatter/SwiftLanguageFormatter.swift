@@ -22,6 +22,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "}"
     }
     
+    var typeSeparator: String {
+        return ":"
+    }
+    
     func fileHeader(name: String, config: ConfigurationFile) -> String {
         return """
         //
@@ -43,7 +47,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "struct " + name + ": Codable {"
     }
     
-    func variableString(property: String, type: String) -> String {
-        return "\tlet " + property.lowercaseFirstLetter() + ": " + type
+    func variableString(property: String, type: String, isOptional: Bool) -> String {
+        return "\tlet " + property.lowercaseFirstLetter() + ": " + type + (isOptional ? optional : "")
     }
 }

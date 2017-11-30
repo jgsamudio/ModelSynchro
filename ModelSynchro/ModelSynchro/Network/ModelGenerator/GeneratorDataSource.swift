@@ -22,14 +22,14 @@ final class GeneratorDataSource {
     }
     
     var allLines: [String] {
-        return contents.map{ $0.fileLines }.flatMap { $0 }
+        return contents.map{ $0.fileStringArray }.flatMap { $0 }
     }
     
     private var languageFormatter: LanguageFormatter
     
     init(languageFormatter: LanguageFormatter) {
         self.languageFormatter = languageFormatter
-        contents = [LineContent(iteration: currentIteration)]
+        contents = [LineContent(iteration: currentIteration, languageFormatter: languageFormatter)]
     }
     
     func fileText(name: String, config: ConfigurationFile) -> String {
@@ -45,10 +45,10 @@ final class GeneratorDataSource {
     func incrementModelIteration() {
         updateModelOptionals()
         currentIteration += 1
-        contents.append(LineContent(iteration: currentIteration))
+        contents.append(LineContent(iteration: currentIteration, languageFormatter: languageFormatter))
     }
     
-    func appendContent(line: String) {
+    func appendContent(line: Line) {
         currentLineContent.fileLines.append(line)
     }
 }

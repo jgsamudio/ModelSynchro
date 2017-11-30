@@ -19,8 +19,8 @@ final class ModelGenerator {
         return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name + languageFormatter.fileExtension
     }
     
-    private var optional: String {
-        return (dataSource.currentIteration != 1) ? languageFormatter.optional : ""
+    private var isOptional: Bool {
+        return dataSource.currentIteration != 1
     }
     
     init(name: String, config: ConfigurationFile) {
@@ -31,12 +31,13 @@ final class ModelGenerator {
     }
     
     func add(property: String, type: String) {
-        var variableDefinition = languageFormatter.variableString(property: property, type: type)
-        if !variableFound(variableDefinition: variableDefinition) {
-            variableDefinition += languageFormatter.optional
-            dataSource.appendContent(line: variableDefinition)
+        let variableLine = Line(property: property, type: type, isOptional: isOptional)
+        
+        if !variableFound(property: property, type: type) && !typePriorityUpdated(property: property, type: type) {
+            dataSource.appendContent(line: variableLine)
         }
-        dataSource.currentLineContent.propertyLines.append(variableDefinition)
+        
+        dataSource.currentLineContent.propertyLines.append(variableLine)
     }
     
     func incrementIteration() {
@@ -60,8 +61,19 @@ final class ModelGenerator {
 
 private extension ModelGenerator {
     
-    func variableFound(variableDefinition: String) -> Bool {
-        return dataSource.allLines.index(of: variableDefinition) != nil ||
-            dataSource.allLines.index(of: variableDefinition + languageFormatter.optional) != nil
+    func typePriorityUpdated(property: String, type: String) -> Bool {
+        return dataSource.contents.reduce(false, { x, y in
+            x || y.updatePriorityType(property: property, type: type)
+        })
+    }
+    // TODO: Streamline this
+    func variableFound(property: String, type: String) -> Bool {
+        var variableLine = Line(property: property, type: type, isOptional: true)
+        let optionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        
+        variableLine.isOptional = false
+        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        
+        return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
     }
 }

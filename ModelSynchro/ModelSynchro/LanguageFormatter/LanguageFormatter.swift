@@ -13,8 +13,9 @@ protocol LanguageFormatter {
     var fileExtension: String { get }
     var optional: String { get }
     var modelClassEndLine: String { get }
+    var typeSeparator: String { get }
     
     func fileHeader(name: String, config: ConfigurationFile) -> String
     func modelClassDeclaration(name: String) -> String
-    func variableString(property: String, type: String) -> String
+    func variableString(property: String, type: String, isOptional: Bool) -> String
 }

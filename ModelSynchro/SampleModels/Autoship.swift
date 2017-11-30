@@ -1,5 +1,5 @@
 //
-//  MatrixGroups.swift
+//  Autoship.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 11/30/17.
@@ -10,5 +10,8 @@
 Auto-Generated using ModelSynchro
 */
 
-struct MatrixGroups: Codable {
+struct Autoship: Codable {
+	let description: String
+	let frequency: Int
+	let id: String
 }
