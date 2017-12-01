@@ -29,7 +29,7 @@ extension Array where Element == CustomProperty {
     /// - Returns: Optional Line if found.
     func find(property: String) -> CustomProperty? {
         return first(where: { (customProperty) -> Bool in
-            return property.lowercased() == customProperty.property.lowercased()
+            return property.lowercased() == (customProperty.keyedProperty?.jsonProperty ?? customProperty.property).lowercased()
         })
     }
 }

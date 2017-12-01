@@ -52,11 +52,12 @@ extension String {
     /// - Parameter token: The token
     /// - Returns: The substring that contains the characters after first occurrence of the provided token.
     func removeLeading(startWith token: String) -> String {
-        var string = self
-        while let range = range(of: token) {
-            string = substring(with: Range(uncheckedBounds: (lower: range.upperBound, upper: string.endIndex)))
+        if let token = range(of: token) {
+            var newString = self
+            newString.removeSubrange(startIndex..<token.upperBound)
+            return newString
         }
-        return string
+        return self
     }
     
     ///

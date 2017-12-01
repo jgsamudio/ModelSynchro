@@ -80,8 +80,9 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         keyMappingStrings.append("\n\tenum CodingKeys: String, CodingKey {")
         
         for line in lines {
-            let property = line.property.lowercaseFirstLetter()
-            keyMappingStrings.append("\t\tcase " + property + " = \"" + property + "\"")
+            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
+            let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
+            keyMappingStrings.append("\t\tcase " + keyedProperty + " = \"" + jsonProperty + "\"")
         }
         
         keyMappingStrings.append("\t}")
@@ -95,7 +96,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     func keyedProperty(string: String) -> KeyedProperty? {
         if string.contains("case"), let splitString = string.split(at: "=") {
             let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
-            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces)
+            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
             return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
         }
         return nil

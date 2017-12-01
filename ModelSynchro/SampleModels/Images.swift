@@ -13,17 +13,17 @@
 struct Images: Codable {
 	let description: String
 	let isDefault: Bool
-	let jsonPlusSizeZoomUrls: String
 	let jsonZoomUrls: String
 	let name: String
 	let plusName: String
 	let plusSizeProductImageUrl: String
 	let thumbnailUrl: String
 	let url: String
+	let zoomUrls: String // let jsonPlusSizeZoomUrls: String
 
 	enum CodingKeys: String, CodingKey {
 		case isDefault = "isDefault"
-		case jsonPlusSizeZoomUrls = "jsonPlusSizeZoomUrls"
+		case zoomUrls = "jsonPlusSizeZoomUrls"
 		case plusSizeProductImageUrl = "plusSizeProductImageUrl"
 		case thumbnailUrl = "thumbnailUrl"
 		case url = "url"
