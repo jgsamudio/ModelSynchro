@@ -67,7 +67,7 @@ extension ModelParser {
                 
                 return CustomProperty(customLine: customString.leftString,
                                       property: property,
-                                      keyedProperty: keyedProperties[$0])
+                                      keyedProperty: keyedProperties[property])
             }
             return nil
         }
@@ -78,7 +78,7 @@ extension ModelParser {
         
         for component in fileComponents {
             if let keyedProperty = languageFormatter.keyedProperty(string: component) {
-                keyedProperties[component] = keyedProperty
+                keyedProperties[keyedProperty.mappedProperty] = keyedProperty
             }
         }
         

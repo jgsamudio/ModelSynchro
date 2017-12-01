@@ -15,7 +15,7 @@ struct Contents: Codable {
 	let contentHtml: String
 
 	enum CodingKeys: String, CodingKey {
-		case productId = "appliesToProductId"
+        case productId = "appliesToProductId"
 		case contentHtml = "contentHtml"
 	}
 }
