@@ -52,11 +52,21 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     }
     
     func variableString(line: Line) -> String {
-        var generatedLine = "\tlet " + line.property.lowercaseFirstLetter() + ": " + line.type + (line.isOptional ? optional : "")
+        var generatedLine = "\t"
         
-        if let customLine = line.customLine {
-            generatedLine = customLine + "// " + generatedLine
+        if let customLine = line.customProperty?.customLine {
+            generatedLine += customLine + " // "
         }
+        
+        generatedLine += "let " + line.property.lowercaseFirstLetter() + ": " + line.type + (line.isOptional ? optional : "")
+        
         return generatedLine
+    }
+    
+    func property(variableString: String) -> String? {
+        guard variableString.isVariable, let property = variableString.stringBetween(startString: "let", endString: ":") else {
+            return nil
+        }
+        return property.trimmingCharacters(in: .whitespaces)
     }
 }

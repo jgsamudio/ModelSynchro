@@ -12,7 +12,7 @@ struct Line {
     let property: String
     var type: String
     var isOptional: Bool
-    var customLine: String?
+    var customProperty: CustomProperty?
 }
 
 extension Line {
@@ -33,4 +33,9 @@ extension Line: Equatable {
     static func ==(lhs: Line, rhs: Line) -> Bool {
         return lhs.property == rhs.property && lhs.type == rhs.type
     }
+}
+
+struct CustomProperty {
+    let customLine: String
+    let property: String
 }

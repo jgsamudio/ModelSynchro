@@ -8,12 +8,12 @@
 
 import Foundation
 
-typealias ModelComponents = [String : [String]]
+typealias ModelComponents = [String : [CustomProperty]]
 
 final class ModelParser {
     
     // [Filename: [Lines]]
-    var components: ModelComponents = [:]
+    var customComponents: ModelComponents = [:]
     
     private let config: ConfigurationFile    
     
@@ -29,21 +29,39 @@ final class ModelParser {
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
                 let fileComponents = content.components(separatedBy: "\n")
-                components[file] = fileComponents
+                let fileName = file.removeTrailing(startWith: config.languageFormatter().fileExtension)
+                parseCustomFileComponents(fileName: fileName, fileComponents: fileComponents)
             } catch {
                 print("Error caught with message: \(error.localizedDescription)")
             }
         }
     }
     
-    private func retrieveFilenames() -> [String] {
+    
+}
+
+extension ModelParser {
+    
+    func retrieveFilenames() -> [String] {
         let fileEnumerator = FileManager.default.enumerator(atPath: config.outputPath)
         let enumerator = fileEnumerator?.filter{ ($0 as? String)?.contains(config.languageFormatter().fileExtension) ?? false }
-
+        
         guard let filteredFileEnumerator = enumerator as? [String] else {
             print("Error filtering files.")
             return []
         }
         return filteredFileEnumerator
+    }
+    
+    func parseCustomFileComponents(fileName: String, fileComponents: [String]) {
+        customComponents[fileName] = fileComponents.flatMap {
+            if $0.isVariable,
+                let customString = $0.split(at: config.languageFormatter().lineComment),
+                let property = config.languageFormatter().property(variableString: customString.leftString) {
+                
+                return CustomProperty(customLine: customString.leftString, property: property)
+            }
+            return nil
+        }
     }
 }

@@ -14,8 +14,10 @@ protocol LanguageFormatter {
     var optional: String { get }
     var modelClassEndLine: String { get }
     var typeSeparator: String { get }
-    
+    var lineComment: String { get }
+
     func fileHeader(name: String, config: ConfigurationFile) -> String
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line) -> String
+    func property(variableString: String) -> String? 
 }

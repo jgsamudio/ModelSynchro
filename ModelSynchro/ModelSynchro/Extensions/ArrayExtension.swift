@@ -20,3 +20,16 @@ extension Array where Element == Line {
         })
     }
 }
+
+extension Array where Element == CustomProperty {
+    
+    /// Finds the line in the array of lines.
+    ///
+    /// - Parameter line: Line to search for.
+    /// - Returns: Optional Line if found.
+    func find(property: String) -> CustomProperty? {
+        return first(where: { (customProperty) -> Bool in
+            return property.lowercased() == customProperty.property.lowercased()
+        })
+    }
+}
