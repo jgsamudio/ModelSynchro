@@ -10,10 +10,6 @@ import Foundation
 
 extension String {
     
-    var isVariable: Bool {
-        return contains("let") && contains(":")
-    }
-    
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + dropFirst()
     }
@@ -49,6 +45,18 @@ extension String {
             return substring(with: Range(uncheckedBounds: (lower: startRange.upperBound, upper: endRange.lowerBound)))
         }
         return nil
+    }
+    
+    /// Returns the substring that contains the characters after first occurrence of the provided token.
+    ///
+    /// - Parameter token: The token
+    /// - Returns: The substring that contains the characters after first occurrence of the provided token.
+    func removeLeading(startWith token: String) -> String {
+        var string = self
+        while let range = range(of: token) {
+            string = substring(with: Range(uncheckedBounds: (lower: range.upperBound, upper: string.endIndex)))
+        }
+        return string
     }
     
     ///

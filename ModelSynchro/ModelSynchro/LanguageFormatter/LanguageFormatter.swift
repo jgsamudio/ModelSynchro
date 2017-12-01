@@ -21,4 +21,6 @@ protocol LanguageFormatter {
     func variableString(line: Line) -> String
     func property(variableString: String) -> String?
     func keyMapping(lines: [Line]) -> String
+    func isVariable(_ string: String) -> Bool
+    func keyedProperty(string: String) -> KeyedProperty?
 }

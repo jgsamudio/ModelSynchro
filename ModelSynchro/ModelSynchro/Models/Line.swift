@@ -34,8 +34,3 @@ extension Line: Equatable {
         return lhs.property == rhs.property && lhs.type == rhs.type
     }
 }
-
-struct CustomProperty {
-    let customLine: String
-    let property: String
-}

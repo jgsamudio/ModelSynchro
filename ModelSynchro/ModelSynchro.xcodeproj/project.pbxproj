@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
+		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
+		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
+		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
+		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
 		2059DA351FCCCBEE00B020C3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2059DA381FCCCC0700B020C3 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				2059DA421FCCD15600B020C3 /* ConfigurationFile.swift */,
 				20642B271FCE044300E3AA2F /* Endpoint.swift */,
 				20642B2B1FCE18FB00E3AA2F /* Line.swift */,
+				201F09BA1FD1C700005547A5 /* CustomProperty.swift */,
+				201F09BC1FD1C719005547A5 /* KeyedProperty.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,12 +249,14 @@
 				20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */,
 				20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */,
 				2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */,
+				201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */,
 				2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */,
 				2059DA471FCCD17700B020C3 /* Data.swift in Sources */,
 				208E0ED21FCCA98500EB25EA /* main.swift in Sources */,
 				2059DA401FCCCE0600B020C3 /* ModelDataSource.swift in Sources */,
 				20642B281FCE044300E3AA2F /* Endpoint.swift in Sources */,
 				208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */,
+				201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */,
 				20642B231FCDFCB500E3AA2F /* GeneratorDataSource.swift in Sources */,
 				205C80DA1FD069060094404D /* PriorityType.swift in Sources */,
 				205C80DC1FD071920094404D /* ArrayExtension.swift in Sources */,

@@ -64,7 +64,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     }
     
     func property(variableString: String) -> String? {
-        guard variableString.isVariable, let property = variableString.stringBetween(startString: "let", endString: ":") else {
+        guard isVariable(variableString), let property = variableString.stringBetween(startString: "let", endString: ":") else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
@@ -86,5 +86,18 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         
         keyMappingStrings.append("\t}")
         return keyMappingStrings.joined(separator: "\n")
+    }
+    
+    func isVariable(_ string: String) -> Bool {
+        return string.contains("let") && string.contains(":")
+    }
+    
+    func keyedProperty(string: String) -> KeyedProperty? {
+        if string.contains("case"), let splitString = string.split(at: "=") {
+            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
+            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces)
+            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
+        }
+        return nil
     }
 }

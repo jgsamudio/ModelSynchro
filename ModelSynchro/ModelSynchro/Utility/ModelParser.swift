@@ -15,7 +15,11 @@ final class ModelParser {
     // [Filename: [Lines]]
     var customComponents: ModelComponents = [:]
     
-    private let config: ConfigurationFile    
+    private let config: ConfigurationFile
+    
+    private var languageFormatter: LanguageFormatter {
+        return config.languageFormatter()
+    }
     
     init(config: ConfigurationFile) {
         self.config = config
@@ -29,7 +33,7 @@ final class ModelParser {
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
                 let fileComponents = content.components(separatedBy: "\n")
-                let fileName = file.removeTrailing(startWith: config.languageFormatter().fileExtension)
+                let fileName = file.removeTrailing(startWith: languageFormatter.fileExtension)
                 parseCustomFileComponents(fileName: fileName, fileComponents: fileComponents)
             } catch {
                 print("Error caught with message: \(error.localizedDescription)")
@@ -54,14 +58,30 @@ extension ModelParser {
     }
     
     func parseCustomFileComponents(fileName: String, fileComponents: [String]) {
+        var keyedProperties = parseKeyedProperties(fileComponents: fileComponents)
+        
         customComponents[fileName] = fileComponents.flatMap {
-            if $0.isVariable,
+            if languageFormatter.isVariable($0),
                 let customString = $0.split(at: config.languageFormatter().lineComment),
                 let property = config.languageFormatter().property(variableString: customString.leftString) {
                 
-                return CustomProperty(customLine: customString.leftString, property: property)
+                return CustomProperty(customLine: customString.leftString,
+                                      property: property,
+                                      keyedProperty: keyedProperties[$0])
             }
             return nil
         }
+    }
+    
+    private func parseKeyedProperties(fileComponents: [String]) -> [String : KeyedProperty] {
+        var keyedProperties = [String : KeyedProperty]()
+        
+        for component in fileComponents {
+            if let keyedProperty = languageFormatter.keyedProperty(string: component) {
+                keyedProperties[component] = keyedProperty
+            }
+        }
+        
+        return keyedProperties
     }
 }
