@@ -12,4 +12,8 @@
 
 struct OldPrice: Codable {
 	let amount: Amount
+
+	enum CodingKeys: String, CodingKey {
+		case amount = "amount"
+	}
 }

@@ -21,4 +21,17 @@ struct Videos: Codable {
 	let videoType: String?
 	let width: Int?
 	let youTubeVideoId: String?
+
+	enum CodingKeys: String, CodingKey {
+		case height = "height"
+		case analyticCat = "analyticCat"
+		case width = "width"
+		case distTypeId = "distTypeId"
+		case thumbNailIsCustom = "thumbNailIsCustom"
+		case youTubeVideoId = "youTubeVideoId"
+		case thumbNailUrl = "thumbNailUrl"
+		case videoType = "videoType"
+		case analyticName = "analyticName"
+		case label = "label"
+	}
 }

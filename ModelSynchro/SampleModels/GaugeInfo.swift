@@ -16,4 +16,12 @@ struct GaugeInfo: Codable {
 	let minLabel: String
 	let name: String
 	let type: String
+
+	enum CodingKeys: String, CodingKey {
+		case maxLabel = "maxLabel"
+		case type = "type"
+		case minLabel = "minLabel"
+		case name = "name"
+		case id = "id"
+	}
 }

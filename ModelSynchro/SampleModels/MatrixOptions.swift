@@ -30,4 +30,26 @@ struct MatrixOptions: Codable {
 	let productUrl: String
 	let tabs: [Tabs]?
 	let thumbnailUrl: String
+
+	enum CodingKeys: String, CodingKey {
+		case jsonProductZoomUrls = "jsonProductZoomUrls"
+		case previewUrl = "previewUrl"
+		case productUrl = "productUrl"
+		case hasHsnSizeChart = "hasHsnSizeChart"
+		case thumbnailUrl = "thumbnailUrl"
+		case productImageUrlWithToken = "productImageUrlWithToken"
+		case price = "price"
+		case optionDescription = "optionDescription"
+		case productId = "productId"
+		case productDescription = "productDescription"
+		case productImageUrl = "productImageUrl"
+		case images = "images"
+		case pricingDetail = "pricingDetail"
+		case productOptions = "productOptions"
+		case itemNumber = "itemNumber"
+		case oldPrice = "oldPrice"
+		case tabs = "tabs"
+		case autoship = "autoship"
+		case autoshipInformation = "autoshipInformation"
+	}
 }

@@ -19,5 +19,6 @@ protocol LanguageFormatter {
     func fileHeader(name: String, config: ConfigurationFile) -> String
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line) -> String
-    func property(variableString: String) -> String? 
+    func property(variableString: String) -> String?
+    func keyMapping(lines: [Line]) -> String
 }

@@ -11,7 +11,13 @@
 */
 
 struct Autoship: Codable {
-	let description: Something // let description: String
+	let description: StringEnum // let description: String
 	let frequency: Int
 	let id: String
+
+	enum CodingKeys: String, CodingKey {
+		case description = "description"
+		case frequency = "frequency"
+		case id = "id"
+	}
 }

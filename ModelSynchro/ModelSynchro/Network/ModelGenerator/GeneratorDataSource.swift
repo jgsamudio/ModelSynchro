@@ -37,8 +37,9 @@ final class GeneratorDataSource {
         fileLines.append(languageFormatter.fileHeader(name: name, config: config))
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
         fileLines += allLines.sorted { $0 < $1 }
+        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
         fileLines.append(languageFormatter.modelClassEndLine)
-        
+
         return fileLines.joined(separator: "\n")
     }
     

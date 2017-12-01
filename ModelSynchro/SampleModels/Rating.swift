@@ -13,4 +13,9 @@
 struct Rating: Codable {
 	let average: Double
 	let count: Int
+
+	enum CodingKeys: String, CodingKey {
+		case count = "count"
+		case average = "average"
+	}
 }

@@ -69,4 +69,22 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         }
         return property.trimmingCharacters(in: .whitespaces)
     }
+    
+    func keyMapping(lines: [Line]) -> String {
+        guard !lines.isEmpty else {
+            return ""
+        }
+        
+        var keyMappingStrings = [String]()
+        
+        keyMappingStrings.append("\n\tenum CodingKeys: String, CodingKey {")
+        
+        for line in lines {
+            let property = line.property.lowercaseFirstLetter()
+            keyMappingStrings.append("\t\tcase " + property + " = \"" + property + "\"")
+        }
+        
+        keyMappingStrings.append("\t}")
+        return keyMappingStrings.joined(separator: "\n")
+    }
 }

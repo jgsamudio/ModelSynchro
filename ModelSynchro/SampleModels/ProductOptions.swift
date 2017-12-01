@@ -14,4 +14,10 @@ struct ProductOptions: Codable {
 	let sizes: [Sizes]
 	let swatches: [Swatches]
 	let widths: [Widths]
+
+	enum CodingKeys: String, CodingKey {
+		case widths = "widths"
+		case swatches = "swatches"
+		case sizes = "sizes"
+	}
 }

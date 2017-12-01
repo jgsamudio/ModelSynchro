@@ -12,4 +12,8 @@
 
 struct Pricing: Codable {
 	let tier1: String
+
+	enum CodingKeys: String, CodingKey {
+		case tier1 = "tier1"
+	}
 }

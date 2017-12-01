@@ -13,4 +13,9 @@
 struct Categories: Codable {
 	let id: String
 	let name: String
+
+	enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case id = "id"
+	}
 }

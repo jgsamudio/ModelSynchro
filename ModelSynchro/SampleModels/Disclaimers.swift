@@ -17,4 +17,13 @@ struct Disclaimers: Codable {
 	let displayPosition: Int
 	let id: Int
 	let type: Int
+
+	enum CodingKeys: String, CodingKey {
+		case contentHtml = "contentHtml"
+		case id = "id"
+		case area = "area"
+		case displayPosition = "displayPosition"
+		case type = "type"
+		case description = "description"
+	}
 }

@@ -14,4 +14,10 @@ struct HowToUse: Codable {
 	let dosageCount: String
 	let dosageHtml: String
 	let dosageType: String
+
+	enum CodingKeys: String, CodingKey {
+		case dosageCount = "dosageCount"
+		case dosageHtml = "dosageHtml"
+		case dosageType = "dosageType"
+	}
 }

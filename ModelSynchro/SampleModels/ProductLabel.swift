@@ -13,4 +13,9 @@
 struct ProductLabel: Codable {
 	let type: Int
 	let uri: String
+
+	enum CodingKeys: String, CodingKey {
+		case type = "type"
+		case uri = "uri"
+	}
 }

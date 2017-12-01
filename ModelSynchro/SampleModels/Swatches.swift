@@ -11,4 +11,5 @@
 */
 
 struct Swatches: Codable {
+
 }

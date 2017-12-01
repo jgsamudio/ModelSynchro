@@ -11,4 +11,5 @@
 */
 
 struct WarrantyCollection: Codable {
+
 }

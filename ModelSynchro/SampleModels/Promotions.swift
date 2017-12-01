@@ -15,4 +15,11 @@ struct Promotions: Codable {
 	let id: Int
 	let message: String
 	let type: String
+
+	enum CodingKeys: String, CodingKey {
+		case articleId = "articleId"
+		case message = "message"
+		case type = "type"
+		case id = "id"
+	}
 }

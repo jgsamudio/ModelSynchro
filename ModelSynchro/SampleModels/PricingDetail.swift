@@ -19,4 +19,15 @@ struct PricingDetail: Codable {
 	let shippingAndHandling: String
 	let vipPaymentMessage: String
 	let youSave: String?
+
+	enum CodingKeys: String, CodingKey {
+		case paymentType = "paymentType"
+		case vipPaymentMessage = "vipPaymentMessage"
+		case paymentOptions = "paymentOptions"
+		case shippingAndHandling = "shippingAndHandling"
+		case price = "price"
+		case isMatrixFlexPayAvailable = "isMatrixFlexPayAvailable"
+		case youSave = "youSave"
+		case oldPrice = "oldPrice"
+	}
 }

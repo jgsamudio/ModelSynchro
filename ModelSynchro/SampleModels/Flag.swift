@@ -15,4 +15,11 @@ struct Flag: Codable {
 	let isSoldOut: Bool
 	let isTodaysSpecial: Bool
 	let name: String
+
+	enum CodingKeys: String, CodingKey {
+		case className = "className"
+		case isSoldOut = "isSoldOut"
+		case name = "name"
+		case isTodaysSpecial = "isTodaysSpecial"
+	}
 }
