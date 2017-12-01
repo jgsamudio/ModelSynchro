@@ -21,13 +21,13 @@ struct PricingDetail: Codable {
 	let youSave: String?
 
 	enum CodingKeys: String, CodingKey {
-		case paymentType = "paymentType"
-		case vipPaymentMessage = "vipPaymentMessage"
-		case paymentOptions = "paymentOptions"
-		case shippingAndHandling = "shippingAndHandling"
-		case price = "price"
 		case isMatrixFlexPayAvailable = "isMatrixFlexPayAvailable"
-		case youSave = "youSave"
 		case oldPrice = "oldPrice"
+		case paymentOptions = "paymentOptions"
+		case paymentType = "paymentType"
+		case price = "price"
+		case shippingAndHandling = "shippingAndHandling"
+		case vipPaymentMessage = "vipPaymentMessage"
+		case youSave = "youSave"
 	}
 }

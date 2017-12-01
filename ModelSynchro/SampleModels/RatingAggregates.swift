@@ -17,9 +17,9 @@ struct RatingAggregates: Codable {
 	let totalRatings: Int
 
 	enum CodingKeys: String, CodingKey {
-		case gaugeInfo = "gaugeInfo"
 		case averageRatingValue = "averageRatingValue"
-		case totalRatings = "totalRatings"
+		case gaugeInfo = "gaugeInfo"
 		case groups = "groups"
+		case totalRatings = "totalRatings"
 	}
 }

@@ -15,7 +15,7 @@ struct Tabs: Codable {
 	let name: String
 
 	enum CodingKeys: String, CodingKey {
-		case name = "name"
 		case contents = "contents"
+		case name = "name"
 	}
 }

@@ -16,8 +16,8 @@ struct Currency: Codable {
 	let symbol: String
 
 	enum CodingKeys: String, CodingKey {
-		case name = "name"
 		case isoCode = "isoCode"
+		case name = "name"
 		case symbol = "symbol"
 	}
 }

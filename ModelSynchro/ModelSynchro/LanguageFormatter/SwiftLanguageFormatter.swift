@@ -76,15 +76,14 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         }
         
         var keyMappingStrings = [String]()
-        
-        keyMappingStrings.append("\n\tenum CodingKeys: String, CodingKey {")
-        
         for line in lines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
             keyMappingStrings.append("\t\tcase " + keyedProperty + " = \"" + jsonProperty + "\"")
         }
         
+        keyMappingStrings = keyMappingStrings.sorted { $0 < $1 }
+        keyMappingStrings.insert("\n\tenum CodingKeys: String, CodingKey {", at: 0)
         keyMappingStrings.append("\t}")
         return keyMappingStrings.joined(separator: "\n")
     }

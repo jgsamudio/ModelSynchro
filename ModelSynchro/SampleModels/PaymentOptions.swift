@@ -16,8 +16,8 @@ struct PaymentOptions: Codable {
 	let number: Int
 
 	enum CodingKeys: String, CodingKey {
+		case amount = "amount"
 		case isExtraFlex = "isExtraFlex"
 		case number = "number"
-		case amount = "amount"
 	}
 }

@@ -21,7 +21,7 @@ final class JsonParser {
         
         for (key, value) in json {
             guard let type = parse(key: key, value: value) else {
-                print("Warning: could not parse \"" + key + "\"")
+                print("Warning: could not parse \"\(key)\"")
                 continue
             }
             model.add(property: key, type: type.toString())
@@ -30,7 +30,8 @@ final class JsonParser {
     }
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
-    //TODO: Handle Ignoring Model Updates
+    //TODO: Allow comments on models. (///)
+    //TODO: Allow extensions. (///)
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()

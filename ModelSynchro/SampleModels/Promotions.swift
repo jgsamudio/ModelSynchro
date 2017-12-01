@@ -18,8 +18,8 @@ struct Promotions: Codable {
 
 	enum CodingKeys: String, CodingKey {
 		case articleId = "articleId"
+		case id = "id"
 		case message = "message"
 		case type = "type"
-		case id = "id"
 	}
 }

@@ -16,8 +16,8 @@ struct ProductOptions: Codable {
 	let widths: [Widths]
 
 	enum CodingKeys: String, CodingKey {
-		case widths = "widths"
-		case swatches = "swatches"
 		case sizes = "sizes"
+		case swatches = "swatches"
+		case widths = "widths"
 	}
 }

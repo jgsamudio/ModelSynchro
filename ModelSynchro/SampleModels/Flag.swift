@@ -19,7 +19,7 @@ struct Flag: Codable {
 	enum CodingKeys: String, CodingKey {
 		case className = "className"
 		case isSoldOut = "isSoldOut"
-		case name = "name"
 		case isTodaysSpecial = "isTodaysSpecial"
+		case name = "name"
 	}
 }

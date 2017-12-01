@@ -11,11 +11,11 @@
 */
 
 struct Contents: Codable {
-	let contentHtml: String
+	let contentHtml: String // let contentHtml: String
 	let productId: Int // let appliesToProductId: Int
 
 	enum CodingKeys: String, CodingKey {
-		case productId = "appliesToProductId"
 		case contentHtml = "contentHtml"
+		case productId = "appliesToProductId"
 	}
 }

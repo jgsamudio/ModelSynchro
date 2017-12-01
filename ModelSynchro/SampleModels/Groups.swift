@@ -15,7 +15,7 @@ struct Groups: Codable {
 	let value: Int
 
 	enum CodingKeys: String, CodingKey {
-		case value = "value"
 		case count = "count"
+		case value = "value"
 	}
 }

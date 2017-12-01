@@ -15,7 +15,7 @@ struct Amount: Codable {
 	let value: Double
 
 	enum CodingKeys: String, CodingKey {
-		case value = "value"
 		case currency = "currency"
+		case value = "value"
 	}
 }
