@@ -28,7 +28,7 @@ final class ModelGenerator {
     init(name: String, config: ConfigurationFile, currentModels: ModelComponents) {
         self.name = name
         self.config = config
-        // TODO rename to customModelLines
+        // TODOL: rename to customModelLines
         previousModelLines = currentModels[name]
         languageFormatter = config.languageFormatter()
         dataSource = GeneratorDataSource(languageFormatter: config.languageFormatter())
@@ -43,14 +43,16 @@ final class ModelGenerator {
             
             dataSource.appendContent(line: variableLine)
         }
-        
+
         dataSource.currentLineContent.propertyLines.append(variableLine)
     }
     
+    /// Increments the model iteration. Called when a model has completed parsing.
     func incrementIteration() {
        dataSource.incrementModelIteration()
     }
     
+    /// Writes the current model to file
     func writeToFile() {
         guard let fileURL = URL(string: fileURLString) else {
             print("Error: Not a valid url")

@@ -8,8 +8,15 @@
 
 import Foundation
 
+/// Custom property of custom key declaration.
 struct CustomProperty {
+
+    /// Custom line determined by the developer.
     let customLine: String
+
+    /// Property of the line.
     let property: String
+    
+    /// Contains the information for a keyed model.
     let keyedProperty: KeyedProperty?
 }

@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// JSON network type alias.
 typealias JSON = [String : Any]
 
+/// Loads network requests.
 final class NetworkRequester {
     
     private let config: ConfigurationFile
@@ -20,6 +22,7 @@ final class NetworkRequester {
         jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
     
+    /// Generates the models specified from the config file.
     func generateModels() {
         config.endpoints.forEach {
             guard let request = urlRequest(urlString: $0.url) else {
@@ -60,7 +63,7 @@ final class NetworkRequester {
         request.httpMethod = "GET"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        // TODO: add parameters
         config.headers?.forEach({ (key, value) in
             request.setValue(key, forHTTPHeaderField: value)
         })

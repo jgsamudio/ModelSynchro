@@ -1,5 +1,5 @@
 //
-//  Promotions.swift
+//  Tags.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/02/18.
@@ -10,6 +10,6 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Promotions: Codable {
+struct Tags: Codable {
 
 }

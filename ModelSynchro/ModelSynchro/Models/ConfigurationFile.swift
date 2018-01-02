@@ -8,22 +8,44 @@
 
 import Foundation
 
+/// Configuration model for the config file.
 struct ConfigurationFile: Codable {
+
+    /// Name of the author / developer.
     let authorName: String
+
+    /// Company name.
     let companyName: String
+
+    /// Project name.
     let projectName: String
+
+    /// Language of the program.
     let language: String?
+
+    /// Output directory of the program.
     let outputDirectory: String?
+
+    /// List of endpoints to generate models for.
     let endpoints: [Endpoint]
+
+    /// Header data for the endpoints.
     let headers: [String : String]?
+
+    /// Authentication endpoint used to grab the auth token.
+//    let authEndpoint: AuthEndpoint?
 }
 
 extension ConfigurationFile {
     
+    /// Model output path.
     var outputPath: String {
         return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
     }
     
+    /// Current language formatter for the output.
+    ///
+    /// - Returns: Language formatter interface.
     func languageFormatter() -> LanguageFormatter {
         return SwiftLanguageFormatter()
     }

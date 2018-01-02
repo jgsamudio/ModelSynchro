@@ -8,15 +8,28 @@
 
 import Foundation
 
+/// Model describing a line from a network JSON response.
 struct Line {
+
+    /// Property of name.
     let property: String
+
+    /// Property's type.
     var type: String
+
+    /// Determines if the property is optional / nullable.
     var isOptional: Bool
+
+    /// Custom property of the line. Used if the developer allows custom keys.
     var customProperty: CustomProperty?
 }
 
 extension Line {
     
+    /// Converts the line to a string with the given information.
+    ///
+    /// - Parameter languageFormatter: Language formatter to format the string.
+    /// - Returns: Formatted string.
     func toString(languageFormatter: LanguageFormatter) -> String {
         return languageFormatter.variableString(line: self)
     }

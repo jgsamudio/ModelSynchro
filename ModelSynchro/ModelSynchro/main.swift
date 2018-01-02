@@ -10,13 +10,12 @@ import Foundation
 
 print("Fetching JSON...")
 
-let parser = ConfigurationParser()
-guard let config = parser.configFile else {
+guard let config = ConfigurationParser().configFile else {
+    print("Config error")
     exit(1)
 }
-let modelParser = ModelParser(config: config)
-modelParser.loadModels()
 
+let modelParser = ModelParser(config: config)
 let requester = NetworkRequester(config: config, currentModels: modelParser.customComponents)
 requester.generateModels()
 

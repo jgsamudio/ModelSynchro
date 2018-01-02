@@ -8,12 +8,13 @@
 
 import Foundation
 
+/// Parses the json from the returned network response.
 final class JsonParser {
     
     private let modelDataSource: ModelDataSource
     
     init(config: ConfigurationFile, currentModels: ModelComponents) {
-        self.modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
+        modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
     }
     
     func parse(json: JSON, modelName: String) {
@@ -32,6 +33,10 @@ final class JsonParser {
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
     //TODO: Allow comments on models. (///)
     //TODO: Allow extensions. (///)
+    //TODO: Handle network sign in access token
+
+
+    /// Write datasource models to file.
     func writeModelsToFile() {
         modelDataSource.modelDict.forEach({ (key, value) in
             value.writeToFile()

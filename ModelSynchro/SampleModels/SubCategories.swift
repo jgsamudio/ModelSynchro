@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  SubCategories.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/02/18.
@@ -10,11 +10,11 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
+struct SubCategories: Codable {
 	let id: String
 	let images: [Images]
 	let name: String
-	let subCategories: [SubCategories]
+	let subCategories: [SubCategories]?
 	let tags: [Tags]
 
 	enum CodingKeys: String, CodingKey {

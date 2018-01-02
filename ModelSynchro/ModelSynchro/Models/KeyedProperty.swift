@@ -8,7 +8,12 @@
 
 import Foundation
 
+/// Contains information from an existing model.
 struct KeyedProperty {
+
+    /// Custom property mapped by the developer.
     let mappedProperty: String
+
+    /// JSON property from the network call.
     let jsonProperty: String
 }

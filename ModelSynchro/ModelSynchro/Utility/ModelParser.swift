@@ -23,11 +23,15 @@ final class ModelParser {
     
     init(config: ConfigurationFile) {
         self.config = config
+        loadModels()
     }
-    
+}
+
+extension ModelParser {
+
     func loadModels() {
         let fileNames = retrieveFilenames()
-        
+
         for file in fileNames {
             let fileToParse = config.outputPath + file
             do {
@@ -40,11 +44,6 @@ final class ModelParser {
             }
         }
     }
-    
-    
-}
-
-extension ModelParser {
     
     func retrieveFilenames() -> [String] {
         let fileEnumerator = FileManager.default.enumerator(atPath: config.outputPath)

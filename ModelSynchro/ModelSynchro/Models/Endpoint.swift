@@ -11,4 +11,5 @@ import Foundation
 struct Endpoint: Codable {
     let name: String
     let url: String
+//    let authorized: Bool
 }
