@@ -35,6 +35,7 @@
 		2003E0A41FFC369100878F8A /* ConfigurationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */; };
 		2003E0A71FFC397500878F8A /* ModelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0A61FFC397500878F8A /* ModelDataSourceTests.swift */; };
 		2003E0AA1FFC3F9800878F8A /* PriorityTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0A91FFC3F9800878F8A /* PriorityTypeTests.swift */; };
+		2003E0AC1FFC427C00878F8A /* TypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0AB1FFC427C00878F8A /* TypeTests.swift */; };
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
 		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
@@ -77,6 +78,7 @@
 		2003E0811FFC339E00878F8A /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		2003E0A61FFC397500878F8A /* ModelDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataSourceTests.swift; sourceTree = "<group>"; };
 		2003E0A91FFC3F9800878F8A /* PriorityTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityTypeTests.swift; sourceTree = "<group>"; };
+		2003E0AB1FFC427C00878F8A /* TypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTests.swift; sourceTree = "<group>"; };
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				2003E0A91FFC3F9800878F8A /* PriorityTypeTests.swift */,
+				2003E0AB1FFC427C00878F8A /* TypeTests.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2003E0911FFC366A00878F8A /* ArrayExtension.swift in Sources */,
 				2003E0A11FFC368200878F8A /* SwiftLanguageFormatter.swift in Sources */,
 				2003E0971FFC367700878F8A /* ModelGenerator.swift in Sources */,
+				2003E0AC1FFC427C00878F8A /* TypeTests.swift in Sources */,
 				2003E09D1FFC367C00878F8A /* Line.swift in Sources */,
 				2003E0941FFC366E00878F8A /* PriorityType.swift in Sources */,
 				2003E0951FFC367700878F8A /* NetworkRequester.swift in Sources */,
