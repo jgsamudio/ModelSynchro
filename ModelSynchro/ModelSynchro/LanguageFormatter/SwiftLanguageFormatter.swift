@@ -29,6 +29,22 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     var lineComment: String {
         return "//"
     }
+
+    var int: String {
+        return "Int"
+    }
+
+    var bool: String {
+        return "Bool"
+    }
+
+    var string: String {
+        return "String"
+    }
+
+    var double: String {
+        return "Double"
+    }
     
     func fileHeader(name: String, config: ConfigurationFile) -> String {
         return """

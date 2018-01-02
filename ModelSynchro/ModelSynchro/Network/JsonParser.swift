@@ -12,8 +12,10 @@ import Foundation
 final class JsonParser {
     
     private let modelDataSource: ModelDataSource
-    
+    private let config: ConfigurationFile
+
     init(config: ConfigurationFile, currentModels: ModelComponents) {
+        self.config = config
         modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
     }
     
@@ -25,7 +27,7 @@ final class JsonParser {
                 print("Warning: could not parse \"\(key)\"")
                 continue
             }
-            model.add(property: key, type: type.toString())
+            model.add(property: key, type: type.toString(formatter: config.languageFormatter()))
         }
         model.incrementIteration()
     }
@@ -66,7 +68,7 @@ private extension JsonParser {
     
     private func parse(array: Array<Any>, key: String) -> String {
         if let firstItem = array.first, let type = parse(key: key, value: firstItem), type.isPrimitiveType  {
-            return type.toString()
+            return type.toString(formatter: config.languageFormatter())
         }
         
         array.forEach {

@@ -180,8 +180,8 @@
 			children = (
 				208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */,
 				2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */,
-				20642B1F1FCDFC9700E3AA2F /* ModelGenerator */,
 				2059DA3F1FCCCE0600B020C3 /* ModelDataSource.swift */,
+				20642B1F1FCDFC9700E3AA2F /* ModelGenerator */,
 			);
 			path = Network;
 			sourceTree = "<group>";

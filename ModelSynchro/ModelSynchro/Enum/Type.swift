@@ -16,16 +16,16 @@ enum Type {
     case array(String)
     case custom(String)
     
-    func toString() -> String {
+    func toString(formatter: LanguageFormatter) -> String {
         switch self {
         case .int:
-            return "Int"
+            return formatter.int
         case .string:
-            return "String"
+            return formatter.string
         case .bool:
-            return "Bool"
+            return formatter.bool
         case .double:
-            return "Double"
+            return formatter.double
         case .array(let type):
             return "[" + type.capitalizedFirstLetter() + "]"
         case .custom(let type):

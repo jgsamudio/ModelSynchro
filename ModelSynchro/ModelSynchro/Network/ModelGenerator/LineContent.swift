@@ -66,6 +66,6 @@ private extension LineContent {
             let rhsType = PriorityType.priorityType(rawValue: newType) else {
                 return currentType
         }
-        return lhsType.comparePriority(type: rhsType) ?? currentType
+        return lhsType.comparePriority(type: rhsType, formatter: languageFormatter) ?? currentType
     }
 }

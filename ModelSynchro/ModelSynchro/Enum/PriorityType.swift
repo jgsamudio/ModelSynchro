@@ -13,19 +13,19 @@ enum PriorityType: Int {
     case int
     case double
     
-    func comparePriority(type: PriorityType) -> String? {
+    func comparePriority(type: PriorityType, formatter: LanguageFormatter) -> String? {
         let typeArray = [self, type]
-        return typeArray.sorted { $0.rawValue > $1.rawValue }.first?.toString()
+        return typeArray.sorted { $0.rawValue > $1.rawValue }.first?.toString(formatter: formatter)
     }
     
-    func toString() -> String {
+    func toString(formatter: LanguageFormatter) -> String {
         switch self {
         case .int:
-            return Type.int.toString()
+            return Type.int.toString(formatter: formatter)
         case .bool:
-            return Type.bool.toString()
+            return Type.bool.toString(formatter: formatter)
         case .double:
-            return Type.double.toString()
+            return Type.double.toString(formatter: formatter)
         }
     }
     

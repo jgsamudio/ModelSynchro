@@ -16,6 +16,12 @@ protocol LanguageFormatter {
     var typeSeparator: String { get }
     var lineComment: String { get }
 
+    // Types
+    var int: String { get }
+    var string: String { get }
+    var bool: String { get }
+    var double: String { get }
+
     func fileHeader(name: String, config: ConfigurationFile) -> String
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line) -> String
