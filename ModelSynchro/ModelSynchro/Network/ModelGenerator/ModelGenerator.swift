@@ -75,6 +75,7 @@ private extension ModelGenerator {
             x || y.updatePriorityType(property: property, type: type)
         })
     }
+    
     // TODO: Streamline this
     func variableFound(property: String, type: String, customProperty: CustomProperty?) -> Bool {
         var variableLine = Line(property: property, type: type, isOptional: true, customProperty: customProperty)

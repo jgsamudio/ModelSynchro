@@ -1,5 +1,5 @@
 //
-//  Promotions.swift
+//  HowToUse.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/02/18.
@@ -10,16 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Promotions: Codable {
-	let articleId: Int
-	let id: Int
-	let message: String
-	let type: String
+struct HowToUse: Codable {
+	let dosageCount: String
+	let dosageHtml: String
+	let dosageType: String
 
 	enum CodingKeys: String, CodingKey {
-		case articleId = "articleId"
-		case id = "id"
-		case message = "message"
-		case type = "type"
+		case dosageCount = "dosageCount"
+		case dosageHtml = "dosageHtml"
+		case dosageType = "dosageType"
 	}
 }

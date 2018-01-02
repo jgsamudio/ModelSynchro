@@ -27,7 +27,7 @@ final class ModelParser {
     }
 }
 
-extension ModelParser {
+private extension ModelParser {
 
     func loadModels() {
         let fileNames = retrieveFilenames()

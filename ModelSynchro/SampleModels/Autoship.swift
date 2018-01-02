@@ -1,5 +1,5 @@
 //
-//  Promotions.swift
+//  Autoship.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/02/18.
@@ -10,16 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Promotions: Codable {
-	let articleId: Int
-	let id: Int
-	let message: String
-	let type: String
+struct Autoship: Codable {
+	let description: String
+	let frequency: Int
+	let id: String
 
 	enum CodingKeys: String, CodingKey {
-		case articleId = "articleId"
+		case description = "description"
+		case frequency = "frequency"
 		case id = "id"
-		case message = "message"
-		case type = "type"
 	}
 }

@@ -5,9 +5,12 @@
   "outputDirectory" : "SampleModels/",
   "endpoints" : [
     {
-      "url" : "https://xliyre78xb.execute-api.us-east-1.amazonaws.com/dev/ecommerce/shopview",
-      "name" : "Home",
-      "authorized" : "false"
+      "url" : "https://qa1.hsn.com/api/product/detail/7514462",
+      "name" : "Product"
+    },
+    {
+      "url" : "https://qa1.hsn.com/api/product/detail/10061902",
+      "name" : "Product"
     }
-  ],
+  ]
 }

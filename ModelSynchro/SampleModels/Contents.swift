@@ -1,5 +1,5 @@
 //
-//  Promotions.swift
+//  Contents.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/02/18.
@@ -10,16 +10,12 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Promotions: Codable {
-	let articleId: Int
-	let id: Int
-	let message: String
-	let type: String
+struct Contents: Codable {
+	let appliesToProductId: Int
+	let contentHtml: String
 
 	enum CodingKeys: String, CodingKey {
-		case articleId = "articleId"
-		case id = "id"
-		case message = "message"
-		case type = "type"
+		case appliesToProductId = "appliesToProductId"
+		case contentHtml = "contentHtml"
 	}
 }

@@ -64,6 +64,7 @@ final class NetworkRequester {
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         // TODO: add parameters
+
         config.headers?.forEach({ (key, value) in
             request.setValue(key, forHTTPHeaderField: value)
         })

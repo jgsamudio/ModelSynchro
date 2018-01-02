@@ -31,10 +31,10 @@ final class JsonParser {
     }
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
+
     //TODO: Allow comments on models. (///)
     //TODO: Allow extensions. (///)
     //TODO: Handle network sign in access token
-
 
     /// Write datasource models to file.
     func writeModelsToFile() {
