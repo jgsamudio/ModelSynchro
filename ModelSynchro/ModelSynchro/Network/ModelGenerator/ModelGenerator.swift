@@ -9,7 +9,12 @@
 import Foundation
 
 final class ModelGenerator {
-    
+
+    /// Source of the model generator. Used for testing.
+    var source: GeneratorDataSource {
+        return dataSource
+    }
+
     private var name: String
     private var config: ConfigurationFile
     private var dataSource: GeneratorDataSource
