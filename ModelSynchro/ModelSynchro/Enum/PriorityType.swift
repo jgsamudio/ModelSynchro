@@ -29,13 +29,13 @@ enum PriorityType: Int {
         }
     }
     
-    static func priorityType(rawValue: String) -> PriorityType? {
+    static func priorityType(rawValue: String, formatter: LanguageFormatter) -> PriorityType? {
         switch rawValue {
-        case "Bool":
+        case formatter.bool:
             return .bool
-        case "Int":
+        case formatter.int:
             return .int
-        case "Double":
+        case formatter.double:
             return .double
         default:
             return nil

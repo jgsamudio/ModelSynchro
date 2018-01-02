@@ -62,8 +62,8 @@ final class LineContent {
 private extension LineContent {
     
     func typePriority(currentType: String, newType: String) -> String {
-        guard let lhsType = PriorityType.priorityType(rawValue: currentType),
-            let rhsType = PriorityType.priorityType(rawValue: newType) else {
+        guard let lhsType = PriorityType.priorityType(rawValue: currentType, formatter: languageFormatter),
+            let rhsType = PriorityType.priorityType(rawValue: newType, formatter: languageFormatter) else {
                 return currentType
         }
         return lhsType.comparePriority(type: rhsType, formatter: languageFormatter) ?? currentType

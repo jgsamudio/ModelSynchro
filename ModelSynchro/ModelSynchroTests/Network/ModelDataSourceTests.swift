@@ -14,14 +14,15 @@ class ModelDataSourceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
 
         let config = ConfigurationFile(authorName: "Author",
                                        companyName: "Company",
                                        projectName: "MyCoolProject",
                                        language: "Swift",
                                        outputDirectory: "/somewhere",
-                                       endpoints: [], headers: nil)
+                                       endpoints: [],
+                                       headers: nil,
+                                       authEndpoint: nil)
 
         sut = ModelDataSource(config: config, currentModels: [:])
     }

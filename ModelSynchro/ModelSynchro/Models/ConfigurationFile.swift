@@ -33,7 +33,7 @@ struct ConfigurationFile: Codable {
     let headers: [String : String]?
 
     /// Authentication endpoint used to grab the auth token.
-//    let authEndpoint: AuthEndpoint?
+    let authEndpoint: AuthEndpoint?
 }
 
 extension ConfigurationFile {
