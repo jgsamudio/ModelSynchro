@@ -11,12 +11,18 @@ import Foundation
 /// Parses the json from the returned network response.
 final class JsonParser {
     
-    private let modelDataSource: ModelDataSource
+    /// Data source that contains model information. Public for testing.
+    private let modelDataSource: ModelDataSourceProtocol
     private let config: ConfigurationFile
 
     init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
+    }
+
+    init(config: ConfigurationFile, modelDataSource: ModelDataSourceProtocol) {
+        self.config = config
+        self.modelDataSource = modelDataSource
     }
     
     func parse(json: JSON, modelName: String) {
@@ -31,6 +37,7 @@ final class JsonParser {
         }
         model.incrementIteration()
     }
+
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
 

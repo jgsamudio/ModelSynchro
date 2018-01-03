@@ -8,11 +8,16 @@
 
 import Foundation
 
+protocol ModelDataSourceProtocol {
+    var modelDict: [String : ModelGeneratorProtocol] { get set }
+    func modelGenerator(modelName: String) -> ModelGeneratorProtocol
+}
+
 /// Data source handles creation and insertion of models generated.
-final class ModelDataSource {
+final class ModelDataSource: ModelDataSourceProtocol {
 
     /// Contains all information for the models generated.
-    var modelDict = [String : ModelGenerator]()
+    var modelDict = [String : ModelGeneratorProtocol]()
 
     private let config: ConfigurationFile
     private let currentModels: ModelComponents
@@ -26,7 +31,7 @@ final class ModelDataSource {
     ///
     /// - Parameter modelName: Name of the model to create a generator for.
     /// - Returns: If a generator is found return it, if not, create and add new generator.
-    func modelGenerator(modelName: String) -> ModelGenerator {
+    func modelGenerator(modelName: String) -> ModelGeneratorProtocol {
         if let model = modelDict[modelName] {
             return model
         }
