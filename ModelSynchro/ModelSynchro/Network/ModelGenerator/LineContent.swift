@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class LineContent {
+class LineContent {
     
     /// Iteration id.
     let iteration: Int

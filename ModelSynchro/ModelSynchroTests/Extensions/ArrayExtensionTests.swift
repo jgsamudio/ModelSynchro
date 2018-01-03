@@ -83,7 +83,6 @@ class ArrayExtensionTests: XCTestCase {
 
     func testCustomPropertyFind_NilKeyedPropertyFound() {
         let array = [CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)]
-        let customProperty = CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)
 
         let foundProperty = array.find(property: "Prop")
 
@@ -92,7 +91,6 @@ class ArrayExtensionTests: XCTestCase {
 
     func testCustomPropertyFind_NilKeyedPropertyNotFound() {
         let array = [CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)]
-        let customProperty = CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)
 
         let foundProperty = array.find(property: "Prop2")
 

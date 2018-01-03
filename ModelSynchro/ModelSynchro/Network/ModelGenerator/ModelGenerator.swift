@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ModelGeneratorProtocol {
-    var source: GeneratorDataSource { get }
+    var source: GeneratorDataSourceProtocol { get }
     func add(property: String, type: String)
     func incrementIteration()
     func writeToFile()
@@ -18,13 +18,13 @@ protocol ModelGeneratorProtocol {
 final class ModelGenerator: ModelGeneratorProtocol {
 
     /// Source of the model generator. Used for testing.
-    var source: GeneratorDataSource {
+    var source: GeneratorDataSourceProtocol {
         return dataSource
     }
 
     private var name: String
     private var config: ConfigurationFile
-    private var dataSource: GeneratorDataSource
+    private var dataSource: GeneratorDataSourceProtocol
     private var languageFormatter: LanguageFormatter
     
     private var fileURLString: String {
@@ -45,6 +45,13 @@ final class ModelGenerator: ModelGeneratorProtocol {
         languageFormatter = config.languageFormatter()
         dataSource = GeneratorDataSource(languageFormatter: config.languageFormatter())
     }
+
+    init(name: String, config: ConfigurationFile, dataSource: GeneratorDataSourceProtocol) {
+        self.name = name
+        self.config = config
+        self.dataSource = dataSource
+        languageFormatter = config.languageFormatter()
+    }
     
     func add(property: String, type: String) {
         let customProperty = previousModelLines?.find(property: property)
@@ -55,8 +62,7 @@ final class ModelGenerator: ModelGeneratorProtocol {
             
             dataSource.appendContent(line: variableLine)
         }
-
-        dataSource.currentLineContent.propertyLines.append(variableLine)
+        dataSource.appendProperty(line: variableLine)
     }
     
     /// Increments the model iteration. Called when a model has completed parsing.

@@ -8,11 +8,20 @@
 
 import Foundation
 
-final class GeneratorDataSource {
-    
-    var contents: [LineContent]
-    var currentIteration: Int = 1
-    
+protocol GeneratorDataSourceProtocol {
+    var contents: [LineContent] { get set }
+    var currentIteration: Int { get set }
+    var currentLineContent: LineContent { get set }
+    var allLines: [String] { get }
+
+    func fileText(name: String, config: ConfigurationFile) -> String
+    func incrementModelIteration()
+    func appendContent(line: Line)
+    func appendProperty(line: Line)
+}
+
+extension GeneratorDataSourceProtocol {
+
     var currentLineContent: LineContent {
         get {
             return contents[currentIteration - 1]
@@ -20,10 +29,16 @@ final class GeneratorDataSource {
             contents[currentIteration - 1] = newValue
         }
     }
-    
+
     var allLines: [String] {
         return contents.map{ $0.fileStringArray }.flatMap { $0 }
     }
+}
+
+final class GeneratorDataSource: GeneratorDataSourceProtocol {
+    
+    var contents: [LineContent]
+    var currentIteration: Int = 1
     
     private var languageFormatter: LanguageFormatter
     
@@ -51,6 +66,10 @@ final class GeneratorDataSource {
     
     func appendContent(line: Line) {
         currentLineContent.fileLines.append(line)
+    }
+
+    func appendProperty(line: Line) {
+        currentLineContent.propertyLines.append(line)
     }
 }
 

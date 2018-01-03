@@ -10,7 +10,7 @@ import Foundation
 
 class FakeModelGenerator: ModelGeneratorProtocol {
 
-    var source: GeneratorDataSource {
+    var source: GeneratorDataSourceProtocol {
         return GeneratorDataSource(languageFormatter: SwiftLanguageFormatter())
     }
 
