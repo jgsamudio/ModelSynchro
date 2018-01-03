@@ -12,12 +12,12 @@
 
 struct Autoship: Codable {
 	let description: String
-	let frequency: Int
+	let frequencyNumber: Int // let frequency: Int
 	let id: String
 
 	enum CodingKeys: String, CodingKey {
 		case description = "description"
-		case frequency = "frequency"
+		case frequencyNumber = "frequency"
 		case id = "id"
 	}
 }
