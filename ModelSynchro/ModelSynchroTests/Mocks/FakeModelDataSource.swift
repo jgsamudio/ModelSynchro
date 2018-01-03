@@ -17,6 +17,7 @@ class FakeModelDataSource: ModelDataSourceProtocol {
 
     func modelGenerator(modelName: String) -> ModelGeneratorProtocol {
         modelGeneratorWasCalled = true
+        modelDict[modelName] = fakeGenerator
         return fakeGenerator
     }
 }

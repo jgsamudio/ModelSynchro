@@ -39,6 +39,7 @@
 		2003E0B01FFD217400878F8A /* JsonParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0AF1FFD217400878F8A /* JsonParserTests.swift */; };
 		2003E0B31FFD28FC00878F8A /* FakeModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0B21FFD28FC00878F8A /* FakeModelDataSource.swift */; };
 		2003E0B51FFD291C00878F8A /* FakeModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0B41FFD291C00878F8A /* FakeModelGenerator.swift */; };
+		2003E0B81FFD323300878F8A /* ModelGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */; };
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
 		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
@@ -85,6 +86,7 @@
 		2003E0AF1FFD217400878F8A /* JsonParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserTests.swift; sourceTree = "<group>"; };
 		2003E0B21FFD28FC00878F8A /* FakeModelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeModelDataSource.swift; sourceTree = "<group>"; };
 		2003E0B41FFD291C00878F8A /* FakeModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeModelGenerator.swift; sourceTree = "<group>"; };
+		2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGeneratorTests.swift; sourceTree = "<group>"; };
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		2003E0A51FFC394600878F8A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2003E0B61FFD322300878F8A /* ModelGenerator */,
 				2003E0A61FFC397500878F8A /* ModelDataSourceTests.swift */,
 				2003E0AF1FFD217400878F8A /* JsonParserTests.swift */,
 			);
@@ -175,6 +178,14 @@
 				2003E0B41FFD291C00878F8A /* FakeModelGenerator.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2003E0B61FFD322300878F8A /* ModelGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */,
+			);
+			path = ModelGenerator;
 			sourceTree = "<group>";
 		};
 		201F096F1FD0BF8F005547A5 /* Utility */ = {
@@ -385,6 +396,7 @@
 				2003E08E1FFC366A00878F8A /* StringExtension.swift in Sources */,
 				2003E0A01FFC367C00878F8A /* AuthEndpoint.swift in Sources */,
 				2003E0991FFC367700878F8A /* GeneratorDataSource.swift in Sources */,
+				2003E0B81FFD323300878F8A /* ModelGeneratorTests.swift in Sources */,
 				2003E0AA1FFC3F9800878F8A /* PriorityTypeTests.swift in Sources */,
 				2003E0B51FFD291C00878F8A /* FakeModelGenerator.swift in Sources */,
 				2003E0901FFC366A00878F8A /* DateExtension.swift in Sources */,

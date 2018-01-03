@@ -80,4 +80,22 @@ class ArrayExtensionTests: XCTestCase {
 
         XCTAssertNotEqual(foundProperty?.keyedProperty?.jsonProperty, customProperty.keyedProperty?.jsonProperty)
     }
+
+    func testCustomPropertyFind_NilKeyedPropertyFound() {
+        let array = [CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)]
+        let customProperty = CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)
+
+        let foundProperty = array.find(property: "Prop")
+
+        XCTAssertNotNil(foundProperty)
+    }
+
+    func testCustomPropertyFind_NilKeyedPropertyNotFound() {
+        let array = [CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)]
+        let customProperty = CustomProperty(customLine: "Custom", property: "Prop", keyedProperty: nil)
+
+        let foundProperty = array.find(property: "Prop2")
+
+        XCTAssertNil(foundProperty)
+    }
 }

@@ -76,7 +76,33 @@ class JsonParserTests: XCTestCase {
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "Bool")
     }
 
-    func testParse_Array() {
+    func testParse_Custom() {
+        let json = ["sampleModel" : ["Custom" : "CustomValue"]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "SampleModel")
+    }
+
+    func testParse_Nil() {
+        let json = ["sampleModel" : [3 : nil]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertFalse(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "")
+    }
+
+    // MARK: Parse Array Type
+
+    func testParse_ArrayString() {
         let json = ["sampleModel" : ["World"]]
 
         sut.parse(json: json, modelName: "MyModel")
@@ -86,6 +112,54 @@ class JsonParserTests: XCTestCase {
         XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[String]")
+    }
+
+    func testParse_ArrayInt() {
+        let json = ["sampleModel" : [9]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[Int]")
+    }
+
+    func testParse_ArrayBool() {
+        let json = ["sampleModel" : [true]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[Bool]")
+    }
+
+    func testParse_ArrayDouble() {
+        let json = ["sampleModel" : [1.01]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[Double]")
+    }
+
+    func testParse_ArrayCustom() {
+        let json = ["sampleModel" : [ ["CustomObject": "Value"] ]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[SampleModel]")
     }
 
     func testParse_ArrayMultiple() {
@@ -112,30 +186,6 @@ class JsonParserTests: XCTestCase {
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[SampleModel]")
     }
 
-    func testParse_Custom() {
-        let json = ["sampleModel" : ["Custom" : "CustomValue"]]
-
-        sut.parse(json: json, modelName: "MyModel")
-
-        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
-        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
-        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
-        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
-        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "SampleModel")
-    }
-
-    func testParse_Nil() {
-        let json = ["sampleModel" : [3 : nil]]
-
-        sut.parse(json: json, modelName: "MyModel")
-
-        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
-        XCTAssertFalse(modelDataSource.fakeGenerator.addWasCalled)
-        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
-        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "")
-        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "")
-    }
-
     // TODO: Handle Array Mixed Cases
 
     //    func testParse_ArrayMixed() {
@@ -146,4 +196,21 @@ class JsonParserTests: XCTestCase {
     //        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
     //        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[Any]")
     //    }
+
+    // MARK: writeModelsToFile
+
+    func testWriteModelsToFile_Model() {
+        let json = ["sampleModel" : [3 : nil]]
+        sut.parse(json: json, modelName: "MyModel")
+
+        sut.writeModelsToFile()
+
+        XCTAssertTrue(modelDataSource.fakeGenerator.writeToFileWasCalled)
+    }
+
+    func testWriteModelsToFile_Empty() {
+        sut.writeModelsToFile()
+
+        XCTAssertFalse(modelDataSource.fakeGenerator.writeToFileWasCalled)
+    }
 }
