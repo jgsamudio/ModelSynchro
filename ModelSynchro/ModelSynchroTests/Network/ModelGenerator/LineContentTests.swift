@@ -45,4 +45,43 @@ class LineContentTests: XCTestCase {
 
         XCTAssertFalse(sut.fileLines.first?.isOptional ?? true)
     }
+
+    // MARK: updatePriorityType
+
+    func testUpdatePriorityType_Empty() {
+
+        let result = sut.updatePriorityType(property: "Property", type: "Type")
+
+        XCTAssertFalse(result)
+    }
+
+    func testUpdatePriorityType_SamePropertySameType() {
+        let line = Line(property: "Property", type: "Type", isOptional: false, customProperty: nil)
+        sut.propertyLines = [line]
+        sut.fileLines = [line]
+
+        let result = sut.updatePriorityType(property: "Property", type: "Type")
+
+        XCTAssertFalse(result)
+    }
+
+    func testUpdatePriorityType_DifferentPropertySameType() {
+        let line = Line(property: "AnotherProperty", type: "Type", isOptional: false, customProperty: nil)
+        sut.propertyLines = [line]
+        sut.fileLines = [line]
+
+        let result = sut.updatePriorityType(property: "Property", type: "Type")
+
+        XCTAssertFalse(result)
+    }
+
+    func testUpdatePriorityType_SamePropertyDifferentType() {
+        let line = Line(property: "Property", type: "AnotherType", isOptional: false, customProperty: nil)
+        sut.propertyLines = [line]
+        sut.fileLines = [line]
+
+        let result = sut.updatePriorityType(property: "Property", type: "Type")
+
+        XCTAssertTrue(result)
+    }
 }

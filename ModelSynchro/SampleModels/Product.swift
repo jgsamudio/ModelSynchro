@@ -58,7 +58,7 @@ struct Product: Codable {
 		case brand = "brand"
 		case callouts = "callouts"
 		case categories = "categories"
-		case disclaimers = "disclaimers"
+		case dis	claimers = "disclaimers"
 		case flag = "flag"
 		case hasHsnSizeChart = "hasHsnSizeChart"
 		case howToUse = "howToUse"
