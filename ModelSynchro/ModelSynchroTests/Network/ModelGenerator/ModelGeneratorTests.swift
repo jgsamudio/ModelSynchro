@@ -29,6 +29,8 @@ class ModelGeneratorTests: XCTestCase {
         sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)
     }
 
+    // MARK: add
+
     func testAdd_FirstAdd() {
         generatorDataSource.fakeContents.forEach { $0.shouldUpdatePriority = false }
 
@@ -99,5 +101,14 @@ class ModelGeneratorTests: XCTestCase {
         sut.incrementIteration()
 
         XCTAssertTrue(generatorDataSource.incrementModelIterationWasCalled)
+    }
+
+    // MARK: writeToFile
+
+    func testWriteToFile() {
+
+        sut.writeToFile()
+
+        XCTAssertTrue(generatorDataSource.fileTextWasCalled)
     }
 }

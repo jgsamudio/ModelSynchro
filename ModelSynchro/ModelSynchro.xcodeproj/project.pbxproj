@@ -42,6 +42,9 @@
 		2003E0B81FFD323300878F8A /* ModelGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */; };
 		2003E0BA1FFD3DCA00878F8A /* FakeGeneratorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0B91FFD3DCA00878F8A /* FakeGeneratorDataSource.swift */; };
 		2003E0BC1FFD426D00878F8A /* FakeLineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0BB1FFD426D00878F8A /* FakeLineContent.swift */; };
+		2003E0BF1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0BE1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift */; };
+		2003E0C11FFD44AE00878F8A /* GeneratorDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0C01FFD44AE00878F8A /* GeneratorDataSourceTests.swift */; };
+		2003E0C21FFD45F600878F8A /* GeneratorDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003E0BE1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift */; };
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
 		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
@@ -91,6 +94,8 @@
 		2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGeneratorTests.swift; sourceTree = "<group>"; };
 		2003E0B91FFD3DCA00878F8A /* FakeGeneratorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGeneratorDataSource.swift; sourceTree = "<group>"; };
 		2003E0BB1FFD426D00878F8A /* FakeLineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLineContent.swift; sourceTree = "<group>"; };
+		2003E0BE1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorDataSourceProtocol.swift; sourceTree = "<group>"; };
+		2003E0C01FFD44AE00878F8A /* GeneratorDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorDataSourceTests.swift; sourceTree = "<group>"; };
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
@@ -190,8 +195,17 @@
 			isa = PBXGroup;
 			children = (
 				2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */,
+				2003E0C01FFD44AE00878F8A /* GeneratorDataSourceTests.swift */,
 			);
 			path = ModelGenerator;
+			sourceTree = "<group>";
+		};
+		2003E0BD1FFD43EB00878F8A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2003E0BE1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		201F096F1FD0BF8F005547A5 /* Utility */ = {
@@ -250,6 +264,7 @@
 		20642B1F1FCDFC9700E3AA2F /* ModelGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				2003E0BD1FFD43EB00878F8A /* Protocols */,
 				2059DA3D1FCCCC9400B020C3 /* ModelGenerator.swift */,
 				20642B201FCDFCA600E3AA2F /* LineContent.swift */,
 				20642B221FCDFCB500E3AA2F /* GeneratorDataSource.swift */,
@@ -399,12 +414,14 @@
 				2003E0B01FFD217400878F8A /* JsonParserTests.swift in Sources */,
 				2003E0951FFC367700878F8A /* NetworkRequester.swift in Sources */,
 				2003E09E1FFC367C00878F8A /* CustomProperty.swift in Sources */,
+				2003E0C21FFD45F600878F8A /* GeneratorDataSourceProtocol.swift in Sources */,
 				2003E0931FFC366E00878F8A /* NetworkError.swift in Sources */,
 				2003E08E1FFC366A00878F8A /* StringExtension.swift in Sources */,
 				2003E0A01FFC367C00878F8A /* AuthEndpoint.swift in Sources */,
 				2003E0991FFC367700878F8A /* GeneratorDataSource.swift in Sources */,
 				2003E0B81FFD323300878F8A /* ModelGeneratorTests.swift in Sources */,
 				2003E0AA1FFC3F9800878F8A /* PriorityTypeTests.swift in Sources */,
+				2003E0C11FFD44AE00878F8A /* GeneratorDataSourceTests.swift in Sources */,
 				2003E0B51FFD291C00878F8A /* FakeModelGenerator.swift in Sources */,
 				2003E0901FFC366A00878F8A /* DateExtension.swift in Sources */,
 				2003E0A31FFC368500878F8A /* ModelParser.swift in Sources */,
@@ -439,6 +456,7 @@
 				2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */,
 				2059DA471FCCD17700B020C3 /* Data.swift in Sources */,
 				208E0ED21FCCA98500EB25EA /* main.swift in Sources */,
+				2003E0BF1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift in Sources */,
 				2059DA401FCCCE0600B020C3 /* ModelDataSource.swift in Sources */,
 				20642B281FCE044300E3AA2F /* Endpoint.swift in Sources */,
 				208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */,
