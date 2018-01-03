@@ -13,7 +13,7 @@
 struct Product: Codable {
 	let autoship: Autoship?
 	let autoshipInformation: String?
-	let benefits: [String]
+	let benefits: [String]?
 	let brand: Brand
 	let callouts: [Callouts]
 	let categories: [Categories]
@@ -27,7 +27,7 @@ struct Product: Codable {
 	let isMatrixTextOnly: Bool
 	let isPersonalizable: Bool
 	let isSoldOut: Bool
-	let itemNumber: String
+	let itemNumber: String?
 	let matrixGroups: MatrixGroups
 	let matrixId: Int
 	let matrixLabel: String
@@ -38,10 +38,10 @@ struct Product: Codable {
 	let overviewHtml: String
 	let pricing: Pricing
 	let pricingDetail: PricingDetail
-	let productLabel: ProductLabel
+	let productLabel: ProductLabel?
 	let productLink: ProductLink
 	let productOptions: ProductOptions
-	let promotions: [Promotions]
+	let promotions: [Promotions]?
 	let rating: Rating
 	let ratingAggregates: [RatingAggregates]
 	let sharing: Sharing

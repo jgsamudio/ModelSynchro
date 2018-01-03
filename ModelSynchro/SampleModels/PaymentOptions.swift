@@ -13,7 +13,7 @@
 struct PaymentOptions: Codable {
 	let amount: String
 	let isExtraFlex: Bool
-	let number: Int
+	let number: Int?
 
 	enum CodingKeys: String, CodingKey {
 		case amount = "amount"

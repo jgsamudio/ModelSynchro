@@ -11,11 +11,11 @@
 */
 
 struct Disclaimers: Codable {
-	let area: Int
+	let area: Int?
 	let contentHtml: String
 	let contentRaw: ContentRaw?
 	let description: String
-	let displayPosition: Int
+	let displayPosition: Int?
 	let id: Int
 	let type: Int
 

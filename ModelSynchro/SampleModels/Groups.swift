@@ -11,7 +11,7 @@
 */
 
 struct Groups: Codable {
-	let count: Int
+	let count: Int?
 	let value: Int
 
 	enum CodingKeys: String, CodingKey {
