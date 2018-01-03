@@ -47,7 +47,9 @@ class LineContent {
         }
     }
     
-    /// Determines if the type needs to be updated. Depending on the parsing and the JSON, the system can read 0 as a bool / int or double. Another API endpoint can offer greater clarity of the value. In the instance that the value can also be a double (1.30), then the type needs to be updated from bool to double.
+    /// Determines if the type needs to be updated. Depending on the parsing and the JSON, the system can read 0 as a
+    /// bool / int or double. Another API endpoint can offer greater clarity of the value. In the instance that the value
+    /// can also be a double (1.30), then the type needs to be updated from bool to double.
     ///
     /// - Parameters:
     ///   - property: Property to check against and search for.

@@ -31,6 +31,19 @@ class PriorityTypeTests: XCTestCase {
         XCTAssertNotEqual(result, formatter.bool)
     }
 
+    func testComparePriority_GreaterPriority() {
+        let result = sut.comparePriority(type: .double, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.double)
+    }
+
+    func testComparePriority_LesserPriority() {
+        sut = .double
+        let result = sut.comparePriority(type: .bool, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.double)
+    }
+
     // MARK: toString()
 
     func testToString_Int() {

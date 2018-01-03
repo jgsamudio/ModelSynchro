@@ -13,6 +13,12 @@ enum PriorityType: Int {
     case int
     case double
     
+    /// Compares the priority types and returns the one that is the greater priority.
+    ///
+    /// - Parameters:
+    ///   - type: Type to compare with.
+    ///   - formatter: Language formatter to return the priority string.
+    /// - Returns: String of the highest priority type.
     func comparePriority(type: PriorityType, formatter: LanguageFormatter) -> String? {
         let typeArray = [self, type]
         return typeArray.sorted { $0.rawValue > $1.rawValue }.first?.toString(formatter: formatter)
