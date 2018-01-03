@@ -33,6 +33,9 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "String")
     }
@@ -42,6 +45,9 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "Int")
     }
@@ -51,6 +57,9 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "Double")
     }
@@ -60,6 +69,9 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "Bool")
     }
@@ -69,6 +81,9 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[String]")
     }
@@ -78,9 +93,26 @@ class JsonParserTests: XCTestCase {
 
         sut.parse(json: json, modelName: "MyModel")
 
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
         XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "SampleModel")
     }
+
+    func testParse_Nil() {
+        let json = ["sampleModel" : [3 : nil]]
+
+        sut.parse(json: json, modelName: "MyModel")
+
+        XCTAssertTrue(modelDataSource.modelGeneratorWasCalled)
+        XCTAssertFalse(modelDataSource.fakeGenerator.addWasCalled)
+        XCTAssertTrue(modelDataSource.fakeGenerator.incrementIterationWasCalled)
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "")
+        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "")
+    }
+
+    // TODO: Handle Array Mixed Cases
 
     //    func testParse_ArrayMixed() {
     //        let json = ["sampleModel" : ["Hello", 9]]
@@ -90,39 +122,4 @@ class JsonParserTests: XCTestCase {
     //        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.property, "sampleModel")
     //        XCTAssertEqual(modelDataSource.fakeGenerator.lastAddCall.type, "[Any]")
     //    }
-
-}
-
-
-class FakeModelDataSource: ModelDataSourceProtocol {
-
-    var modelDict = [String : ModelGeneratorProtocol]()
-    var fakeGenerator = FakeModelGenerator()
-
-    func modelGenerator(modelName: String) -> ModelGeneratorProtocol {
-        return fakeGenerator
-    }
-}
-
-class FakeModelGenerator: ModelGeneratorProtocol {
-
-    var source: GeneratorDataSource {
-        return GeneratorDataSource(languageFormatter: SwiftLanguageFormatter())
-    }
-
-    var incrementIterationWasCalled = false
-    var writeToFileWasCalled = false
-    var lastAddCall = (property: "", type: "")
-
-    func add(property: String, type: String) {
-        lastAddCall = (property, type)
-    }
-
-    func incrementIteration() {
-        incrementIterationWasCalled = true
-    }
-    
-    func writeToFile() {
-        writeToFileWasCalled = true
-    }
 }
