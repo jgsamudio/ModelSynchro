@@ -19,27 +19,65 @@ class PriorityTypeTests: XCTestCase {
         formatter = SwiftLanguageFormatter()
     }
 
-    func testComparePriority_Equal() {
+    func testComparePriority_BoolBool() {
+        sut = .bool
         let result = sut.comparePriority(type: .bool, formatter: formatter)
 
         XCTAssertEqual(result, formatter.bool)
     }
 
-    func testComparePriority_NotEqual() {
-        let result = sut.comparePriority(type: .double, formatter: formatter)
+    func testComparePriority_BoolInt() {
+        sut = .bool
+        let result = sut.comparePriority(type: .int, formatter: formatter)
 
-        XCTAssertNotEqual(result, formatter.bool)
+        XCTAssertEqual(result, formatter.int)
     }
 
-    func testComparePriority_GreaterPriority() {
+    func testComparePriority_BoolDouble() {
+        sut = .bool
         let result = sut.comparePriority(type: .double, formatter: formatter)
 
         XCTAssertEqual(result, formatter.double)
     }
 
-    func testComparePriority_LesserPriority() {
+    func testComparePriority_IntBool() {
+        sut = .int
+        let result = sut.comparePriority(type: .bool, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.int)
+    }
+
+    func testComparePriority_IntDouble() {
+        sut = .int
+        let result = sut.comparePriority(type: .double, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.double)
+    }
+
+    func testComparePriority_IntInt() {
+        sut = .int
+        let result = sut.comparePriority(type: .int, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.int)
+    }
+
+    func testComparePriority_DoubleBool() {
         sut = .double
         let result = sut.comparePriority(type: .bool, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.double)
+    }
+
+    func testComparePriority_DoubleInt() {
+        sut = .double
+        let result = sut.comparePriority(type: .int, formatter: formatter)
+
+        XCTAssertEqual(result, formatter.double)
+    }
+
+    func testComparePriority_DoubleDouble() {
+        sut = .double
+        let result = sut.comparePriority(type: .double, formatter: formatter)
 
         XCTAssertEqual(result, formatter.double)
     }

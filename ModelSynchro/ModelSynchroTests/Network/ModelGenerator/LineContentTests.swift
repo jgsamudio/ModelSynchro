@@ -75,7 +75,7 @@ class LineContentTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testUpdatePriorityType_SamePropertyDifferentType() {
+    func testUpdatePriorityType_SamePropertyDifferentTypeNotUpdated() {
         let line = Line(property: "Property", type: "AnotherType", isOptional: false, customProperty: nil)
         sut.propertyLines = [line]
         sut.fileLines = [line]
@@ -83,5 +83,19 @@ class LineContentTests: XCTestCase {
         let result = sut.updatePriorityType(property: "Property", type: "Type")
 
         XCTAssertTrue(result)
+        XCTAssertEqual(sut.fileLines.first?.type ?? "", "AnotherType")
+        XCTAssertEqual(sut.propertyLines.first?.type ?? "", "AnotherType")
+    }
+
+    func testUpdatePriorityType_SamePropertyDifferentTypeUpdated() {
+        let line = Line(property: "Property", type: "Bool", isOptional: false, customProperty: nil)
+        sut.propertyLines = [line]
+        sut.fileLines = [line]
+
+        let result = sut.updatePriorityType(property: "Property", type: "Int")
+
+        XCTAssertTrue(result)
+        XCTAssertEqual(sut.fileLines.first?.type ?? "", "Int")
+        XCTAssertEqual(sut.propertyLines.first?.type ?? "", "Int")
     }
 }

@@ -59,10 +59,11 @@ class LineContent {
         for index in 0..<propertyLines.count {
             let line = propertyLines[index]
             if line.property == property && line.type != type {
-                propertyLines[index].type = typePriority(currentType: line.type, newType: type)
+                let newType = typePriority(currentType: line.type, newType: type)
+                propertyLines[index].type = newType
 
                 if let fileIndex = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
-                    fileLines[fileIndex].type = typePriority(currentType: line.type, newType: type)
+                    fileLines[fileIndex].type = newType
                 }
                 return true
             }
