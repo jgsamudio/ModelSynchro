@@ -19,10 +19,12 @@ class LineContent {
     /// All properties found for this model's iteration.
     var propertyLines = [Line]()
     
+    /// String array of the properties.
     var propertyStringArray: [String] {
         return propertyLines.map { $0.toString(languageFormatter: languageFormatter) }
     }
     
+    /// String array of the file lines.
     var fileStringArray: [String] {
         return fileLines.map { $0.toString(languageFormatter: languageFormatter) }
     }

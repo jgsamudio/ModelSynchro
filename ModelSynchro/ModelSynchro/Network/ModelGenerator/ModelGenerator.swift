@@ -8,13 +8,6 @@
 
 import Foundation
 
-protocol ModelGeneratorProtocol {
-    var source: GeneratorDataSourceProtocol { get }
-    func add(property: String, type: String)
-    func incrementIteration()
-    func writeToFile()
-}
-
 final class ModelGenerator: ModelGeneratorProtocol {
 
     /// Source of the model generator. Used for testing.

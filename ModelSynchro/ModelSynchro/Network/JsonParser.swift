@@ -25,6 +25,11 @@ final class JsonParser {
         self.modelDataSource = modelDataSource
     }
     
+    /// Parses the provided json into the model datasource.
+    ///
+    /// - Parameters:
+    ///   - json: JSON data from the network response used to generate the models.
+    ///   - modelName: Name of the first model.
     func parse(json: JSON, modelName: String) {
         let model = modelDataSource.modelGenerator(modelName: modelName)
         
