@@ -47,12 +47,29 @@ class GeneratorDataSourceTests: XCTestCase {
 
     // MARK: incrementModelIteration
 
-    func testIncrementModelIteration() {
+    func testIncrementModelIteration_Single() {
+        let lineContent = FakeLineContent(iteration: 1, languageFormatter: languageFormatter)
+        sut.contents = [lineContent]
         let contentsLineCount = sut.contents.count
 
         sut.incrementModelIteration()
 
         XCTAssertEqual(sut.currentIteration, 2)
         XCTAssertEqual(sut.contents.count, contentsLineCount + 1)
+        XCTAssertFalse(lineContent.checkOptionalWasCalled)
+    }
+
+    func testIncrementModelIteration_Multiple() {
+        let lineContent = FakeLineContent(iteration: 1, languageFormatter: languageFormatter)
+        let lineContent2 = FakeLineContent(iteration: 2, languageFormatter: languageFormatter)
+        sut.contents = [lineContent, lineContent2]
+        let contentsLineCount = sut.contents.count
+
+        sut.incrementModelIteration()
+
+        XCTAssertEqual(sut.currentIteration, 2)
+        XCTAssertEqual(sut.contents.count, contentsLineCount + 1)
+        XCTAssertTrue(lineContent.checkOptionalWasCalled)
+        XCTAssertFalse(lineContent2.checkOptionalWasCalled)
     }
 }

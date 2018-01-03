@@ -12,7 +12,13 @@ class FakeLineContent: LineContent {
 
     var shouldUpdatePriority = true
 
+    var checkOptionalWasCalled = false
+
     override func updatePriorityType(property: String, type: String) -> Bool {
         return shouldUpdatePriority
+    }
+
+    override func checkOptional(otherLineContent: LineContent) {
+        checkOptionalWasCalled = true
     }
 }
