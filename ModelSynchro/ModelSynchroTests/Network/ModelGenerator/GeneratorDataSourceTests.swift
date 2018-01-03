@@ -72,4 +72,26 @@ class GeneratorDataSourceTests: XCTestCase {
         XCTAssertTrue(lineContent.checkOptionalWasCalled)
         XCTAssertFalse(lineContent2.checkOptionalWasCalled)
     }
+
+    // MARK: appendContent
+
+    func testAppendContent() {
+        let line = Line(property: "Property", type: "Type", isOptional: false, customProperty: nil)
+
+        sut.appendContent(line: line)
+        let result = sut.currentLineContent.fileLines.contains(line)
+
+        XCTAssertTrue(result)
+    }
+
+    // MARK: appendProperty
+
+    func testAppendProperty() {
+        let line = Line(property: "Property", type: "Type", isOptional: false, customProperty: nil)
+
+        sut.appendProperty(line: line)
+        let result = sut.currentLineContent.propertyLines.contains(line)
+
+        XCTAssertTrue(result)
+    }
 }
