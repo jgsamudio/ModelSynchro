@@ -11,12 +11,12 @@
 */
 
 struct ProductOptions: Codable {
-	let sizes: [Sizes]
+	let coolSizes: [Sizes] // let sizes: [Sizes]
 	let swatches: [Swatches]
 	let widths: [Widths]
 
 	enum CodingKeys: String, CodingKey {
-		case sizes = "sizes"
+		case coolSizes = "sizes"
 		case swatches = "swatches"
 		case widths = "widths"
 	}
