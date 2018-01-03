@@ -13,6 +13,7 @@ class GeneratorDataSourceTests: XCTestCase {
     var sut: GeneratorDataSource!
     var languageFormatter: LanguageFormatter!
     var config: ConfigurationFile!
+
     override func setUp() {
         super.setUp()
 

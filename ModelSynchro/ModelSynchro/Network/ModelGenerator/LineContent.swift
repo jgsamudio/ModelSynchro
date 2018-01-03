@@ -34,9 +34,13 @@ class LineContent {
         self.languageFormatter = languageFormatter
     }
     
+    /// Checks the current line content with another line content with a different iteration. If a property
+    /// is found in this line content and not in the other then the property needs to be optional.
+    ///
+    /// - Parameter otherLineContent: Other line content to check against.
     func checkOptional(otherLineContent: LineContent) {
         for line in propertyLines {
-            if propertyLines.find(line: line) == nil,
+            if otherLineContent.propertyLines.find(line: line) == nil,
                 let index = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
                 fileLines[index].isOptional = true
             }

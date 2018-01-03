@@ -48,6 +48,7 @@
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
 		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
+		204607951FFD64C00063A53E /* LineContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607941FFD64C00063A53E /* LineContentTests.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -99,6 +100,7 @@
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
+		204607941FFD64C00063A53E /* LineContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineContentTests.swift; sourceTree = "<group>"; };
 		2059DA351FCCCBEE00B020C3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2059DA381FCCCC0700B020C3 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				2003E0B71FFD323300878F8A /* ModelGeneratorTests.swift */,
 				2003E0C01FFD44AE00878F8A /* GeneratorDataSourceTests.swift */,
+				204607941FFD64C00063A53E /* LineContentTests.swift */,
 			);
 			path = ModelGenerator;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				2003E0911FFC366A00878F8A /* ArrayExtension.swift in Sources */,
 				2003E0BA1FFD3DCA00878F8A /* FakeGeneratorDataSource.swift in Sources */,
 				2003E0A11FFC368200878F8A /* SwiftLanguageFormatter.swift in Sources */,
+				204607951FFD64C00063A53E /* LineContentTests.swift in Sources */,
 				2003E0971FFC367700878F8A /* ModelGenerator.swift in Sources */,
 				2003E0AC1FFC427C00878F8A /* TypeTests.swift in Sources */,
 				2003E09D1FFC367C00878F8A /* Line.swift in Sources */,
