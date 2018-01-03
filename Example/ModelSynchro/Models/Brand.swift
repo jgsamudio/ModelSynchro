@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Brand.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,8 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
+struct Brand: Codable {
+	let id: Int
 	let name: String
 
 	enum CodingKeys: String, CodingKey {

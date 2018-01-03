@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Pricing.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
-	let name: String
+struct Pricing: Codable {
+	let tier1: String
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
+		case tier1 = "tier1"
 	}
 }

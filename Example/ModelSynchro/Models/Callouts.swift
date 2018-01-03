@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Callouts.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
-	let name: String
+struct Callouts: Codable {
+	let type: String
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
+		case type = "type"
 	}
 }

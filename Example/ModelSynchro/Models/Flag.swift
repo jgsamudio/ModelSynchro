@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Flag.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
+struct Flag: Codable {
+	let className: String
+	let isSoldOut: Bool
+	let isTodaysSpecial: Bool
 	let name: String
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
+		case className = "className"
+		case isSoldOut = "isSoldOut"
+		case isTodaysSpecial = "isTodaysSpecial"
 		case name = "name"
 	}
 }

@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  GaugeInfo.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,18 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
+struct GaugeInfo: Codable {
 	let id: String
+	let maxLabel: String
+	let minLabel: String
 	let name: String
+	let type: String
 
 	enum CodingKeys: String, CodingKey {
 		case id = "id"
+		case maxLabel = "maxLabel"
+		case minLabel = "minLabel"
 		case name = "name"
+		case type = "type"
 	}
 }

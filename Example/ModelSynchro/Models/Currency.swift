@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Currency.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
+struct Currency: Codable {
+	let isoCode: String
 	let name: String
+	let symbol: String
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
+		case isoCode = "isoCode"
 		case name = "name"
+		case symbol = "symbol"
 	}
 }

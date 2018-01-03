@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ModelSynchro:
-    :commit: 028f2da295e5b6ba5c913f0259648e5b933a3b1e
+    :commit: 3000784ae57c5f75173c2536fb3998c6a6a0f520
     :git: git@github.com:jgsamudio/ModelSynchro.git
 
 SPEC CHECKSUMS:

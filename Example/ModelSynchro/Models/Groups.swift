@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Groups.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,12 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
-	let name: String
+struct Groups: Codable {
+	let count: Int?
+	let value: Int
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
+		case count = "count"
+		case value = "value"
 	}
 }

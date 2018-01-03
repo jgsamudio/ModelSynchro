@@ -2,8 +2,8 @@
 //  Images.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 11/27/17.
-//  Copyright © 2017 Prolific Interactive. All rights reserved.
+//  Created by Jonathan Samudio on 01/03/18.
+//  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
@@ -11,6 +11,25 @@
 */
 
 struct Images: Codable {
-	let usage: String
+	let description: String
+	let isDefault: Bool
+	let jsonPlusSizeZoomUrls: String
+	let jsonZoomUrls: String
+	let name: String
+	let plusName: String
+	let plusSizeProductImageUrl: String
+	let thumbnailUrl: String
 	let url: String
+
+	enum CodingKeys: String, CodingKey {
+		case description = "description"
+		case isDefault = "isDefault"
+		case jsonPlusSizeZoomUrls = "jsonPlusSizeZoomUrls"
+		case jsonZoomUrls = "jsonZoomUrls"
+		case name = "name"
+		case plusName = "plusName"
+		case plusSizeProductImageUrl = "plusSizeProductImageUrl"
+		case thumbnailUrl = "thumbnailUrl"
+		case url = "url"
+	}
 }

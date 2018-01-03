@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  HowToUse.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/03/18.
@@ -10,12 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Categories: Codable {
-	let id: String
-	let name: String
+struct HowToUse: Codable {
+	let dosageCount: String
+	let dosageHtml: String
+	let dosageType: String
 
 	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
+		case dosageCount = "dosageCount"
+		case dosageHtml = "dosageHtml"
+		case dosageType = "dosageType"
 	}
 }
