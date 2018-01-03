@@ -5,8 +5,12 @@
   "outputDirectory" : "ModelSynchro/Models/",
   "endpoints" : [
     {
-      "url" : "https://staging.ams.prolific.io/v1/demo/all.json",
-      "name" : "Navigation"
+      "url" : "https://qa1.hsn.com/api/product/detail/7514462",
+      "name" : "Product"
+    },
+    {
+      "url" : "https://qa1.hsn.com/api/product/detail/10061902",
+      "name" : "Product"
     }
   ]
 }
