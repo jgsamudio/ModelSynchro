@@ -116,4 +116,12 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         }
         return nil
     }
+
+    func arrayFormat(type: String) -> String {
+        return "[" + type.capitalizedFirstLetter() + "]"
+    }
+
+    func customFormat(type: String) -> String {
+        return type.capitalizedFirstLetter()
+    }
 }

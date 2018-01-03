@@ -29,4 +29,6 @@ protocol LanguageFormatter {
     func keyMapping(lines: [Line]) -> String
     func isVariable(_ string: String) -> Bool
     func keyedProperty(string: String) -> KeyedProperty?
+    func arrayFormat(type: String) -> String
+    func customFormat(type: String) -> String
 }

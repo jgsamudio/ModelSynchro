@@ -27,9 +27,9 @@ enum Type {
         case .double:
             return formatter.double
         case .array(let type):
-            return "[" + type.capitalizedFirstLetter() + "]"
+            return formatter.arrayFormat(type: type)
         case .custom(let type):
-            return type.capitalizedFirstLetter()
+            return formatter.customFormat(type: type)
         }
     }
     
