@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Brand
+#import <Foundation/Foundation.h>
+
+@interface Brand: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *id;
 
 @property (nonatomic, strong, readonly) NSString *name;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Amount
+#import <Foundation/Foundation.h>
+
+@interface Amount: NSObject
 
 @property (nonatomic, strong, readonly) Currency *currency;
 
 @property (nonatomic, strong, readonly) double *value;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

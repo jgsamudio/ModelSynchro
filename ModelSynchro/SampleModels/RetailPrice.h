@@ -1,5 +1,5 @@
 //
-//  Currency.h
+//  RetailPrice.h
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -12,13 +12,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Currency: NSObject
+@interface RetailPrice: NSObject
 
-@property (nonatomic, strong, readonly) NSString *isoCode;
-
-@property (nonatomic, strong, readonly) NSString *name;
-
-@property (nonatomic, strong, readonly) NSString *symbol;
+@property (nonatomic, strong, readonly) Amount *amount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 

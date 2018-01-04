@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Groups
+#import <Foundation/Foundation.h>
 
-@property (nonatomic, strong, readonly) BOOL *count;
+@interface Groups: NSObject
+
+@property (nonatomic, strong, readonly) NSInteger *count;
 
 @property (nonatomic, strong, readonly) NSInteger *value;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

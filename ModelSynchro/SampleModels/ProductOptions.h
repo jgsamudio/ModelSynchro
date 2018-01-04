@@ -10,12 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface ProductOptions
+#import <Foundation/Foundation.h>
+
+@interface ProductOptions: NSObject
 
 @property (nonatomic, strong, readonly) NSArray<Sizes> *sizes;
 
 @property (nonatomic, strong, readonly) NSArray<Swatches> *swatches;
 
 @property (nonatomic, strong, readonly) NSArray<Widths> *widths;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

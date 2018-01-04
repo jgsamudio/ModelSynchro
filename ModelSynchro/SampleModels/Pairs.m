@@ -1,5 +1,5 @@
 //
-//  Price.m
+//  Pairs.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -10,15 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-#import "Price.h"
+#import "Pairs.h"
 
-@implementation Price
+@implementation Pairs
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [dictionary[@"amount"] copy];
+	_name = [dictionary[@"name"] copy];
+	_values = [dictionary[@"values"] copy];
 
     return self;
 }
@@ -27,13 +28,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [coder decodeObjectForKey:@"amount"];
+	_name = [coder decodeObjectForKey:@"name"];
+	_values = [coder decodeObjectForKey:@"values"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.amount != nil) [coder encodeObject:self.amount forKey:@"amount"];
+	if (self.name != nil) [coder encodeObject:self.name forKey:@"name"];
+	if (self.values != nil) [coder encodeObject:self.values forKey:@"values"];
 }
 
 @end

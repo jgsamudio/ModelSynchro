@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Promotions
+#import <Foundation/Foundation.h>
+
+@interface Promotions: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *articleId;
 
@@ -19,5 +21,7 @@
 @property (nonatomic, strong, readonly) NSString *message;
 
 @property (nonatomic, strong, readonly) NSString *type;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

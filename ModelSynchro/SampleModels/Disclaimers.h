@@ -10,13 +10,13 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Disclaimers
+#import <Foundation/Foundation.h>
 
-@property (nonatomic, strong, readonly) BOOL *area;
+@interface Disclaimers: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *displayPosition;
+@property (nonatomic, strong, readonly) NSInteger *area;
 
-@property (nonatomic, strong, readonly) ContentRaw *contentRaw;
+@property (nonatomic, strong, readonly) NSInteger *displayPosition;
 
 @property (nonatomic, strong, readonly) NSInteger *id;
 
@@ -25,5 +25,7 @@
 @property (nonatomic, strong, readonly) NSString *contentHtml;
 
 @property (nonatomic, strong, readonly) NSString *description;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

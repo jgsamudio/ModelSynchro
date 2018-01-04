@@ -10,16 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface GaugeInfo
+#import <Foundation/Foundation.h>
+
+@interface GaugeInfo: NSObject
 
 @property (nonatomic, strong, readonly) NSString *id;
-
-@property (nonatomic, strong, readonly) NSString *maxLabel;
-
-@property (nonatomic, strong, readonly) NSString *minLabel;
 
 @property (nonatomic, strong, readonly) NSString *name;
 
 @property (nonatomic, strong, readonly) NSString *type;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

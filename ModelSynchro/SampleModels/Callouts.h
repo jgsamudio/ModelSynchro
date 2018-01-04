@@ -10,8 +10,12 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Callouts
+#import <Foundation/Foundation.h>
+
+@interface Callouts: NSObject
 
 @property (nonatomic, strong, readonly) NSString *type;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

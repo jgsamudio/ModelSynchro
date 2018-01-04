@@ -10,10 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Contents
+#import <Foundation/Foundation.h>
+
+@interface Contents: NSObject
+
+@property (nonatomic, strong, readonly) NSArray<KeyValueGroups> *keyValueGroups;
 
 @property (nonatomic, strong, readonly) NSInteger *appliesToProductId;
 
 @property (nonatomic, strong, readonly) NSString *contentHtml;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

@@ -10,8 +10,12 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Price
+#import <Foundation/Foundation.h>
+
+@interface Price: NSObject
 
 @property (nonatomic, strong, readonly) Amount *amount;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

@@ -10,12 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Autoship
+#import <Foundation/Foundation.h>
+
+@interface Autoship: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *frequency;
 
 @property (nonatomic, strong, readonly) NSString *description;
 
 @property (nonatomic, strong, readonly) NSString *id;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

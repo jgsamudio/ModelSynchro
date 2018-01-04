@@ -1,5 +1,5 @@
 //
-//  Contents.h
+//  Contents.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+#import "Contents.h"
+
 @implementation Contents
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
@@ -18,6 +20,7 @@
 
 	_appliesToProductId = [dictionary[@"appliesToProductId"] copy];
 	_contentHtml = [dictionary[@"contentHtml"] copy];
+	_keyValueGroups = [dictionary[@"keyValueGroups"] copy];
 
     return self;
 }
@@ -28,6 +31,7 @@
 
 	_appliesToProductId = [coder decodeObjectForKey:@"appliesToProductId"];
 	_contentHtml = [coder decodeObjectForKey:@"contentHtml"];
+	_keyValueGroups = [coder decodeObjectForKey:@"keyValueGroups"];
 
     return self;
 }
@@ -35,6 +39,7 @@
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.appliesToProductId != nil) [coder encodeObject:self.appliesToProductId forKey:@"appliesToProductId"];
 	if (self.contentHtml != nil) [coder encodeObject:self.contentHtml forKey:@"contentHtml"];
+	if (self.keyValueGroups != nil) [coder encodeObject:self.keyValueGroups forKey:@"keyValueGroups"];
 }
 
 @end

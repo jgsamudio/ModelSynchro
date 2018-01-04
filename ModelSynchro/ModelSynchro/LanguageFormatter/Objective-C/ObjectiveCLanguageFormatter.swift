@@ -57,7 +57,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     func fileHeader(name: String, config: ConfigurationFile) -> String {
         return """
         //
-        //  \(name).h
+        //  \(name).m
         //  \(config.projectName)
         //
         //  Created by \(config.authorName) on \(Date.currentDateString).
@@ -67,6 +67,8 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         /*
             Auto-Generated using ModelSynchro
         */
+
+        #import "\(name).h"
 
         """
     }

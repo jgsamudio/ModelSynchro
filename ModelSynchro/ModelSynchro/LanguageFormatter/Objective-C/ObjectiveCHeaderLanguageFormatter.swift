@@ -64,11 +64,13 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
             Auto-Generated using ModelSynchro
         */
 
+        #import <Foundation/Foundation.h>
+
         """
     }
 
     func modelClassDeclaration(name: String) -> String {
-        return "@interface " + name
+        return "@interface " + name + ": NSObject"
     }
 
     func variableString(line: Line) -> String {
@@ -95,7 +97,11 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
     }
 
     func keyMapping(lines: [Line]) -> String {
-        return ""
+        return """
+
+        - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+        """
     }
 
     func keyedProperty(string: String) -> KeyedProperty? {

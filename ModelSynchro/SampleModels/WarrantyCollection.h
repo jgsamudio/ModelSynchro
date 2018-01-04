@@ -10,6 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface WarrantyCollection
+#import <Foundation/Foundation.h>
+
+@interface WarrantyCollection: NSObject
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

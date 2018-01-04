@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Sharing
+#import <Foundation/Foundation.h>
+
+@interface Sharing: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *type;
 
 @property (nonatomic, strong, readonly) NSString *uri;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

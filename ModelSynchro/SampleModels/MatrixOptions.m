@@ -1,5 +1,5 @@
 //
-//  MatrixOptions.h
+//  MatrixOptions.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -9,6 +9,8 @@
 /*
     Auto-Generated using ModelSynchro
 */
+
+#import "MatrixOptions.h"
 
 @implementation MatrixOptions
 
@@ -33,6 +35,8 @@
 	_productImageUrlWithToken = [dictionary[@"productImageUrlWithToken"] copy];
 	_productOptions = [dictionary[@"productOptions"] copy];
 	_productUrl = [dictionary[@"productUrl"] copy];
+	_retailPrice = [dictionary[@"retailPrice"] copy];
+	_retailPriceLabel = [dictionary[@"retailPriceLabel"] copy];
 	_tabs = [dictionary[@"tabs"] copy];
 	_thumbnailUrl = [dictionary[@"thumbnailUrl"] copy];
 
@@ -43,23 +47,25 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_jsonProductZoomUrls = [coder decodeObjectForKey:@"jsonProductZoomUrls"];
-	_previewUrl = [coder decodeObjectForKey:@"previewUrl"];
-	_productUrl = [coder decodeObjectForKey:@"productUrl"];
-	_hasHsnSizeChart = [coder decodeObjectForKey:@"hasHsnSizeChart"];
+	_retailPrice = [coder decodeObjectForKey:@"retailPrice"];
+	_images = [coder decodeObjectForKey:@"images"];
 	_thumbnailUrl = [coder decodeObjectForKey:@"thumbnailUrl"];
-	_productImageUrlWithToken = [coder decodeObjectForKey:@"productImageUrlWithToken"];
-	_price = [coder decodeObjectForKey:@"price"];
-	_optionDescription = [coder decodeObjectForKey:@"optionDescription"];
+	_hasHsnSizeChart = [coder decodeObjectForKey:@"hasHsnSizeChart"];
+	_retailPriceLabel = [coder decodeObjectForKey:@"retailPriceLabel"];
 	_productId = [coder decodeObjectForKey:@"productId"];
 	_productDescription = [coder decodeObjectForKey:@"productDescription"];
-	_productImageUrl = [coder decodeObjectForKey:@"productImageUrl"];
-	_images = [coder decodeObjectForKey:@"images"];
+	_productUrl = [coder decodeObjectForKey:@"productUrl"];
 	_pricingDetail = [coder decodeObjectForKey:@"pricingDetail"];
+	_previewUrl = [coder decodeObjectForKey:@"previewUrl"];
+	_optionDescription = [coder decodeObjectForKey:@"optionDescription"];
 	_productOptions = [coder decodeObjectForKey:@"productOptions"];
+	_jsonProductZoomUrls = [coder decodeObjectForKey:@"jsonProductZoomUrls"];
+	_productImageUrlWithToken = [coder decodeObjectForKey:@"productImageUrlWithToken"];
 	_itemNumber = [coder decodeObjectForKey:@"itemNumber"];
+	_price = [coder decodeObjectForKey:@"price"];
 	_oldPrice = [coder decodeObjectForKey:@"oldPrice"];
 	_tabs = [coder decodeObjectForKey:@"tabs"];
+	_productImageUrl = [coder decodeObjectForKey:@"productImageUrl"];
 	_autoship = [coder decodeObjectForKey:@"autoship"];
 	_autoshipInformation = [coder decodeObjectForKey:@"autoshipInformation"];
 
@@ -67,23 +73,25 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.jsonProductZoomUrls != nil) [coder encodeObject:self.jsonProductZoomUrls forKey:@"jsonProductZoomUrls"];
-	if (self.previewUrl != nil) [coder encodeObject:self.previewUrl forKey:@"previewUrl"];
-	if (self.productUrl != nil) [coder encodeObject:self.productUrl forKey:@"productUrl"];
-	if (self.hasHsnSizeChart != nil) [coder encodeObject:self.hasHsnSizeChart forKey:@"hasHsnSizeChart"];
+	if (self.retailPrice != nil) [coder encodeObject:self.retailPrice forKey:@"retailPrice"];
+	if (self.images != nil) [coder encodeObject:self.images forKey:@"images"];
 	if (self.thumbnailUrl != nil) [coder encodeObject:self.thumbnailUrl forKey:@"thumbnailUrl"];
-	if (self.productImageUrlWithToken != nil) [coder encodeObject:self.productImageUrlWithToken forKey:@"productImageUrlWithToken"];
-	if (self.price != nil) [coder encodeObject:self.price forKey:@"price"];
-	if (self.optionDescription != nil) [coder encodeObject:self.optionDescription forKey:@"optionDescription"];
+	if (self.hasHsnSizeChart != nil) [coder encodeObject:self.hasHsnSizeChart forKey:@"hasHsnSizeChart"];
+	if (self.retailPriceLabel != nil) [coder encodeObject:self.retailPriceLabel forKey:@"retailPriceLabel"];
 	if (self.productId != nil) [coder encodeObject:self.productId forKey:@"productId"];
 	if (self.productDescription != nil) [coder encodeObject:self.productDescription forKey:@"productDescription"];
-	if (self.productImageUrl != nil) [coder encodeObject:self.productImageUrl forKey:@"productImageUrl"];
-	if (self.images != nil) [coder encodeObject:self.images forKey:@"images"];
+	if (self.productUrl != nil) [coder encodeObject:self.productUrl forKey:@"productUrl"];
 	if (self.pricingDetail != nil) [coder encodeObject:self.pricingDetail forKey:@"pricingDetail"];
+	if (self.previewUrl != nil) [coder encodeObject:self.previewUrl forKey:@"previewUrl"];
+	if (self.optionDescription != nil) [coder encodeObject:self.optionDescription forKey:@"optionDescription"];
 	if (self.productOptions != nil) [coder encodeObject:self.productOptions forKey:@"productOptions"];
+	if (self.jsonProductZoomUrls != nil) [coder encodeObject:self.jsonProductZoomUrls forKey:@"jsonProductZoomUrls"];
+	if (self.productImageUrlWithToken != nil) [coder encodeObject:self.productImageUrlWithToken forKey:@"productImageUrlWithToken"];
 	if (self.itemNumber != nil) [coder encodeObject:self.itemNumber forKey:@"itemNumber"];
+	if (self.price != nil) [coder encodeObject:self.price forKey:@"price"];
 	if (self.oldPrice != nil) [coder encodeObject:self.oldPrice forKey:@"oldPrice"];
 	if (self.tabs != nil) [coder encodeObject:self.tabs forKey:@"tabs"];
+	if (self.productImageUrl != nil) [coder encodeObject:self.productImageUrl forKey:@"productImageUrl"];
 	if (self.autoship != nil) [coder encodeObject:self.autoship forKey:@"autoship"];
 	if (self.autoshipInformation != nil) [coder encodeObject:self.autoshipInformation forKey:@"autoshipInformation"];
 }

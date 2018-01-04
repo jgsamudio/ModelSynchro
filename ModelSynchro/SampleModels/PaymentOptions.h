@@ -10,12 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface PaymentOptions
+#import <Foundation/Foundation.h>
+
+@interface PaymentOptions: NSObject
 
 @property (nonatomic, strong, readonly) BOOL *isExtraFlex;
 
 @property (nonatomic, strong, readonly) BOOL *number;
 
 @property (nonatomic, strong, readonly) NSString *amount;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

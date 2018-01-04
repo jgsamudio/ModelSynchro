@@ -1,5 +1,5 @@
 //
-//  Product.h
+//  Product.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -9,6 +9,8 @@
 /*
     Auto-Generated using ModelSynchro
 */
+
+#import "Product.h"
 
 @implementation Product
 
@@ -43,7 +45,6 @@
 	_overviewHtml = [dictionary[@"overviewHtml"] copy];
 	_pricing = [dictionary[@"pricing"] copy];
 	_pricingDetail = [dictionary[@"pricingDetail"] copy];
-	_productLabel = [dictionary[@"productLabel"] copy];
 	_productLink = [dictionary[@"productLink"] copy];
 	_productOptions = [dictionary[@"productOptions"] copy];
 	_promotions = [dictionary[@"promotions"] copy];
@@ -53,6 +54,7 @@
 	_shortName = [dictionary[@"shortName"] copy];
 	_slug = [dictionary[@"slug"] copy];
 	_tabs = [dictionary[@"tabs"] copy];
+	_variantInfo = [dictionary[@"variantInfo"] copy];
 	_videos = [dictionary[@"videos"] copy];
 	_warrantyCollection = [dictionary[@"warrantyCollection"] copy];
 
@@ -64,7 +66,6 @@
     if (self == nil) return nil;
 
 	_callouts = [coder decodeObjectForKey:@"callouts"];
-	_productLabel = [coder decodeObjectForKey:@"productLabel"];
 	_hasHsnSizeChart = [coder decodeObjectForKey:@"hasHsnSizeChart"];
 	_shortName = [coder decodeObjectForKey:@"shortName"];
 	_videos = [coder decodeObjectForKey:@"videos"];
@@ -84,31 +85,31 @@
 	_categories = [coder decodeObjectForKey:@"categories"];
 	_overview = [coder decodeObjectForKey:@"overview"];
 	_flag = [coder decodeObjectForKey:@"flag"];
+	_variantInfo = [coder decodeObjectForKey:@"variantInfo"];
 	_brand = [coder decodeObjectForKey:@"brand"];
 	_warrantyCollection = [coder decodeObjectForKey:@"warrantyCollection"];
 	_sharing = [coder decodeObjectForKey:@"sharing"];
 	_isInMatrix = [coder decodeObjectForKey:@"isInMatrix"];
 	_images = [coder decodeObjectForKey:@"images"];
 	_isSoldOut = [coder decodeObjectForKey:@"isSoldOut"];
-	_matrixLabel = [coder decodeObjectForKey:@"matrixLabel"];
+	_matrixOptions = [coder decodeObjectForKey:@"matrixOptions"];
 	_note = [coder decodeObjectForKey:@"note"];
 	_tabs = [coder decodeObjectForKey:@"tabs"];
 	_pricingDetail = [coder decodeObjectForKey:@"pricingDetail"];
 	_slug = [coder decodeObjectForKey:@"slug"];
-	_matrixOptions = [coder decodeObjectForKey:@"matrixOptions"];
 	_rating = [coder decodeObjectForKey:@"rating"];
 	_isMatrixTextOnly = [coder decodeObjectForKey:@"isMatrixTextOnly"];
 	_howToUse = [coder decodeObjectForKey:@"howToUse"];
 	_overviewHtml = [coder decodeObjectForKey:@"overviewHtml"];
 	_autoship = [coder decodeObjectForKey:@"autoship"];
 	_autoshipInformation = [coder decodeObjectForKey:@"autoshipInformation"];
+	_matrixLabel = [coder decodeObjectForKey:@"matrixLabel"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.callouts != nil) [coder encodeObject:self.callouts forKey:@"callouts"];
-	if (self.productLabel != nil) [coder encodeObject:self.productLabel forKey:@"productLabel"];
 	if (self.hasHsnSizeChart != nil) [coder encodeObject:self.hasHsnSizeChart forKey:@"hasHsnSizeChart"];
 	if (self.shortName != nil) [coder encodeObject:self.shortName forKey:@"shortName"];
 	if (self.videos != nil) [coder encodeObject:self.videos forKey:@"videos"];
@@ -128,24 +129,25 @@
 	if (self.categories != nil) [coder encodeObject:self.categories forKey:@"categories"];
 	if (self.overview != nil) [coder encodeObject:self.overview forKey:@"overview"];
 	if (self.flag != nil) [coder encodeObject:self.flag forKey:@"flag"];
+	if (self.variantInfo != nil) [coder encodeObject:self.variantInfo forKey:@"variantInfo"];
 	if (self.brand != nil) [coder encodeObject:self.brand forKey:@"brand"];
 	if (self.warrantyCollection != nil) [coder encodeObject:self.warrantyCollection forKey:@"warrantyCollection"];
 	if (self.sharing != nil) [coder encodeObject:self.sharing forKey:@"sharing"];
 	if (self.isInMatrix != nil) [coder encodeObject:self.isInMatrix forKey:@"isInMatrix"];
 	if (self.images != nil) [coder encodeObject:self.images forKey:@"images"];
 	if (self.isSoldOut != nil) [coder encodeObject:self.isSoldOut forKey:@"isSoldOut"];
-	if (self.matrixLabel != nil) [coder encodeObject:self.matrixLabel forKey:@"matrixLabel"];
+	if (self.matrixOptions != nil) [coder encodeObject:self.matrixOptions forKey:@"matrixOptions"];
 	if (self.note != nil) [coder encodeObject:self.note forKey:@"note"];
 	if (self.tabs != nil) [coder encodeObject:self.tabs forKey:@"tabs"];
 	if (self.pricingDetail != nil) [coder encodeObject:self.pricingDetail forKey:@"pricingDetail"];
 	if (self.slug != nil) [coder encodeObject:self.slug forKey:@"slug"];
-	if (self.matrixOptions != nil) [coder encodeObject:self.matrixOptions forKey:@"matrixOptions"];
 	if (self.rating != nil) [coder encodeObject:self.rating forKey:@"rating"];
 	if (self.isMatrixTextOnly != nil) [coder encodeObject:self.isMatrixTextOnly forKey:@"isMatrixTextOnly"];
 	if (self.howToUse != nil) [coder encodeObject:self.howToUse forKey:@"howToUse"];
 	if (self.overviewHtml != nil) [coder encodeObject:self.overviewHtml forKey:@"overviewHtml"];
 	if (self.autoship != nil) [coder encodeObject:self.autoship forKey:@"autoship"];
 	if (self.autoshipInformation != nil) [coder encodeObject:self.autoshipInformation forKey:@"autoshipInformation"];
+	if (self.matrixLabel != nil) [coder encodeObject:self.matrixLabel forKey:@"matrixLabel"];
 }
 
 @end

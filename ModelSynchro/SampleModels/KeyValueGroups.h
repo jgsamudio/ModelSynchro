@@ -1,5 +1,5 @@
 //
-//  Currency.h
+//  KeyValueGroups.h
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -12,13 +12,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Currency: NSObject
+@interface KeyValueGroups: NSObject
 
-@property (nonatomic, strong, readonly) NSString *isoCode;
+@property (nonatomic, strong, readonly) NSArray<Pairs> *pairs;
 
 @property (nonatomic, strong, readonly) NSString *name;
-
-@property (nonatomic, strong, readonly) NSString *symbol;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 

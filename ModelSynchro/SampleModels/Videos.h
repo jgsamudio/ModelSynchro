@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Videos
+#import <Foundation/Foundation.h>
+
+@interface Videos: NSObject
 
 @property (nonatomic, strong, readonly) BOOL *distTypeId;
 
@@ -18,15 +20,15 @@
 
 @property (nonatomic, strong, readonly) NSInteger *height;
 
-@property (nonatomic, strong, readonly) NSInteger *httpRuntime;
-
 @property (nonatomic, strong, readonly) NSInteger *width;
 
 @property (nonatomic, strong, readonly) NSString *analyticCat;
 
 @property (nonatomic, strong, readonly) NSString *analyticName;
 
-@property (nonatomic, strong, readonly) NSString *formattedHttpRuntime;
+@property (nonatomic, strong, readonly) NSString *httpUrl;
+
+@property (nonatomic, strong, readonly) NSString *iosUrl;
 
 @property (nonatomic, strong, readonly) NSString *label;
 
@@ -35,5 +37,7 @@
 @property (nonatomic, strong, readonly) NSString *videoType;
 
 @property (nonatomic, strong, readonly) NSString *youTubeVideoId;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

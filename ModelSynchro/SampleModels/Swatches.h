@@ -10,6 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Swatches
+#import <Foundation/Foundation.h>
+
+@interface Swatches: NSObject
+
+@property (nonatomic, strong, readonly) NSArray<Value> *value;
+
+@property (nonatomic, strong, readonly) NSString *key;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

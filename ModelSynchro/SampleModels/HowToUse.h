@@ -10,12 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface HowToUse
+#import <Foundation/Foundation.h>
 
-@property (nonatomic, strong, readonly) NSString *dosageCount;
+@interface HowToUse: NSObject
 
-@property (nonatomic, strong, readonly) NSString *dosageHtml;
-
-@property (nonatomic, strong, readonly) NSString *dosageType;
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

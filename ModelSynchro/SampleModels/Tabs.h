@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Tabs
+#import <Foundation/Foundation.h>
+
+@interface Tabs: NSObject
 
 @property (nonatomic, strong, readonly) NSArray<Contents> *contents;
 
 @property (nonatomic, strong, readonly) NSString *name;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

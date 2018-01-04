@@ -1,5 +1,5 @@
 //
-//  Price.m
+//  RetailPrice.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -10,9 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-#import "Price.h"
+#import "RetailPrice.h"
 
-@implementation Price
+@implementation RetailPrice
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];

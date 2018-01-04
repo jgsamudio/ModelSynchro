@@ -10,6 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface MatrixGroups
+#import <Foundation/Foundation.h>
+
+@interface MatrixGroups: NSObject
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

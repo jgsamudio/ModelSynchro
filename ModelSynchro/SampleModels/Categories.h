@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Categories
+#import <Foundation/Foundation.h>
+
+@interface Categories: NSObject
 
 @property (nonatomic, strong, readonly) NSString *id;
 
 @property (nonatomic, strong, readonly) NSString *name;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

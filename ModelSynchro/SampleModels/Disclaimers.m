@@ -1,5 +1,5 @@
 //
-//  Disclaimers.h
+//  Disclaimers.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+#import "Disclaimers.h"
+
 @implementation Disclaimers
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
@@ -18,7 +20,6 @@
 
 	_area = [dictionary[@"area"] copy];
 	_contentHtml = [dictionary[@"contentHtml"] copy];
-	_contentRaw = [dictionary[@"contentRaw"] copy];
 	_description = [dictionary[@"description"] copy];
 	_displayPosition = [dictionary[@"displayPosition"] copy];
 	_id = [dictionary[@"id"] copy];
@@ -37,7 +38,6 @@
 	_displayPosition = [coder decodeObjectForKey:@"displayPosition"];
 	_type = [coder decodeObjectForKey:@"type"];
 	_description = [coder decodeObjectForKey:@"description"];
-	_contentRaw = [coder decodeObjectForKey:@"contentRaw"];
 
     return self;
 }
@@ -49,7 +49,6 @@
 	if (self.displayPosition != nil) [coder encodeObject:self.displayPosition forKey:@"displayPosition"];
 	if (self.type != nil) [coder encodeObject:self.type forKey:@"type"];
 	if (self.description != nil) [coder encodeObject:self.description forKey:@"description"];
-	if (self.contentRaw != nil) [coder encodeObject:self.contentRaw forKey:@"contentRaw"];
 }
 
 @end

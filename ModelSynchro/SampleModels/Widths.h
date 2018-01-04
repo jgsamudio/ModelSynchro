@@ -10,6 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Widths
+#import <Foundation/Foundation.h>
+
+@interface Widths: NSObject
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

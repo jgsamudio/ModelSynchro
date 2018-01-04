@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Flag
+#import <Foundation/Foundation.h>
+
+@interface Flag: NSObject
 
 @property (nonatomic, strong, readonly) BOOL *isSoldOut;
 
@@ -19,5 +21,7 @@
 @property (nonatomic, strong, readonly) NSString *className;
 
 @property (nonatomic, strong, readonly) NSString *name;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

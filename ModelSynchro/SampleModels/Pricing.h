@@ -10,8 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Pricing
+#import <Foundation/Foundation.h>
+
+@interface Pricing: NSObject
 
 @property (nonatomic, strong, readonly) NSString *tier1;
+
+@property (nonatomic, strong, readonly) NSString *tier2;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

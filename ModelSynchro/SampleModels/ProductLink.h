@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface ProductLink
+#import <Foundation/Foundation.h>
+
+@interface ProductLink: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *type;
 
 @property (nonatomic, strong, readonly) NSString *uri;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

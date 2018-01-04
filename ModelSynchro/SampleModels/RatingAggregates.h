@@ -10,14 +10,18 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface RatingAggregates
+#import <Foundation/Foundation.h>
 
-@property (nonatomic, strong, readonly) BOOL *totalRatings;
+@interface RatingAggregates: NSObject
 
 @property (nonatomic, strong, readonly) GaugeInfo *gaugeInfo;
 
 @property (nonatomic, strong, readonly) NSArray<Groups> *groups;
 
-@property (nonatomic, strong, readonly) NSInteger *averageRatingValue;
+@property (nonatomic, strong, readonly) NSInteger *totalRatings;
+
+@property (nonatomic, strong, readonly) double *averageRatingValue;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

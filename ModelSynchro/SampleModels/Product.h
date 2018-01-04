@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Product
+#import <Foundation/Foundation.h>
+
+@interface Product: NSObject
 
 @property (nonatomic, strong, readonly) Autoship *autoship;
 
@@ -24,11 +26,15 @@
 
 @property (nonatomic, strong, readonly) BOOL *isSoldOut;
 
+@property (nonatomic, strong, readonly) BOOL *matrixId;
+
 @property (nonatomic, strong, readonly) Brand *brand;
 
 @property (nonatomic, strong, readonly) Flag *flag;
 
 @property (nonatomic, strong, readonly) MatrixGroups *matrixGroups;
+
+@property (nonatomic, strong, readonly) NSArray<Benefits> *benefits;
 
 @property (nonatomic, strong, readonly) NSArray<Callouts> *callouts;
 
@@ -42,21 +48,19 @@
 
 @property (nonatomic, strong, readonly) NSArray<MatrixOptions> *matrixOptions;
 
-@property (nonatomic, strong, readonly) NSArray<NSString> *benefits;
-
 @property (nonatomic, strong, readonly) NSArray<Promotions> *promotions;
 
 @property (nonatomic, strong, readonly) NSArray<RatingAggregates> *ratingAggregates;
 
 @property (nonatomic, strong, readonly) NSArray<Tabs> *tabs;
 
+@property (nonatomic, strong, readonly) NSArray<VariantInfo> *variantInfo;
+
 @property (nonatomic, strong, readonly) NSArray<Videos> *videos;
 
 @property (nonatomic, strong, readonly) NSArray<WarrantyCollection> *warrantyCollection;
 
 @property (nonatomic, strong, readonly) NSInteger *id;
-
-@property (nonatomic, strong, readonly) NSInteger *matrixId;
 
 @property (nonatomic, strong, readonly) NSString *autoshipInformation;
 
@@ -80,8 +84,6 @@
 
 @property (nonatomic, strong, readonly) PricingDetail *pricingDetail;
 
-@property (nonatomic, strong, readonly) ProductLabel *productLabel;
-
 @property (nonatomic, strong, readonly) ProductLink *productLink;
 
 @property (nonatomic, strong, readonly) ProductOptions *productOptions;
@@ -89,5 +91,7 @@
 @property (nonatomic, strong, readonly) Rating *rating;
 
 @property (nonatomic, strong, readonly) Sharing *sharing;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

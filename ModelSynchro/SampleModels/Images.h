@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Images
+#import <Foundation/Foundation.h>
+
+@interface Images: NSObject
 
 @property (nonatomic, strong, readonly) BOOL *isDefault;
 
@@ -29,5 +31,7 @@
 @property (nonatomic, strong, readonly) NSString *thumbnailUrl;
 
 @property (nonatomic, strong, readonly) NSString *url;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

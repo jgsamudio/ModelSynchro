@@ -1,5 +1,5 @@
 //
-//  Callouts.h
+//  Callouts.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -9,6 +9,8 @@
 /*
     Auto-Generated using ModelSynchro
 */
+
+#import "Callouts.h"
 
 @implementation Callouts
 

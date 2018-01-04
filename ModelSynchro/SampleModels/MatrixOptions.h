@@ -10,7 +10,9 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface MatrixOptions
+#import <Foundation/Foundation.h>
+
+@interface MatrixOptions: NSObject
 
 @property (nonatomic, strong, readonly) Autoship *autoship;
 
@@ -40,6 +42,8 @@
 
 @property (nonatomic, strong, readonly) NSString *productUrl;
 
+@property (nonatomic, strong, readonly) NSString *retailPriceLabel;
+
 @property (nonatomic, strong, readonly) NSString *thumbnailUrl;
 
 @property (nonatomic, strong, readonly) OldPrice *oldPrice;
@@ -49,5 +53,9 @@
 @property (nonatomic, strong, readonly) PricingDetail *pricingDetail;
 
 @property (nonatomic, strong, readonly) ProductOptions *productOptions;
+
+@property (nonatomic, strong, readonly) RetailPrice *retailPrice;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

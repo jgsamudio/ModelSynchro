@@ -1,5 +1,5 @@
 //
-//  Price.m
+//  KeyValueGroups.m
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 01/04/18.
@@ -10,15 +10,16 @@
     Auto-Generated using ModelSynchro
 */
 
-#import "Price.h"
+#import "KeyValueGroups.h"
 
-@implementation Price
+@implementation KeyValueGroups
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [dictionary[@"amount"] copy];
+	_name = [dictionary[@"name"] copy];
+	_pairs = [dictionary[@"pairs"] copy];
 
     return self;
 }
@@ -27,13 +28,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [coder decodeObjectForKey:@"amount"];
+	_pairs = [coder decodeObjectForKey:@"pairs"];
+	_name = [coder decodeObjectForKey:@"name"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.amount != nil) [coder encodeObject:self.amount forKey:@"amount"];
+	if (self.pairs != nil) [coder encodeObject:self.pairs forKey:@"pairs"];
+	if (self.name != nil) [coder encodeObject:self.name forKey:@"name"];
 }
 
 @end

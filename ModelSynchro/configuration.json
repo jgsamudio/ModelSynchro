@@ -6,11 +6,11 @@
   "language" : "objective-c",
   "endpoints" : [
     {
-      "url" : "https://qa1.hsn.com/api/product/detail/7514462",
+      "url" : "https://www.hsn.com/api/product/detail/8426715",
       "name" : "Product"
     },
     {
-      "url" : "https://qa1.hsn.com/api/product/detail/10061902",
+      "url" : "https://www.hsn.com/api/product/detail/10076614",
       "name" : "Product"
     }
   ]

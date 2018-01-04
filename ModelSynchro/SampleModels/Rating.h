@@ -10,10 +10,14 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Rating
+#import <Foundation/Foundation.h>
+
+@interface Rating: NSObject
 
 @property (nonatomic, strong, readonly) NSInteger *count;
 
 @property (nonatomic, strong, readonly) double *average;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end

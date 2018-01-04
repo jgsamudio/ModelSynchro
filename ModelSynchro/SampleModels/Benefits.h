@@ -10,6 +10,10 @@
     Auto-Generated using ModelSynchro
 */
 
-@interface Benefits
+#import <Foundation/Foundation.h>
+
+@interface Benefits: NSObject
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
 
 @end
