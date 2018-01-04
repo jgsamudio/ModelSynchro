@@ -51,6 +51,8 @@
 		204607951FFD64C00063A53E /* LineContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607941FFD64C00063A53E /* LineContentTests.swift */; };
 		204607971FFD82D40063A53E /* ModelGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */; };
 		204607981FFD82E40063A53E /* ModelGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */; };
+		204607DE1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */; };
+		204607DF1FFE7E7D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -104,6 +106,7 @@
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
 		204607941FFD64C00063A53E /* LineContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineContentTests.swift; sourceTree = "<group>"; };
 		204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGeneratorProtocol.swift; sourceTree = "<group>"; };
+		204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveCLanguageFormatter.swift; sourceTree = "<group>"; };
 		2059DA351FCCCBEE00B020C3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2059DA381FCCCC0700B020C3 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -284,6 +287,7 @@
 			children = (
 				20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */,
 				20642B291FCE099900E3AA2F /* LanguageFormatter.swift */,
+				204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */,
 			);
 			path = LanguageFormatter;
 			sourceTree = "<group>";
@@ -423,6 +427,7 @@
 				2003E0951FFC367700878F8A /* NetworkRequester.swift in Sources */,
 				2003E09E1FFC367C00878F8A /* CustomProperty.swift in Sources */,
 				2003E0C21FFD45F600878F8A /* GeneratorDataSourceProtocol.swift in Sources */,
+				204607DF1FFE7E7D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */,
 				2003E0931FFC366E00878F8A /* NetworkError.swift in Sources */,
 				2003E08E1FFC366A00878F8A /* StringExtension.swift in Sources */,
 				2003E0A01FFC367C00878F8A /* AuthEndpoint.swift in Sources */,
@@ -457,6 +462,7 @@
 			files = (
 				20642B1E1FCDCF4900E3AA2F /* DateExtension.swift in Sources */,
 				2059DA391FCCCC0700B020C3 /* Type.swift in Sources */,
+				204607DE1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */,
 				20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */,
 				20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */,
 				2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */,

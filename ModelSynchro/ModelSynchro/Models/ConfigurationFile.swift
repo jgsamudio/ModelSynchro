@@ -47,6 +47,13 @@ extension ConfigurationFile {
     ///
     /// - Returns: Language formatter interface.
     func languageFormatter() -> LanguageFormatter {
-        return SwiftLanguageFormatter()
+        switch (language ?? "").lowercased() {
+        case "swift":
+            return SwiftLanguageFormatter()
+        case "objective-c":
+            return ObjectiveCLanguageFormatter()
+        default:
+            return SwiftLanguageFormatter()
+        }
     }
 }
