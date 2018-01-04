@@ -14,9 +14,9 @@
 
 @interface Pricing: NSObject
 
-@property (nonatomic, strong, readonly) NSString *tier1;
+@property (nonatomic, strong) NSString *tier1;
 
-@property (nonatomic, strong, readonly) NSString *tier2;
+@property (nonatomic, strong) NSString *tier2;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

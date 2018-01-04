@@ -47,7 +47,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     }
 
     var bool: String {
-        return "BOOL"
+        return "bool"
     }
 
     var string: String {
@@ -96,25 +96,39 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         }
 
         let property = line.property.lowercaseFirstLetter()
-        generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] copy];"
+        let type = Type.initialize(typeString: line.type, formatter: self)
+
+        if type.toString(formatter: self) == int {
+            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] integerValue];"
+        } else if type.toString(formatter: self) == bool {
+            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] boolValue];"
+        } else if type.toString(formatter: self) == double {
+                generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] doubleValue];"
+        } else {
+            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] copy];"
+        }
 
         return generatedLine
     }
 
     func property(variableString: String) -> String? {
-        guard isVariable(variableString), let property = variableString.stringBetween(startString: "@property (nonatomic, strong, readonly) ", endString: "*") else {
+        guard isVariable(variableString), let property = variableString.stringBetween(startString: ") ", endString: " ") else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
     }
 
     func isVariable(_ string: String) -> Bool {
-        return string.contains("@property (nonatomic") && string.contains("*")
+        return string.contains("@property (nonatomic")
     }
 
     func keyMapping(lines: [Line]) -> String {
         guard !lines.isEmpty else {
-            return ""
+            return """
+
+                return self;
+            }
+            """
         }
 
         var keyMappingStrings = [String]()
@@ -133,7 +147,18 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         for line in lines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-            keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
+
+            let type = Type.initialize(typeString: line.type, formatter: self)
+
+            if type.toString(formatter: self) == int {
+                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeIntegerForKey:@\"\(jsonProperty)\"];")
+            } else if type.toString(formatter: self) == bool {
+                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeBoolForKey:@\"\(jsonProperty)\"];")
+            } else if type.toString(formatter: self) == double {
+                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeDoubleForKey:@\"\(jsonProperty)\"];")
+            } else {
+                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
+            }
         }
 
         keyMappingStrings.append(
@@ -148,7 +173,18 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         for line in lines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-            keyMappingStrings.append("\tif (self.\(keyedProperty) != nil) [coder encodeObject:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+
+            let type = Type.initialize(typeString: line.type, formatter: self)
+
+            if type.toString(formatter: self) == int {
+                keyMappingStrings.append("\t[coder encodeInteger:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+            } else if type.toString(formatter: self) == bool {
+                keyMappingStrings.append("\t[coder encodeBool:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+            } else if type.toString(formatter: self) == double {
+                keyMappingStrings.append("\t[coder encodeDouble:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+            } else {
+                keyMappingStrings.append("\tif (self.\(keyedProperty) != nil) [coder encodeObject:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+            }
         }
 
         keyMappingStrings.append(
@@ -161,20 +197,21 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     }
 
     func keyedProperty(string: String) -> KeyedProperty? {
-        if string.contains("case"), let splitString = string.split(at: "=") {
-            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
-            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
-            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
-        }
+        //TODO: Fix me
+//        if string.contains("case"), let splitString = string.split(at: "=") {
+//            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
+//            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
+//            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
+//        }
         return nil
     }
 
     func arrayFormat(type: String) -> String {
-        return "NSArray<" + type.capitalizedFirstLetter() + ">"
+        return "NSArray<" + type.capitalizedFirstLetter() + " *>"
     }
 
     func type(arrayString: String) -> String {
-        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: ">", with: "")
+        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: " *>", with: "")
     }
 
     func customFormat(type: String) -> String {

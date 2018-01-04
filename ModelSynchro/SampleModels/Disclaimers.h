@@ -14,17 +14,17 @@
 
 @interface Disclaimers: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *area;
+@property (nonatomic, assign) NSInteger area;
 
-@property (nonatomic, strong, readonly) NSInteger *displayPosition;
+@property (nonatomic, assign) NSInteger displayPosition;
 
-@property (nonatomic, strong, readonly) NSInteger *id;
+@property (nonatomic, assign) NSInteger id;
 
-@property (nonatomic, strong, readonly) NSInteger *type;
+@property (nonatomic, assign) NSInteger type;
 
-@property (nonatomic, strong, readonly) NSString *contentHtml;
+@property (nonatomic, strong) NSString *contentHtml;
 
-@property (nonatomic, strong, readonly) NSString *description;
+@property (nonatomic, strong) NSString *description;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

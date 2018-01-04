@@ -14,7 +14,7 @@
 
 @interface Callouts: NSObject
 
-@property (nonatomic, strong, readonly) NSString *type;
+@property (nonatomic, strong) NSString *type;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

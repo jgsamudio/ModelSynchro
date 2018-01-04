@@ -14,11 +14,11 @@
 
 @interface GaugeInfo: NSObject
 
-@property (nonatomic, strong, readonly) NSString *id;
+@property (nonatomic, strong) NSString *id;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
-@property (nonatomic, strong, readonly) NSString *type;
+@property (nonatomic, strong) NSString *type;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

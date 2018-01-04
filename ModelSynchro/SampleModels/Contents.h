@@ -11,15 +11,15 @@
 */
 
 #import <Foundation/Foundation.h>
-#import KeyValueGroups.h
+#import "KeyValueGroups.h"
 
 @interface Contents: NSObject
 
-@property (nonatomic, strong, readonly) NSArray<KeyValueGroups> *keyValueGroups;
+@property (nonatomic, assign) NSInteger appliesToProductId;
 
-@property (nonatomic, strong, readonly) NSInteger *appliesToProductId;
+@property (nonatomic, strong) NSString *contentHtml;
 
-@property (nonatomic, strong, readonly) NSString *contentHtml;
+@property (nonatomic, strong, nullable) NSArray<KeyValueGroups *> *keyValueGroups;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

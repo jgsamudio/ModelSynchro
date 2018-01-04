@@ -19,8 +19,8 @@
     if (self == nil) return nil;
 
 	_className = [dictionary[@"className"] copy];
-	_isSoldOut = [dictionary[@"isSoldOut"] copy];
-	_isTodaysSpecial = [dictionary[@"isTodaysSpecial"] copy];
+	_isSoldOut = [dictionary[@"isSoldOut"] boolValue];
+	_isTodaysSpecial = [dictionary[@"isTodaysSpecial"] boolValue];
 	_name = [dictionary[@"name"] copy];
 
     return self;
@@ -31,18 +31,18 @@
     if (self == nil) return nil;
 
 	_className = [coder decodeObjectForKey:@"className"];
-	_isSoldOut = [coder decodeObjectForKey:@"isSoldOut"];
+	_isSoldOut = [coder decodeBoolForKey:@"isSoldOut"];
 	_name = [coder decodeObjectForKey:@"name"];
-	_isTodaysSpecial = [coder decodeObjectForKey:@"isTodaysSpecial"];
+	_isTodaysSpecial = [coder decodeBoolForKey:@"isTodaysSpecial"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.className != nil) [coder encodeObject:self.className forKey:@"className"];
-	if (self.isSoldOut != nil) [coder encodeObject:self.isSoldOut forKey:@"isSoldOut"];
+	[coder encodeBool:self.isSoldOut forKey:@"isSoldOut"];
 	if (self.name != nil) [coder encodeObject:self.name forKey:@"name"];
-	if (self.isTodaysSpecial != nil) [coder encodeObject:self.isTodaysSpecial forKey:@"isTodaysSpecial"];
+	[coder encodeBool:self.isTodaysSpecial forKey:@"isTodaysSpecial"];
 }
 
 @end

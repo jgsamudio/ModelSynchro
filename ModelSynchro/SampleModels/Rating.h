@@ -14,9 +14,9 @@
 
 @interface Rating: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *count;
+@property (nonatomic, assign) NSInteger count;
 
-@property (nonatomic, strong, readonly) double *average;
+@property (nonatomic, assign) double average;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

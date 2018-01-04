@@ -18,7 +18,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_appliesToProductId = [dictionary[@"appliesToProductId"] copy];
+	_appliesToProductId = [dictionary[@"appliesToProductId"] integerValue];
 	_contentHtml = [dictionary[@"contentHtml"] copy];
 	_keyValueGroups = [dictionary[@"keyValueGroups"] copy];
 
@@ -29,7 +29,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_appliesToProductId = [coder decodeObjectForKey:@"appliesToProductId"];
+	_appliesToProductId = [coder decodeIntegerForKey:@"appliesToProductId"];
 	_contentHtml = [coder decodeObjectForKey:@"contentHtml"];
 	_keyValueGroups = [coder decodeObjectForKey:@"keyValueGroups"];
 
@@ -37,7 +37,7 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.appliesToProductId != nil) [coder encodeObject:self.appliesToProductId forKey:@"appliesToProductId"];
+	[coder encodeInteger:self.appliesToProductId forKey:@"appliesToProductId"];
 	if (self.contentHtml != nil) [coder encodeObject:self.contentHtml forKey:@"contentHtml"];
 	if (self.keyValueGroups != nil) [coder encodeObject:self.keyValueGroups forKey:@"keyValueGroups"];
 }

@@ -11,19 +11,18 @@
 */
 
 #import <Foundation/Foundation.h>
-#import NSString.h
 
 @interface VariantInfo: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *isPlusSize;
+@property (nonatomic, assign) NSInteger webId;
 
-@property (nonatomic, strong, readonly) NSArray<NSString> *codes;
+@property (nonatomic, assign) bool isPlusSize;
 
-@property (nonatomic, strong, readonly) NSInteger *webId;
+@property (nonatomic, strong) NSArray<NSString *> *codes;
 
-@property (nonatomic, strong, readonly) NSString *callout;
+@property (nonatomic, strong) NSString *callout;
 
-@property (nonatomic, strong, readonly) NSString *sku;
+@property (nonatomic, strong) NSString *sku;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

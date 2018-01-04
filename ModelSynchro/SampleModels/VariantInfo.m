@@ -20,9 +20,9 @@
 
 	_callout = [dictionary[@"callout"] copy];
 	_codes = [dictionary[@"codes"] copy];
-	_isPlusSize = [dictionary[@"isPlusSize"] copy];
+	_isPlusSize = [dictionary[@"isPlusSize"] boolValue];
 	_sku = [dictionary[@"sku"] copy];
-	_webId = [dictionary[@"webId"] copy];
+	_webId = [dictionary[@"webId"] integerValue];
 
     return self;
 }
@@ -33,9 +33,9 @@
 
 	_callout = [coder decodeObjectForKey:@"callout"];
 	_codes = [coder decodeObjectForKey:@"codes"];
-	_webId = [coder decodeObjectForKey:@"webId"];
+	_webId = [coder decodeIntegerForKey:@"webId"];
 	_sku = [coder decodeObjectForKey:@"sku"];
-	_isPlusSize = [coder decodeObjectForKey:@"isPlusSize"];
+	_isPlusSize = [coder decodeBoolForKey:@"isPlusSize"];
 
     return self;
 }
@@ -43,9 +43,9 @@
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.callout != nil) [coder encodeObject:self.callout forKey:@"callout"];
 	if (self.codes != nil) [coder encodeObject:self.codes forKey:@"codes"];
-	if (self.webId != nil) [coder encodeObject:self.webId forKey:@"webId"];
+	[coder encodeInteger:self.webId forKey:@"webId"];
 	if (self.sku != nil) [coder encodeObject:self.sku forKey:@"sku"];
-	if (self.isPlusSize != nil) [coder encodeObject:self.isPlusSize forKey:@"isPlusSize"];
+	[coder encodeBool:self.isPlusSize forKey:@"isPlusSize"];
 }
 
 @end

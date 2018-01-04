@@ -14,11 +14,11 @@
 
 @interface PaymentOptions: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *isExtraFlex;
+@property (nonatomic, assign) NSInteger number;
 
-@property (nonatomic, strong, readonly) BOOL *number;
+@property (nonatomic, assign) bool isExtraFlex;
 
-@property (nonatomic, strong, readonly) NSString *amount;
+@property (nonatomic, strong, nullable) NSString *amount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

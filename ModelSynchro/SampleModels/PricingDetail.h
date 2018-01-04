@@ -11,31 +11,31 @@
 */
 
 #import <Foundation/Foundation.h>
-#import PaymentOptions.h
+#import "PaymentOptions.h"
 
 @interface PricingDetail: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *isMatrixFlexPayAvailable;
+@property (nonatomic, assign) bool isMatrixFlexPayAvailable;
 
-@property (nonatomic, strong, readonly) NSArray<PaymentOptions> *paymentOptions;
+@property (nonatomic, assign) double priceHoursRemaining;
 
-@property (nonatomic, strong, readonly) NSString *extraFlexPromotionId;
+@property (nonatomic, strong) NSArray<PaymentOptions *> *paymentOptions;
 
-@property (nonatomic, strong, readonly) NSString *oldPrice;
+@property (nonatomic, strong) NSString *oldPrice;
 
-@property (nonatomic, strong, readonly) NSString *paymentType;
+@property (nonatomic, strong) NSString *paymentType;
 
-@property (nonatomic, strong, readonly) NSString *price;
+@property (nonatomic, strong) NSString *price;
 
-@property (nonatomic, strong, readonly) NSString *shippingAndHandling;
+@property (nonatomic, strong) NSString *vipPaymentMessage;
 
-@property (nonatomic, strong, readonly) NSString *shippingAndHandlingLabel;
+@property (nonatomic, strong) NSString *youSave;
 
-@property (nonatomic, strong, readonly) NSString *vipPaymentMessage;
+@property (nonatomic, strong, nullable) NSString *extraFlexPromotionId;
 
-@property (nonatomic, strong, readonly) NSString *youSave;
+@property (nonatomic, strong, nullable) NSString *shippingAndHandling;
 
-@property (nonatomic, strong, readonly) double *priceHoursRemaining;
+@property (nonatomic, strong, nullable) NSString *shippingAndHandlingLabel;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

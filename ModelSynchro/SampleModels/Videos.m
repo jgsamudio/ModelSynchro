@@ -20,15 +20,15 @@
 
 	_analyticCat = [dictionary[@"analyticCat"] copy];
 	_analyticName = [dictionary[@"analyticName"] copy];
-	_distTypeId = [dictionary[@"distTypeId"] copy];
-	_height = [dictionary[@"height"] copy];
+	_distTypeId = [dictionary[@"distTypeId"] integerValue];
+	_height = [dictionary[@"height"] integerValue];
 	_httpUrl = [dictionary[@"httpUrl"] copy];
 	_iosUrl = [dictionary[@"iosUrl"] copy];
 	_label = [dictionary[@"label"] copy];
-	_thumbNailIsCustom = [dictionary[@"thumbNailIsCustom"] copy];
+	_thumbNailIsCustom = [dictionary[@"thumbNailIsCustom"] boolValue];
 	_thumbNailUrl = [dictionary[@"thumbNailUrl"] copy];
 	_videoType = [dictionary[@"videoType"] copy];
-	_width = [dictionary[@"width"] copy];
+	_width = [dictionary[@"width"] integerValue];
 	_youTubeVideoId = [dictionary[@"youTubeVideoId"] copy];
 
     return self;
@@ -38,11 +38,11 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_height = [coder decodeObjectForKey:@"height"];
+	_height = [coder decodeIntegerForKey:@"height"];
 	_analyticCat = [coder decodeObjectForKey:@"analyticCat"];
-	_width = [coder decodeObjectForKey:@"width"];
-	_distTypeId = [coder decodeObjectForKey:@"distTypeId"];
-	_thumbNailIsCustom = [coder decodeObjectForKey:@"thumbNailIsCustom"];
+	_width = [coder decodeIntegerForKey:@"width"];
+	_distTypeId = [coder decodeIntegerForKey:@"distTypeId"];
+	_thumbNailIsCustom = [coder decodeBoolForKey:@"thumbNailIsCustom"];
 	_youTubeVideoId = [coder decodeObjectForKey:@"youTubeVideoId"];
 	_thumbNailUrl = [coder decodeObjectForKey:@"thumbNailUrl"];
 	_videoType = [coder decodeObjectForKey:@"videoType"];
@@ -55,11 +55,11 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.height != nil) [coder encodeObject:self.height forKey:@"height"];
+	[coder encodeInteger:self.height forKey:@"height"];
 	if (self.analyticCat != nil) [coder encodeObject:self.analyticCat forKey:@"analyticCat"];
-	if (self.width != nil) [coder encodeObject:self.width forKey:@"width"];
-	if (self.distTypeId != nil) [coder encodeObject:self.distTypeId forKey:@"distTypeId"];
-	if (self.thumbNailIsCustom != nil) [coder encodeObject:self.thumbNailIsCustom forKey:@"thumbNailIsCustom"];
+	[coder encodeInteger:self.width forKey:@"width"];
+	[coder encodeInteger:self.distTypeId forKey:@"distTypeId"];
+	[coder encodeBool:self.thumbNailIsCustom forKey:@"thumbNailIsCustom"];
 	if (self.youTubeVideoId != nil) [coder encodeObject:self.youTubeVideoId forKey:@"youTubeVideoId"];
 	if (self.thumbNailUrl != nil) [coder encodeObject:self.thumbNailUrl forKey:@"thumbNailUrl"];
 	if (self.videoType != nil) [coder encodeObject:self.videoType forKey:@"videoType"];

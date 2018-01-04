@@ -11,11 +11,11 @@
 */
 
 #import <Foundation/Foundation.h>
-#import Amount.h
+#import "Amount.h"
 
 @interface RetailPrice: NSObject
 
-@property (nonatomic, strong, readonly) Amount *amount;
+@property (nonatomic, strong) Amount *amount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -43,7 +43,7 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
     }
 
     var bool: String {
-        return "BOOL"
+        return "bool"
     }
 
     var string: String {
@@ -77,9 +77,12 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
             if !type.isPrimitiveType {
                 switch type {
                 case .array(let type):
-                    headerStringArray.append("#import \(type).h")
+                    let arrayType = Type.initialize(typeString: type, formatter: self)
+                    if !arrayType.isPrimitiveType {
+                        headerStringArray.append("#import \"\(type).h\"")
+                    }
                 default:
-                    headerStringArray.append("#import \(propertyLine.type).h")
+                    headerStringArray.append("#import \"\(propertyLine.type).h\"")
                 }
             }
         }
@@ -99,20 +102,28 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
             generatedLine += customLine + " // "
         }
 
-        generatedLine += "@property (nonatomic, strong, readonly) " + line.type + " *" + line.property.lowercaseFirstLetter() + ";"
+        let type = Type.initialize(typeString: line.type, formatter: self)
+        var propertyPrefix = "@property (nonatomic, "
+
+        propertyPrefix += type.isPrimitiveCType ? "assign" : "strong"
+        propertyPrefix += (line.isOptional && !type.isPrimitiveCType) ? ", nullable) " : ") "
+
+        let pointer = (type.isPrimitiveCType) ? " " : " *"
+
+        generatedLine += propertyPrefix + line.type + pointer + line.property.lowercaseFirstLetter() + ";"
 
         return generatedLine
     }
 
     func property(variableString: String) -> String? {
-        guard isVariable(variableString), let property = variableString.stringBetween(startString: "@property (nonatomic, strong, readonly) ", endString: "*") else {
+        guard isVariable(variableString), let property = variableString.stringBetween(startString: ") ", endString: " ") else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
     }
 
     func isVariable(_ string: String) -> Bool {
-        return string.contains("@property (nonatomic") && string.contains("*")
+        return string.contains("@property (nonatomic")
     }
 
     func keyMapping(lines: [Line]) -> String {
@@ -124,20 +135,21 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
     }
 
     func keyedProperty(string: String) -> KeyedProperty? {
-        if string.contains("case"), let splitString = string.split(at: "=") {
-            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
-            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
-            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
-        }
+        //TODO: Fix me
+//        if string.contains("case"), let splitString = string.split(at: "=") {
+//            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
+//            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
+//            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
+//        }
         return nil
     }
 
     func arrayFormat(type: String) -> String {
-        return "NSArray<" + type.capitalizedFirstLetter() + ">"
+        return "NSArray<" + type.capitalizedFirstLetter() + " *>"
     }
 
     func type(arrayString: String) -> String {
-        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: ">", with: "")
+        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: " *>", with: "")
     }
 
     func customFormat(type: String) -> String {

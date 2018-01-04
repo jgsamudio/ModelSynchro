@@ -18,10 +18,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_averageRatingValue = [dictionary[@"averageRatingValue"] copy];
+	_averageRatingValue = [dictionary[@"averageRatingValue"] doubleValue];
 	_gaugeInfo = [dictionary[@"gaugeInfo"] copy];
 	_groups = [dictionary[@"groups"] copy];
-	_totalRatings = [dictionary[@"totalRatings"] copy];
+	_totalRatings = [dictionary[@"totalRatings"] integerValue];
 
     return self;
 }
@@ -31,8 +31,8 @@
     if (self == nil) return nil;
 
 	_gaugeInfo = [coder decodeObjectForKey:@"gaugeInfo"];
-	_averageRatingValue = [coder decodeObjectForKey:@"averageRatingValue"];
-	_totalRatings = [coder decodeObjectForKey:@"totalRatings"];
+	_averageRatingValue = [coder decodeDoubleForKey:@"averageRatingValue"];
+	_totalRatings = [coder decodeIntegerForKey:@"totalRatings"];
 	_groups = [coder decodeObjectForKey:@"groups"];
 
     return self;
@@ -40,8 +40,8 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.gaugeInfo != nil) [coder encodeObject:self.gaugeInfo forKey:@"gaugeInfo"];
-	if (self.averageRatingValue != nil) [coder encodeObject:self.averageRatingValue forKey:@"averageRatingValue"];
-	if (self.totalRatings != nil) [coder encodeObject:self.totalRatings forKey:@"totalRatings"];
+	[coder encodeDouble:self.averageRatingValue forKey:@"averageRatingValue"];
+	[coder encodeInteger:self.totalRatings forKey:@"totalRatings"];
 	if (self.groups != nil) [coder encodeObject:self.groups forKey:@"groups"];
 }
 

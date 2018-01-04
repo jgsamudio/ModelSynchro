@@ -14,9 +14,9 @@
 
 @interface Brand: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *id;
+@property (nonatomic, assign) NSInteger id;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

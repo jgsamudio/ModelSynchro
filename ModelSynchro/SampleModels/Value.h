@@ -14,29 +14,29 @@
 
 @interface Value: NSObject
 
-@property (nonatomic, strong, readonly) NSString *code;
+@property (nonatomic, strong) NSString *code;
 
-@property (nonatomic, strong, readonly) NSString *description;
+@property (nonatomic, strong) NSString *description;
 
-@property (nonatomic, strong, readonly) NSString *imageName;
+@property (nonatomic, strong) NSString *imageName;
 
-@property (nonatomic, strong, readonly) NSString *imageUrl;
+@property (nonatomic, strong) NSString *imageUrl;
 
-@property (nonatomic, strong, readonly) NSString *imageUrlWithToken;
+@property (nonatomic, strong) NSString *imageUrlWithToken;
 
-@property (nonatomic, strong, readonly) NSString *jsonPlusSizeZoomUrls;
+@property (nonatomic, strong) NSString *jsonPlusSizeZoomUrls;
 
-@property (nonatomic, strong, readonly) NSString *jsonZoomUrls;
+@property (nonatomic, strong) NSString *jsonZoomUrls;
 
-@property (nonatomic, strong, readonly) NSString *plusSizeProductImageUrl;
+@property (nonatomic, strong) NSString *plusSizeProductImageUrl;
 
-@property (nonatomic, strong, readonly) NSString *plusSizeProductImageUrlWithToken;
+@property (nonatomic, strong) NSString *plusSizeProductImageUrlWithToken;
 
-@property (nonatomic, strong, readonly) NSString *productImageName;
+@property (nonatomic, strong) NSString *productImageName;
 
-@property (nonatomic, strong, readonly) NSString *productImageUrl;
+@property (nonatomic, strong) NSString *productImageUrl;
 
-@property (nonatomic, strong, readonly) NSString *productImageUrlWithToken;
+@property (nonatomic, strong) NSString *productImageUrlWithToken;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -14,13 +14,13 @@
 
 @interface Promotions: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *articleId;
+@property (nonatomic, assign) NSInteger articleId;
 
-@property (nonatomic, strong, readonly) NSInteger *id;
+@property (nonatomic, assign) NSInteger id;
 
-@property (nonatomic, strong, readonly) NSString *message;
+@property (nonatomic, strong) NSString *message;
 
-@property (nonatomic, strong, readonly) NSString *type;
+@property (nonatomic, strong) NSString *type;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

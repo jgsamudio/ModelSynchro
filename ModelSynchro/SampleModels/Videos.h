@@ -14,29 +14,29 @@
 
 @interface Videos: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *distTypeId;
+@property (nonatomic, assign) NSInteger distTypeId;
 
-@property (nonatomic, strong, readonly) BOOL *thumbNailIsCustom;
+@property (nonatomic, assign) NSInteger height;
 
-@property (nonatomic, strong, readonly) NSInteger *height;
+@property (nonatomic, assign) NSInteger width;
 
-@property (nonatomic, strong, readonly) NSInteger *width;
+@property (nonatomic, assign) bool thumbNailIsCustom;
 
-@property (nonatomic, strong, readonly) NSString *analyticCat;
+@property (nonatomic, strong) NSString *analyticCat;
 
-@property (nonatomic, strong, readonly) NSString *analyticName;
+@property (nonatomic, strong) NSString *analyticName;
 
-@property (nonatomic, strong, readonly) NSString *httpUrl;
+@property (nonatomic, strong) NSString *label;
 
-@property (nonatomic, strong, readonly) NSString *iosUrl;
+@property (nonatomic, strong) NSString *thumbNailUrl;
 
-@property (nonatomic, strong, readonly) NSString *label;
+@property (nonatomic, strong) NSString *videoType;
 
-@property (nonatomic, strong, readonly) NSString *thumbNailUrl;
+@property (nonatomic, strong) NSString *youTubeVideoId;
 
-@property (nonatomic, strong, readonly) NSString *videoType;
+@property (nonatomic, strong, nullable) NSString *httpUrl;
 
-@property (nonatomic, strong, readonly) NSString *youTubeVideoId;
+@property (nonatomic, strong, nullable) NSString *iosUrl;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

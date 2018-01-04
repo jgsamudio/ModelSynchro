@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_articleId = [dictionary[@"articleId"] copy];
-	_id = [dictionary[@"id"] copy];
+	_articleId = [dictionary[@"articleId"] integerValue];
+	_id = [dictionary[@"id"] integerValue];
 	_message = [dictionary[@"message"] copy];
 	_type = [dictionary[@"type"] copy];
 
@@ -30,19 +30,19 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_articleId = [coder decodeObjectForKey:@"articleId"];
+	_articleId = [coder decodeIntegerForKey:@"articleId"];
 	_message = [coder decodeObjectForKey:@"message"];
 	_type = [coder decodeObjectForKey:@"type"];
-	_id = [coder decodeObjectForKey:@"id"];
+	_id = [coder decodeIntegerForKey:@"id"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.articleId != nil) [coder encodeObject:self.articleId forKey:@"articleId"];
+	[coder encodeInteger:self.articleId forKey:@"articleId"];
 	if (self.message != nil) [coder encodeObject:self.message forKey:@"message"];
 	if (self.type != nil) [coder encodeObject:self.type forKey:@"type"];
-	if (self.id != nil) [coder encodeObject:self.id forKey:@"id"];
+	[coder encodeInteger:self.id forKey:@"id"];
 }
 
 @end

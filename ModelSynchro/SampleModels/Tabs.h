@@ -11,13 +11,13 @@
 */
 
 #import <Foundation/Foundation.h>
-#import Contents.h
+#import "Contents.h"
 
 @interface Tabs: NSObject
 
-@property (nonatomic, strong, readonly) NSArray<Contents> *contents;
+@property (nonatomic, strong) NSArray<Contents *> *contents;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

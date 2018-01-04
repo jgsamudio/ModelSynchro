@@ -11,13 +11,12 @@
 */
 
 #import <Foundation/Foundation.h>
-#import NSString.h
 
 @interface Pairs: NSObject
 
-@property (nonatomic, strong, readonly) NSArray<NSString> *values;
+@property (nonatomic, strong) NSArray<NSString *> *values;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

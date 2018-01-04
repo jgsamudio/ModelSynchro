@@ -19,12 +19,12 @@
     if (self == nil) return nil;
 
 	_extraFlexPromotionId = [dictionary[@"extraFlexPromotionId"] copy];
-	_isMatrixFlexPayAvailable = [dictionary[@"isMatrixFlexPayAvailable"] copy];
+	_isMatrixFlexPayAvailable = [dictionary[@"isMatrixFlexPayAvailable"] boolValue];
 	_oldPrice = [dictionary[@"oldPrice"] copy];
 	_paymentOptions = [dictionary[@"paymentOptions"] copy];
 	_paymentType = [dictionary[@"paymentType"] copy];
 	_price = [dictionary[@"price"] copy];
-	_priceHoursRemaining = [dictionary[@"priceHoursRemaining"] copy];
+	_priceHoursRemaining = [dictionary[@"priceHoursRemaining"] doubleValue];
 	_shippingAndHandling = [dictionary[@"shippingAndHandling"] copy];
 	_shippingAndHandlingLabel = [dictionary[@"shippingAndHandlingLabel"] copy];
 	_vipPaymentMessage = [dictionary[@"vipPaymentMessage"] copy];
@@ -38,9 +38,9 @@
     if (self == nil) return nil;
 
 	_paymentOptions = [coder decodeObjectForKey:@"paymentOptions"];
-	_priceHoursRemaining = [coder decodeObjectForKey:@"priceHoursRemaining"];
+	_priceHoursRemaining = [coder decodeDoubleForKey:@"priceHoursRemaining"];
 	_youSave = [coder decodeObjectForKey:@"youSave"];
-	_isMatrixFlexPayAvailable = [coder decodeObjectForKey:@"isMatrixFlexPayAvailable"];
+	_isMatrixFlexPayAvailable = [coder decodeBoolForKey:@"isMatrixFlexPayAvailable"];
 	_paymentType = [coder decodeObjectForKey:@"paymentType"];
 	_oldPrice = [coder decodeObjectForKey:@"oldPrice"];
 	_price = [coder decodeObjectForKey:@"price"];
@@ -54,9 +54,9 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.paymentOptions != nil) [coder encodeObject:self.paymentOptions forKey:@"paymentOptions"];
-	if (self.priceHoursRemaining != nil) [coder encodeObject:self.priceHoursRemaining forKey:@"priceHoursRemaining"];
+	[coder encodeDouble:self.priceHoursRemaining forKey:@"priceHoursRemaining"];
 	if (self.youSave != nil) [coder encodeObject:self.youSave forKey:@"youSave"];
-	if (self.isMatrixFlexPayAvailable != nil) [coder encodeObject:self.isMatrixFlexPayAvailable forKey:@"isMatrixFlexPayAvailable"];
+	[coder encodeBool:self.isMatrixFlexPayAvailable forKey:@"isMatrixFlexPayAvailable"];
 	if (self.paymentType != nil) [coder encodeObject:self.paymentType forKey:@"paymentType"];
 	if (self.oldPrice != nil) [coder encodeObject:self.oldPrice forKey:@"oldPrice"];
 	if (self.price != nil) [coder encodeObject:self.price forKey:@"price"];

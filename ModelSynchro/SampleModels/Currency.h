@@ -14,11 +14,11 @@
 
 @interface Currency: NSObject
 
-@property (nonatomic, strong, readonly) NSString *isoCode;
+@property (nonatomic, strong) NSString *isoCode;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
-@property (nonatomic, strong, readonly) NSString *symbol;
+@property (nonatomic, strong) NSString *symbol;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

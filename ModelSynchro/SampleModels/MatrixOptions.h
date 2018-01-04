@@ -11,58 +11,58 @@
 */
 
 #import <Foundation/Foundation.h>
-#import RetailPrice.h
-#import Images.h
-#import PricingDetail.h
-#import ProductOptions.h
-#import Price.h
-#import OldPrice.h
-#import Tabs.h
-#import Autoship.h
+#import "RetailPrice.h"
+#import "Images.h"
+#import "PricingDetail.h"
+#import "ProductOptions.h"
+#import "Price.h"
+#import "OldPrice.h"
+#import "Tabs.h"
+#import "Autoship.h"
 
 @interface MatrixOptions: NSObject
 
-@property (nonatomic, strong, readonly) Autoship *autoship;
+@property (nonatomic, assign) NSInteger productId;
 
-@property (nonatomic, strong, readonly) BOOL *hasHsnSizeChart;
+@property (nonatomic, assign) bool hasHsnSizeChart;
 
-@property (nonatomic, strong, readonly) NSArray<Images> *images;
+@property (nonatomic, strong, nullable) Autoship *autoship;
 
-@property (nonatomic, strong, readonly) NSArray<Tabs> *tabs;
+@property (nonatomic, strong, nullable) NSArray<Images *> *images;
 
-@property (nonatomic, strong, readonly) NSInteger *productId;
+@property (nonatomic, strong, nullable) NSArray<Tabs *> *tabs;
 
-@property (nonatomic, strong, readonly) NSString *autoshipInformation;
+@property (nonatomic, strong, nullable) NSString *autoshipInformation;
 
-@property (nonatomic, strong, readonly) NSString *itemNumber;
+@property (nonatomic, strong, nullable) NSString *itemNumber;
 
-@property (nonatomic, strong, readonly) NSString *jsonProductZoomUrls;
+@property (nonatomic, strong, nullable) NSString *jsonProductZoomUrls;
 
-@property (nonatomic, strong, readonly) NSString *optionDescription;
+@property (nonatomic, strong, nullable) NSString *optionDescription;
 
-@property (nonatomic, strong, readonly) NSString *previewUrl;
+@property (nonatomic, strong, nullable) NSString *previewUrl;
 
-@property (nonatomic, strong, readonly) NSString *productDescription;
+@property (nonatomic, strong, nullable) NSString *productDescription;
 
-@property (nonatomic, strong, readonly) NSString *productImageUrl;
+@property (nonatomic, strong, nullable) NSString *productImageUrl;
 
-@property (nonatomic, strong, readonly) NSString *productImageUrlWithToken;
+@property (nonatomic, strong, nullable) NSString *productImageUrlWithToken;
 
-@property (nonatomic, strong, readonly) NSString *productUrl;
+@property (nonatomic, strong, nullable) NSString *productUrl;
 
-@property (nonatomic, strong, readonly) NSString *retailPriceLabel;
+@property (nonatomic, strong, nullable) NSString *retailPriceLabel;
 
-@property (nonatomic, strong, readonly) NSString *thumbnailUrl;
+@property (nonatomic, strong, nullable) NSString *thumbnailUrl;
 
-@property (nonatomic, strong, readonly) OldPrice *oldPrice;
+@property (nonatomic, strong, nullable) OldPrice *oldPrice;
 
-@property (nonatomic, strong, readonly) Price *price;
+@property (nonatomic, strong, nullable) Price *price;
 
-@property (nonatomic, strong, readonly) PricingDetail *pricingDetail;
+@property (nonatomic, strong, nullable) PricingDetail *pricingDetail;
 
-@property (nonatomic, strong, readonly) ProductOptions *productOptions;
+@property (nonatomic, strong, nullable) ProductOptions *productOptions;
 
-@property (nonatomic, strong, readonly) RetailPrice *retailPrice;
+@property (nonatomic, strong, nullable) RetailPrice *retailPrice;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

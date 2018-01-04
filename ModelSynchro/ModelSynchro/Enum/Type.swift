@@ -45,6 +45,15 @@ enum Type {
             return false
         }
     }
+
+    var isPrimitiveCType: Bool {
+        switch self {
+        case .int, .bool, .double:
+            return true
+        default:
+            return false
+        }
+    }
     
     func toString(formatter: LanguageFormatter) -> String {
         switch self {

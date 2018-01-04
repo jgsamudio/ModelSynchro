@@ -11,18 +11,18 @@
 */
 
 #import <Foundation/Foundation.h>
-#import GaugeInfo.h
-#import Groups.h
+#import "GaugeInfo.h"
+#import "Groups.h"
 
 @interface RatingAggregates: NSObject
 
-@property (nonatomic, strong, readonly) GaugeInfo *gaugeInfo;
+@property (nonatomic, assign) NSInteger totalRatings;
 
-@property (nonatomic, strong, readonly) NSArray<Groups> *groups;
+@property (nonatomic, assign) double averageRatingValue;
 
-@property (nonatomic, strong, readonly) NSInteger *totalRatings;
+@property (nonatomic, strong) GaugeInfo *gaugeInfo;
 
-@property (nonatomic, strong, readonly) double *averageRatingValue;
+@property (nonatomic, strong) NSArray<Groups *> *groups;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

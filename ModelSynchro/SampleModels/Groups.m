@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_count = [dictionary[@"count"] copy];
-	_value = [dictionary[@"value"] copy];
+	_count = [dictionary[@"count"] integerValue];
+	_value = [dictionary[@"value"] integerValue];
 
     return self;
 }
@@ -28,15 +28,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_value = [coder decodeObjectForKey:@"value"];
-	_count = [coder decodeObjectForKey:@"count"];
+	_value = [coder decodeIntegerForKey:@"value"];
+	_count = [coder decodeIntegerForKey:@"count"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.value != nil) [coder encodeObject:self.value forKey:@"value"];
-	if (self.count != nil) [coder encodeObject:self.count forKey:@"count"];
+	[coder encodeInteger:self.value forKey:@"value"];
+	[coder encodeInteger:self.count forKey:@"count"];
 }
 
 @end

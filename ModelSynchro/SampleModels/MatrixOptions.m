@@ -20,7 +20,7 @@
 
 	_autoship = [dictionary[@"autoship"] copy];
 	_autoshipInformation = [dictionary[@"autoshipInformation"] copy];
-	_hasHsnSizeChart = [dictionary[@"hasHsnSizeChart"] copy];
+	_hasHsnSizeChart = [dictionary[@"hasHsnSizeChart"] boolValue];
 	_images = [dictionary[@"images"] copy];
 	_itemNumber = [dictionary[@"itemNumber"] copy];
 	_jsonProductZoomUrls = [dictionary[@"jsonProductZoomUrls"] copy];
@@ -30,7 +30,7 @@
 	_price = [dictionary[@"price"] copy];
 	_pricingDetail = [dictionary[@"pricingDetail"] copy];
 	_productDescription = [dictionary[@"productDescription"] copy];
-	_productId = [dictionary[@"productId"] copy];
+	_productId = [dictionary[@"productId"] integerValue];
 	_productImageUrl = [dictionary[@"productImageUrl"] copy];
 	_productImageUrlWithToken = [dictionary[@"productImageUrlWithToken"] copy];
 	_productOptions = [dictionary[@"productOptions"] copy];
@@ -50,9 +50,9 @@
 	_retailPrice = [coder decodeObjectForKey:@"retailPrice"];
 	_images = [coder decodeObjectForKey:@"images"];
 	_thumbnailUrl = [coder decodeObjectForKey:@"thumbnailUrl"];
-	_hasHsnSizeChart = [coder decodeObjectForKey:@"hasHsnSizeChart"];
+	_hasHsnSizeChart = [coder decodeBoolForKey:@"hasHsnSizeChart"];
 	_retailPriceLabel = [coder decodeObjectForKey:@"retailPriceLabel"];
-	_productId = [coder decodeObjectForKey:@"productId"];
+	_productId = [coder decodeIntegerForKey:@"productId"];
 	_productDescription = [coder decodeObjectForKey:@"productDescription"];
 	_productUrl = [coder decodeObjectForKey:@"productUrl"];
 	_pricingDetail = [coder decodeObjectForKey:@"pricingDetail"];
@@ -76,9 +76,9 @@
 	if (self.retailPrice != nil) [coder encodeObject:self.retailPrice forKey:@"retailPrice"];
 	if (self.images != nil) [coder encodeObject:self.images forKey:@"images"];
 	if (self.thumbnailUrl != nil) [coder encodeObject:self.thumbnailUrl forKey:@"thumbnailUrl"];
-	if (self.hasHsnSizeChart != nil) [coder encodeObject:self.hasHsnSizeChart forKey:@"hasHsnSizeChart"];
+	[coder encodeBool:self.hasHsnSizeChart forKey:@"hasHsnSizeChart"];
 	if (self.retailPriceLabel != nil) [coder encodeObject:self.retailPriceLabel forKey:@"retailPriceLabel"];
-	if (self.productId != nil) [coder encodeObject:self.productId forKey:@"productId"];
+	[coder encodeInteger:self.productId forKey:@"productId"];
 	if (self.productDescription != nil) [coder encodeObject:self.productDescription forKey:@"productDescription"];
 	if (self.productUrl != nil) [coder encodeObject:self.productUrl forKey:@"productUrl"];
 	if (self.pricingDetail != nil) [coder encodeObject:self.pricingDetail forKey:@"pricingDetail"];

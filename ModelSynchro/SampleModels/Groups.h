@@ -14,9 +14,9 @@
 
 @interface Groups: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *count;
+@property (nonatomic, assign) NSInteger count;
 
-@property (nonatomic, strong, readonly) NSInteger *value;
+@property (nonatomic, assign) NSInteger value;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

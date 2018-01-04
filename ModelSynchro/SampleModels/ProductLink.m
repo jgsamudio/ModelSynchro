@@ -18,7 +18,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [dictionary[@"type"] copy];
+	_type = [dictionary[@"type"] integerValue];
 	_uri = [dictionary[@"uri"] copy];
 
     return self;
@@ -28,14 +28,14 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [coder decodeObjectForKey:@"type"];
+	_type = [coder decodeIntegerForKey:@"type"];
 	_uri = [coder decodeObjectForKey:@"uri"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.type != nil) [coder encodeObject:self.type forKey:@"type"];
+	[coder encodeInteger:self.type forKey:@"type"];
 	if (self.uri != nil) [coder encodeObject:self.uri forKey:@"uri"];
 }
 

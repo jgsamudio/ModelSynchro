@@ -14,13 +14,13 @@
 
 @interface Flag: NSObject
 
-@property (nonatomic, strong, readonly) BOOL *isSoldOut;
+@property (nonatomic, assign) bool isSoldOut;
 
-@property (nonatomic, strong, readonly) BOOL *isTodaysSpecial;
+@property (nonatomic, assign) bool isTodaysSpecial;
 
-@property (nonatomic, strong, readonly) NSString *className;
+@property (nonatomic, strong) NSString *className;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

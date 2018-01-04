@@ -19,7 +19,7 @@
     if (self == nil) return nil;
 
 	_currency = [dictionary[@"currency"] copy];
-	_value = [dictionary[@"value"] copy];
+	_value = [dictionary[@"value"] doubleValue];
 
     return self;
 }
@@ -28,14 +28,14 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_value = [coder decodeObjectForKey:@"value"];
+	_value = [coder decodeDoubleForKey:@"value"];
 	_currency = [coder decodeObjectForKey:@"currency"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.value != nil) [coder encodeObject:self.value forKey:@"value"];
+	[coder encodeDouble:self.value forKey:@"value"];
 	if (self.currency != nil) [coder encodeObject:self.currency forKey:@"currency"];
 }
 

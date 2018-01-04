@@ -14,9 +14,9 @@
 
 @interface Categories: NSObject
 
-@property (nonatomic, strong, readonly) NSString *id;
+@property (nonatomic, strong) NSString *id;
 
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

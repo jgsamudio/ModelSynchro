@@ -11,17 +11,17 @@
 */
 
 #import <Foundation/Foundation.h>
-#import Widths.h
-#import Swatches.h
-#import Sizes.h
+#import "Widths.h"
+#import "Swatches.h"
+#import "Sizes.h"
 
 @interface ProductOptions: NSObject
 
-@property (nonatomic, strong, readonly) NSArray<Sizes> *sizes;
+@property (nonatomic, strong) NSArray<Sizes *> *sizes;
 
-@property (nonatomic, strong, readonly) NSArray<Swatches> *swatches;
+@property (nonatomic, strong) NSArray<Swatches *> *swatches;
 
-@property (nonatomic, strong, readonly) NSArray<Widths> *widths;
+@property (nonatomic, strong) NSArray<Widths *> *widths;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

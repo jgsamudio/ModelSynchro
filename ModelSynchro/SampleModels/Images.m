@@ -19,7 +19,7 @@
     if (self == nil) return nil;
 
 	_description = [dictionary[@"description"] copy];
-	_isDefault = [dictionary[@"isDefault"] copy];
+	_isDefault = [dictionary[@"isDefault"] boolValue];
 	_jsonPlusSizeZoomUrls = [dictionary[@"jsonPlusSizeZoomUrls"] copy];
 	_jsonZoomUrls = [dictionary[@"jsonZoomUrls"] copy];
 	_name = [dictionary[@"name"] copy];
@@ -35,7 +35,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_isDefault = [coder decodeObjectForKey:@"isDefault"];
+	_isDefault = [coder decodeBoolForKey:@"isDefault"];
 	_jsonPlusSizeZoomUrls = [coder decodeObjectForKey:@"jsonPlusSizeZoomUrls"];
 	_plusSizeProductImageUrl = [coder decodeObjectForKey:@"plusSizeProductImageUrl"];
 	_thumbnailUrl = [coder decodeObjectForKey:@"thumbnailUrl"];
@@ -49,7 +49,7 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.isDefault != nil) [coder encodeObject:self.isDefault forKey:@"isDefault"];
+	[coder encodeBool:self.isDefault forKey:@"isDefault"];
 	if (self.jsonPlusSizeZoomUrls != nil) [coder encodeObject:self.jsonPlusSizeZoomUrls forKey:@"jsonPlusSizeZoomUrls"];
 	if (self.plusSizeProductImageUrl != nil) [coder encodeObject:self.plusSizeProductImageUrl forKey:@"plusSizeProductImageUrl"];
 	if (self.thumbnailUrl != nil) [coder encodeObject:self.thumbnailUrl forKey:@"thumbnailUrl"];

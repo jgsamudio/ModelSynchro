@@ -11,13 +11,13 @@
 */
 
 #import <Foundation/Foundation.h>
-#import Value.h
+#import "Value.h"
 
 @interface Swatches: NSObject
 
-@property (nonatomic, strong, readonly) NSArray<Value> *value;
+@property (nonatomic, strong) NSArray<Value *> *value;
 
-@property (nonatomic, strong, readonly) NSString *key;
+@property (nonatomic, strong) NSString *key;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

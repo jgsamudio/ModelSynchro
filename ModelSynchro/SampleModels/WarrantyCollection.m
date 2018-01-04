@@ -19,4 +19,6 @@
     if (self == nil) return nil;
 
 
+    return self;
+}
 @end

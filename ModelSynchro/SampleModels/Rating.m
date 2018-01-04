@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_average = [dictionary[@"average"] copy];
-	_count = [dictionary[@"count"] copy];
+	_average = [dictionary[@"average"] doubleValue];
+	_count = [dictionary[@"count"] integerValue];
 
     return self;
 }
@@ -28,15 +28,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_count = [coder decodeObjectForKey:@"count"];
-	_average = [coder decodeObjectForKey:@"average"];
+	_count = [coder decodeIntegerForKey:@"count"];
+	_average = [coder decodeDoubleForKey:@"average"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	if (self.count != nil) [coder encodeObject:self.count forKey:@"count"];
-	if (self.average != nil) [coder encodeObject:self.average forKey:@"average"];
+	[coder encodeInteger:self.count forKey:@"count"];
+	[coder encodeDouble:self.average forKey:@"average"];
 }
 
 @end

@@ -14,11 +14,11 @@
 
 @interface Autoship: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *frequency;
+@property (nonatomic, assign) NSInteger frequency;
 
-@property (nonatomic, strong, readonly) NSString *description;
+@property (nonatomic, strong) NSString *description;
 
-@property (nonatomic, strong, readonly) NSString *id;
+@property (nonatomic, strong) NSString *id;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -18,7 +18,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_id = [dictionary[@"id"] copy];
+	_id = [dictionary[@"id"] integerValue];
 	_name = [dictionary[@"name"] copy];
 
     return self;
@@ -29,14 +29,14 @@
     if (self == nil) return nil;
 
 	_name = [coder decodeObjectForKey:@"name"];
-	_id = [coder decodeObjectForKey:@"id"];
+	_id = [coder decodeIntegerForKey:@"id"];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.name != nil) [coder encodeObject:self.name forKey:@"name"];
-	if (self.id != nil) [coder encodeObject:self.id forKey:@"id"];
+	[coder encodeInteger:self.id forKey:@"id"];
 }
 
 @end

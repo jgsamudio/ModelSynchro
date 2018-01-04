@@ -19,7 +19,7 @@
     if (self == nil) return nil;
 
 	_description = [dictionary[@"description"] copy];
-	_frequency = [dictionary[@"frequency"] copy];
+	_frequency = [dictionary[@"frequency"] integerValue];
 	_id = [dictionary[@"id"] copy];
 
     return self;
@@ -30,7 +30,7 @@
     if (self == nil) return nil;
 
 	_description = [coder decodeObjectForKey:@"description"];
-	_frequency = [coder decodeObjectForKey:@"frequency"];
+	_frequency = [coder decodeIntegerForKey:@"frequency"];
 	_id = [coder decodeObjectForKey:@"id"];
 
     return self;
@@ -38,7 +38,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
 	if (self.description != nil) [coder encodeObject:self.description forKey:@"description"];
-	if (self.frequency != nil) [coder encodeObject:self.frequency forKey:@"frequency"];
+	[coder encodeInteger:self.frequency forKey:@"frequency"];
 	if (self.id != nil) [coder encodeObject:self.id forKey:@"id"];
 }
 

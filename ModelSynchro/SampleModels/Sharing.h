@@ -14,9 +14,9 @@
 
 @interface Sharing: NSObject
 
-@property (nonatomic, strong, readonly) NSInteger *type;
+@property (nonatomic, assign) NSInteger type;
 
-@property (nonatomic, strong, readonly) NSString *uri;
+@property (nonatomic, strong) NSString *uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
