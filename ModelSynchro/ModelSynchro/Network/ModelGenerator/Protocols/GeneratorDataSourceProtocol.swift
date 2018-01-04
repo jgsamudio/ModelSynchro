@@ -12,9 +12,13 @@ protocol GeneratorDataSourceProtocol {
     var contents: [LineContent] { get set }
     var currentIteration: Int { get set }
     var currentLineContent: LineContent { get set }
+
     var allLines: [String] { get }
+    var allHeaderLines: [String] { get }
 
     func fileText(name: String, config: ConfigurationFile) -> String
+    func headerFileText(name: String, config: ConfigurationFile) -> String
+    
     func incrementModelIteration()
     func appendContent(line: Line)
     func appendProperty(line: Line)
@@ -32,5 +36,9 @@ extension GeneratorDataSourceProtocol {
 
     var allLines: [String] {
         return contents.map{ $0.fileStringArray }.flatMap { $0 }
+    }
+
+    var allHeaderLines: [String] {
+        return contents.map{ $0.headerFileStringArray }.flatMap { $0 }
     }
 }

@@ -2,12 +2,12 @@
 //  Product.h
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @interface Product
@@ -90,45 +90,4 @@ Auto-Generated using ModelSynchro
 
 @property (nonatomic, strong, readonly) Sharing *sharing;
 
-	enum CodingKeys: String, CodingKey {
-		case autoship = "autoship"
-		case autoshipInformation = "autoshipInformation"
-		case benefits = "benefits"
-		case brand = "brand"
-		case callouts = "callouts"
-		case categories = "categories"
-		case disclaimers = "disclaimers"
-		case flag = "flag"
-		case hasHsnSizeChart = "hasHsnSizeChart"
-		case howToUse = "howToUse"
-		case id = "id"
-		case images = "images"
-		case isInMatrix = "isInMatrix"
-		case isMatrixTextOnly = "isMatrixTextOnly"
-		case isPersonalizable = "isPersonalizable"
-		case isSoldOut = "isSoldOut"
-		case itemNumber = "itemNumber"
-		case matrixGroups = "matrixGroups"
-		case matrixId = "matrixId"
-		case matrixLabel = "matrixLabel"
-		case matrixOptions = "matrixOptions"
-		case name = "name"
-		case note = "note"
-		case overview = "overview"
-		case overviewHtml = "overviewHtml"
-		case pricing = "pricing"
-		case pricingDetail = "pricingDetail"
-		case productLabel = "productLabel"
-		case productLink = "productLink"
-		case productOptions = "productOptions"
-		case promotions = "promotions"
-		case rating = "rating"
-		case ratingAggregates = "ratingAggregates"
-		case sharing = "sharing"
-		case shortName = "shortName"
-		case slug = "slug"
-		case tabs = "tabs"
-		case videos = "videos"
-		case warrantyCollection = "warrantyCollection"
-	}
 @end

@@ -21,14 +21,14 @@ final class GeneratorDataSource: GeneratorDataSourceProtocol {
     }
     
     func fileText(name: String, config: ConfigurationFile) -> String {
-        var fileLines = [String]()
-        fileLines.append(languageFormatter.fileHeader(name: name, config: config))
-        fileLines.append(languageFormatter.modelClassDeclaration(name: name))
-        fileLines += allLines.sorted { $0 < $1 }
-        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
-        fileLines.append(languageFormatter.modelClassEndLine)
+        return fileString(name: name, config: config, languageFormatter: languageFormatter, lines: allLines)
+    }
 
-        return fileLines.joined(separator: "\n")
+    func headerFileText(name: String, config: ConfigurationFile) -> String {
+        guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
+            return ""
+        }
+        return fileString(name: name, config: config, languageFormatter: languageFormatter, lines: allHeaderLines)
     }
     
     func incrementModelIteration() {
@@ -59,5 +59,16 @@ private extension GeneratorDataSource {
                 content.checkOptional(otherLineContent: contents[index+1])
             }
         }
+    }
+
+    func fileString(name: String, config: ConfigurationFile, languageFormatter: LanguageFormatter, lines: [String]) -> String {
+        var fileLines = [String]()
+        fileLines.append(languageFormatter.fileHeader(name: name, config: config))
+        fileLines.append(languageFormatter.modelClassDeclaration(name: name))
+        fileLines += lines.sorted { $0 < $1 }
+        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
+        fileLines.append(languageFormatter.modelClassEndLine)
+
+        return fileLines.joined(separator: "\n")
     }
 }

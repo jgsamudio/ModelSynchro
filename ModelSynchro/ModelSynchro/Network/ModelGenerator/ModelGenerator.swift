@@ -21,7 +21,15 @@ final class ModelGenerator: ModelGeneratorProtocol {
     private var languageFormatter: LanguageFormatter
     
     private var fileURLString: String {
-        return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name + languageFormatter.fileExtension
+        return fileDirectory + languageFormatter.fileExtension
+    }
+
+    private var headerFileURLString: String {
+        return fileDirectory + (languageFormatter.headerLanguageFormatter?.fileExtension ?? "")
+    }
+
+    private var fileDirectory: String {
+        return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name
     }
     
     private var isOptional: Bool {
@@ -65,16 +73,9 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
-        guard let fileURL = URL(string: fileURLString) else {
-            print("Error: Not a valid url")
-            return
-        }
-        
-        do {
-            try dataSource.fileText(name: name, config: config).write(to: fileURL, atomically: false, encoding: .utf8)
-        }
-        catch let error {
-            print("Error: " + error.localizedDescription)
+        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString)
+        if languageFormatter.containsHeader {
+            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString)
         }
     }
 }

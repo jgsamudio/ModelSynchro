@@ -2,12 +2,12 @@
 //  Categories.h
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @interface Categories
@@ -16,8 +16,4 @@ Auto-Generated using ModelSynchro
 
 @property (nonatomic, strong, readonly) NSString *name;
 
-	enum CodingKeys: String, CodingKey {
-		case id = "id"
-		case name = "name"
-	}
 @end

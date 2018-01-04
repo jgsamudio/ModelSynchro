@@ -28,6 +28,14 @@ class LineContent {
     var fileStringArray: [String] {
         return fileLines.map { $0.toString(languageFormatter: languageFormatter) }
     }
+
+    /// String array for the header file if available.
+    var headerFileStringArray: [String] {
+        guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
+            return []
+        }
+        return fileLines.map { $0.toString(languageFormatter: languageFormatter) }
+    }
     
     private var languageFormatter: LanguageFormatter
     

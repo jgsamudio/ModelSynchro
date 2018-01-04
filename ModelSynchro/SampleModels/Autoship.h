@@ -2,12 +2,12 @@
 //  Autoship.h
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @interface Autoship
@@ -18,9 +18,4 @@ Auto-Generated using ModelSynchro
 
 @property (nonatomic, strong, readonly) NSString *id;
 
-	enum CodingKeys: String, CodingKey {
-		case description = "description"
-		case frequency = "frequency"
-		case id = "id"
-	}
 @end

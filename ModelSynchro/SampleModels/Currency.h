@@ -2,12 +2,12 @@
 //  Currency.h
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @interface Currency
@@ -18,9 +18,4 @@ Auto-Generated using ModelSynchro
 
 @property (nonatomic, strong, readonly) NSString *symbol;
 
-	enum CodingKeys: String, CodingKey {
-		case isoCode = "isoCode"
-		case name = "name"
-		case symbol = "symbol"
-	}
 @end

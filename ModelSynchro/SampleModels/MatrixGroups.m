@@ -7,7 +7,7 @@
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @implementation MatrixGroups

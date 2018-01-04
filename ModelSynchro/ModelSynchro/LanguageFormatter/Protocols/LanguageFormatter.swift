@@ -9,7 +9,10 @@
 import Foundation
 
 protocol LanguageFormatter {
-    
+
+    var containsHeader: Bool { get }
+    var headerLanguageFormatter: LanguageFormatter? { get }
+
     var fileExtension: String { get }
     var optional: String { get }
     var modelClassEndLine: String { get }
@@ -31,4 +34,15 @@ protocol LanguageFormatter {
     func keyedProperty(string: String) -> KeyedProperty?
     func arrayFormat(type: String) -> String
     func customFormat(type: String) -> String
+}
+
+extension LanguageFormatter {
+
+    var containsHeader: Bool {
+        return false
+    }
+
+    var headerLanguageFormatter: LanguageFormatter? {
+        return nil
+    }
 }

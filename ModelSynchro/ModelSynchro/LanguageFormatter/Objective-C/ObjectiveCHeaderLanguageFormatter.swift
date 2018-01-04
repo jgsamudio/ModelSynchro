@@ -1,21 +1,21 @@
 //
-//  ObjectiveCLanguageFormatter.swift
+//  ObjectiveCHeaderLanguageFormatter.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 1/3/18.
+//  Created by Jonathan Samudio on 1/4/18.
 //  Copyright © 2018 Jonathan Samudio. All rights reserved.
 //
 
 import Foundation
 
-final class ObjectiveCLanguageFormatter: LanguageFormatter {
+final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
 
     var headerLanguageFormatter: LanguageFormatter? {
-        return ObjectiveCHeaderLanguageFormatter()
+        return nil
     }
 
     var fileExtension: String {
-        return ".m"
+        return ".h"
     }
 
     var optional: String {
@@ -61,32 +61,24 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         //
 
         /*
-        Auto-Generated using ModelSynchro
+            Auto-Generated using ModelSynchro
         */
 
         """
     }
 
     func modelClassDeclaration(name: String) -> String {
-        return """
-        @implementation \(name)
-
-        - (id)initWithDictionary:(NSDictionary *)dictionary {
-            self = [self init];
-            if (self == nil) return nil;
-
-        """
+        return "@interface " + name
     }
 
     func variableString(line: Line) -> String {
-        var generatedLine = "\t"
+        var generatedLine = "\n"
 
         if let customLine = line.customProperty?.customLine {
             generatedLine += customLine + " // "
         }
 
-        let property = line.property.lowercaseFirstLetter()
-        generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] copy];"
+        generatedLine += "@property (nonatomic, strong, readonly) " + line.type + " *" + line.property.lowercaseFirstLetter() + ";"
 
         return generatedLine
     }
@@ -103,51 +95,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     }
 
     func keyMapping(lines: [Line]) -> String {
-        guard !lines.isEmpty else {
-            return ""
-        }
-
-        var keyMappingStrings = [String]()
-        keyMappingStrings.append(
-        """
-
-            return self;
-        }
-
-        - (id)initWithCoder:(NSCoder *)coder {
-            self = [self init];
-            if (self == nil) return nil;
-
-        """)
-
-        for line in lines {
-            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
-            let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-            keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
-        }
-
-        keyMappingStrings.append(
-            """
-
-            return self;
-        }
-
-        - (void)encodeWithCoder:(NSCoder *)coder {
-        """)
-
-        for line in lines {
-            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
-            let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-            keyMappingStrings.append("\tif (self.\(keyedProperty) != nil) [coder encodeObject:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
-        }
-
-        keyMappingStrings.append(
-            """
-        }
-
-        """)
-
-        return keyMappingStrings.joined(separator: "\n")
+        return ""
     }
 
     func keyedProperty(string: String) -> KeyedProperty? {

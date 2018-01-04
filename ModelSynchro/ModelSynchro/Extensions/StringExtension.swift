@@ -71,4 +71,18 @@ extension String {
         }
         return self
     }
+
+    func writeToFile(directory: String) {
+        guard let fileURL = URL(string: directory) else {
+            print("Error: Not a valid url")
+            return
+        }
+
+        do {
+            try write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch let error {
+            print("Error: " + error.localizedDescription)
+        }
+    }
 }

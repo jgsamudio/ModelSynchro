@@ -228,6 +228,31 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		204607E41FFEA4200063A53E /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */,
+				204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
+		204607E51FFEA42E0063A53E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				20642B291FCE099900E3AA2F /* LanguageFormatter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		204607E61FFEA4370063A53E /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		2059DA341FCCCBDF00B020C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,10 +312,9 @@
 		20642B241FCDFF1800E3AA2F /* LanguageFormatter */ = {
 			isa = PBXGroup;
 			children = (
-				20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */,
-				20642B291FCE099900E3AA2F /* LanguageFormatter.swift */,
-				204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */,
-				204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */,
+				204607E61FFEA4370063A53E /* Swift */,
+				204607E51FFEA42E0063A53E /* Protocols */,
+				204607E41FFEA4200063A53E /* Objective-C */,
 			);
 			path = LanguageFormatter;
 			sourceTree = "<group>";

@@ -2,12 +2,12 @@
 //  MatrixOptions.h
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 @interface MatrixOptions
@@ -50,25 +50,4 @@ Auto-Generated using ModelSynchro
 
 @property (nonatomic, strong, readonly) ProductOptions *productOptions;
 
-	enum CodingKeys: String, CodingKey {
-		case autoship = "autoship"
-		case autoshipInformation = "autoshipInformation"
-		case hasHsnSizeChart = "hasHsnSizeChart"
-		case images = "images"
-		case itemNumber = "itemNumber"
-		case jsonProductZoomUrls = "jsonProductZoomUrls"
-		case oldPrice = "oldPrice"
-		case optionDescription = "optionDescription"
-		case previewUrl = "previewUrl"
-		case price = "price"
-		case pricingDetail = "pricingDetail"
-		case productDescription = "productDescription"
-		case productId = "productId"
-		case productImageUrl = "productImageUrl"
-		case productImageUrlWithToken = "productImageUrlWithToken"
-		case productOptions = "productOptions"
-		case productUrl = "productUrl"
-		case tabs = "tabs"
-		case thumbnailUrl = "thumbnailUrl"
-	}
 @end
