@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_tier1 = [dictionary[@"tier1"] copy];
-	_tier2 = [dictionary[@"tier2"] copy];
+	self.tier1 = [dictionary[@"tier1"] copy];
+	self.tier2 = [dictionary[@"tier2"] copy];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_tier1 = [coder decodeObjectForKey:@"tier1"];
-	_tier2 = [coder decodeObjectForKey:@"tier2"];
+	self.tier1 = [coder decodeObjectForKey:@"tier1"];
+	self.tier2 = [coder decodeObjectForKey:@"tier2"];
 
     return self;
 }

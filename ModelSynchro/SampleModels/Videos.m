@@ -18,18 +18,18 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_analyticCat = [dictionary[@"analyticCat"] copy];
-	_analyticName = [dictionary[@"analyticName"] copy];
-	_distTypeId = [dictionary[@"distTypeId"] integerValue];
-	_height = [dictionary[@"height"] integerValue];
-	_httpUrl = [dictionary[@"httpUrl"] copy];
-	_iosUrl = [dictionary[@"iosUrl"] copy];
-	_label = [dictionary[@"label"] copy];
-	_thumbNailIsCustom = [dictionary[@"thumbNailIsCustom"] boolValue];
-	_thumbNailUrl = [dictionary[@"thumbNailUrl"] copy];
-	_videoType = [dictionary[@"videoType"] copy];
-	_width = [dictionary[@"width"] integerValue];
-	_youTubeVideoId = [dictionary[@"youTubeVideoId"] copy];
+	self.analyticCat = [dictionary[@"analyticCat"] copy];
+	self.analyticName = [dictionary[@"analyticName"] copy];
+	self.distTypeId = [dictionary[@"distTypeId"] integerValue];
+	self.height = [dictionary[@"height"] integerValue];
+	self.httpUrl = [dictionary[@"httpUrl"] copy];
+	self.iosUrl = [dictionary[@"iosUrl"] copy];
+	self.label = [dictionary[@"label"] copy];
+	self.thumbNailIsCustom = [dictionary[@"thumbNailIsCustom"] boolValue];
+	self.thumbNailUrl = [dictionary[@"thumbNailUrl"] copy];
+	self.videoType = [dictionary[@"videoType"] copy];
+	self.width = [dictionary[@"width"] integerValue];
+	self.youTubeVideoId = [dictionary[@"youTubeVideoId"] copy];
 
     return self;
 }
@@ -38,18 +38,18 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_height = [coder decodeIntegerForKey:@"height"];
-	_analyticCat = [coder decodeObjectForKey:@"analyticCat"];
-	_width = [coder decodeIntegerForKey:@"width"];
-	_distTypeId = [coder decodeIntegerForKey:@"distTypeId"];
-	_thumbNailIsCustom = [coder decodeBoolForKey:@"thumbNailIsCustom"];
-	_youTubeVideoId = [coder decodeObjectForKey:@"youTubeVideoId"];
-	_thumbNailUrl = [coder decodeObjectForKey:@"thumbNailUrl"];
-	_videoType = [coder decodeObjectForKey:@"videoType"];
-	_analyticName = [coder decodeObjectForKey:@"analyticName"];
-	_label = [coder decodeObjectForKey:@"label"];
-	_httpUrl = [coder decodeObjectForKey:@"httpUrl"];
-	_iosUrl = [coder decodeObjectForKey:@"iosUrl"];
+	self.height = [coder decodeIntegerForKey:@"height"];
+	self.analyticCat = [coder decodeObjectForKey:@"analyticCat"];
+	self.width = [coder decodeIntegerForKey:@"width"];
+	self.distTypeId = [coder decodeIntegerForKey:@"distTypeId"];
+	self.thumbNailIsCustom = [coder decodeBoolForKey:@"thumbNailIsCustom"];
+	self.youTubeVideoId = [coder decodeObjectForKey:@"youTubeVideoId"];
+	self.thumbNailUrl = [coder decodeObjectForKey:@"thumbNailUrl"];
+	self.videoType = [coder decodeObjectForKey:@"videoType"];
+	self.analyticName = [coder decodeObjectForKey:@"analyticName"];
+	self.label = [coder decodeObjectForKey:@"label"];
+	self.httpUrl = [coder decodeObjectForKey:@"httpUrl"];
+	self.iosUrl = [coder decodeObjectForKey:@"iosUrl"];
 
     return self;
 }

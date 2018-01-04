@@ -18,7 +18,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [dictionary[@"type"] copy];
+	self.type = [dictionary[@"type"] copy];
 
     return self;
 }
@@ -27,7 +27,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [coder decodeObjectForKey:@"type"];
+	self.type = [coder decodeObjectForKey:@"type"];
 
     return self;
 }

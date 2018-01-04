@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_appliesToProductId = [dictionary[@"appliesToProductId"] integerValue];
-	_contentHtml = [dictionary[@"contentHtml"] copy];
-	_keyValueGroups = [dictionary[@"keyValueGroups"] copy];
+	self.appliesToProductId = [dictionary[@"appliesToProductId"] integerValue];
+	self.contentHtml = [dictionary[@"contentHtml"] copy];
+	self.keyValueGroups = [dictionary[@"keyValueGroups"] copy];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_appliesToProductId = [coder decodeIntegerForKey:@"appliesToProductId"];
-	_contentHtml = [coder decodeObjectForKey:@"contentHtml"];
-	_keyValueGroups = [coder decodeObjectForKey:@"keyValueGroups"];
+	self.appliesToProductId = [coder decodeIntegerForKey:@"appliesToProductId"];
+	self.contentHtml = [coder decodeObjectForKey:@"contentHtml"];
+	self.keyValueGroups = [coder decodeObjectForKey:@"keyValueGroups"];
 
     return self;
 }

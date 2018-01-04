@@ -18,10 +18,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_averageRatingValue = [dictionary[@"averageRatingValue"] doubleValue];
-	_gaugeInfo = [dictionary[@"gaugeInfo"] copy];
-	_groups = [dictionary[@"groups"] copy];
-	_totalRatings = [dictionary[@"totalRatings"] integerValue];
+	self.averageRatingValue = [dictionary[@"averageRatingValue"] doubleValue];
+	self.gaugeInfo = [dictionary[@"gaugeInfo"] copy];
+	self.groups = [dictionary[@"groups"] copy];
+	self.totalRatings = [dictionary[@"totalRatings"] integerValue];
 
     return self;
 }
@@ -30,10 +30,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_gaugeInfo = [coder decodeObjectForKey:@"gaugeInfo"];
-	_averageRatingValue = [coder decodeDoubleForKey:@"averageRatingValue"];
-	_totalRatings = [coder decodeIntegerForKey:@"totalRatings"];
-	_groups = [coder decodeObjectForKey:@"groups"];
+	self.gaugeInfo = [coder decodeObjectForKey:@"gaugeInfo"];
+	self.averageRatingValue = [coder decodeDoubleForKey:@"averageRatingValue"];
+	self.totalRatings = [coder decodeIntegerForKey:@"totalRatings"];
+	self.groups = [coder decodeObjectForKey:@"groups"];
 
     return self;
 }

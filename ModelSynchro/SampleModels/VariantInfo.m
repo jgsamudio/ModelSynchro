@@ -18,11 +18,11 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_callout = [dictionary[@"callout"] copy];
-	_codes = [dictionary[@"codes"] copy];
-	_isPlusSize = [dictionary[@"isPlusSize"] boolValue];
-	_sku = [dictionary[@"sku"] copy];
-	_webId = [dictionary[@"webId"] integerValue];
+	self.callout = [dictionary[@"callout"] copy];
+	self.codes = [dictionary[@"codes"] copy];
+	self.isPlusSize = [dictionary[@"isPlusSize"] boolValue];
+	self.sku = [dictionary[@"sku"] copy];
+	self.webId = [dictionary[@"webId"] integerValue];
 
     return self;
 }
@@ -31,11 +31,11 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_callout = [coder decodeObjectForKey:@"callout"];
-	_codes = [coder decodeObjectForKey:@"codes"];
-	_webId = [coder decodeIntegerForKey:@"webId"];
-	_sku = [coder decodeObjectForKey:@"sku"];
-	_isPlusSize = [coder decodeBoolForKey:@"isPlusSize"];
+	self.callout = [coder decodeObjectForKey:@"callout"];
+	self.codes = [coder decodeObjectForKey:@"codes"];
+	self.webId = [coder decodeIntegerForKey:@"webId"];
+	self.sku = [coder decodeObjectForKey:@"sku"];
+	self.isPlusSize = [coder decodeBoolForKey:@"isPlusSize"];
 
     return self;
 }

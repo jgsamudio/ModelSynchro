@@ -18,15 +18,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_description = [dictionary[@"description"] copy];
-	_isDefault = [dictionary[@"isDefault"] boolValue];
-	_jsonPlusSizeZoomUrls = [dictionary[@"jsonPlusSizeZoomUrls"] copy];
-	_jsonZoomUrls = [dictionary[@"jsonZoomUrls"] copy];
-	_name = [dictionary[@"name"] copy];
-	_plusName = [dictionary[@"plusName"] copy];
-	_plusSizeProductImageUrl = [dictionary[@"plusSizeProductImageUrl"] copy];
-	_thumbnailUrl = [dictionary[@"thumbnailUrl"] copy];
-	_url = [dictionary[@"url"] copy];
+	self.description = [dictionary[@"description"] copy];
+	self.isDefault = [dictionary[@"isDefault"] boolValue];
+	self.jsonPlusSizeZoomUrls = [dictionary[@"jsonPlusSizeZoomUrls"] copy];
+	self.jsonZoomUrls = [dictionary[@"jsonZoomUrls"] copy];
+	self.name = [dictionary[@"name"] copy];
+	self.plusName = [dictionary[@"plusName"] copy];
+	self.plusSizeProductImageUrl = [dictionary[@"plusSizeProductImageUrl"] copy];
+	self.thumbnailUrl = [dictionary[@"thumbnailUrl"] copy];
+	self.url = [dictionary[@"url"] copy];
 
     return self;
 }
@@ -35,15 +35,15 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_isDefault = [coder decodeBoolForKey:@"isDefault"];
-	_jsonPlusSizeZoomUrls = [coder decodeObjectForKey:@"jsonPlusSizeZoomUrls"];
-	_plusSizeProductImageUrl = [coder decodeObjectForKey:@"plusSizeProductImageUrl"];
-	_thumbnailUrl = [coder decodeObjectForKey:@"thumbnailUrl"];
-	_url = [coder decodeObjectForKey:@"url"];
-	_name = [coder decodeObjectForKey:@"name"];
-	_plusName = [coder decodeObjectForKey:@"plusName"];
-	_jsonZoomUrls = [coder decodeObjectForKey:@"jsonZoomUrls"];
-	_description = [coder decodeObjectForKey:@"description"];
+	self.isDefault = [coder decodeBoolForKey:@"isDefault"];
+	self.jsonPlusSizeZoomUrls = [coder decodeObjectForKey:@"jsonPlusSizeZoomUrls"];
+	self.plusSizeProductImageUrl = [coder decodeObjectForKey:@"plusSizeProductImageUrl"];
+	self.thumbnailUrl = [coder decodeObjectForKey:@"thumbnailUrl"];
+	self.url = [coder decodeObjectForKey:@"url"];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.plusName = [coder decodeObjectForKey:@"plusName"];
+	self.jsonZoomUrls = [coder decodeObjectForKey:@"jsonZoomUrls"];
+	self.description = [coder decodeObjectForKey:@"description"];
 
     return self;
 }

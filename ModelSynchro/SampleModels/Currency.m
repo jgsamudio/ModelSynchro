@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_isoCode = [dictionary[@"isoCode"] copy];
-	_name = [dictionary[@"name"] copy];
-	_symbol = [dictionary[@"symbol"] copy];
+	self.isoCode = [dictionary[@"isoCode"] copy];
+	self.name = [dictionary[@"name"] copy];
+	self.symbol = [dictionary[@"symbol"] copy];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_name = [coder decodeObjectForKey:@"name"];
-	_isoCode = [coder decodeObjectForKey:@"isoCode"];
-	_symbol = [coder decodeObjectForKey:@"symbol"];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.isoCode = [coder decodeObjectForKey:@"isoCode"];
+	self.symbol = [coder decodeObjectForKey:@"symbol"];
 
     return self;
 }

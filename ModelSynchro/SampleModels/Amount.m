@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_currency = [dictionary[@"currency"] copy];
-	_value = [dictionary[@"value"] doubleValue];
+	self.currency = [dictionary[@"currency"] copy];
+	self.value = [dictionary[@"value"] doubleValue];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_value = [coder decodeDoubleForKey:@"value"];
-	_currency = [coder decodeObjectForKey:@"currency"];
+	self.value = [coder decodeDoubleForKey:@"value"];
+	self.currency = [coder decodeObjectForKey:@"currency"];
 
     return self;
 }

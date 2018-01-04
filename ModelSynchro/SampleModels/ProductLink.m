@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [dictionary[@"type"] integerValue];
-	_uri = [dictionary[@"uri"] copy];
+	self.type = [dictionary[@"type"] integerValue];
+	self.uri = [dictionary[@"uri"] copy];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [coder decodeIntegerForKey:@"type"];
-	_uri = [coder decodeObjectForKey:@"uri"];
+	self.type = [coder decodeIntegerForKey:@"type"];
+	self.uri = [coder decodeObjectForKey:@"uri"];
 
     return self;
 }

@@ -99,13 +99,13 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         let type = Type.initialize(typeString: line.type, formatter: self)
 
         if type.toString(formatter: self) == int {
-            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] integerValue];"
+            generatedLine +=  "self." + property + " = [dictionary[@\"\(property)\"] integerValue];"
         } else if type.toString(formatter: self) == bool {
-            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] boolValue];"
+            generatedLine +=  "self." + property + " = [dictionary[@\"\(property)\"] boolValue];"
         } else if type.toString(formatter: self) == double {
-                generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] doubleValue];"
+                generatedLine +=  "self." + property + " = [dictionary[@\"\(property)\"] doubleValue];"
         } else {
-            generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] copy];"
+            generatedLine +=  "self." + property + " = [dictionary[@\"\(property)\"] copy];"
         }
 
         return generatedLine
@@ -151,13 +151,13 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
             let type = Type.initialize(typeString: line.type, formatter: self)
 
             if type.toString(formatter: self) == int {
-                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeIntegerForKey:@\"\(jsonProperty)\"];")
+                keyMappingStrings.append("\tself." + keyedProperty + " = [coder decodeIntegerForKey:@\"\(jsonProperty)\"];")
             } else if type.toString(formatter: self) == bool {
-                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeBoolForKey:@\"\(jsonProperty)\"];")
+                keyMappingStrings.append("\tself." + keyedProperty + " = [coder decodeBoolForKey:@\"\(jsonProperty)\"];")
             } else if type.toString(formatter: self) == double {
-                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeDoubleForKey:@\"\(jsonProperty)\"];")
+                keyMappingStrings.append("\tself." + keyedProperty + " = [coder decodeDoubleForKey:@\"\(jsonProperty)\"];")
             } else {
-                keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
+                keyMappingStrings.append("\tself." + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
             }
         }
 

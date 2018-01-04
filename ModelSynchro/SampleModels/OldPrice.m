@@ -18,7 +18,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [dictionary[@"amount"] copy];
+	self.amount = [dictionary[@"amount"] copy];
 
     return self;
 }
@@ -27,7 +27,7 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [coder decodeObjectForKey:@"amount"];
+	self.amount = [coder decodeObjectForKey:@"amount"];
 
     return self;
 }

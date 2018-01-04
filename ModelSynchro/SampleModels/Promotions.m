@@ -18,10 +18,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_articleId = [dictionary[@"articleId"] integerValue];
-	_id = [dictionary[@"id"] integerValue];
-	_message = [dictionary[@"message"] copy];
-	_type = [dictionary[@"type"] copy];
+	self.articleId = [dictionary[@"articleId"] integerValue];
+	self.id = [dictionary[@"id"] integerValue];
+	self.message = [dictionary[@"message"] copy];
+	self.type = [dictionary[@"type"] copy];
 
     return self;
 }
@@ -30,10 +30,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_articleId = [coder decodeIntegerForKey:@"articleId"];
-	_message = [coder decodeObjectForKey:@"message"];
-	_type = [coder decodeObjectForKey:@"type"];
-	_id = [coder decodeIntegerForKey:@"id"];
+	self.articleId = [coder decodeIntegerForKey:@"articleId"];
+	self.message = [coder decodeObjectForKey:@"message"];
+	self.type = [coder decodeObjectForKey:@"type"];
+	self.id = [coder decodeIntegerForKey:@"id"];
 
     return self;
 }

@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_sizes = [dictionary[@"sizes"] copy];
-	_swatches = [dictionary[@"swatches"] copy];
-	_widths = [dictionary[@"widths"] copy];
+	self.sizes = [dictionary[@"sizes"] copy];
+	self.swatches = [dictionary[@"swatches"] copy];
+	self.widths = [dictionary[@"widths"] copy];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_widths = [coder decodeObjectForKey:@"widths"];
-	_swatches = [coder decodeObjectForKey:@"swatches"];
-	_sizes = [coder decodeObjectForKey:@"sizes"];
+	self.widths = [coder decodeObjectForKey:@"widths"];
+	self.swatches = [coder decodeObjectForKey:@"swatches"];
+	self.sizes = [coder decodeObjectForKey:@"sizes"];
 
     return self;
 }

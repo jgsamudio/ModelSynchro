@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_amount = [dictionary[@"amount"] copy];
-	_isExtraFlex = [dictionary[@"isExtraFlex"] boolValue];
-	_number = [dictionary[@"number"] integerValue];
+	self.amount = [dictionary[@"amount"] copy];
+	self.isExtraFlex = [dictionary[@"isExtraFlex"] boolValue];
+	self.number = [dictionary[@"number"] integerValue];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_isExtraFlex = [coder decodeBoolForKey:@"isExtraFlex"];
-	_number = [coder decodeIntegerForKey:@"number"];
-	_amount = [coder decodeObjectForKey:@"amount"];
+	self.isExtraFlex = [coder decodeBoolForKey:@"isExtraFlex"];
+	self.number = [coder decodeIntegerForKey:@"number"];
+	self.amount = [coder decodeObjectForKey:@"amount"];
 
     return self;
 }

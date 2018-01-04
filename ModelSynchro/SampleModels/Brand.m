@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_id = [dictionary[@"id"] integerValue];
-	_name = [dictionary[@"name"] copy];
+	self.id = [dictionary[@"id"] integerValue];
+	self.name = [dictionary[@"name"] copy];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_name = [coder decodeObjectForKey:@"name"];
-	_id = [coder decodeIntegerForKey:@"id"];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.id = [coder decodeIntegerForKey:@"id"];
 
     return self;
 }

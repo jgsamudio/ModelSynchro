@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_count = [dictionary[@"count"] integerValue];
-	_value = [dictionary[@"value"] integerValue];
+	self.count = [dictionary[@"count"] integerValue];
+	self.value = [dictionary[@"value"] integerValue];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_value = [coder decodeIntegerForKey:@"value"];
-	_count = [coder decodeIntegerForKey:@"count"];
+	self.value = [coder decodeIntegerForKey:@"value"];
+	self.count = [coder decodeIntegerForKey:@"count"];
 
     return self;
 }

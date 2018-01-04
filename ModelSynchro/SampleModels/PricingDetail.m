@@ -18,17 +18,17 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_extraFlexPromotionId = [dictionary[@"extraFlexPromotionId"] copy];
-	_isMatrixFlexPayAvailable = [dictionary[@"isMatrixFlexPayAvailable"] boolValue];
-	_oldPrice = [dictionary[@"oldPrice"] copy];
-	_paymentOptions = [dictionary[@"paymentOptions"] copy];
-	_paymentType = [dictionary[@"paymentType"] copy];
-	_price = [dictionary[@"price"] copy];
-	_priceHoursRemaining = [dictionary[@"priceHoursRemaining"] doubleValue];
-	_shippingAndHandling = [dictionary[@"shippingAndHandling"] copy];
-	_shippingAndHandlingLabel = [dictionary[@"shippingAndHandlingLabel"] copy];
-	_vipPaymentMessage = [dictionary[@"vipPaymentMessage"] copy];
-	_youSave = [dictionary[@"youSave"] copy];
+	self.extraFlexPromotionId = [dictionary[@"extraFlexPromotionId"] copy];
+	self.isMatrixFlexPayAvailable = [dictionary[@"isMatrixFlexPayAvailable"] boolValue];
+	self.oldPrice = [dictionary[@"oldPrice"] copy];
+	self.paymentOptions = [dictionary[@"paymentOptions"] copy];
+	self.paymentType = [dictionary[@"paymentType"] copy];
+	self.price = [dictionary[@"price"] copy];
+	self.priceHoursRemaining = [dictionary[@"priceHoursRemaining"] doubleValue];
+	self.shippingAndHandling = [dictionary[@"shippingAndHandling"] copy];
+	self.shippingAndHandlingLabel = [dictionary[@"shippingAndHandlingLabel"] copy];
+	self.vipPaymentMessage = [dictionary[@"vipPaymentMessage"] copy];
+	self.youSave = [dictionary[@"youSave"] copy];
 
     return self;
 }
@@ -37,17 +37,17 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_paymentOptions = [coder decodeObjectForKey:@"paymentOptions"];
-	_priceHoursRemaining = [coder decodeDoubleForKey:@"priceHoursRemaining"];
-	_youSave = [coder decodeObjectForKey:@"youSave"];
-	_isMatrixFlexPayAvailable = [coder decodeBoolForKey:@"isMatrixFlexPayAvailable"];
-	_paymentType = [coder decodeObjectForKey:@"paymentType"];
-	_oldPrice = [coder decodeObjectForKey:@"oldPrice"];
-	_price = [coder decodeObjectForKey:@"price"];
-	_vipPaymentMessage = [coder decodeObjectForKey:@"vipPaymentMessage"];
-	_shippingAndHandling = [coder decodeObjectForKey:@"shippingAndHandling"];
-	_extraFlexPromotionId = [coder decodeObjectForKey:@"extraFlexPromotionId"];
-	_shippingAndHandlingLabel = [coder decodeObjectForKey:@"shippingAndHandlingLabel"];
+	self.paymentOptions = [coder decodeObjectForKey:@"paymentOptions"];
+	self.priceHoursRemaining = [coder decodeDoubleForKey:@"priceHoursRemaining"];
+	self.youSave = [coder decodeObjectForKey:@"youSave"];
+	self.isMatrixFlexPayAvailable = [coder decodeBoolForKey:@"isMatrixFlexPayAvailable"];
+	self.paymentType = [coder decodeObjectForKey:@"paymentType"];
+	self.oldPrice = [coder decodeObjectForKey:@"oldPrice"];
+	self.price = [coder decodeObjectForKey:@"price"];
+	self.vipPaymentMessage = [coder decodeObjectForKey:@"vipPaymentMessage"];
+	self.shippingAndHandling = [coder decodeObjectForKey:@"shippingAndHandling"];
+	self.extraFlexPromotionId = [coder decodeObjectForKey:@"extraFlexPromotionId"];
+	self.shippingAndHandlingLabel = [coder decodeObjectForKey:@"shippingAndHandlingLabel"];
 
     return self;
 }

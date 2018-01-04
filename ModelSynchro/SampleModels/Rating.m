@@ -18,8 +18,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_average = [dictionary[@"average"] doubleValue];
-	_count = [dictionary[@"count"] integerValue];
+	self.average = [dictionary[@"average"] doubleValue];
+	self.count = [dictionary[@"count"] integerValue];
 
     return self;
 }
@@ -28,8 +28,8 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_count = [coder decodeIntegerForKey:@"count"];
-	_average = [coder decodeDoubleForKey:@"average"];
+	self.count = [coder decodeIntegerForKey:@"count"];
+	self.average = [coder decodeDoubleForKey:@"average"];
 
     return self;
 }

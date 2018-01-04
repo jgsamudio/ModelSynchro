@@ -18,10 +18,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_className = [dictionary[@"className"] copy];
-	_isSoldOut = [dictionary[@"isSoldOut"] boolValue];
-	_isTodaysSpecial = [dictionary[@"isTodaysSpecial"] boolValue];
-	_name = [dictionary[@"name"] copy];
+	self.className = [dictionary[@"className"] copy];
+	self.isSoldOut = [dictionary[@"isSoldOut"] boolValue];
+	self.isTodaysSpecial = [dictionary[@"isTodaysSpecial"] boolValue];
+	self.name = [dictionary[@"name"] copy];
 
     return self;
 }
@@ -30,10 +30,10 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_className = [coder decodeObjectForKey:@"className"];
-	_isSoldOut = [coder decodeBoolForKey:@"isSoldOut"];
-	_name = [coder decodeObjectForKey:@"name"];
-	_isTodaysSpecial = [coder decodeBoolForKey:@"isTodaysSpecial"];
+	self.className = [coder decodeObjectForKey:@"className"];
+	self.isSoldOut = [coder decodeBoolForKey:@"isSoldOut"];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.isTodaysSpecial = [coder decodeBoolForKey:@"isTodaysSpecial"];
 
     return self;
 }

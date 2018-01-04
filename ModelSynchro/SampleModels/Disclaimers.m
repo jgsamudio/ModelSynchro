@@ -18,12 +18,12 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_area = [dictionary[@"area"] integerValue];
-	_contentHtml = [dictionary[@"contentHtml"] copy];
-	_description = [dictionary[@"description"] copy];
-	_displayPosition = [dictionary[@"displayPosition"] integerValue];
-	_id = [dictionary[@"id"] integerValue];
-	_type = [dictionary[@"type"] integerValue];
+	self.area = [dictionary[@"area"] integerValue];
+	self.contentHtml = [dictionary[@"contentHtml"] copy];
+	self.description = [dictionary[@"description"] copy];
+	self.displayPosition = [dictionary[@"displayPosition"] integerValue];
+	self.id = [dictionary[@"id"] integerValue];
+	self.type = [dictionary[@"type"] integerValue];
 
     return self;
 }
@@ -32,12 +32,12 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_contentHtml = [coder decodeObjectForKey:@"contentHtml"];
-	_id = [coder decodeIntegerForKey:@"id"];
-	_area = [coder decodeIntegerForKey:@"area"];
-	_displayPosition = [coder decodeIntegerForKey:@"displayPosition"];
-	_type = [coder decodeIntegerForKey:@"type"];
-	_description = [coder decodeObjectForKey:@"description"];
+	self.contentHtml = [coder decodeObjectForKey:@"contentHtml"];
+	self.id = [coder decodeIntegerForKey:@"id"];
+	self.area = [coder decodeIntegerForKey:@"area"];
+	self.displayPosition = [coder decodeIntegerForKey:@"displayPosition"];
+	self.type = [coder decodeIntegerForKey:@"type"];
+	self.description = [coder decodeObjectForKey:@"description"];
 
     return self;
 }

@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_description = [dictionary[@"description"] copy];
-	_frequency = [dictionary[@"frequency"] integerValue];
-	_id = [dictionary[@"id"] copy];
+	self.description = [dictionary[@"description"] copy];
+	self.frequency = [dictionary[@"frequency"] integerValue];
+	self.id = [dictionary[@"id"] copy];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_description = [coder decodeObjectForKey:@"description"];
-	_frequency = [coder decodeIntegerForKey:@"frequency"];
-	_id = [coder decodeObjectForKey:@"id"];
+	self.description = [coder decodeObjectForKey:@"description"];
+	self.frequency = [coder decodeIntegerForKey:@"frequency"];
+	self.id = [coder decodeObjectForKey:@"id"];
 
     return self;
 }

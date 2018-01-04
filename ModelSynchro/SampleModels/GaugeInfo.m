@@ -18,9 +18,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_id = [dictionary[@"id"] copy];
-	_name = [dictionary[@"name"] copy];
-	_type = [dictionary[@"type"] copy];
+	self.id = [dictionary[@"id"] copy];
+	self.name = [dictionary[@"name"] copy];
+	self.type = [dictionary[@"type"] copy];
 
     return self;
 }
@@ -29,9 +29,9 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_type = [coder decodeObjectForKey:@"type"];
-	_name = [coder decodeObjectForKey:@"name"];
-	_id = [coder decodeObjectForKey:@"id"];
+	self.type = [coder decodeObjectForKey:@"type"];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.id = [coder decodeObjectForKey:@"id"];
 
     return self;
 }

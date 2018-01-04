@@ -18,18 +18,18 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_code = [dictionary[@"code"] copy];
-	_description = [dictionary[@"description"] copy];
-	_imageName = [dictionary[@"imageName"] copy];
-	_imageUrl = [dictionary[@"imageUrl"] copy];
-	_imageUrlWithToken = [dictionary[@"imageUrlWithToken"] copy];
-	_jsonPlusSizeZoomUrls = [dictionary[@"jsonPlusSizeZoomUrls"] copy];
-	_jsonZoomUrls = [dictionary[@"jsonZoomUrls"] copy];
-	_plusSizeProductImageUrl = [dictionary[@"plusSizeProductImageUrl"] copy];
-	_plusSizeProductImageUrlWithToken = [dictionary[@"plusSizeProductImageUrlWithToken"] copy];
-	_productImageName = [dictionary[@"productImageName"] copy];
-	_productImageUrl = [dictionary[@"productImageUrl"] copy];
-	_productImageUrlWithToken = [dictionary[@"productImageUrlWithToken"] copy];
+	self.code = [dictionary[@"code"] copy];
+	self.description = [dictionary[@"description"] copy];
+	self.imageName = [dictionary[@"imageName"] copy];
+	self.imageUrl = [dictionary[@"imageUrl"] copy];
+	self.imageUrlWithToken = [dictionary[@"imageUrlWithToken"] copy];
+	self.jsonPlusSizeZoomUrls = [dictionary[@"jsonPlusSizeZoomUrls"] copy];
+	self.jsonZoomUrls = [dictionary[@"jsonZoomUrls"] copy];
+	self.plusSizeProductImageUrl = [dictionary[@"plusSizeProductImageUrl"] copy];
+	self.plusSizeProductImageUrlWithToken = [dictionary[@"plusSizeProductImageUrlWithToken"] copy];
+	self.productImageName = [dictionary[@"productImageName"] copy];
+	self.productImageUrl = [dictionary[@"productImageUrl"] copy];
+	self.productImageUrlWithToken = [dictionary[@"productImageUrlWithToken"] copy];
 
     return self;
 }
@@ -38,18 +38,18 @@
     self = [self init];
     if (self == nil) return nil;
 
-	_productImageUrl = [coder decodeObjectForKey:@"productImageUrl"];
-	_plusSizeProductImageUrlWithToken = [coder decodeObjectForKey:@"plusSizeProductImageUrlWithToken"];
-	_code = [coder decodeObjectForKey:@"code"];
-	_plusSizeProductImageUrl = [coder decodeObjectForKey:@"plusSizeProductImageUrl"];
-	_productImageName = [coder decodeObjectForKey:@"productImageName"];
-	_productImageUrlWithToken = [coder decodeObjectForKey:@"productImageUrlWithToken"];
-	_jsonPlusSizeZoomUrls = [coder decodeObjectForKey:@"jsonPlusSizeZoomUrls"];
-	_imageName = [coder decodeObjectForKey:@"imageName"];
-	_imageUrlWithToken = [coder decodeObjectForKey:@"imageUrlWithToken"];
-	_jsonZoomUrls = [coder decodeObjectForKey:@"jsonZoomUrls"];
-	_imageUrl = [coder decodeObjectForKey:@"imageUrl"];
-	_description = [coder decodeObjectForKey:@"description"];
+	self.productImageUrl = [coder decodeObjectForKey:@"productImageUrl"];
+	self.plusSizeProductImageUrlWithToken = [coder decodeObjectForKey:@"plusSizeProductImageUrlWithToken"];
+	self.code = [coder decodeObjectForKey:@"code"];
+	self.plusSizeProductImageUrl = [coder decodeObjectForKey:@"plusSizeProductImageUrl"];
+	self.productImageName = [coder decodeObjectForKey:@"productImageName"];
+	self.productImageUrlWithToken = [coder decodeObjectForKey:@"productImageUrlWithToken"];
+	self.jsonPlusSizeZoomUrls = [coder decodeObjectForKey:@"jsonPlusSizeZoomUrls"];
+	self.imageName = [coder decodeObjectForKey:@"imageName"];
+	self.imageUrlWithToken = [coder decodeObjectForKey:@"imageUrlWithToken"];
+	self.jsonZoomUrls = [coder decodeObjectForKey:@"jsonZoomUrls"];
+	self.imageUrl = [coder decodeObjectForKey:@"imageUrl"];
+	self.description = [coder decodeObjectForKey:@"description"];
 
     return self;
 }
