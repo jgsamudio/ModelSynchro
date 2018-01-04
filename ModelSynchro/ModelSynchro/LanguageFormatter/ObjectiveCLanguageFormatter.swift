@@ -10,8 +10,12 @@ import Foundation
 
 final class ObjectiveCLanguageFormatter: LanguageFormatter {
 
+    var headerLanguageFormatter: LanguageFormatter? {
+        return ObjectiveCHeaderLanguageFormatter()
+    }
+
     var fileExtension: String {
-        return ".h"
+        return ".m"
     }
 
     var optional: String {
@@ -64,17 +68,25 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     }
 
     func modelClassDeclaration(name: String) -> String {
-        return "@interface " + name
+        return """
+        @implementation \(name)
+
+        - (id)initWithDictionary:(NSDictionary *)dictionary {
+            self = [self init];
+            if (self == nil) return nil;
+
+        """
     }
 
     func variableString(line: Line) -> String {
-        var generatedLine = "\n"
+        var generatedLine = "\t"
 
         if let customLine = line.customProperty?.customLine {
             generatedLine += customLine + " // "
         }
 
-        generatedLine += "@property (nonatomic, strong, readonly) " + line.type + " *" + line.property.lowercaseFirstLetter() + ";"
+        let property = line.property.lowercaseFirstLetter()
+        generatedLine +=  "_" + property + " = [dictionary[@\"\(property)\"] copy];"
 
         return generatedLine
     }
@@ -96,15 +108,45 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         }
 
         var keyMappingStrings = [String]()
+        keyMappingStrings.append(
+        """
+
+            return self;
+        }
+
+        - (id)initWithCoder:(NSCoder *)coder {
+            self = [self init];
+            if (self == nil) return nil;
+
+        """)
+
         for line in lines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-            keyMappingStrings.append("\t\tcase " + keyedProperty + " = \"" + jsonProperty + "\"")
+            keyMappingStrings.append("\t_" + keyedProperty + " = [coder decodeObjectForKey:@\"\(jsonProperty)\"];")
         }
 
-        keyMappingStrings = keyMappingStrings.sorted { $0 < $1 }
-        keyMappingStrings.insert("\n\tenum CodingKeys: String, CodingKey {", at: 0)
-        keyMappingStrings.append("\t}")
+        keyMappingStrings.append(
+            """
+
+            return self;
+        }
+
+        - (void)encodeWithCoder:(NSCoder *)coder {
+        """)
+
+        for line in lines {
+            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
+            let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
+            keyMappingStrings.append("\tif (self.\(keyedProperty) != nil) [coder encodeObject:self.\(keyedProperty) forKey:@\"\(jsonProperty)\"];")
+        }
+
+        keyMappingStrings.append(
+            """
+        }
+
+        """)
+
         return keyMappingStrings.joined(separator: "\n")
     }
 
