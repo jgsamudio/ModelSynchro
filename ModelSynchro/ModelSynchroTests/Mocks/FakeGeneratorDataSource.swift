@@ -17,6 +17,7 @@ class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
     var appendPropertyWasCalled = false
     var incrementModelIterationWasCalled = false
     var fileTextWasCalled = false
+    var headerFileTextWasCalled = false
 
     var fakeContents: [FakeLineContent] {
         return contents.flatMap { $0 as? FakeLineContent }
@@ -28,6 +29,11 @@ class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
 
     func fileText(name: String, config: ConfigurationFile) -> String {
         fileTextWasCalled = true
+        return ""
+    }
+
+    func headerFileText(name: String, config: ConfigurationFile) -> String {
+        headerFileTextWasCalled = true
         return ""
     }
 

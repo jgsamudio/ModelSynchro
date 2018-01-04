@@ -54,6 +54,7 @@
 		204607DE1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */; };
 		204607DF1FFE7E7D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */; };
 		204607E31FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */; };
+		204607E71FFEA6EB0063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -479,6 +480,7 @@
 				204607981FFD82E40063A53E /* ModelGeneratorProtocol.swift in Sources */,
 				2003E09A1FFC367700878F8A /* ModelDataSource.swift in Sources */,
 				2003E0A21FFC368200878F8A /* LanguageFormatter.swift in Sources */,
+				204607E71FFEA6EB0063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */,
 				2003E0981FFC367700878F8A /* LineContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

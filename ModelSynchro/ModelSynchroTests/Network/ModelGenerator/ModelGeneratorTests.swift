@@ -105,10 +105,29 @@ class ModelGeneratorTests: XCTestCase {
 
     // MARK: writeToFile
 
-    func testWriteToFile() {
+    func testWriteToFile_NoHeader() {
 
         sut.writeToFile()
 
         XCTAssertTrue(generatorDataSource.fileTextWasCalled)
+    }
+
+    func testWriteToFile_Header() {
+        let config = ConfigurationFile(authorName: "Author",
+                                       companyName: "Company",
+                                       projectName: "MyCoolProject",
+                                       language: "objective-c",
+                                       outputDirectory: "/somewhere",
+                                       endpoints: [],
+                                       headers: nil,
+                                       authEndpoint: nil)
+
+        generatorDataSource = FakeGeneratorDataSource()
+        sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)
+
+        sut.writeToFile()
+
+        XCTAssertTrue(generatorDataSource.fileTextWasCalled)
+        XCTAssertTrue(generatorDataSource.headerFileTextWasCalled)
     }
 }
