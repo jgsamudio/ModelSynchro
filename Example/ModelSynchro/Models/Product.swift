@@ -2,7 +2,7 @@
 //  Product.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 01/03/18.
+//  Created by Jonathan Samudio on 01/04/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -41,7 +41,7 @@ struct Product: Codable {
 	let productLabel: ProductLabel?
 	let productLink: ProductLink
 	let productOptions: ProductOptions
-	let promotions: [Promotions]?
+	let promotions: [Promotions]
 	let rating: Rating
 	let ratingAggregates: [RatingAggregates]
 	let sharing: Sharing
