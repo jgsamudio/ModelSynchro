@@ -30,6 +30,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "//"
     }
 
+    var array: String {
+        return "Array"
+    }
+
     var int: String {
         return "Int"
     }
@@ -46,7 +50,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "Double"
     }
     
-    func fileHeader(name: String, config: ConfigurationFile) -> String {
+    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
         return """
         //
         //  \(name).swift
@@ -119,6 +123,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
 
     func arrayFormat(type: String) -> String {
         return "[" + type.capitalizedFirstLetter() + "]"
+    }
+
+    func type(arrayString: String) -> String {
+        return arrayString.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
     }
 
     func customFormat(type: String) -> String {

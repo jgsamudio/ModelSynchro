@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import Value.h
 
 @interface Swatches: NSObject
 
@@ -18,6 +19,6 @@
 
 @property (nonatomic, strong, readonly) NSString *key;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

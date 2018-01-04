@@ -11,6 +11,9 @@
 */
 
 #import <Foundation/Foundation.h>
+#import Widths.h
+#import Swatches.h
+#import Sizes.h
 
 @interface ProductOptions: NSObject
 
@@ -20,6 +23,6 @@
 
 @property (nonatomic, strong, readonly) NSArray<Widths> *widths;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

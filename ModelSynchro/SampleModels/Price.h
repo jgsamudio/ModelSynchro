@@ -11,11 +11,12 @@
 */
 
 #import <Foundation/Foundation.h>
+#import Amount.h
 
 @interface Price: NSObject
 
 @property (nonatomic, strong, readonly) Amount *amount;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

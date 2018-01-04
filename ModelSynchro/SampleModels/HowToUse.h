@@ -14,6 +14,6 @@
 
 @interface HowToUse: NSObject
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

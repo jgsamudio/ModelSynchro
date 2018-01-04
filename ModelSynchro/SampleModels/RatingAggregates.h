@@ -11,6 +11,8 @@
 */
 
 #import <Foundation/Foundation.h>
+#import GaugeInfo.h
+#import Groups.h
 
 @interface RatingAggregates: NSObject
 
@@ -22,6 +24,6 @@
 
 @property (nonatomic, strong, readonly) double *averageRatingValue;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

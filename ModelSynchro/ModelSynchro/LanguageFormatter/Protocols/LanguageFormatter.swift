@@ -18,6 +18,7 @@ protocol LanguageFormatter {
     var modelClassEndLine: String { get }
     var typeSeparator: String { get }
     var lineComment: String { get }
+    var array: String { get }
 
     // Types
     var int: String { get }
@@ -25,7 +26,7 @@ protocol LanguageFormatter {
     var bool: String { get }
     var double: String { get }
 
-    func fileHeader(name: String, config: ConfigurationFile) -> String
+    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line) -> String
     func property(variableString: String) -> String?
@@ -33,6 +34,7 @@ protocol LanguageFormatter {
     func isVariable(_ string: String) -> Bool
     func keyedProperty(string: String) -> KeyedProperty?
     func arrayFormat(type: String) -> String
+    func type(arrayString: String) -> String
     func customFormat(type: String) -> String
 }
 

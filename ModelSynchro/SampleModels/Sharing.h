@@ -18,6 +18,6 @@
 
 @property (nonatomic, strong, readonly) NSString *uri;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

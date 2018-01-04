@@ -14,6 +14,6 @@
 
 @interface MatrixGroups: NSObject
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

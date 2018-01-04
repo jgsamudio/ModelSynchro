@@ -38,6 +38,10 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         return "//"
     }
 
+    var array: String {
+        return "NSArray"
+    }
+
     var int: String {
         return "NSInteger"
     }
@@ -54,7 +58,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         return "double"
     }
 
-    func fileHeader(name: String, config: ConfigurationFile) -> String {
+    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
         return """
         //
         //  \(name).m
@@ -167,6 +171,10 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
 
     func arrayFormat(type: String) -> String {
         return "NSArray<" + type.capitalizedFirstLetter() + ">"
+    }
+
+    func type(arrayString: String) -> String {
+        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: ">", with: "")
     }
 
     func customFormat(type: String) -> String {

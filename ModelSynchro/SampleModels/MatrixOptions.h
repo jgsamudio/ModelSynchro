@@ -11,6 +11,14 @@
 */
 
 #import <Foundation/Foundation.h>
+#import RetailPrice.h
+#import Images.h
+#import PricingDetail.h
+#import ProductOptions.h
+#import Price.h
+#import OldPrice.h
+#import Tabs.h
+#import Autoship.h
 
 @interface MatrixOptions: NSObject
 
@@ -56,6 +64,6 @@
 
 @property (nonatomic, strong, readonly) RetailPrice *retailPrice;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import KeyValueGroups.h
 
 @interface Contents: NSObject
 
@@ -20,6 +21,6 @@
 
 @property (nonatomic, strong, readonly) NSString *contentHtml;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

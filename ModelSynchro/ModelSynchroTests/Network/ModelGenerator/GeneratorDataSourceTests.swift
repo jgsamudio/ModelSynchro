@@ -34,7 +34,10 @@ class GeneratorDataSourceTests: XCTestCase {
         sut.contents = [LineContent(iteration: 1, languageFormatter: languageFormatter)]
 
         var fileLines = [String]()
-        fileLines.append(languageFormatter.fileHeader(name: "Sample", config: config))
+        fileLines.append(languageFormatter.fileHeader(name: "Sample",
+                                                      config: config,
+                                                      propertyLines: sut.contents.map { $0.propertyLines }.flatMap { $0 }))
+        
         fileLines.append(languageFormatter.modelClassDeclaration(name: "Sample"))
         fileLines += sut.allLines.sorted { $0 < $1 }
         fileLines.append(languageFormatter.keyMapping(lines: sut.contents.map { $0.fileLines }.flatMap { $0 }))

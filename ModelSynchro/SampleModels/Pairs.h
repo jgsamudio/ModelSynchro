@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import NSString.h
 
 @interface Pairs: NSObject
 
@@ -18,6 +19,6 @@
 
 @property (nonatomic, strong, readonly) NSString *name;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

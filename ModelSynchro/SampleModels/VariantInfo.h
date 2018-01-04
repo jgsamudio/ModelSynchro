@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import NSString.h
 
 @interface VariantInfo: NSObject
 
@@ -24,6 +25,6 @@
 
 @property (nonatomic, strong, readonly) NSString *sku;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import Currency.h
 
 @interface Amount: NSObject
 
@@ -18,6 +19,6 @@
 
 @property (nonatomic, strong, readonly) double *value;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

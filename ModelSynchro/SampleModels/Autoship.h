@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong, readonly) NSString *id;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

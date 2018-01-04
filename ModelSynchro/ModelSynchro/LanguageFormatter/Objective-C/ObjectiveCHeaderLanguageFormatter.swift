@@ -34,6 +34,10 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return "//"
     }
 
+    var array: String {
+        return "NSArray"
+    }
+
     var int: String {
         return "NSInteger"
     }
@@ -50,8 +54,8 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return "double"
     }
 
-    func fileHeader(name: String, config: ConfigurationFile) -> String {
-        return """
+    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
+        let header = """
         //
         //  \(name).h
         //  \(config.projectName)
@@ -65,8 +69,23 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         */
 
         #import <Foundation/Foundation.h>
-
         """
+
+        var headerStringArray: [String] = [header]
+        for propertyLine in propertyLines {
+            let type = Type.initialize(typeString: propertyLine.type, formatter: self)
+            if !type.isPrimitiveType {
+                switch type {
+                case .array(let type):
+                    headerStringArray.append("#import \(type).h")
+                default:
+                    headerStringArray.append("#import \(propertyLine.type).h")
+                }
+            }
+        }
+        headerStringArray.append("")
+
+        return headerStringArray.joined(separator: "\n")
     }
 
     func modelClassDeclaration(name: String) -> String {
@@ -115,6 +134,10 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
 
     func arrayFormat(type: String) -> String {
         return "NSArray<" + type.capitalizedFirstLetter() + ">"
+    }
+
+    func type(arrayString: String) -> String {
+        return arrayString.replacingOccurrences(of: "NSArray<", with: "").replacingOccurrences(of: ">", with: "")
     }
 
     func customFormat(type: String) -> String {

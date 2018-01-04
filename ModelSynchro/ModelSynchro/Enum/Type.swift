@@ -15,6 +15,36 @@ enum Type {
     case double
     case array(String)
     case custom(String)
+
+    static func initialize(typeString: String, formatter: LanguageFormatter) -> Type {
+        switch typeString {
+        case formatter.int:
+            return .int
+        case formatter.string:
+            return .string
+        case formatter.bool:
+            return .bool
+        case formatter.double:
+            return .double
+        default:
+            break
+        }
+
+        if typeString.contains(formatter.array) {
+            return .array(formatter.type(arrayString: typeString))
+        } else {
+            return .custom(typeString)
+        }
+    }
+
+    var isPrimitiveType: Bool {
+        switch self {
+        case .int, .string, .bool, .double:
+            return true
+        default:
+            return false
+        }
+    }
     
     func toString(formatter: LanguageFormatter) -> String {
         switch self {
@@ -30,15 +60,6 @@ enum Type {
             return formatter.arrayFormat(type: type)
         case .custom(let type):
             return formatter.customFormat(type: type)
-        }
-    }
-    
-    var isPrimitiveType: Bool {
-        switch self {
-        case .int, .string, .bool, .double:
-            return true
-        default:
-            return false
         }
     }
 }

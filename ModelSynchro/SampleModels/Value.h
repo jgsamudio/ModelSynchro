@@ -38,6 +38,6 @@
 
 @property (nonatomic, strong, readonly) NSString *productImageUrlWithToken;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

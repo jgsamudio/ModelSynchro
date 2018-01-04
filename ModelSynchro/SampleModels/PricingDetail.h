@@ -11,6 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import PaymentOptions.h
 
 @interface PricingDetail: NSObject
 
@@ -36,6 +37,6 @@
 
 @property (nonatomic, strong, readonly) double *priceHoursRemaining;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

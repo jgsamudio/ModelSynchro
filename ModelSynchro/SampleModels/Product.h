@@ -11,6 +11,29 @@
 */
 
 #import <Foundation/Foundation.h>
+#import Callouts.h
+#import Videos.h
+#import Promotions.h
+#import MatrixGroups.h
+#import Benefits.h
+#import Pricing.h
+#import ProductOptions.h
+#import Disclaimers.h
+#import ProductLink.h
+#import RatingAggregates.h
+#import Categories.h
+#import Flag.h
+#import VariantInfo.h
+#import Brand.h
+#import WarrantyCollection.h
+#import Sharing.h
+#import Images.h
+#import MatrixOptions.h
+#import Tabs.h
+#import PricingDetail.h
+#import Rating.h
+#import HowToUse.h
+#import Autoship.h
 
 @interface Product: NSObject
 
@@ -92,6 +115,6 @@
 
 @property (nonatomic, strong, readonly) Sharing *sharing;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
