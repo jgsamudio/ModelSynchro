@@ -3,15 +3,11 @@
   "companyName" : "Prolific Interactive",
   "projectName" : "ModelSynchro",
   "outputDirectory" : "SampleModels/",
-  "language" : "objective-c",
+  "language" : "swift",
   "endpoints" : [
     {
-      "url" : "https://www.hsn.com/api/product/detail/8426715",
-      "name" : "Product"
-    },
-    {
-      "url" : "https://www.hsn.com/api/product/detail/10076614",
-      "name" : "Product"
+      "url" : "http://prolific-interview.herokuapp.com/55afddaf1ab1c10009d1a9ec/books",
+      "name" : "Book"
     }
   ]
 }

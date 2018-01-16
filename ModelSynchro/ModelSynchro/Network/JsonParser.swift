@@ -43,6 +43,12 @@ final class JsonParser {
         model.incrementIteration()
     }
 
+    func parse(jsonArray: [JSON], modelName: String) {
+        jsonArray.forEach {
+            parse(json: $0, modelName: modelName)
+        }
+    }
+
     //TODO: Handle Duplicated naming, Products -> Products (Top Recently Viewed)
     //TODO: Handle Duplicated Models OldPrice -> Price They are same thing
 
