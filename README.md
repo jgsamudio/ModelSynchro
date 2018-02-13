@@ -33,6 +33,7 @@ Next, you will need to configure a custom configuration.json file and add it to 
   "projectName" : "MyProject",
   "language" : "swift",
   "outputDirectory" : "MyProject/Models/",
+  "localJSONDirectory" : "MyProject/JSONFiles/",
   "endpoints" : [
     {
       "url" : "https://facebook.github.io/react-native/movies.json",
