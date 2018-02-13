@@ -23,7 +23,8 @@ class JsonParserTests: XCTestCase {
                                        outputDirectory: "/somewhere",
                                        endpoints: [],
                                        headers: nil,
-                                       authEndpoint: nil)
+                                       authEndpoint: nil,
+                                       localJSONDirectory: nil)
         modelDataSource = FakeModelDataSource()
         sut = JsonParser(config: config, modelDataSource: modelDataSource)
     }

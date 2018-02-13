@@ -34,6 +34,9 @@ struct ConfigurationFile: Codable {
 
     /// Authentication endpoint used to grab the auth token.
     let authEndpoint: AuthEndpoint?
+
+    /// Local location of json files.
+    let localJSONDirectory: String?
 }
 
 extension ConfigurationFile {
@@ -41,6 +44,10 @@ extension ConfigurationFile {
     /// Model output path.
     var outputPath: String {
         return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
+    }
+
+    var localJSONPath: String {
+        return ConfigurationParser.projectDirectory + (localJSONDirectory ?? "")
     }
     
     /// Current language formatter for the output.

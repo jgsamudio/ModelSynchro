@@ -8,7 +8,7 @@
 
 import Foundation
 
-print("Fetching JSON...")
+print("ModelSynchro v0.1.1")
 
 guard let config = ConfigurationParser().configFile else {
     print("Config error")
@@ -16,8 +16,15 @@ guard let config = ConfigurationParser().configFile else {
 }
 
 let modelParser = ModelParser(config: config)
+
+print("Fetching JSON...")
 let requester = NetworkRequester(config: config, currentModels: modelParser.customComponents)
 requester.generateModels()
+
+if let localJSONLocation = config.localJSONDirectory {
+    print("Parsing Local Files")
+    
+}
 
 print("Models Generated!")
 exit(0)

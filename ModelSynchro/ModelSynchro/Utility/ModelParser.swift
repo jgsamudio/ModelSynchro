@@ -14,7 +14,7 @@ final class ModelParser {
     
     // [Filename: [Lines]]
     var customComponents: ModelComponents = [:]
-    
+
     private let config: ConfigurationFile
     
     private var languageFormatter: LanguageFormatter {
@@ -30,7 +30,8 @@ final class ModelParser {
 private extension ModelParser {
 
     func loadModels() {
-        let fileNames = retrieveFilenames()
+        let fileNames = FileRetriever.retrieveFilenames(at: config.outputPath,
+                                                        fileExtension: config.languageFormatter().fileExtension)
 
         for file in fileNames {
             let fileToParse = config.outputPath + file
@@ -43,17 +44,6 @@ private extension ModelParser {
                 print("Error caught with message: \(error.localizedDescription)")
             }
         }
-    }
-    
-    func retrieveFilenames() -> [String] {
-        let fileEnumerator = FileManager.default.enumerator(atPath: config.outputPath)
-        let enumerator = fileEnumerator?.filter{ ($0 as? String)?.contains(config.languageFormatter().fileExtension) ?? false }
-        
-        guard let filteredFileEnumerator = enumerator as? [String] else {
-            print("Error filtering files.")
-            return []
-        }
-        return filteredFileEnumerator
     }
     
     func parseCustomFileComponents(fileName: String, fileComponents: [String]) {

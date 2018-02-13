@@ -24,6 +24,24 @@ final class JsonParser {
         self.config = config
         self.modelDataSource = modelDataSource
     }
+
+    func parse(data: Data?, name: String) {
+        guard let data = data else {
+            return
+        }
+
+        do {
+            if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON {
+                parse(json: json, modelName: name)
+            }
+
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [JSON] {
+                parse(jsonArray: jsonArray, modelName: name)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     
     /// Parses the provided json into the model datasource.
     ///
