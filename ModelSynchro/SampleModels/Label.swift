@@ -2,7 +2,7 @@
 //  Label.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/12/18.
+//  Created by Jonathan Samudio on 02/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ struct Label: Codable {
 	let horizontalHuggingPriority: String
 	let id: String
 	let lineBreakMode: String
-	let nil: Nil
+	let nilName: Nil // let nil: Nil
 	let opaque: String
 	let rect: Rect
 	let text: String
@@ -37,7 +37,7 @@ struct Label: Codable {
 		case horizontalHuggingPriority = "horizontalHuggingPriority"
 		case id = "id"
 		case lineBreakMode = "lineBreakMode"
-		case nil = "nil"
+		case nilName = "nil"
 		case opaque = "opaque"
 		case rect = "rect"
 		case text = "text"

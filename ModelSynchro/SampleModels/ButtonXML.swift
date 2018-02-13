@@ -1,8 +1,8 @@
 //
-//  ButtonXML..swift
+//  ButtonXML.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/12/18.
+//  Created by Jonathan Samudio on 02/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct ButtonXML.: Codable {
+struct ButtonXML: Codable {
 	let document: Document
 
 	enum CodingKeys: String, CodingKey {

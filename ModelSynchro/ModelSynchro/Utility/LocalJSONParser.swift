@@ -13,7 +13,7 @@ final class LocalJSONParser {
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
 
-    fileprivate let jsonFileExtension = "json"
+    fileprivate let jsonFileExtension = ".json"
 
     init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config

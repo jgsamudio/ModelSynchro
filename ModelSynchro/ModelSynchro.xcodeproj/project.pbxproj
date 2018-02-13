@@ -123,6 +123,7 @@
 		2059DA461FCCD17700B020C3 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		205C80D91FD069060094404D /* PriorityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityType.swift; sourceTree = "<group>"; };
 		205C80DB1FD071920094404D /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		20620B3F2033333D00EA429B /* ModelSynchro.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ModelSynchro.podspec; path = ../ModelSynchro.podspec; sourceTree = "<group>"; };
 		20625B691FFBEF4E00CBE47D /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		20642B1D1FCDCF4900E3AA2F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		20642B201FCDFCA600E3AA2F /* LineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineContent.swift; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 		208E0EC51FCCA98500EB25EA = {
 			isa = PBXGroup;
 			children = (
+				20620B3F2033333D00EA429B /* ModelSynchro.podspec */,
 				2080B32A2032902F00A41156 /* configuration.json */,
 				208E0ED01FCCA98500EB25EA /* ModelSynchro */,
 				2003E0791FFC336700878F8A /* ModelSynchroTests */,
