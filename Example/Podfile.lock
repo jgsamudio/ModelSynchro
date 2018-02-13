@@ -1,11 +1,11 @@
 PODS:
-  - ModelSynchro (0.1.0)
+  - ModelSynchro (0.1.1)
 
 DEPENDENCIES:
   - ModelSynchro
 
 SPEC CHECKSUMS:
-  ModelSynchro: 5ca4389589c640123016f0a03b1a99a5572f6f7f
+  ModelSynchro: 141f7a0c28fa507124bddaa0ce94c4b0cd373721
 
 PODFILE CHECKSUM: f5e345a89c1564fbb860c690947e4ad4b89abbad
 
