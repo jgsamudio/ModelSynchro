@@ -33,7 +33,7 @@ private extension LocalJSONParser {
                                                         fileExtension: jsonFileExtension)
 
         for file in fileNames {
-            let fileToParse = config.outputPath + file
+            let fileToParse = config.localJSONPath + file
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
 

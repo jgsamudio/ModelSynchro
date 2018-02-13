@@ -1,0 +1,21 @@
+//
+//  Subviews.swift
+//  ModelSynchro
+//
+//  Created by Jonathan Samudio on 02/12/18.
+//  Copyright © 2018 Prolific Interactive. All rights reserved.
+//
+
+/*
+    Auto-Generated using ModelSynchro
+*/
+
+struct Subviews: Codable {
+	let button: Button
+	let label: Label
+
+	enum CodingKeys: String, CodingKey {
+		case button = "button"
+		case label = "label"
+	}
+}

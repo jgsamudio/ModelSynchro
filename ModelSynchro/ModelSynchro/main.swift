@@ -21,9 +21,10 @@ print("Fetching JSON...")
 let requester = NetworkRequester(config: config, currentModels: modelParser.customComponents)
 requester.generateModels()
 
-if let localJSONLocation = config.localJSONDirectory {
+if let _ = config.localJSONDirectory {
     print("Parsing Local Files")
-    
+    let localJSONParser = LocalJSONParser(config: config, currentModels: modelParser.customComponents)
+    localJSONParser.parseLocalJSON()
 }
 
 print("Models Generated!")

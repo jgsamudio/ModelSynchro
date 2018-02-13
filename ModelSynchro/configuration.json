@@ -3,6 +3,7 @@
   "companyName" : "Prolific Interactive",
   "projectName" : "ModelSynchro",
   "outputDirectory" : "SampleModels/",
+  "localJSONDirectory" : "SampleJSON/",
   "language" : "swift",
   "endpoints" : [
     {

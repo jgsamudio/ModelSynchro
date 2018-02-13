@@ -133,6 +133,7 @@
 		20642B2B1FCE18FB00E3AA2F /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		2080B32520328C8400A41156 /* LocalJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJSONParser.swift; sourceTree = "<group>"; };
 		2080B32720328D3500A41156 /* FileRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRetriever.swift; sourceTree = "<group>"; };
+		2080B32A2032902F00A41156 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
 		208E0ECE1FCCA98500EB25EA /* ModelSynchro */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModelSynchro; sourceTree = BUILT_PRODUCTS_DIR; };
 		208E0ED11FCCA98500EB25EA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 		208E0EC51FCCA98500EB25EA = {
 			isa = PBXGroup;
 			children = (
+				2080B32A2032902F00A41156 /* configuration.json */,
 				208E0ED01FCCA98500EB25EA /* ModelSynchro */,
 				2003E0791FFC336700878F8A /* ModelSynchroTests */,
 				208E0ECF1FCCA98500EB25EA /* Products */,
