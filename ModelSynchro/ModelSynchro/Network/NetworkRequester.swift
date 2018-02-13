@@ -24,7 +24,11 @@ final class NetworkRequester {
     
     /// Generates the models specified from the config file.
     func generateModels() {
-        config.endpoints.forEach {
+        guard let endpoints = config.endpoints else {
+            return
+        }
+
+        endpoints.forEach {
             guard let request = urlRequest(urlString: $0.url) else {
                 return
             }

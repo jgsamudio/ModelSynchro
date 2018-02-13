@@ -27,7 +27,7 @@ struct ConfigurationFile: Codable {
     let outputDirectory: String?
 
     /// List of endpoints to generate models for.
-    let endpoints: [Endpoint]
+    let endpoints: [Endpoint]?
 
     /// Header data for the endpoints.
     let headers: [String : String]?
