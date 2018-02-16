@@ -80,6 +80,15 @@ final class JsonParser {
             value.writeToFile()
         })
     }
+
+    /// Write datasource to specific output.
+    ///
+    /// - Parameter outputDirectory: Output file destination.
+    func writeModelsToFile(outputDirectory: String) {
+        modelDataSource.modelDict.forEach({ (key, value) in
+            value.writeToFile(outputDirectory: outputDirectory)
+        })
+    }
 }
 
 private extension JsonParser {
