@@ -20,18 +20,6 @@ final class ModelGenerator: ModelGeneratorProtocol {
     private var dataSource: GeneratorDataSourceProtocol
     private var languageFormatter: LanguageFormatter
     
-    private var fileURLString: String {
-        return fileDirectory + languageFormatter.fileExtension
-    }
-
-    private var headerFileURLString: String {
-        return fileDirectory + (languageFormatter.headerLanguageFormatter?.fileExtension ?? "")
-    }
-
-    private var fileDirectory: String {
-        return "file://" + ConfigurationParser.projectDirectory + (config.outputDirectory ?? "") + name
-    }
-    
     private var isOptional: Bool {
         return dataSource.currentIteration != 1
     }
@@ -73,9 +61,19 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
-        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString)
+        let fileURL = fileURLString(outputDirectory: config.outputDirectory ?? "")
+        let headerURL = headerFileURLString(outputDirectory: config.outputDirectory ?? "")
+
+        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURL)
         if languageFormatter.containsHeader {
-            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString)
+            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerURL)
+        }
+    }
+
+    func writeToFile(outputDirectory: String) {
+        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString(outputDirectory: outputDirectory))
+        if languageFormatter.containsHeader {
+            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
         }
     }
 }
@@ -97,5 +95,18 @@ private extension ModelGenerator {
         let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter)
         
         return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
+    }
+
+    func fileURLString(outputDirectory: String) -> String {
+        return fileDirectory(outputDirectory: outputDirectory) + languageFormatter.fileExtension
+    }
+
+    func headerFileURLString(outputDirectory: String) -> String {
+        return fileDirectory(outputDirectory: outputDirectory) +
+            (languageFormatter.headerLanguageFormatter?.fileExtension ?? "")
+    }
+
+    func fileDirectory(outputDirectory: String) -> String {
+        return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
     }
 }

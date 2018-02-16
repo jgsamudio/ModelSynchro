@@ -21,19 +21,25 @@ final class LocalJSONParser {
     }
 
     func parseLocalJSON() {
-        loadJSON()
-        jsonParser.writeModelsToFile()
+        guard let localJSONDirectory = config.localJSONDirectory else {
+            return
+        }
+
+        for dir in localJSONDirectory {
+            loadJSON(at: config.localPath(directory: dir.inputDirectory))
+            jsonParser.writeModelsToFile(outputDirectory: dir.outputDirectory)
+        }
     }
 }
 
 private extension LocalJSONParser {
 
-    func loadJSON() {
-        let fileNames = FileRetriever.retrieveFilenames(at: config.localJSONPath,
+    func loadJSON(at inputPath: String) {
+        let fileNames = FileRetriever.retrieveFilenames(at: inputPath,
                                                         fileExtension: jsonFileExtension)
 
         for file in fileNames {
-            let fileToParse = config.localJSONPath + file
+            let fileToParse = inputPath + file
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
 

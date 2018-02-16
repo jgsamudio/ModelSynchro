@@ -36,7 +36,7 @@ struct ConfigurationFile: Codable {
     let authEndpoint: AuthEndpoint?
 
     /// Local location of json files.
-    let localJSONDirectory: String?
+    let localJSONDirectory: [LocalDirectory]?
 }
 
 extension ConfigurationFile {
@@ -46,8 +46,8 @@ extension ConfigurationFile {
         return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
     }
 
-    var localJSONPath: String {
-        return ConfigurationParser.projectDirectory + (localJSONDirectory ?? "")
+    func localPath(directory: String) -> String {
+        return ConfigurationParser.projectDirectory + directory
     }
     
     /// Current language formatter for the output.

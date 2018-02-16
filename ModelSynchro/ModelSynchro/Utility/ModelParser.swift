@@ -24,6 +24,7 @@ final class ModelParser {
     init(config: ConfigurationFile) {
         self.config = config
         loadModels()
+        loadLocalModels()
     }
 }
 
@@ -32,9 +33,20 @@ private extension ModelParser {
     func loadModels() {
         let fileNames = FileRetriever.retrieveFilenames(at: config.outputPath,
                                                         fileExtension: config.languageFormatter().fileExtension)
+        load(fileNames: fileNames, outputPath: config.outputPath)
+    }
 
+    func loadLocalModels() {
+        config.localJSONDirectory?.forEach {
+            let localFilenames = FileRetriever.retrieveFilenames(at: config.localPath(directory: $0.outputDirectory),
+                                                                 fileExtension: config.languageFormatter().fileExtension)
+            load(fileNames: localFilenames, outputPath: config.localPath(directory: $0.outputDirectory))
+        }
+    }
+
+    func load(fileNames: [String], outputPath: String) {
         for file in fileNames {
-            let fileToParse = config.outputPath + file
+            let fileToParse = outputPath + file
             do {
                 let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
                 let fileComponents = content.components(separatedBy: "\n")
