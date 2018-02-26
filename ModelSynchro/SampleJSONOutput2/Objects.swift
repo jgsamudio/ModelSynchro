@@ -2,7 +2,7 @@
 //  Objects.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/16/18.
+//  Created by Jonathan Samudio on 02/24/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 

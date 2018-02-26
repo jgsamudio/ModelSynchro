@@ -13,11 +13,5 @@
       "outputDirectory" : "SampleJSONOutput2/"
     }
   ],
-  "language" : "swift",
-  "endpoints" : [
-    {
-      "url" : "http://prolific-interview.herokuapp.com/55afddaf1ab1c10009d1a9ec/books",
-      "name" : "Book"
-    }
-  ]
+  "language" : "swift"
 }
