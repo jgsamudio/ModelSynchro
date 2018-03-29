@@ -61,6 +61,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
+        guard modelContainsUpdates() else {
+            return
+        }
+
         let fileURL = fileURLString(outputDirectory: config.outputDirectory ?? "")
         let headerURL = headerFileURLString(outputDirectory: config.outputDirectory ?? "")
 
@@ -71,6 +75,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
 
     func writeToFile(outputDirectory: String) {
+        guard modelContainsUpdates() else {
+            return
+        }
+
         dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString(outputDirectory: outputDirectory))
         if languageFormatter.containsHeader {
             dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
@@ -108,5 +116,22 @@ private extension ModelGenerator {
 
     func fileDirectory(outputDirectory: String) -> String {
         return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
+    }
+
+    func modelContainsUpdates() -> Bool {
+        let newModelLines = dataSource.fileText(name: name, config: config).components(separatedBy: "\n")
+        guard let previousModelLines = previousModelLines, newModelLines.count == previousModelLines.count else {
+            return true
+        }
+
+        var updatedContent = [String]()
+
+        for index in 0..<previousModelLines.count {
+            if previousModelLines[index].customLine != newModelLines[index] {
+                updatedContent.append(newModelLines[index])
+            }
+        }
+
+        return updatedContent.count > 1 || !(updatedContent.first?.contains(Date.currentDateString) ?? true)
     }
 }

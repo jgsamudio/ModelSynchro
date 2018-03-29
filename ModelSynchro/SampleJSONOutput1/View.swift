@@ -2,7 +2,7 @@
 //  View.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/24/18.
+//  Created by Jonathan Samudio on 03/29/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 */
 
 struct View: Codable {
-	let autoresizingMask: AutoresizingMask
+	let autoresizingMask: AutoresizingMask // let autoresizingMask: AutoresizingMask
 	let color: Color
 	let constraints: Constraints
 	let contentMode: String
