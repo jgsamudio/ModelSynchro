@@ -8,7 +8,12 @@
 
 import Foundation
 
-typealias ModelComponents = [String : [CustomProperty]]
+struct ModelContent {
+    let fileComponents: [String]
+    let customProperties: [CustomProperty]
+}
+
+typealias ModelComponents = [String : ModelContent]
 
 final class ModelParser {
     
@@ -61,7 +66,7 @@ private extension ModelParser {
     func parseCustomFileComponents(fileName: String, fileComponents: [String]) {
         var keyedProperties = parseKeyedProperties(fileComponents: fileComponents)
         
-        customComponents[fileName] = fileComponents.flatMap {
+        let customProperties: [CustomProperty] = fileComponents.flatMap {
             if languageFormatter.isVariable($0),
                 let customString = $0.split(at: config.languageFormatter().lineComment),
                 let property = config.languageFormatter().property(variableString: customString.leftString) {
@@ -72,6 +77,8 @@ private extension ModelParser {
             }
             return nil
         }
+
+        customComponents[fileName] = ModelContent(fileComponents: fileComponents, customProperties: customProperties)
     }
     
     private func parseKeyedProperties(fileComponents: [String]) -> [String : KeyedProperty] {

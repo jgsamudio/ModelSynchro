@@ -24,13 +24,13 @@ final class ModelGenerator: ModelGeneratorProtocol {
         return dataSource.currentIteration != 1
     }
     
-    private var previousModelLines: [CustomProperty]?
+    private var previousModelContent: ModelContent?
     
     init(name: String, config: ConfigurationFile, currentModels: ModelComponents) {
         self.name = name
         self.config = config
         // TODOL: rename to customModelLines
-        previousModelLines = currentModels[name]
+        previousModelContent = currentModels[name]
         languageFormatter = config.languageFormatter()
         dataSource = GeneratorDataSource(languageFormatter: config.languageFormatter())
     }
@@ -43,7 +43,7 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
     
     func add(property: String, type: String) {
-        let customProperty = previousModelLines?.find(property: property)
+        let customProperty = previousModelContent?.customProperties.find(property: property)
         let variableLine = Line(property: property, type: type, isOptional: isOptional, customProperty: customProperty)
         
         if !variableFound(property: property, type: type, customProperty: customProperty) &&
@@ -61,6 +61,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
+        guard modelContainsUpdates() else {
+            return
+        }
+
         let fileURL = fileURLString(outputDirectory: config.outputDirectory ?? "")
         let headerURL = headerFileURLString(outputDirectory: config.outputDirectory ?? "")
 
@@ -71,6 +75,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
 
     func writeToFile(outputDirectory: String) {
+        guard modelContainsUpdates() else {
+            return
+        }
+
         dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString(outputDirectory: outputDirectory))
         if languageFormatter.containsHeader {
             dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
@@ -108,5 +116,23 @@ private extension ModelGenerator {
 
     func fileDirectory(outputDirectory: String) -> String {
         return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
+    }
+
+    func modelContainsUpdates() -> Bool {
+        let newModelLines = dataSource.fileText(name: name, config: config).components(separatedBy: "\n")
+        guard let previousModelComponents = previousModelContent?.fileComponents,
+            newModelLines.count == previousModelComponents.count else {
+            return true
+        }
+
+        var updatedContent = [String]()
+
+        for index in 0..<previousModelComponents.count {
+            if previousModelComponents[index] != newModelLines[index] {
+                updatedContent.append(newModelLines[index])
+            }
+        }
+
+        return updatedContent.count > 1 || !(updatedContent.first?.contains(Date.currentDateString) ?? true)
     }
 }
