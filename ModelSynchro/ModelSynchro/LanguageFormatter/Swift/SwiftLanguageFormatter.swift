@@ -19,7 +19,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     }
     
     var modelClassEndLine: String {
-        return "}"
+        return "}\n"
     }
     
     var typeSeparator: String {
