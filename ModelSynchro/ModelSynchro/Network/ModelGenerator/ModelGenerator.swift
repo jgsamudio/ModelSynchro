@@ -24,13 +24,13 @@ final class ModelGenerator: ModelGeneratorProtocol {
         return dataSource.currentIteration != 1
     }
     
-    private var previousModelLines: [CustomProperty]?
+    private var previousModelContent: ModelContent?
     
     init(name: String, config: ConfigurationFile, currentModels: ModelComponents) {
         self.name = name
         self.config = config
         // TODOL: rename to customModelLines
-        previousModelLines = currentModels[name]
+        previousModelContent = currentModels[name]
         languageFormatter = config.languageFormatter()
         dataSource = GeneratorDataSource(languageFormatter: config.languageFormatter())
     }
@@ -43,7 +43,7 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
     
     func add(property: String, type: String) {
-        let customProperty = previousModelLines?.find(property: property)
+        let customProperty = previousModelContent?.customProperties.find(property: property)
         let variableLine = Line(property: property, type: type, isOptional: isOptional, customProperty: customProperty)
         
         if !variableFound(property: property, type: type, customProperty: customProperty) &&
@@ -120,14 +120,15 @@ private extension ModelGenerator {
 
     func modelContainsUpdates() -> Bool {
         let newModelLines = dataSource.fileText(name: name, config: config).components(separatedBy: "\n")
-        guard let previousModelLines = previousModelLines, newModelLines.count == previousModelLines.count else {
+        guard let previousModelComponents = previousModelContent?.fileComponents,
+            newModelLines.count == previousModelComponents.count else {
             return true
         }
 
         var updatedContent = [String]()
 
-        for index in 0..<previousModelLines.count {
-            if previousModelLines[index].customLine != newModelLines[index] {
+        for index in 0..<previousModelComponents.count {
+            if previousModelComponents[index] != newModelLines[index] {
                 updatedContent.append(newModelLines[index])
             }
         }
