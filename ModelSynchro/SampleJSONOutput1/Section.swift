@@ -1,5 +1,5 @@
 //
-//  FilterSection.swift
+//  Section.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 05/11/18.
@@ -10,7 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct FilterSection: Codable {
+struct Section: Codable {
 	let filters: [Filter]
 	let section: String
 

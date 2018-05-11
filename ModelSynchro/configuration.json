@@ -15,7 +15,7 @@
   ],
   "language" : "swift",
   "mappedModelNames" : {
-    "filters" : "filter",
-    "section" : "filterSection"
+      "filters" : "filter",
+      "FilterSection" : "Section"
   }
 }
