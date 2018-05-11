@@ -1,0 +1,145 @@
+[
+    {
+        "section": "Format",
+        "filters": [
+            {
+                "displayName": "Activity",
+                "parameter": "5aeb90b6e0851d04dec9c367"
+            },
+            {
+                "displayName": "Panel",
+                "parameter": "5aeb90b6e0851d04dec9c368"
+            },
+            {
+                "displayName": "Screening",
+                "parameter": "5aeb90b6e0851d04dec9c369"
+            },
+            {
+                "displayName": "Workshop",
+                "parameter": "5aeb90b6e0851d04dec9c36a"
+            }
+        ]
+    },
+    {
+        "section": "Topic",
+        "filters": [
+            {
+                "displayName": "Arts",
+                "parameter": "5aecd8ade0851d04dec9c393"
+            },
+            {
+                "displayName": "Beauty",
+                "parameter": "5aecd8ade0851d04dec9c38d"
+            },
+            {
+                "displayName": "Business",
+                "parameter": "5aecd8ade0851d04dec9c391"
+            },
+            {
+                "displayName": "Crafts",
+                "parameter": "5aecd8ade0851d04dec9c397"
+            },
+            {
+                "displayName": "Culture",
+                "parameter": "5aecd8ade0851d04dec9c394"
+            },
+            {
+                "displayName": "Fashion",
+                "parameter": "5aecd8ade0851d04dec9c38e"
+            },
+            {
+                "displayName": "Film & TV",
+                "parameter": "5aecd8ade0851d04dec9c392"
+            },
+            {
+                "displayName": "Food & Beverage",
+                "parameter": "5aecd8ade0851d04dec9c398"
+            },
+            {
+                "displayName": "Health & Wellness",
+                "parameter": "5aecd8ade0851d04dec9c38f"
+            },
+            {
+                "displayName": "Literature",
+                "parameter": "5aecd8ade0851d04dec9c396"
+            },
+            {
+                "displayName": "Personal Growth",
+                "parameter": "5aecd8ade0851d04dec9c39c"
+            },
+            {
+                "displayName": "Politics",
+                "parameter": "5aecd8ade0851d04dec9c399"
+            },
+            {
+                "displayName": "Science & Tech",
+                "parameter": "5aecd8ade0851d04dec9c390"
+            },
+            {
+                "displayName": "Social Good",
+                "parameter": "5aecd8ade0851d04dec9c39a"
+            },
+            {
+                "displayName": "Sports",
+                "parameter": "5aecd8ade0851d04dec9c395"
+            },
+            {
+                "displayName": "Wing Things",
+                "parameter": "5aecd8ade0851d04dec9c39b"
+            }
+        ]
+    },
+    {
+        "section": "Location",
+        "filters": [
+            {
+                "displayName": "All Access",
+                "parameter": "8D2xYZMpMjwgP5jYu"
+            },
+            {
+                "displayName": "Chicago",
+                "parameter": "eGc6AZ2ALekcCyFkT"
+            },
+            {
+                "displayName": "DC",
+                "parameter": "4WyxrqRtqYjt8cp8t"
+            },
+            {
+                "displayName": "DUMBO",
+                "parameter": "ifLhs7vTZjsjBCYsn"
+            },
+            {
+                "displayName": "Flatiron",
+                "parameter": "NoJbmEByCygiST4SH"
+            },
+            {
+                "displayName": "London",
+                "parameter": "iCCnTF8pTqwttriA8"
+            },
+            {
+                "displayName": "San Francisco",
+                "parameter": "cDLE5fJRsCqZwvnrP"
+            },
+            {
+                "displayName": "Seattle",
+                "parameter": "5yeAJSysLGRzhaLTi"
+            },
+            {
+                "displayName": "Soho",
+                "parameter": "GN8zC77HQbj84vTuc"
+            },
+            {
+                "displayName": "Toronto",
+                "parameter": "X3tNxhJrFgxczBY7t"
+            },
+            {
+                "displayName": "West Hollywood",
+                "parameter": "LeRcceZGibyQqAGdn"
+            },
+            {
+                "displayName": "Williamsburg",
+                "parameter": "NqRxj49gTWMuGbiek"
+            }
+        ]
+    }
+]

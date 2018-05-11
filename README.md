@@ -52,7 +52,11 @@ Next, you will need to configure a custom configuration.json file and add it to 
       "url" : "https://facebook.github.io/react-native/movies.json",
       "name" : "Movies"
     }
-  ]
+  ],
+  "mappedModelNames" : {
+    "filters" : "filter",
+    "FilterSection" : "Section"
+  }
 }
 ```
 
@@ -80,7 +84,7 @@ struct Book: Codable {
 }
 ```
 
-If we would like to change `id` to `bookId` then all we need to do is change the variable name from `id` to `bookId` and mark the line with a `//` after the variable declaration. In addition, the `id` case in the `CodingKeys` will need to be changed to `bookId`.   
+If you would like to change `id` to `bookId` then all we need to do is change the variable name from `id` to `bookId` and mark the line with a `//` after the variable declaration. In addition, the `id` case in the `CodingKeys` will need to be changed to `bookId`.   
 
 ```
 struct Book: Codable {
@@ -91,6 +95,17 @@ struct Book: Codable {
 		case author = "author"
 		case bookId = "id"
 	}
+}
+```
+
+## Custom Model Names
+
+By default, the name of the swift network model will be set to the name of the local JSON file or the keys of the JSON object for sub-models. If you would like to change the name of the model to something else add the `mappedModelNames` object to the configuration file. Here you can add the name of the model with the desired mapped name.
+
+```
+"mappedModelNames" : {
+    "filters" : "filter",
+    "FilterSection" : "Section"
 }
 ```
 
