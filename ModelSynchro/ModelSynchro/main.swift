@@ -8,7 +8,7 @@
 
 import Foundation
 
-print("ModelSynchro v0.1.4")
+print("ModelSynchro v0.2.2")
 
 guard let config = ConfigurationParser().configFile else {
     print("Config error")
