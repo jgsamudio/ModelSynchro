@@ -52,7 +52,11 @@ Next, you will need to configure a custom configuration.json file and add it to 
       "url" : "https://facebook.github.io/react-native/movies.json",
       "name" : "Movies"
     }
-  ]
+  ],
+  "mappedModelNames" : {
+    "filters" : "filter",
+    "FilterSection" : "Section"
+  }
 }
 ```
 
