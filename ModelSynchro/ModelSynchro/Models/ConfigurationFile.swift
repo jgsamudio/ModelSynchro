@@ -37,6 +37,9 @@ struct ConfigurationFile: Codable {
 
     /// Local location of json files.
     let localJSONDirectory: [LocalDirectory]?
+
+    /// Mapped model names.
+    let mappedModelNames: [String: String]
 }
 
 extension ConfigurationFile {

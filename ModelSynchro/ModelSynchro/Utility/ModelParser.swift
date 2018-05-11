@@ -66,7 +66,7 @@ private extension ModelParser {
     func parseCustomFileComponents(fileName: String, fileComponents: [String]) {
         var keyedProperties = parseKeyedProperties(fileComponents: fileComponents)
         
-        let customProperties: [CustomProperty] = fileComponents.flatMap {
+        let customProperties: [CustomProperty] = fileComponents.compactMap {
             if languageFormatter.isVariable($0),
                 let customString = $0.split(at: config.languageFormatter().lineComment),
                 let property = config.languageFormatter().property(variableString: customString.leftString) {

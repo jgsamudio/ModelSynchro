@@ -13,5 +13,9 @@
       "outputDirectory" : "SampleJSONOutput2/"
     }
   ],
-  "language" : "swift"
+  "language" : "swift",
+  "mappedModelNames" : {
+    "filters" : "filter",
+    "section" : "filterSection"
+  }
 }
