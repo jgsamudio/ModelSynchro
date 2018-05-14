@@ -39,7 +39,7 @@ struct ConfigurationFile: Codable {
     let localJSONDirectory: [LocalDirectory]?
 
     /// Mapped model names.
-    let mappedModelNames: [String: String]?
+    let mappedModelNames: [MappedModelInfo]?
 }
 
 extension ConfigurationFile {
@@ -65,5 +65,31 @@ extension ConfigurationFile {
         default:
             return SwiftLanguageFormatter()
         }
+    }
+
+    /// Maps the json key to the correct name.
+    ///
+    /// - Parameter jsonKey: Json key to search for.
+    /// - Returns: Mapped model name if found.
+    func mapped(jsonKey: String) -> String {
+        for modelInfo in mappedModelNames ?? [] {
+            if modelInfo.jsonKey?.lowercased() == jsonKey.lowercased() {
+                return modelInfo.mappedName
+            }
+        }
+        return jsonKey
+    }
+
+    /// Maps the filename to the correct name.
+    ///
+    /// - Parameter filename: Filename to search for.
+    /// - Returns: Mapped model name if found.
+    func mapped(filename: String) -> String {
+        for modelInfo in mappedModelNames ?? [] {
+            if modelInfo.fileName?.lowercased() == filename.lowercased() {
+                return modelInfo.mappedName
+            }
+        }
+        return filename
     }
 }

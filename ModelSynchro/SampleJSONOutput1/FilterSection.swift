@@ -1,5 +1,5 @@
 //
-//  Filter.swift
+//  FilterSection.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 05/14/18.
@@ -10,12 +10,12 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Filter: Codable {
-	let displayName: String
-	let parameter: String
+struct FilterSection: Codable {
+	let filters: [Filter]
+	let section: String
 
 	enum CodingKeys: String, CodingKey {
-		case displayName = "displayName"
-		case parameter = "parameter"
+		case filters = "filters"
+		case section = "section"
 	}
 }

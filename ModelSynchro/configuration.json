@@ -14,9 +14,22 @@
     }
   ],
   "language" : "swift",
-  "mappedModelNames" : {
-      "filters" : "filter",
-      "filtersection" : "section",
-      "event_guests" : "EventGuest"
-  }
+  "mappedModelNames" : [
+    {
+      "jsonKey" : "filters",
+      "mappedName" : "Filter"
+    },
+    {
+      "jsonKey" : "event_guests",
+      "mappedName" : "EventGuest"
+    },
+    {
+      "jsonKey" : "event",
+      "mappedName" : "RegistrationEvent"
+    },
+    {
+      "fileName" : "Event",
+      "mappedName" : "NewEvent"
+    }
+  ]
 }

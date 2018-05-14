@@ -71,6 +71,7 @@
 		20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B251FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift */; };
 		20642B281FCE044300E3AA2F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B271FCE044300E3AA2F /* Endpoint.swift */; };
 		20642B2C1FCE18FB00E3AA2F /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20642B2B1FCE18FB00E3AA2F /* Line.swift */; };
+		2070426720AA387A008582F8 /* MappedModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070426620AA387A008582F8 /* MappedModelInfo.swift */; };
 		2080B32620328C8400A41156 /* LocalJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080B32520328C8400A41156 /* LocalJSONParser.swift */; };
 		2080B32820328D3500A41156 /* FileRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080B32720328D3500A41156 /* FileRetriever.swift */; };
 		2080B32920328F1500A41156 /* FileRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080B32720328D3500A41156 /* FileRetriever.swift */; };
@@ -135,6 +136,7 @@
 		20642B271FCE044300E3AA2F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		20642B291FCE099900E3AA2F /* LanguageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFormatter.swift; sourceTree = "<group>"; };
 		20642B2B1FCE18FB00E3AA2F /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		2070426620AA387A008582F8 /* MappedModelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappedModelInfo.swift; sourceTree = "<group>"; };
 		2080B32520328C8400A41156 /* LocalJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJSONParser.swift; sourceTree = "<group>"; };
 		2080B32720328D3500A41156 /* FileRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRetriever.swift; sourceTree = "<group>"; };
 		2080B32A2032902F00A41156 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				201F09BC1FD1C719005547A5 /* KeyedProperty.swift */,
 				20625B691FFBEF4E00CBE47D /* AuthEndpoint.swift */,
 				209DB7A52037375800467911 /* LocalDirectory.swift */,
+				2070426620AA387A008582F8 /* MappedModelInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				2059DA391FCCCC0700B020C3 /* Type.swift in Sources */,
 				204607DE1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */,
 				20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */,
+				2070426720AA387A008582F8 /* MappedModelInfo.swift in Sources */,
 				20642B261FCDFF2500E3AA2F /* SwiftLanguageFormatter.swift in Sources */,
 				2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */,
 				201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */,

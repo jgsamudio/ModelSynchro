@@ -11,7 +11,7 @@
 */
 
 struct Response: Codable {
-	let event: Event
+	let event: RegistrationEvent
 	let event_guests: [EventGuest]
 	let user_rsvpStatus: String
 
