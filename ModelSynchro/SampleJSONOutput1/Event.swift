@@ -11,49 +11,41 @@
 */
 
 struct Event: Codable {
-	let _id: String
-	let attendees: [Attendees]
+	let attendeesInfo: AttendeesInfo?
 	let cancelled: Bool
 	let capacity: Int
-	let createdAt: String
 	let description: String
+	let fee: Double?
 	let guest_capacity: Int
 	let guest_per_member: Int
-	let guests: [Guests]
+	let guestsInfo: GuestsInfo?
 	let happening_photo: String
-	let lastUpdated: String
 	let location: String
-	let locationClean: String
+	let objectID: String
 	let public: Bool
-	let reminderEmail: Bool
-	let rsvpStatus: String
-	let start_date: String
+	let rsvpStatus: String?
+	let start_date: Int
 	let title: String
 	let type: String
-	let waitlisted: [Waitlisted]
-	let waitlistedStatus: String
+	let userInfo: UserInfo
 
 	enum CodingKeys: String, CodingKey {
-		case _id = "_id"
-		case attendees = "attendees"
+		case attendeesInfo = "attendeesInfo"
 		case cancelled = "cancelled"
 		case capacity = "capacity"
-		case createdAt = "createdAt"
 		case description = "description"
+		case fee = "fee"
 		case guest_capacity = "guest_capacity"
 		case guest_per_member = "guest_per_member"
-		case guests = "guests"
+		case guestsInfo = "guestsInfo"
 		case happening_photo = "happening_photo"
-		case lastUpdated = "lastUpdated"
 		case location = "location"
-		case locationClean = "locationClean"
+		case objectID = "objectID"
 		case public = "public"
-		case reminderEmail = "reminderEmail"
 		case rsvpStatus = "rsvpStatus"
 		case start_date = "start_date"
 		case title = "title"
 		case type = "type"
-		case waitlisted = "waitlisted"
-		case waitlistedStatus = "waitlistedStatus"
+		case userInfo = "userInfo"
 	}
 }
