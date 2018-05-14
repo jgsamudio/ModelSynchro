@@ -12,7 +12,7 @@
 
 struct Response: Codable {
 	let event: Event
-	let event_guests: [Event_guests]
+	let event_guests: [EventGuest]
 	let user_rsvpStatus: String
 
 	enum CodingKeys: String, CodingKey {

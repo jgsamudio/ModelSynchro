@@ -1,5 +1,5 @@
 //
-//  Event_guests.swift
+//  EventGuest.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 05/14/18.
@@ -10,7 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct Event_guests: Codable {
+struct EventGuest: Codable {
 	let __v: Bool
 	let _id: String
 	let checkIn: Bool

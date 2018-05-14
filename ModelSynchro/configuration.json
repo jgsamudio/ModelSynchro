@@ -16,6 +16,7 @@
   "language" : "swift",
   "mappedModelNames" : {
       "filters" : "filter",
-      "filtersection" : "section"
+      "filtersection" : "section",
+      "event_guests" : "EventGuest"
   }
 }

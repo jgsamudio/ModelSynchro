@@ -134,9 +134,9 @@ private extension JsonParser {
     }
 
     private func mappedClassNames(name: String) -> String {
-        for (modelName, value) in config.mappedModelNames {
+        for (modelName, value) in config.mappedModelNames ?? [:] {
             if modelName.lowercased() == name.lowercased() {
-                return value.lowercased()
+                return value
             }
         }
         return name
