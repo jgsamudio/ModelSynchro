@@ -1,5 +1,5 @@
 //
-//  NewEvent.swift
+//  Event.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 05/14/18.
@@ -10,7 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct NewEvent: Codable {
+struct Event: Codable {
 	let attendeesInfo: AttendeesInfo?
 	let cancelled: Bool
 	let capacity: Int

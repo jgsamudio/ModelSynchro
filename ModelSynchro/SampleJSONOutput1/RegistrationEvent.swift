@@ -21,10 +21,10 @@ struct RegistrationEvent: Codable {
 	let guest_per_member: Int
 	let guests: [Guests]
 	let happening_photo: String
-	let isPublic: Bool // let public: Bool
 	let lastUpdated: String
 	let location: String
 	let locationClean: String
+	let public: Bool
 	let reminderEmail: Bool
 	let rsvpStatus: String
 	let start_date: String
@@ -44,10 +44,10 @@ struct RegistrationEvent: Codable {
 		case guest_per_member = "guest_per_member"
 		case guests = "guests"
 		case happening_photo = "happening_photo"
-		case isPublic = "public"
 		case lastUpdated = "lastUpdated"
 		case location = "location"
 		case locationClean = "locationClean"
+		case public = "public"
 		case reminderEmail = "reminderEmail"
 		case rsvpStatus = "rsvpStatus"
 		case start_date = "start_date"

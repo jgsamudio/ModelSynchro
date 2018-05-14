@@ -73,7 +73,7 @@ extension ConfigurationFile {
     /// - Returns: Mapped model name if found.
     func mapped(jsonKey: String) -> String {
         for modelInfo in mappedModelNames ?? [] {
-            if modelInfo.jsonKey?.lowercased() == jsonKey.lowercased() {
+            if modelInfo.jsonKey == jsonKey {
                 return modelInfo.mappedName
             }
         }
@@ -85,8 +85,9 @@ extension ConfigurationFile {
     /// - Parameter filename: Filename to search for.
     /// - Returns: Mapped model name if found.
     func mapped(filename: String) -> String {
+        print(filename)
         for modelInfo in mappedModelNames ?? [] {
-            if modelInfo.fileName?.lowercased() == filename.lowercased() {
+            if modelInfo.fileName == filename {
                 return modelInfo.mappedName
             }
         }
