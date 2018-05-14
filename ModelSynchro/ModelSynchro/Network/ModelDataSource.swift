@@ -11,6 +11,7 @@ import Foundation
 protocol ModelDataSourceProtocol {
     var modelDict: [String : ModelGeneratorProtocol] { get set }
     func modelGenerator(modelName: String) -> ModelGeneratorProtocol
+    func resetDataSource()
 }
 
 /// Data source handles creation and insertion of models generated.
@@ -42,4 +43,9 @@ final class ModelDataSource: ModelDataSourceProtocol {
         modelDict[modelName] = model
         return model
     }
+
+    func resetDataSource() {
+        modelDict = [String : ModelGeneratorProtocol]()
+    }
+
 }

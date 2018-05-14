@@ -1,0 +1,162 @@
+ [
+  {
+  "start_date": 1509404400,
+  "title": "A Brief History: Witches & the Patriarchy",
+  "description": "Same story, different era. Alexis Coe, The Wing's in-house historian, thinks the Salem witch trials weren't just about fear of the occult or a community's revenge on an individual: It was about the patriarchy's attempts to punish women's subversion of male authority in the New World, often through violent, hysterical, public spectacles. Come for lurid tales of demonic possession and a frighteningly familiar glance at fragile manhood, colonial era style. See you at the witching hour of 7pm.\n",
+  "capacity": 150,
+  "guest_capacity": 50,
+  "location": "NoJbmEByCygiST4SH",
+  "type": "art_culture",
+  "happening_photo": "https://the-wing.s3.amazonaws.com/app/screen-shot-2017-10-24-at-9-38-47-pm-aab-e65a66ffba42.png",
+  "public": true,
+  "cancelled": false,
+  "guest_per_member": 2,
+  "objectID": "huzPAqGApMvYfXTEx",
+  "userInfo": {
+  "eventId": "huzPAqGApMvYfXTEx",
+  "going": true,
+  "waitlisted": false,
+  "bookmarked": false
+  },
+  "rsvpStatus": "open",
+  "fee": 21.1,
+  "guestsInfo": {},
+  "attendeesInfo": {
+  "attendeesCount": 60,
+  "attendees": [
+                {
+                "firstName": "members",
+                "lastName": "wQ2xfCsZqKyHiWKoe"
+                },
+                {
+                "firstName": "members",
+                "lastName": "uR2bYcY54gEYScZeE"
+                },
+                {
+                "firstName": "members",
+                "lastName": "q9jTHisc2Ec6vwBHz"
+                },
+                {
+                "firstName": "members",
+                "lastName": "p8BWbud9PSCvwECPi"
+                },
+                {
+                "firstName": "members",
+                "lastName": "n3zb5zSmkeoNoguxF"
+                },
+                {
+                "firstName": "members",
+                "lastName": "jwsprGWjjWjwfGrjc"
+                },
+                {
+                "firstName": "members",
+                "lastName": "fAwzSStLbA3HdmQea"
+                },
+                {
+                "firstName": "Jamie",
+                "lastName": "Roth",
+                "avatar": "https://the-wing-backend-api.s3.us-east-2.amazonaws.com/app/file-b9c-98d60a111ca6.jpg?w=400",
+                "headline": "An important headline indeed its truly great"
+                },
+                {
+                "firstName": "members",
+                "lastName": "BdwdJLXZXtCqeaGFA"
+                },
+                {
+                "firstName": "members",
+                "lastName": "3uRncsh7bZfS6bgvH"
+                }
+                ]
+  }
+  },
+  {
+  "start_date": 1517958000,
+  "title": "Phenomenal Women: Black Wing Women Unite",
+  "description": "A night celebrating the strong Black, and Afro-Latina wing women in our community. A toast to another year of organizing, creating, building and running shit. Come and join us for a magical evening of solidarity and joy.\n\nDon't miss a special performance by Wing Woman Candice Hoyes, jazz vocalist, songwriter, and vocalist at Jazz Lincoln Center. ",
+  "capacity": 500,
+  "guest_capacity": 100,
+  "guest_per_member": 2,
+  "location": "GN8zC77HQbj84vTuc",
+  "type": "wing_things",
+  "happening_photo": "https://the-wing.s3.amazonaws.com/app/screen-shot-2018-02-02-at-2-16-08-pm-a9f-33e67dad84e1.png",
+  "public": true,
+  "cancelled": false,
+  "objectID": "3HcfcsnmnF6oMPaXm",
+  "userInfo": {
+  "eventId": "3HcfcsnmnF6oMPaXm",
+  "going": true,
+  "waitlisted": false,
+  "bookmarked": false,
+  "guestsCount": 2,
+  "guests": [
+             {
+             "fullName": "Guest 30",
+             "emailAddress": "gevent-30@test.com"
+             },
+             {
+             "fullName": "Guest 25",
+             "emailAddress": "gevent-25@test.com"
+             }
+             ]
+  }
+  },
+  {
+  "start_date": 1524870000,
+  "title": "Wake Up: West Coast ",
+  "description": "If you're not still jet-lagged, grab some breakfast and meet some fellow transplants at The Wing SoHo! Community Manager Crystal Fawn will be there to facilitate introductions.",
+  "capacity": 150,
+  "guest_capacity": 30,
+  "guest_per_member": 2,
+  "location": "GN8zC77HQbj84vTuc",
+  "type": "wing_things",
+  "happening_photo": "https://the-wing.s3.amazonaws.com/app/soho-wake-up-west-coast-90e-76cc7402298a.png",
+  "public": true,
+  "cancelled": false,
+  "objectID": "jpHXosMzGGMup7P9F",
+  "userInfo": {
+  "eventId": "jpHXosMzGGMup7P9F",
+  "going": true,
+  "waitlisted": false,
+  "bookmarked": false
+  }
+  },
+  {
+  "start_date": 1525129200,
+  "title": "Trivia Night 2.0",
+  "description": "Back by popular demand: Wing Trivia, 2nd edition! All your favorite facts, in a space dreamier than a dive bar.",
+  "capacity": 150,
+  "guest_capacity": 30,
+  "guest_per_member": 2,
+  "location": "ifLhs7vTZjsjBCYsn",
+  "type": "wing_things",
+  "happening_photo": "https://the-wing.s3.amazonaws.com/app/wing-trivia-night-109-793acb8bdf13.jpg",
+  "public": true,
+  "cancelled": false,
+  "objectID": "XYGZufQZL9BEsB96i",
+  "userInfo": {
+  "eventId": "XYGZufQZL9BEsB96i",
+  "going": true,
+  "waitlisted": false,
+  "bookmarked": false
+  }
+  },
+  {
+  "start_date": 1525276800,
+  "title": "Baby Goat Party",
+  "description": "A great time with some baby goats! ",
+  "capacity": 80,
+  "guest_capacity": 30,
+  "guest_per_member": 2,
+  "location": "NoJbmEByCygiST4SH",
+  "type": "art_culture",
+  "happening_photo": "https://the-wing.s3.amazonaws.com/app/baby-goat-d8e-93907067f069.jpg",
+  "public": true,
+  "cancelled": false,
+  "objectID": "h4qQQg2nv7FMiwqrF",
+  "description": {
+  "value": "A great time with some baby goats! ",
+  "matchLevel": "none",
+  "matchedWords": []
+  }
+  }
+]

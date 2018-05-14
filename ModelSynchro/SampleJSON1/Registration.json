@@ -1,0 +1,90 @@
+{
+    "status": "success",
+    "response": {
+        "event": {
+            "_id": "YXexayroWGEwNRZEz",
+            "title": "May Book Club",
+            "description": "Monthly Book Club event",
+            "capacity": 6,
+            "guest_capacity": 2,
+            "guest_per_member": 2,
+            "location": "ifLhs7vTZjsjBCYsn",
+            "type": "business_technology",
+            "start_date": "2018-05-14T18:34:00.000Z",
+            "happening_photo": "",
+            "createdAt": "2018-05-02T18:35:57.631Z",
+            "lastUpdated": "2018-05-09T17:30:51.881Z",
+            "locationClean": "DUMBO",
+            "public": true,
+            "cancelled": false,
+            "reminderEmail": false,
+            "rsvpStatus": "open",
+            "waitlistedStatus": "open",
+            "guests": [],
+            "waitlisted": [
+                           {
+                           "userId": "ejuazBZJ5TZR5bcXQ",
+                           "checked_in": false,
+                           "updatedAt": "Fri May 04 2018 17:23:44 GMT-0400 (EDT)"
+                           },
+                           {
+                           "userId": "ip2jAnonX82haeXqx",
+                           "checked_in": false,
+                           "updatedAt": "Wed May 09 2018 12:35:07 GMT-0400 (EDT)"
+                           }
+                           ],
+            "attendees": [
+                          {
+                          "userId": "xYxuWmM7uGFrW7vz8",
+                          "checked_in": false,
+                          "updatedAt": "Thu May 03 2018 15:42:56 GMT-0400 (EDT)"
+                          },
+                          {
+                          "userId": "XtMJcpn425R8XDMDn",
+                          "checked_in": false,
+                          "updatedAt": "Fri May 04 2018 16:30:20 GMT-0400 (EDT)"
+                          },
+                          {
+                          "userId": "ip2jAnonX82haeXqx",
+                          "checked_in": false,
+                          "updatedAt": "Wed May 09 2018 13:31:00 GMT-0400 (EDT)"
+                          },
+                          {
+                          "guestToken": "VlnVSTOf3enKtKse",
+                          "name": "fdfsa",
+                          "email": "ds",
+                          "friendId": "ip2jAnonX82haeXqx",
+                          "checked_in": false,
+                          "updatedAt": "Wed May 09 2018 13:31:19 GMT-0400 (EDT)"
+                          }
+                          ]
+        },
+        "user_rsvpStatus": "going",
+        "event_guests": [
+                         {
+                         "__v": 0,
+                         "eventId": "YXexayroWGEwNRZEz",
+                         "memberId": "QrHi9syXXZDxomHMt",
+                         "first_name": "Brandon",
+                         "last_name": "Vega",
+                         "email": "brandon@hangar.cr",
+                         "checkIn": false,
+                         "rsvpStatus": "going",
+                         "lastUpdated": "2018-05-09T21:49:18.682Z",
+                         "_id": "5af36cdea96c4f4242a8ed0c"
+                         },
+                         {
+                         "__v": 0,
+                         "eventId": "YXexayroWGEwNRZEz",
+                         "memberId": "QrHi9syXXZDxomHMt",
+                         "first_name": "Vega",
+                         "last_name": "Brandon",
+                         "email": "vega@hangar.cr",
+                         "checkIn": false,
+                         "rsvpStatus": "going",
+                         "lastUpdated": "2018-05-09T21:49:18.682Z",
+                         "_id": "5af36cdea96c4f4242a8ed0d"
+                         }
+                         ]
+    }
+}

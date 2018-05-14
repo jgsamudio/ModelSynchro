@@ -89,6 +89,10 @@ final class JsonParser {
             value.writeToFile(outputDirectory: outputDirectory)
         })
     }
+
+    func clearDataSource() {
+        modelDataSource.resetDataSource()
+    }
 }
 
 private extension JsonParser {
