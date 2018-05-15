@@ -20,6 +20,6 @@ An automated way to generate network models from JSON and keep them up to date.
   s.author           = { 'Jonathan Samudio' => 'jonathan2457@gmail.com' }
   s.source           = { :git => 'https://github.com/jgsamudio/ModelSynchro.git', :tag => s.version.to_s }
 
-  s.source_files = 'ModelSynchro/Source/**/*'
+  s.preserve_paths = 'ModelSynchro/Source/**/*'
 
 end
