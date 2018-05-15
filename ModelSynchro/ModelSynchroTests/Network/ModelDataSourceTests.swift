@@ -23,7 +23,8 @@ class ModelDataSourceTests: XCTestCase {
                                        endpoints: [],
                                        headers: nil,
                                        authEndpoint: nil,
-                                       localJSONDirectory: nil)
+                                       localJSONDirectory: nil,
+                                       mappedModelNames: nil)
 
         sut = ModelDataSource(config: config, currentModels: [:])
     }

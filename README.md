@@ -53,10 +53,24 @@ Next, you will need to configure a custom configuration.json file and add it to 
       "name" : "Movies"
     }
   ],
-  "mappedModelNames" : {
-    "filters" : "filter",
-    "FilterSection" : "Section"
-  }
+  "mappedModelNames" : [
+    {
+        "jsonKey" : "filters",
+        "mappedName" : "Filter"
+    },
+    {
+        "jsonKey" : "event_guests",
+        "mappedName" : "EventGuest"
+    },
+    {
+        "jsonKey" : "event",
+        "mappedName" : "RegistrationEvent"
+    },
+    {
+        "fileName": "Event",
+        "mappedName": "MappedEvent"
+    }
+  ]
 }
 ```
 
@@ -100,13 +114,27 @@ struct Book: Codable {
 
 ## Custom Model Names
 
-By default, the name of the swift network model will be set to the name of the local JSON file or the keys of the JSON object for sub-models. If you would like to change the name of the model to something else add the `mappedModelNames` object to the configuration file. Here you can add the name of the model with the desired mapped name.
+By default, the name of the swift network model will be set to the name of the local JSON file or the keys of the JSON object for sub-models. If you would like to change the name of the model to something else add the `mappedModelNames` object to the configuration file. Here you can add the JSON key or filename along with the mapped name.
 
 ```
-"mappedModelNames" : {
-    "filters" : "filter",
-    "FilterSection" : "Section"
-}
+"mappedModelNames" : [
+    {
+        "jsonKey" : "filters",
+        "mappedName" : "Filter"
+    },
+    {
+        "jsonKey" : "event_guests",
+        "mappedName" : "EventGuest"
+    },
+    {
+        "jsonKey" : "event",
+        "mappedName" : "RegistrationEvent"
+    },
+    {
+        "fileName": "Event",
+        "mappedName": "MappedEvent"
+    }
+]
 ```
 
 ## Languages

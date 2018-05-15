@@ -16,6 +16,7 @@ class FakeModelGenerator: ModelGeneratorProtocol {
 
     var incrementIterationWasCalled = false
     var writeToFileWasCalled = false
+    var writeToFileOutputWasCalled = false
     var lastAddCall = (property: "", type: "")
     var addWasCalled = false
 
@@ -31,4 +32,9 @@ class FakeModelGenerator: ModelGeneratorProtocol {
     func writeToFile() {
         writeToFileWasCalled = true
     }
+
+    func writeToFile(outputDirectory: String) {
+        writeToFileOutputWasCalled = true
+    }
+
 }

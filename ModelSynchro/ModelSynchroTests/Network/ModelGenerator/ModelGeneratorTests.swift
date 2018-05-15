@@ -24,7 +24,8 @@ class ModelGeneratorTests: XCTestCase {
                                        endpoints: [],
                                        headers: nil,
                                        authEndpoint: nil,
-                                       localJSONDirectory: nil)
+                                       localJSONDirectory: nil,
+                                       mappedModelNames: nil)
 
         generatorDataSource = FakeGeneratorDataSource()
         sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)
@@ -122,7 +123,8 @@ class ModelGeneratorTests: XCTestCase {
                                        endpoints: [],
                                        headers: nil,
                                        authEndpoint: nil,
-                                       localJSONDirectory: nil)
+                                       localJSONDirectory: nil,
+                                       mappedModelNames: nil)
 
         generatorDataSource = FakeGeneratorDataSource()
         sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)

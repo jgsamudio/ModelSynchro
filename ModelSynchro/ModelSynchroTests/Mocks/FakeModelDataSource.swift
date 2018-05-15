@@ -14,10 +14,15 @@ class FakeModelDataSource: ModelDataSourceProtocol {
     var fakeGenerator = FakeModelGenerator()
 
     var modelGeneratorWasCalled = false
+    var resetDataSourceWasCalled = false
 
     func modelGenerator(modelName: String) -> ModelGeneratorProtocol {
         modelGeneratorWasCalled = true
         modelDict[modelName] = fakeGenerator
         return fakeGenerator
+    }
+
+    func resetDataSource() {
+        resetDataSourceWasCalled = true
     }
 }
