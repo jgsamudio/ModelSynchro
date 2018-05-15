@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 An automated way to generate network models from JSON and keep them up to date.
                        DESC
 
-  s.homepage         = 'https://github.com/Jonathan Samudio/ModelSynchro'
+  s.homepage         = 'https://github.com/jgsamudio/ModelSynchro'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jonathan Samudio' => 'jonathan2457@gmail.com' }
   s.source           = { :git => 'https://github.com/jgsamudio/ModelSynchro.git', :tag => s.version.to_s }
