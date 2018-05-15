@@ -26,6 +26,10 @@
     {
       "jsonKey" : "event",
       "mappedName" : "RegistrationEvent"
+    },
+    {
+      "fileName": "Event",
+      "mappedName": "MappedEvent"
     }
   ]
 }
