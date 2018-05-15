@@ -25,7 +25,8 @@ class GeneratorDataSourceTests: XCTestCase {
                                    endpoints: [],
                                    headers: nil,
                                    authEndpoint: nil,
-                                   localJSONDirectory: nil)
+                                   localJSONDirectory: nil,
+                                   mappedModelNames: nil)
 
         languageFormatter = SwiftLanguageFormatter()
         sut = GeneratorDataSource(languageFormatter: languageFormatter)
