@@ -12,6 +12,85 @@ class ConfigurationFileTests: XCTestCase {
 
     var sut: ConfigurationFile!
 
+    // MARK: - outputPath: String
+
+    func testOutputPath_Nil() {
+        ConfigurationParser.projectDirectory = "projectDirectory"
+        sut = ConfigurationFile(authorName: "Author",
+                                companyName: "Company",
+                                projectName: "MyCoolProject",
+                                language: "Swift",
+                                outputDirectory: nil,
+                                endpoints: [],
+                                headers: nil,
+                                authEndpoint: nil,
+                                localJSONDirectory: nil,
+                                mappedModelNames: nil)
+
+        let result = sut.outputPath
+
+        XCTAssertEqual(result, ConfigurationParser.projectDirectory)
+    }
+
+    func testOutputPath_NonNil() {
+        let outputDirectory = "/somewhere"
+        ConfigurationParser.projectDirectory = "projectDirectory"
+        sut = ConfigurationFile(authorName: "Author",
+                                companyName: "Company",
+                                projectName: "MyCoolProject",
+                                language: "Swift",
+                                outputDirectory: outputDirectory,
+                                endpoints: [],
+                                headers: nil,
+                                authEndpoint: nil,
+                                localJSONDirectory: nil,
+                                mappedModelNames: nil)
+
+        let result = sut.outputPath
+
+        XCTAssertEqual(result, ConfigurationParser.projectDirectory + outputDirectory)
+    }
+
+    // MARK: - localPath(directory: String) -> String
+
+    func testLocalPath_EmptyDirectory() {
+        ConfigurationParser.projectDirectory = "projectDirectory"
+        sut = ConfigurationFile(authorName: "Author",
+                                companyName: "Company",
+                                projectName: "MyCoolProject",
+                                language: "Swift",
+                                outputDirectory: nil,
+                                endpoints: [],
+                                headers: nil,
+                                authEndpoint: nil,
+                                localJSONDirectory: nil,
+                                mappedModelNames: nil)
+
+        let result = sut.localPath(directory: "")
+
+        XCTAssertEqual(result, ConfigurationParser.projectDirectory)
+    }
+
+    func testLocalPath_NonEmptyDirectory() {
+        ConfigurationParser.projectDirectory = "projectDirectory"
+        sut = ConfigurationFile(authorName: "Author",
+                                companyName: "Company",
+                                projectName: "MyCoolProject",
+                                language: "Swift",
+                                outputDirectory: nil,
+                                endpoints: [],
+                                headers: nil,
+                                authEndpoint: nil,
+                                localJSONDirectory: nil,
+                                mappedModelNames: nil)
+
+        let result = sut.localPath(directory: "something")
+
+        XCTAssertEqual(result, ConfigurationParser.projectDirectory + "something")
+    }
+
+    // MARK: - mapped(jsonKey: String) -> String
+
     func testMappedJsonKey_NilMappings() {
         let key = "jsonKey"
         sut = ConfigurationFile(authorName: "Author",
@@ -67,6 +146,8 @@ class ConfigurationFileTests: XCTestCase {
 
         XCTAssertEqual(result, mappedModelInfo.mappedName)
     }
+
+    // MARK: mapped(filename: String) -> String
 
     func testMappedFileName_NilMappings() {
         let fileName = "fileName"

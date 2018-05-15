@@ -49,6 +49,10 @@ extension ConfigurationFile {
         return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
     }
 
+    /// The local directory path.
+    ///
+    /// - Parameter directory: Directory of the local json.
+    /// - Returns: Full directory path.
     func localPath(directory: String) -> String {
         return ConfigurationParser.projectDirectory + directory
     }
