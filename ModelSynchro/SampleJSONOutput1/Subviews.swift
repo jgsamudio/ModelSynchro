@@ -25,15 +25,13 @@ struct Subviews: Codable {
         do {
             button = try container.decode(Button.self, forKey: .button)
         } catch {
-            print("warning: button key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: button key is not found!")
         }
 
         do {
             label = try container.decode(Label.self, forKey: .label)
         } catch {
-            print("warning: label key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: label key is not found!")
         }
 	}
 }

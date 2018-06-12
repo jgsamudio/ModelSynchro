@@ -63,148 +63,127 @@ struct RegistrationEvent: Codable {
         do {
             _id = try container.decode(String.self, forKey: ._id)
         } catch {
-            print("warning: _id key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: _id key is not found!")
         }
 
         do {
             attendees = try container.decode([Attendees].self, forKey: .attendees)
         } catch {
-            print("warning: attendees key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: attendees key is not found!")
         }
 
         do {
             cancelled = try container.decode(Bool.self, forKey: .cancelled)
         } catch {
-            print("warning: cancelled key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: cancelled key is not found!")
         }
 
         do {
             capacity = try container.decode(Int.self, forKey: .capacity)
         } catch {
-            print("warning: capacity key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: capacity key is not found!")
         }
 
         do {
             createdAt = try container.decode(String.self, forKey: .createdAt)
         } catch {
-            print("warning: createdAt key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: createdAt key is not found!")
         }
 
         do {
             description = try container.decode(String.self, forKey: .description)
         } catch {
-            print("warning: description key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: description key is not found!")
         }
 
         do {
             guest_capacity = try container.decode(Int.self, forKey: .guest_capacity)
         } catch {
-            print("warning: guest_capacity key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: guest_capacity key is not found!")
         }
 
         do {
             guest_per_member = try container.decode(Int.self, forKey: .guest_per_member)
         } catch {
-            print("warning: guest_per_member key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: guest_per_member key is not found!")
         }
 
         do {
             guests = try container.decode([Guests].self, forKey: .guests)
         } catch {
-            print("warning: guests key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: guests key is not found!")
         }
 
         do {
             happening_photo = try container.decode(String.self, forKey: .happening_photo)
         } catch {
-            print("warning: happening_photo key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: happening_photo key is not found!")
         }
 
         do {
             lastUpdated = try container.decode(String.self, forKey: .lastUpdated)
         } catch {
-            print("warning: lastUpdated key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: lastUpdated key is not found!")
         }
 
         do {
             location = try container.decode(String.self, forKey: .location)
         } catch {
-            print("warning: location key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: location key is not found!")
         }
 
         do {
             locationClean = try container.decode(String.self, forKey: .locationClean)
         } catch {
-            print("warning: locationClean key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: locationClean key is not found!")
         }
 
         do {
             public = try container.decode(Bool.self, forKey: .public)
         } catch {
-            print("warning: public key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: public key is not found!")
         }
 
         do {
             reminderEmail = try container.decode(Bool.self, forKey: .reminderEmail)
         } catch {
-            print("warning: reminderEmail key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: reminderEmail key is not found!")
         }
 
         do {
             rsvpStatus = try container.decode(String.self, forKey: .rsvpStatus)
         } catch {
-            print("warning: rsvpStatus key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: rsvpStatus key is not found!")
         }
 
         do {
             start_date = try container.decode(String.self, forKey: .start_date)
         } catch {
-            print("warning: start_date key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: start_date key is not found!")
         }
 
         do {
             title = try container.decode(String.self, forKey: .title)
         } catch {
-            print("warning: title key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: title key is not found!")
         }
 
         do {
             type = try container.decode(String.self, forKey: .type)
         } catch {
-            print("warning: type key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: type key is not found!")
         }
 
         do {
             waitlisted = try container.decode([Waitlisted].self, forKey: .waitlisted)
         } catch {
-            print("warning: waitlisted key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: waitlisted key is not found!")
         }
 
         do {
             waitlistedStatus = try container.decode(String.self, forKey: .waitlistedStatus)
         } catch {
-            print("warning: waitlistedStatus key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: waitlistedStatus key is not found!")
         }
 	}
 }

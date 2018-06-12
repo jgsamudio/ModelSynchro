@@ -35,50 +35,43 @@ struct Color: Codable {
         do {
             alpha = try container.decode(String.self, forKey: .alpha)
         } catch {
-            print("warning: alpha key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: alpha key is not found!")
         }
 
         do {
             blue = try container.decode(String.self, forKey: .blue)
         } catch {
-            print("warning: blue key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: blue key is not found!")
         }
 
         do {
             colorSpace = try container.decode(String.self, forKey: .colorSpace)
         } catch {
-            print("warning: colorSpace key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: colorSpace key is not found!")
         }
 
         do {
             customColorSpace = try container.decode(String.self, forKey: .customColorSpace)
         } catch {
-            print("warning: customColorSpace key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: customColorSpace key is not found!")
         }
 
         do {
             green = try container.decode(String.self, forKey: .green)
         } catch {
-            print("warning: green key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: green key is not found!")
         }
 
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            print("warning: key key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
         }
 
         do {
             red = try container.decode(String.self, forKey: .red)
         } catch {
-            print("warning: red key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: red key is not found!")
         }
 	}
 }

@@ -27,22 +27,19 @@ struct FontDescription: Codable {
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            print("warning: key key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
         }
 
         do {
             pointSize = try container.decode(String.self, forKey: .pointSize)
         } catch {
-            print("warning: pointSize key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: pointSize key is not found!")
         }
 
         do {
             type = try container.decode(String.self, forKey: .type)
         } catch {
-            print("warning: type key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: type key is not found!")
         }
 	}
 }

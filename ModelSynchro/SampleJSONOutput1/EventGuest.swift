@@ -16,8 +16,8 @@ struct EventGuest: Codable {
 	let email: String
 	let eventId: String
 	let first_name: String
+	let lastName: String // let last_name: String
 	let lastUpdated: String
-	let last_name: String
 	let memberId: String
 	let status: AnotherType? // let rsvpStatus: String
 	let version: Bool? // let __v: Bool
@@ -28,8 +28,8 @@ struct EventGuest: Codable {
 		case email = "email"
 		case eventId = "eventId"
 		case first_name = "first_name"
+		case lastName = "last_name"
 		case lastUpdated = "lastUpdated"
-		case last_name = "last_name"
 		case memberId = "memberId"
 		case status = "rsvpStatus"
 		case version = "__v"
@@ -44,57 +44,49 @@ struct EventGuest: Codable {
         do {
             _id = try container.decode(String.self, forKey: ._id)
         } catch {
-            print("warning: _id key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: _id key is not found!")
         }
 
         do {
             checkIn = try container.decode(Bool.self, forKey: .checkIn)
         } catch {
-            print("warning: checkIn key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: checkIn key is not found!")
         }
 
         do {
             email = try container.decode(String.self, forKey: .email)
         } catch {
-            print("warning: email key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: email key is not found!")
         }
 
         do {
             eventId = try container.decode(String.self, forKey: .eventId)
         } catch {
-            print("warning: eventId key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: eventId key is not found!")
         }
 
         do {
             first_name = try container.decode(String.self, forKey: .first_name)
         } catch {
-            print("warning: first_name key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: first_name key is not found!")
         }
 
         do {
             lastUpdated = try container.decode(String.self, forKey: .lastUpdated)
         } catch {
-            print("warning: lastUpdated key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: lastUpdated key is not found!")
         }
 
         do {
-            last_name = try container.decode(String.self, forKey: .last_name)
+            lastName = try container.decode(String.self, forKey: .lastName)
         } catch {
-            print("warning: last_name key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: lastName key is not found!")
         }
 
         do {
             memberId = try container.decode(String.self, forKey: .memberId)
         } catch {
-            print("warning: memberId key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: memberId key is not found!")
         }
 	}
 }

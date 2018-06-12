@@ -31,36 +31,31 @@ struct Rect: Codable {
         do {
             height = try container.decode(String.self, forKey: .height)
         } catch {
-            print("warning: height key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: height key is not found!")
         }
 
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            print("warning: key key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
         }
 
         do {
             width = try container.decode(String.self, forKey: .width)
         } catch {
-            print("warning: width key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: width key is not found!")
         }
 
         do {
             x = try container.decode(String.self, forKey: .x)
         } catch {
-            print("warning: x key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: x key is not found!")
         }
 
         do {
             y = try container.decode(String.self, forKey: .y)
         } catch {
-            print("warning: y key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: y key is not found!")
         }
 	}
 }

@@ -27,22 +27,19 @@ struct Device: Codable {
         do {
             adaptation = try container.decode(Adaptation.self, forKey: .adaptation)
         } catch {
-            print("warning: adaptation key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: adaptation key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            print("warning: id key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
         }
 
         do {
             orientation = try container.decode(String.self, forKey: .orientation)
         } catch {
-            print("warning: orientation key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: orientation key is not found!")
         }
 	}
 }

@@ -53,113 +53,97 @@ struct Label: Codable {
         do {
             adjustsFontSizeToFit = try container.decode(String.self, forKey: .adjustsFontSizeToFit)
         } catch {
-            print("warning: adjustsFontSizeToFit key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: adjustsFontSizeToFit key is not found!")
         }
 
         do {
             baselineAdjustment = try container.decode(String.self, forKey: .baselineAdjustment)
         } catch {
-            print("warning: baselineAdjustment key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: baselineAdjustment key is not found!")
         }
 
         do {
             color = try container.decode(Color.self, forKey: .color)
         } catch {
-            print("warning: color key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: color key is not found!")
         }
 
         do {
             contentMode = try container.decode(String.self, forKey: .contentMode)
         } catch {
-            print("warning: contentMode key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: contentMode key is not found!")
         }
 
         do {
             fontDescription = try container.decode(FontDescription.self, forKey: .fontDescription)
         } catch {
-            print("warning: fontDescription key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: fontDescription key is not found!")
         }
 
         do {
             horizontalHuggingPriority = try container.decode(String.self, forKey: .horizontalHuggingPriority)
         } catch {
-            print("warning: horizontalHuggingPriority key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: horizontalHuggingPriority key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            print("warning: id key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
         }
 
         do {
             lineBreakMode = try container.decode(String.self, forKey: .lineBreakMode)
         } catch {
-            print("warning: lineBreakMode key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: lineBreakMode key is not found!")
         }
 
         do {
             nil = try container.decode(Nil.self, forKey: .nil)
         } catch {
-            print("warning: nil key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: nil key is not found!")
         }
 
         do {
             opaque = try container.decode(String.self, forKey: .opaque)
         } catch {
-            print("warning: opaque key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: opaque key is not found!")
         }
 
         do {
             rect = try container.decode(Rect.self, forKey: .rect)
         } catch {
-            print("warning: rect key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: rect key is not found!")
         }
 
         do {
             text = try container.decode(String.self, forKey: .text)
         } catch {
-            print("warning: text key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: text key is not found!")
         }
 
         do {
             textAlignment = try container.decode(String.self, forKey: .textAlignment)
         } catch {
-            print("warning: textAlignment key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: textAlignment key is not found!")
         }
 
         do {
             translatesAutoresizingMaskIntoConstraints = try container.decode(String.self, forKey: .translatesAutoresizingMaskIntoConstraints)
         } catch {
-            print("warning: translatesAutoresizingMaskIntoConstraints key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: translatesAutoresizingMaskIntoConstraints key is not found!")
         }
 
         do {
             userInteractionEnabled = try container.decode(String.self, forKey: .userInteractionEnabled)
         } catch {
-            print("warning: userInteractionEnabled key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: userInteractionEnabled key is not found!")
         }
 
         do {
             verticalHuggingPriority = try container.decode(String.self, forKey: .verticalHuggingPriority)
         } catch {
-            print("warning: verticalHuggingPriority key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: verticalHuggingPriority key is not found!")
         }
 	}
 }

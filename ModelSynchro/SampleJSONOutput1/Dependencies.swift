@@ -27,22 +27,19 @@ struct Dependencies: Codable {
         do {
             capability = try container.decode(Capability.self, forKey: .capability)
         } catch {
-            print("warning: capability key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: capability key is not found!")
         }
 
         do {
             deployment = try container.decode(Deployment.self, forKey: .deployment)
         } catch {
-            print("warning: deployment key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: deployment key is not found!")
         }
 
         do {
             plugIn = try container.decode(PlugIn.self, forKey: .plugIn)
         } catch {
-            print("warning: plugIn key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: plugIn key is not found!")
         }
 	}
 }

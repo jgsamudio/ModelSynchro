@@ -23,8 +23,7 @@ struct Deployment: Codable {
         do {
             identifier = try container.decode(String.self, forKey: .identifier)
         } catch {
-            print("warning: identifier key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: identifier key is not found!")
         }
 	}
 }

@@ -25,15 +25,13 @@ struct FilterSection: Codable {
         do {
             filters = try container.decode([Filter].self, forKey: .filters)
         } catch {
-            print("warning: filters key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: filters key is not found!")
         }
 
         do {
             section = try container.decode(String.self, forKey: .section)
         } catch {
-            print("warning: section key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: section key is not found!")
         }
 	}
 }

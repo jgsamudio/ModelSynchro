@@ -27,22 +27,19 @@ struct Response: Codable {
         do {
             event = try container.decode(RegistrationEvent.self, forKey: .event)
         } catch {
-            print("warning: event key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: event key is not found!")
         }
 
         do {
             event_guests = try container.decode([EventGuest].self, forKey: .event_guests)
         } catch {
-            print("warning: event_guests key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: event_guests key is not found!")
         }
 
         do {
             user_rsvpStatus = try container.decode(String.self, forKey: .user_rsvpStatus)
         } catch {
-            print("warning: user_rsvpStatus key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: user_rsvpStatus key is not found!")
         }
 	}
 }

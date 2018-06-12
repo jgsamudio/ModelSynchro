@@ -25,15 +25,13 @@ struct Filter: Codable {
         do {
             displayName = try container.decode(String.self, forKey: .displayName)
         } catch {
-            print("warning: displayName key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: displayName key is not found!")
         }
 
         do {
             parameter = try container.decode(String.self, forKey: .parameter)
         } catch {
-            print("warning: parameter key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: parameter key is not found!")
         }
 	}
 }

@@ -31,36 +31,31 @@ struct Constraint: Codable {
         do {
             firstAttribute = try container.decode(String.self, forKey: .firstAttribute)
         } catch {
-            print("warning: firstAttribute key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: firstAttribute key is not found!")
         }
 
         do {
             firstItem = try container.decode(String.self, forKey: .firstItem)
         } catch {
-            print("warning: firstItem key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: firstItem key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            print("warning: id key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
         }
 
         do {
             secondAttribute = try container.decode(String.self, forKey: .secondAttribute)
         } catch {
-            print("warning: secondAttribute key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: secondAttribute key is not found!")
         }
 
         do {
             secondItem = try container.decode(String.self, forKey: .secondItem)
         } catch {
-            print("warning: secondItem key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: secondItem key is not found!")
         }
 	}
 }

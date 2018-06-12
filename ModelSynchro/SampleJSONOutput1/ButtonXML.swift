@@ -23,8 +23,7 @@ struct ButtonXML: Codable {
         do {
             document = try container.decode(Document.self, forKey: .document)
         } catch {
-            print("warning: document key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: document key is not found!")
         }
 	}
 }

@@ -23,8 +23,7 @@ struct Constraints: Codable {
         do {
             constraint = try container.decode(Constraint.self, forKey: .constraint)
         } catch {
-            print("warning: constraint key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: constraint key is not found!")
         }
 	}
 }

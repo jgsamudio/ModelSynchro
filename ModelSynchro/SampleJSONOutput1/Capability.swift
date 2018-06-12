@@ -25,15 +25,13 @@ struct Capability: Codable {
         do {
             minToolsVersion = try container.decode(String.self, forKey: .minToolsVersion)
         } catch {
-            print("warning: minToolsVersion key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: minToolsVersion key is not found!")
         }
 
         do {
             name = try container.decode(String.self, forKey: .name)
         } catch {
-            print("warning: name key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: name key is not found!")
         }
 	}
 }

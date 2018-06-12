@@ -140,8 +140,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
                     do {
                         \(keyedProperty) = try container.decode(\(customType).self, forKey: .\(keyedProperty))
                     } catch {
-                        print("warning: \(keyedProperty) key is not found")
-                        throw APIError.noDataRetreived
+                        throw ModelSynchroDecoderError.keyNotFound("error: \(keyedProperty) key is not found!")
                     }\(newLine)
             """
             initializerLineStrings.append(nonOptionalProperty)

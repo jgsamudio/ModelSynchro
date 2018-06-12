@@ -25,15 +25,13 @@ struct State: Codable {
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            print("warning: key key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
         }
 
         do {
             title = try container.decode(String.self, forKey: .title)
         } catch {
-            print("warning: title key is not found")
-            throw APIError.noDataRetreived
+            throw ModelSynchroDecoderError.keyNotFound("error: title key is not found!")
         }
 	}
 }
