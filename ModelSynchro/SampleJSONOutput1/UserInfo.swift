@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct UserInfo: Codable {
 	let bookmarked: Bool
 	let eventId: String

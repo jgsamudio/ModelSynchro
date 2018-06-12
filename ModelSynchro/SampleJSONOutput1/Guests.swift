@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Guests: Codable {
 	let emailAddress: String?
 	let fullName: String?

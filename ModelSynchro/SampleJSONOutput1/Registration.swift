@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Registration: Codable {
 	let response: Response
 	let status: String

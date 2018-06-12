@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Filter: Codable {
 	let displayName: String
 	let parameter: String

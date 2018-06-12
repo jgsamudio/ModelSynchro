@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Dependencies: Codable {
 	let capability: Capability
 	let deployment: Deployment

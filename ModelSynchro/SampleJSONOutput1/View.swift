@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct View: Codable {
 	let autoresizingMask: AutoresizingMask // let autoresizingMask: AutoresizingMask
 	let color: Color

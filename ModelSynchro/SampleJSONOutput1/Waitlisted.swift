@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Waitlisted: Codable {
 	let checked_in: Bool
 	let updatedAt: String

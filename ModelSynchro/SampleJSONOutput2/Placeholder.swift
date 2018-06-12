@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Placeholder: Codable {
 	let customClass: String
 	let id: String

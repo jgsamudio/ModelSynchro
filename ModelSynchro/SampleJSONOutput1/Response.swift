@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Response: Codable {
 	let event: RegistrationEvent
 	let event_guests: [EventGuest]

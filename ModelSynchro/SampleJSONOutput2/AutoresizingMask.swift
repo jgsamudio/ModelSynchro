@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct AutoresizingMask: Codable {
 	let heightSizable: String
 	let key: String

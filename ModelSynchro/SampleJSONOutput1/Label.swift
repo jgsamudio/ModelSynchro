@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Label: Codable {
 	let adjustsFontSizeToFit: String
 	let baselineAdjustment: String

@@ -63,7 +63,9 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         /*
             Auto-Generated using ModelSynchro
         */
-        
+
+        import ModelSynchro
+
         """
     }
     

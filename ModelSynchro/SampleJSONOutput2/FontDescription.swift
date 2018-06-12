@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct FontDescription: Codable {
 	let key: String
 	let pointSize: String

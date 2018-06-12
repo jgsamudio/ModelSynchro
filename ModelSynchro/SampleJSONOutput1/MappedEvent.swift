@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct MappedEvent: Codable {
 	let attendeesInfo: AttendeesInfo?
 	let cancelled: Bool

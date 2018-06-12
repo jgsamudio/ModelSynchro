@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Capability: Codable {
 	let minToolsVersion: String
 	let name: String

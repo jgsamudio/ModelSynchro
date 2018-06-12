@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct PlugIn: Codable {
 	let identifier: String
 	let version: String

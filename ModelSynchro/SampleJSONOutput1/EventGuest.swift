@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct EventGuest: Codable {
 	let _id: String
 	let checkIn: Bool

@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Document: Codable {
 	let colorMatched: String
 	let dependencies: Dependencies

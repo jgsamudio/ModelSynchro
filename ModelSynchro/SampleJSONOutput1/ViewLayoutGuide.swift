@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct ViewLayoutGuide: Codable {
 	let id: String
 	let key: String

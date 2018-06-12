@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Attendees: Codable {
 	let avatar: String?
 	let checked_in: Bool

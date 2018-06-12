@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Device: Codable {
 	let adaptation: Adaptation
 	let id: String

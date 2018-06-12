@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct RegistrationEvent: Codable {
 	let _id: String
 	let attendees: [Attendees]

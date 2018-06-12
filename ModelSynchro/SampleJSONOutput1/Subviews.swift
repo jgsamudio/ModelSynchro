@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Subviews: Codable {
 	let button: Button
 	let label: Label

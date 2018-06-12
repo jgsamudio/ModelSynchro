@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Constraint: Codable {
 	let firstAttribute: String
 	let firstItem: String

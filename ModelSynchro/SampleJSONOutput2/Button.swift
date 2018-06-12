@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Button: Codable {
 	let buttonType: String
 	let contentHorizontalAlignment: String

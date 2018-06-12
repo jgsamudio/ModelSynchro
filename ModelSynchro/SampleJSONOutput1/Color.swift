@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct Color: Codable {
 	let alpha: String
 	let blue: String

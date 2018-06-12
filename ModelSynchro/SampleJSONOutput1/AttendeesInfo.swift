@@ -10,6 +10,8 @@
     Auto-Generated using ModelSynchro
 */
 
+import ModelSynchro
+
 struct AttendeesInfo: Codable {
 	let attendees: [Attendees]
 	let attendeesCount: Int
