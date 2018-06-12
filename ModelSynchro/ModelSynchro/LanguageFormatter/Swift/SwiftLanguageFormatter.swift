@@ -108,9 +108,9 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return keyMappingStrings.joined(separator: "\n")
     }
 
-    func initializer(name: String, lines: [Line]) -> String {
+    func initializer(name: String, lines: [Line]) -> String? {
         guard !lines.isEmpty else {
-            return ""
+            return nil
         }
 
         var initializerLineStrings = [String]()

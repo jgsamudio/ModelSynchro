@@ -12,5 +12,4 @@
 
 struct GuestsInfo: Codable {
 
-
 }

@@ -156,8 +156,8 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return type.capitalizedFirstLetter()
     }
 
-    func initializer(name: String, lines: [Line]) -> String {
+    func initializer(name: String, lines: [Line]) -> String? {
         // TODO
-        return ""
+        return nil
     }
 }
