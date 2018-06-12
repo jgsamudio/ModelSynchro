@@ -33,6 +33,14 @@ extension Line {
     func toString(languageFormatter: LanguageFormatter) -> String {
         return languageFormatter.variableString(line: self)
     }
+
+    /// Determines if the line is optional, including the custom line.
+    ///
+    /// - Parameter optionalToken: Optional token to search for.
+    /// - Returns: Flag if the property is optional.
+    func isCustomLine(optionalToken: String) -> Bool {
+        return isOptional || (customProperty?.customLine.contains(optionalToken) ?? false)
+    }
 }
 
 extension Line: Equatable {

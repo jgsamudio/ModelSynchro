@@ -217,4 +217,10 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     func customFormat(type: String) -> String {
         return type.capitalizedFirstLetter()
     }
+
+    func initializer(name: String, lines: [Line]) -> String {
+        // TODO
+        return ""
+    }
+    
 }

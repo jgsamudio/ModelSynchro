@@ -107,6 +107,47 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         keyMappingStrings.append("\t}")
         return keyMappingStrings.joined(separator: "\n")
     }
+
+    func initializer(name: String, lines: [Line]) -> String {
+        guard !lines.isEmpty else {
+            return ""
+        }
+
+        var initializerLineStrings = [String]()
+        initializerLineStrings.append("\n\tinit(from decoder: Decoder) throws {")
+        initializerLineStrings.append("\t\tlet container = try decoder.container(keyedBy: \(name).CodingKeys.self)\n")
+
+        let sortedLines = lines.sorted(by: { $0.property < $1.property })
+        let optionalLines = sortedLines.filter { $0.isCustomLine(optionalToken: optional) }
+        let nonOptionalLines = sortedLines.filter { !$0.isCustomLine(optionalToken: optional) }
+
+        for line in optionalLines {
+            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
+            let newLine = (line == optionalLines.last) ? "\n" : ""
+            let optionalProperty = """
+                    \(keyedProperty) = try? container.decode(\(line.type).self, forKey: .\(keyedProperty))\(newLine)
+            """
+            initializerLineStrings.append(optionalProperty)
+        }
+
+        for line in nonOptionalLines {
+            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
+            let newLine = (line == nonOptionalLines.last) ? "" : "\n"
+            let nonOptionalProperty =
+            """
+                    do {
+                        \(keyedProperty) = try container.decode(\(line.type).self, forKey: .\(keyedProperty))
+                    } catch {
+                        print("warning: \(keyedProperty) key is not found")
+                        throw APIError.noDataRetreived
+                    }\(newLine)
+            """
+            initializerLineStrings.append(nonOptionalProperty)
+        }
+
+        initializerLineStrings.append("\t}")
+        return initializerLineStrings.joined(separator: "\n")
+    }
     
     func isVariable(_ string: String) -> Bool {
         return string.contains("let") && string.contains(":")

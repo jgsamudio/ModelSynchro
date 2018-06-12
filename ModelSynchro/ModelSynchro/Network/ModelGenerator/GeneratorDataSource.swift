@@ -61,7 +61,11 @@ private extension GeneratorDataSource {
         }
     }
 
-    func fileString(name: String, config: ConfigurationFile, languageFormatter: LanguageFormatter, lines: [String]) -> String {
+    func fileString(name: String,
+                    config: ConfigurationFile,
+                    languageFormatter: LanguageFormatter,
+                    lines: [String]) -> String {
+
         var fileLines = [String]()
         fileLines.append(languageFormatter.fileHeader(name: name,
                                                       config: config,
@@ -69,7 +73,9 @@ private extension GeneratorDataSource {
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
         fileLines += lines.sorted { $0 < $1 }
-        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
+        let lines = contents.map { $0.fileLines }.flatMap { $0 }
+        fileLines.append(languageFormatter.keyMapping(lines: lines))
+        fileLines.append(languageFormatter.initializer(name: name, lines: lines))
         fileLines.append(languageFormatter.modelClassEndLine)
 
         return fileLines.joined(separator: "\n")

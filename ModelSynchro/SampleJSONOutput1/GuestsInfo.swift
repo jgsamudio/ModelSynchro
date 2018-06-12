@@ -2,7 +2,7 @@
 //  GuestsInfo.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 05/14/18.
+//  Created by Jonathan Samudio on 06/12/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -11,5 +11,6 @@
 */
 
 struct GuestsInfo: Codable {
+
 
 }

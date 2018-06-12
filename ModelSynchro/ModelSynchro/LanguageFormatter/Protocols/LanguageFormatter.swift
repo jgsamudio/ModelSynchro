@@ -36,6 +36,7 @@ protocol LanguageFormatter {
     func arrayFormat(type: String) -> String
     func type(arrayString: String) -> String
     func customFormat(type: String) -> String
+    func initializer(name: String, lines: [Line]) -> String
 }
 
 extension LanguageFormatter {
