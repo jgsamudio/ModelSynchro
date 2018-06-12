@@ -160,4 +160,9 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         // TODO
         return nil
     }
+
+    func customType(from customLine: String) -> String {
+        // TODO
+        return ""
+    }
 }

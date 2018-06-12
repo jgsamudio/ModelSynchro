@@ -41,6 +41,14 @@ extension Line {
     func isCustomLine(optionalToken: String) -> Bool {
         return isOptional || (customProperty?.customLine.contains(optionalToken) ?? false)
     }
+
+    func customType(languageFormatter: LanguageFormatter) -> String {
+        if let customLine = customProperty?.customLine {
+            return languageFormatter.customType(from: customLine)
+        }
+        return type
+    }
+
 }
 
 extension Line: Equatable {

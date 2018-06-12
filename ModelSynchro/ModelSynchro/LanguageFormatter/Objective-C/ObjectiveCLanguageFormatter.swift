@@ -222,5 +222,10 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         // TODO
         return nil
     }
+
+    func customType(from customLine: String) -> String {
+        // TODO
+        return ""
+    }
     
 }

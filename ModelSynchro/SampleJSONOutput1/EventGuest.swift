@@ -39,7 +39,7 @@ struct EventGuest: Codable {
 		let container = try decoder.container(keyedBy: EventGuest.CodingKeys.self)
 
         version = try? container.decode(Bool.self, forKey: .version)
-        status = try? container.decode(String.self, forKey: .status)
+        status = try? container.decode(AnotherType.self, forKey: .status)
 
         do {
             _id = try container.decode(String.self, forKey: ._id)

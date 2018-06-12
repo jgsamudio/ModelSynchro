@@ -124,8 +124,9 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         for line in optionalLines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let newLine = (line == optionalLines.last) ? "\n" : ""
+            let customType = line.customType(languageFormatter: self)
             let optionalProperty = """
-                    \(keyedProperty) = try? container.decode(\(line.type).self, forKey: .\(keyedProperty))\(newLine)
+                    \(keyedProperty) = try? container.decode(\(customType).self, forKey: .\(keyedProperty))\(newLine)
             """
             initializerLineStrings.append(optionalProperty)
         }
@@ -133,10 +134,11 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         for line in nonOptionalLines {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let newLine = (line == nonOptionalLines.last) ? "" : "\n"
+            let customType = line.customType(languageFormatter: self)
             let nonOptionalProperty =
             """
                     do {
-                        \(keyedProperty) = try container.decode(\(line.type).self, forKey: .\(keyedProperty))
+                        \(keyedProperty) = try container.decode(\(customType).self, forKey: .\(keyedProperty))
                     } catch {
                         print("warning: \(keyedProperty) key is not found")
                         throw APIError.noDataRetreived
@@ -151,6 +153,11 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     
     func isVariable(_ string: String) -> Bool {
         return string.contains("let") && string.contains(":")
+    }
+
+    func customType(from customLine: String) -> String {
+        let type = customLine.removeLeading(startWith: ":").removeTrailing(startWith: "?").removeTrailing(startWith: "//")
+        return type.replacingOccurrences(of: " ", with: "")
     }
     
     func keyedProperty(string: String) -> KeyedProperty? {
