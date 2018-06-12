@@ -47,73 +47,73 @@ struct Document: Codable {
         do {
             colorMatched = try container.decode(String.self, forKey: .colorMatched)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: colorMatched key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: colorMatched key is not found!")
         }
 
         do {
             dependencies = try container.decode(Dependencies.self, forKey: .dependencies)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: dependencies key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: dependencies key is not found!")
         }
 
         do {
             device = try container.decode(Device.self, forKey: .device)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: device key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: device key is not found!")
         }
 
         do {
             objects = try container.decode(Objects.self, forKey: .objects)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: objects key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: objects key is not found!")
         }
 
         do {
             propertyAccessControl = try container.decode(String.self, forKey: .propertyAccessControl)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: propertyAccessControl key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: propertyAccessControl key is not found!")
         }
 
         do {
             targetRuntime = try container.decode(String.self, forKey: .targetRuntime)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: targetRuntime key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: targetRuntime key is not found!")
         }
 
         do {
             toolsVersion = try container.decode(String.self, forKey: .toolsVersion)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: toolsVersion key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: toolsVersion key is not found!")
         }
 
         do {
             type = try container.decode(String.self, forKey: .type)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: type key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: type key is not found!")
         }
 
         do {
             useAutolayout = try container.decode(String.self, forKey: .useAutolayout)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: useAutolayout key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: useAutolayout key is not found!")
         }
 
         do {
             useSafeAreas = try container.decode(String.self, forKey: .useSafeAreas)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: useSafeAreas key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: useSafeAreas key is not found!")
         }
 
         do {
             useTraitCollections = try container.decode(String.self, forKey: .useTraitCollections)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: useTraitCollections key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: useTraitCollections key is not found!")
         }
 
         do {
             version = try container.decode(String.self, forKey: .version)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: version key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: version key is not found!")
         }
 	}
 }

@@ -27,13 +27,13 @@ struct Capability: Codable {
         do {
             minToolsVersion = try container.decode(String.self, forKey: .minToolsVersion)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: minToolsVersion key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: minToolsVersion key is not found!")
         }
 
         do {
             name = try container.decode(String.self, forKey: .name)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: name key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: name key is not found!")
         }
 	}
 }

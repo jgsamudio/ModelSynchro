@@ -38,25 +38,25 @@ struct UserInfo: Codable {
         do {
             bookmarked = try container.decode(Bool.self, forKey: .bookmarked)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: bookmarked key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: bookmarked key is not found!")
         }
 
         do {
             eventId = try container.decode(String.self, forKey: .eventId)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: eventId key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: eventId key is not found!")
         }
 
         do {
             going = try container.decode(Bool.self, forKey: .going)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: going key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: going key is not found!")
         }
 
         do {
             waitlisted = try container.decode(Bool.self, forKey: .waitlisted)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: waitlisted key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: waitlisted key is not found!")
         }
 	}
 }

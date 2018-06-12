@@ -37,43 +37,43 @@ struct Color: Codable {
         do {
             alpha = try container.decode(String.self, forKey: .alpha)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: alpha key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: alpha key is not found!")
         }
 
         do {
             blue = try container.decode(String.self, forKey: .blue)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: blue key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: blue key is not found!")
         }
 
         do {
             colorSpace = try container.decode(String.self, forKey: .colorSpace)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: colorSpace key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: colorSpace key is not found!")
         }
 
         do {
             customColorSpace = try container.decode(String.self, forKey: .customColorSpace)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: customColorSpace key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: customColorSpace key is not found!")
         }
 
         do {
             green = try container.decode(String.self, forKey: .green)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: green key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: green key is not found!")
         }
 
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: key key is not found!")
         }
 
         do {
             red = try container.decode(String.self, forKey: .red)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: red key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: red key is not found!")
         }
 	}
 }

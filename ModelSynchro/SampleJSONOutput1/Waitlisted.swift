@@ -29,19 +29,19 @@ struct Waitlisted: Codable {
         do {
             checked_in = try container.decode(Bool.self, forKey: .checked_in)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: checked_in key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: checked_in key is not found!")
         }
 
         do {
             updatedAt = try container.decode(String.self, forKey: .updatedAt)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: updatedAt key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: updatedAt key is not found!")
         }
 
         do {
             userId = try container.decode(String.self, forKey: .userId)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: userId key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: userId key is not found!")
         }
 	}
 }

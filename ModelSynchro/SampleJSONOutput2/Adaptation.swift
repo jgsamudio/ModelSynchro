@@ -25,7 +25,7 @@ struct Adaptation: Codable {
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 	}
 }

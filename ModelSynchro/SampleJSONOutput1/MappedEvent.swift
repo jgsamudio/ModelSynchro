@@ -62,79 +62,79 @@ struct MappedEvent: Codable {
         do {
             cancelled = try container.decode(Bool.self, forKey: .cancelled)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: cancelled key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: cancelled key is not found!")
         }
 
         do {
             capacity = try container.decode(Int.self, forKey: .capacity)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: capacity key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: capacity key is not found!")
         }
 
         do {
             description = try container.decode(String.self, forKey: .description)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: description key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: description key is not found!")
         }
 
         do {
             guest_capacity = try container.decode(Int.self, forKey: .guest_capacity)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: guest_capacity key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: guest_capacity key is not found!")
         }
 
         do {
             guest_per_member = try container.decode(Int.self, forKey: .guest_per_member)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: guest_per_member key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: guest_per_member key is not found!")
         }
 
         do {
             happening_photo = try container.decode(String.self, forKey: .happening_photo)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: happening_photo key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: happening_photo key is not found!")
         }
 
         do {
             location = try container.decode(String.self, forKey: .location)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: location key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: location key is not found!")
         }
 
         do {
             objectID = try container.decode(String.self, forKey: .objectID)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: objectID key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: objectID key is not found!")
         }
 
         do {
             public = try container.decode(Bool.self, forKey: .public)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: public key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: public key is not found!")
         }
 
         do {
             start_date = try container.decode(Int.self, forKey: .start_date)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: start_date key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: start_date key is not found!")
         }
 
         do {
             title = try container.decode(String.self, forKey: .title)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: title key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: title key is not found!")
         }
 
         do {
             type = try container.decode(String.self, forKey: .type)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: type key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: type key is not found!")
         }
 
         do {
             userInfo = try container.decode(UserInfo.self, forKey: .userInfo)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: userInfo key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: userInfo key is not found!")
         }
 	}
 }

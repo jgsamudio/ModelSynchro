@@ -29,19 +29,19 @@ struct Dependencies: Codable {
         do {
             capability = try container.decode(Capability.self, forKey: .capability)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: capability key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: capability key is not found!")
         }
 
         do {
             deployment = try container.decode(Deployment.self, forKey: .deployment)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: deployment key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: deployment key is not found!")
         }
 
         do {
             plugIn = try container.decode(PlugIn.self, forKey: .plugIn)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: plugIn key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: plugIn key is not found!")
         }
 	}
 }

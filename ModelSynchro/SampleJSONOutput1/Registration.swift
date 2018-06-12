@@ -27,13 +27,13 @@ struct Registration: Codable {
         do {
             response = try container.decode(Response.self, forKey: .response)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: response key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: response key is not found!")
         }
 
         do {
             status = try container.decode(String.self, forKey: .status)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: status key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: status key is not found!")
         }
 	}
 }

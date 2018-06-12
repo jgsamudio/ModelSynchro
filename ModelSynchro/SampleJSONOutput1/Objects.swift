@@ -27,13 +27,13 @@ struct Objects: Codable {
         do {
             placeholder = try container.decode(Placeholder.self, forKey: .placeholder)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: placeholder key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: placeholder key is not found!")
         }
 
         do {
             view = try container.decode(View.self, forKey: .view)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: view key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: view key is not found!")
         }
 	}
 }

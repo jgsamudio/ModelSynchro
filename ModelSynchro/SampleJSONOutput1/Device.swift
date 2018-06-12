@@ -29,19 +29,19 @@ struct Device: Codable {
         do {
             adaptation = try container.decode(Adaptation.self, forKey: .adaptation)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: adaptation key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: adaptation key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 
         do {
             orientation = try container.decode(String.self, forKey: .orientation)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: orientation key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: orientation key is not found!")
         }
 	}
 }

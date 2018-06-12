@@ -27,13 +27,13 @@ struct AttendeesInfo: Codable {
         do {
             attendees = try container.decode([Attendees].self, forKey: .attendees)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: attendees key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: attendees key is not found!")
         }
 
         do {
             attendeesCount = try container.decode(Int.self, forKey: .attendeesCount)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: attendeesCount key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: attendeesCount key is not found!")
         }
 	}
 }

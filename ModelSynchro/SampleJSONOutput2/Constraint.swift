@@ -33,31 +33,31 @@ struct Constraint: Codable {
         do {
             firstAttribute = try container.decode(String.self, forKey: .firstAttribute)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: firstAttribute key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: firstAttribute key is not found!")
         }
 
         do {
             firstItem = try container.decode(String.self, forKey: .firstItem)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: firstItem key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: firstItem key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 
         do {
             secondAttribute = try container.decode(String.self, forKey: .secondAttribute)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: secondAttribute key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: secondAttribute key is not found!")
         }
 
         do {
             secondItem = try container.decode(String.self, forKey: .secondItem)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: secondItem key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: secondItem key is not found!")
         }
 	}
 }

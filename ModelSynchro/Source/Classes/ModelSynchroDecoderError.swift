@@ -11,6 +11,6 @@ import Foundation
 /// Decoder error for models.
 ///
 /// - keyNotFound: Case for when the key is not found.
-enum ModelSynchroDecoderError: Error {
+public enum ModelSynchroDecoderError: Error {
     case keyNotFound(description: String)
 }

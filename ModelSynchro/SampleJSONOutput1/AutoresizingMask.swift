@@ -29,19 +29,19 @@ struct AutoresizingMask: Codable {
         do {
             heightSizable = try container.decode(String.self, forKey: .heightSizable)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: heightSizable key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: heightSizable key is not found!")
         }
 
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: key key is not found!")
         }
 
         do {
             widthSizable = try container.decode(String.self, forKey: .widthSizable)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: widthSizable key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: widthSizable key is not found!")
         }
 	}
 }

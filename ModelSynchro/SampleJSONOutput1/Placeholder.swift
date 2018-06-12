@@ -29,19 +29,19 @@ struct Placeholder: Codable {
         do {
             customClass = try container.decode(String.self, forKey: .customClass)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: customClass key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: customClass key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 
         do {
             placeholderIdentifier = try container.decode(String.self, forKey: .placeholderIdentifier)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: placeholderIdentifier key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: placeholderIdentifier key is not found!")
         }
 	}
 }

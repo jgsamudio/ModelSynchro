@@ -27,13 +27,13 @@ struct Filter: Codable {
         do {
             displayName = try container.decode(String.self, forKey: .displayName)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: displayName key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: displayName key is not found!")
         }
 
         do {
             parameter = try container.decode(String.self, forKey: .parameter)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: parameter key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: parameter key is not found!")
         }
 	}
 }

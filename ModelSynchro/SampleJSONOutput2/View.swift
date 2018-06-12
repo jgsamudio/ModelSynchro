@@ -39,49 +39,49 @@ struct View: Codable {
         do {
             autoresizingMask = try container.decode(AutoresizingMask.self, forKey: .autoresizingMask)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: autoresizingMask key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: autoresizingMask key is not found!")
         }
 
         do {
             color = try container.decode(Color.self, forKey: .color)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: color key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: color key is not found!")
         }
 
         do {
             constraints = try container.decode(Constraints.self, forKey: .constraints)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: constraints key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: constraints key is not found!")
         }
 
         do {
             contentMode = try container.decode(String.self, forKey: .contentMode)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: contentMode key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: contentMode key is not found!")
         }
 
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 
         do {
             rect = try container.decode(Rect.self, forKey: .rect)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: rect key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: rect key is not found!")
         }
 
         do {
             subviews = try container.decode(Subviews.self, forKey: .subviews)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: subviews key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: subviews key is not found!")
         }
 
         do {
             viewLayoutGuide = try container.decode(ViewLayoutGuide.self, forKey: .viewLayoutGuide)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: viewLayoutGuide key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: viewLayoutGuide key is not found!")
         }
 	}
 }

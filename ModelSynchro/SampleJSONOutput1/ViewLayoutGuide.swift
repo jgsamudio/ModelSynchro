@@ -27,13 +27,13 @@ struct ViewLayoutGuide: Codable {
         do {
             id = try container.decode(String.self, forKey: .id)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: id key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: id key is not found!")
         }
 
         do {
             key = try container.decode(String.self, forKey: .key)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: key key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: key key is not found!")
         }
 	}
 }

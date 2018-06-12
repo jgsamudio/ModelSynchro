@@ -27,13 +27,13 @@ struct PlugIn: Codable {
         do {
             identifier = try container.decode(String.self, forKey: .identifier)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: identifier key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: identifier key is not found!")
         }
 
         do {
             version = try container.decode(String.self, forKey: .version)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: version key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: version key is not found!")
         }
 	}
 }

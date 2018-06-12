@@ -25,7 +25,7 @@ struct Constraints: Codable {
         do {
             constraint = try container.decode(Constraint.self, forKey: .constraint)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: constraint key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: constraint key is not found!")
         }
 	}
 }

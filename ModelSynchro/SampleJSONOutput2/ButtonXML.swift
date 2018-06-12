@@ -25,7 +25,7 @@ struct ButtonXML: Codable {
         do {
             document = try container.decode(Document.self, forKey: .document)
         } catch {
-            throw ModelSynchroDecoderError.keyNotFound("error: document key is not found!")
+            throw ModelSynchroDecoderError.keyNotFound(description: "error: document key is not found!")
         }
 	}
 }
