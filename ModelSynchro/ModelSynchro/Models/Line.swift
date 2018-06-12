@@ -39,7 +39,7 @@ extension Line {
     /// - Parameter optionalToken: Optional token to search for.
     /// - Returns: Flag if the property is optional.
     func isCustomLine(optionalToken: String) -> Bool {
-        return isOptional || (customProperty?.customLine.contains(optionalToken) ?? false)
+        return customProperty?.customLine.contains(optionalToken) ?? isOptional
     }
 
     func customType(languageFormatter: LanguageFormatter) -> String {
