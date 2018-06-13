@@ -2,7 +2,7 @@
 //  UserInfo.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 06/12/18.
+//  Created by Jonathan Samudio on 06/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -28,6 +28,10 @@ struct UserInfo: Codable {
 		case guestsCount = "guestsCount"
 		case waitlisted = "waitlisted"
 	}
+}
+
+
+extension UserInfo {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: UserInfo.CodingKeys.self)

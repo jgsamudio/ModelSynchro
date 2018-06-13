@@ -2,7 +2,7 @@
 //  Placeholder.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 06/12/18.
+//  Created by Jonathan Samudio on 06/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -22,6 +22,10 @@ struct Placeholder: Codable {
 		case id = "id"
 		case placeholderIdentifier = "placeholderIdentifier"
 	}
+}
+
+
+extension Placeholder {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: Placeholder.CodingKeys.self)

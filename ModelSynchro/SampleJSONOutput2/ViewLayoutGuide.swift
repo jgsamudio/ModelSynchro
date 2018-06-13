@@ -2,7 +2,7 @@
 //  ViewLayoutGuide.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 06/12/18.
+//  Created by Jonathan Samudio on 06/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -20,6 +20,10 @@ struct ViewLayoutGuide: Codable {
 		case id = "id"
 		case key = "key"
 	}
+}
+
+
+extension ViewLayoutGuide {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: ViewLayoutGuide.CodingKeys.self)

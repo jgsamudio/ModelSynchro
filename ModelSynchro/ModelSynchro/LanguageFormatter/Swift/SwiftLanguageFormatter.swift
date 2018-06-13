@@ -116,6 +116,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         }
 
         var initializerLineStrings = [String]()
+        initializerLineStrings.append("\nextension \(name) {")
         initializerLineStrings.append("\n\tinit(from decoder: Decoder) throws {")
         initializerLineStrings.append("\t\tlet container = try decoder.container(keyedBy: \(name).CodingKeys.self)\n")
 
@@ -137,8 +138,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
             let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
             let newLine = (line == nonOptionalLines.last) ? "" : "\n"
             let customType = line.customType(languageFormatter: self)
-            let nonOptionalProperty =
-            """
+            let nonOptionalProperty = """
                     do {
                         \(keyedProperty) = try container.decode(\(customType).self, forKey: .\(keyedProperty))
                     } catch {
@@ -149,6 +149,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         }
 
         initializerLineStrings.append("\t}")
+        initializerLineStrings.append("}")
         return initializerLineStrings.joined(separator: "\n")
     }
     

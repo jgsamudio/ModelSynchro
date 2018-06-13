@@ -2,7 +2,7 @@
 //  MappedEvent.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 06/12/18.
+//  Created by Jonathan Samudio on 06/13/18.
 //  Copyright © 2018 Prolific Interactive. All rights reserved.
 //
 
@@ -50,6 +50,10 @@ struct MappedEvent: Codable {
 		case type = "type"
 		case userInfo = "userInfo"
 	}
+}
+
+
+extension MappedEvent {
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: MappedEvent.CodingKeys.self)
