@@ -13,7 +13,7 @@
       "outputDirectory" : "SampleJSONOutput2/"
     }
   ],
-  "language" : "swift",
+  "language" : "kotlin",
   "mappedModelNames" : [
     {
       "jsonKey" : "filters",
