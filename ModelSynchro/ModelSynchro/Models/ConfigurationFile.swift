@@ -67,7 +67,8 @@ extension ConfigurationFile {
         case "objective-c":
             return ObjectiveCLanguageFormatter()
         default:
-            return SwiftLanguageFormatter()
+            CommandError.language.displayError()
+            fatalError()
         }
     }
 
