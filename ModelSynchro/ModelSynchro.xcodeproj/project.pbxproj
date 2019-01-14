@@ -56,6 +56,7 @@
 		204607E31FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */; };
 		204607E71FFEA6EB0063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607E21FFE93D30063A53E /* ObjectiveCHeaderLanguageFormatter.swift */; };
 		204DDA5721ECED6B008A8E72 /* CommandError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204DDA5621ECED6B008A8E72 /* CommandError.swift */; };
+		204DDA5821ECF6B4008A8E72 /* CommandError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204DDA5621ECED6B008A8E72 /* CommandError.swift */; };
 		2059DA361FCCCBEE00B020C3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA351FCCCBEE00B020C3 /* StringExtension.swift */; };
 		2059DA391FCCCC0700B020C3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA381FCCCC0700B020C3 /* Type.swift */; };
 		2059DA3C1FCCCC7900B020C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059DA3B1FCCCC7900B020C3 /* JsonParser.swift */; };
@@ -524,6 +525,7 @@
 				2003E0B31FFD28FC00878F8A /* FakeModelDataSource.swift in Sources */,
 				2003E0921FFC366E00878F8A /* Type.swift in Sources */,
 				204607981FFD82E40063A53E /* ModelGeneratorProtocol.swift in Sources */,
+				204DDA5821ECF6B4008A8E72 /* CommandError.swift in Sources */,
 				2003E09A1FFC367700878F8A /* ModelDataSource.swift in Sources */,
 				2070427920AB2B72008582F8 /* MappedModelInfo.swift in Sources */,
 				2003E0A21FFC368200878F8A /* LanguageFormatter.swift in Sources */,
