@@ -3,3 +3,5 @@ osx_image: xcode10.1
 xcode_project: ModelSynchro.xcodeproj
 xcode_scheme: ModelSynchro
 xcode_destination: platform=macOS
+before_install:
+- cd ModelSynchro
