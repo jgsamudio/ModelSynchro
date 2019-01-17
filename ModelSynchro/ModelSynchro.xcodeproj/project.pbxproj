@@ -48,6 +48,7 @@
 		201F09711FD0BF9E005547A5 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09701FD0BF9E005547A5 /* ModelParser.swift */; };
 		201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BA1FD1C700005547A5 /* CustomProperty.swift */; };
 		201F09BD1FD1C719005547A5 /* KeyedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F09BC1FD1C719005547A5 /* KeyedProperty.swift */; };
+		203B048421F0268E00F9E794 /* KotlinLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048321F0268E00F9E794 /* KotlinLanguageFormatter.swift */; };
 		204607951FFD64C00063A53E /* LineContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607941FFD64C00063A53E /* LineContentTests.swift */; };
 		204607971FFD82D40063A53E /* ModelGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */; };
 		204607981FFD82E40063A53E /* ModelGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */; };
@@ -116,6 +117,7 @@
 		201F09701FD0BF9E005547A5 /* ModelParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		201F09BA1FD1C700005547A5 /* CustomProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProperty.swift; sourceTree = "<group>"; };
 		201F09BC1FD1C719005547A5 /* KeyedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedProperty.swift; sourceTree = "<group>"; };
+		203B048321F0268E00F9E794 /* KotlinLanguageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinLanguageFormatter.swift; sourceTree = "<group>"; };
 		204607941FFD64C00063A53E /* LineContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineContentTests.swift; sourceTree = "<group>"; };
 		204607961FFD82D40063A53E /* ModelGeneratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGeneratorProtocol.swift; sourceTree = "<group>"; };
 		204607DD1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveCLanguageFormatter.swift; sourceTree = "<group>"; };
@@ -252,6 +254,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		203B048221F0267E00F9E794 /* Kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				203B048321F0268E00F9E794 /* KotlinLanguageFormatter.swift */,
+			);
+			path = Kotlin;
+			sourceTree = "<group>";
+		};
 		204607E41FFEA4200063A53E /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +356,7 @@
 		20642B241FCDFF1800E3AA2F /* LanguageFormatter */ = {
 			isa = PBXGroup;
 			children = (
+				203B048221F0267E00F9E794 /* Kotlin */,
 				204607E61FFEA4370063A53E /* Swift */,
 				204607E51FFEA42E0063A53E /* Protocols */,
 				204607E41FFEA4200063A53E /* Objective-C */,
@@ -539,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20642B1E1FCDCF4900E3AA2F /* DateExtension.swift in Sources */,
+				203B048421F0268E00F9E794 /* KotlinLanguageFormatter.swift in Sources */,
 				2059DA391FCCCC0700B020C3 /* Type.swift in Sources */,
 				204607DE1FFD907D0063A53E /* ObjectiveCLanguageFormatter.swift in Sources */,
 				20642B211FCDFCA600E3AA2F /* LineContent.swift in Sources */,
