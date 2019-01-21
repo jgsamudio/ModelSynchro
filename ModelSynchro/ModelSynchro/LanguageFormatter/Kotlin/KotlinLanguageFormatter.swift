@@ -19,7 +19,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     var modelClassEndLine: String {
-        return "}\n"
+        return ")"
     }
     
     var typeSeparator: String {
@@ -50,8 +50,14 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "Double"
     }
     
+    var constantVariable: String {
+        return "val"
+    }
+    
     func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
         return """
+        package com.kapsch.android.signup
+
         /*
         Auto-Generated using ModelSynchro
         */
@@ -60,7 +66,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func modelClassDeclaration(name: String) -> String {
-        return "data class " + name + " {"
+        return "data class " + name + "("
     }
     
     func variableString(line: Line) -> String {
@@ -70,13 +76,15 @@ final class KotlinLanguageFormatter: LanguageFormatter {
             generatedLine += customLine + " // "
         }
         
-        generatedLine += "val " + line.property.lowercaseFirstLetter() + ": " + line.type + (line.isOptional ? optional : "")
+        generatedLine += "\(constantVariable) " + line.property.lowercaseFirstLetter() + ": " + line.type +
+            (line.isOptional ? optional : "") + ","
         
         return generatedLine
     }
     
     func property(variableString: String) -> String? {
-        guard isVariable(variableString), let property = variableString.stringBetween(startString: "val", endString: ":") else {
+        guard isVariable(variableString), let property = variableString.stringBetween(startString: constantVariable,
+                                                                                      endString: ":") else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
@@ -102,7 +110,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func isVariable(_ string: String) -> Bool {
-        return string.contains("val") && string.contains(":")
+        return string.contains(constantVariable) && string.contains(":")
     }
     
     func keyedProperty(string: String) -> KeyedProperty? {

@@ -66,6 +66,8 @@ extension ConfigurationFile {
             return SwiftLanguageFormatter()
         case "objective-c":
             return ObjectiveCLanguageFormatter()
+        case "kotlin":
+            return KotlinLanguageFormatter()
         default:
             CommandError.language.displayError()
             fatalError()

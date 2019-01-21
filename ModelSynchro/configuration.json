@@ -7,29 +7,7 @@
     {
       "inputDirectory" : "SampleJSON1/",
       "outputDirectory" : "SampleJSONOutput1/"
-    },
-    {
-      "inputDirectory" : "SampleJSON2/",
-      "outputDirectory" : "SampleJSONOutput2/"
     }
   ],
-  "language" : "kotlin",
-  "mappedModelNames" : [
-    {
-      "jsonKey" : "filters",
-      "mappedName" : "Filter"
-    },
-    {
-      "jsonKey" : "event_guests",
-      "mappedName" : "EventGuest"
-    },
-    {
-      "jsonKey" : "event",
-      "mappedName" : "RegistrationEvent"
-    },
-    {
-      "fileName": "Event",
-      "mappedName": "MappedEvent"
-    }
-  ]
+  "language" : "kotlin"
 }
