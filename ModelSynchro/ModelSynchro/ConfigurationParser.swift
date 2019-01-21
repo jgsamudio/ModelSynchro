@@ -10,9 +10,11 @@ import Foundation
 
 final class ConfigurationParser {
     
-    var configFile: ConfigurationFile?
-    
     static var projectDirectory: String = ""
+    
+    var configFile: ConfigurationFile?
+        
+    private let configurationFileName = "configuration.json"
     
     init() {
     #if RELEASE
@@ -40,7 +42,7 @@ private extension ConfigurationParser {
     }
     
     private func parseConfigurationFile(projectDirectory: String) {
-        let fileToParse = projectDirectory + "configuration.json"
+        let fileToParse = projectDirectory + configurationFileName
         
         do {
             let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)

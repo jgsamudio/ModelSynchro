@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct ModelContent {
-    let fileComponents: [String]
-    let customProperties: [CustomProperty]
-}
-
 typealias ModelComponents = [String : ModelContent]
 
 final class ModelParser {

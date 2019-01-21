@@ -5,26 +5,22 @@ Auto-Generated using ModelSynchro
 */
 
 data class Event(
-	val _id: String,
-	val attendees: [Attendees],
+	val attendeesInfo: AttendeesInfo?,
 	val cancelled: Boolean,
 	val capacity: Int,
-	val createdAt: String,
 	val description: String,
+	val fee: Double?,
 	val guest_capacity: Int,
 	val guest_per_member: Int,
-	val guests: [Guests],
+	val guestsInfo: GuestsInfo?,
 	val happening_photo: String,
-	val lastUpdated: String,
 	val location: String,
-	val locationClean: String,
+	val objectID: String,
 	val public: Boolean,
-	val reminderEmail: Boolean,
-	val rsvpStatus: String,
-	val start_date: String,
+	val rsvpStatus: String?,
+	val start_date: Int,
 	val title: String,
 	val type: String,
-	val waitlisted: [Waitlisted],
-	val waitlistedStatus: String,
+	val userInfo: UserInfo,
 
 )

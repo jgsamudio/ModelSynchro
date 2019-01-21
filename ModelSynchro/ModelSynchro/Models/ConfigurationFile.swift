@@ -21,7 +21,7 @@ struct ConfigurationFile: Codable {
     let projectName: String
 
     /// Language of the program.
-    let language: String?
+    let language: Language?
 
     /// Output directory of the program.
     let outputDirectory: String?
@@ -61,16 +61,18 @@ extension ConfigurationFile {
     ///
     /// - Returns: Language formatter interface.
     func languageFormatter() -> LanguageFormatter {
-        switch (language ?? "").lowercased() {
-        case "swift":
-            return SwiftLanguageFormatter()
-        case "objective-c":
-            return ObjectiveCLanguageFormatter()
-        case "kotlin":
-            return KotlinLanguageFormatter()
-        default:
+        guard let language = language else {
             CommandError.language.displayError()
             fatalError()
+        }
+        
+        switch language {
+        case .swift:
+            return SwiftLanguageFormatter()
+        case .objectiveC:
+            return ObjectiveCLanguageFormatter()
+        case .kotlin:
+            return KotlinLanguageFormatter()
         }
     }
 
