@@ -3,7 +3,7 @@
   "companyName" : "Prolific Interactive",
   "projectName" : "ModelSynchro",
   "serverAPIInfo": {
-      "outputDirectory" : "SampleModels/",
+      "outputDirectory" : "OpenAPIModels/",
       "endpoints": [
           {
               "name" : "Authentication",

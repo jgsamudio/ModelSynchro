@@ -12,7 +12,8 @@ enum CommandError: Int {
     case defaultError = 2
     case language = 3
     case validUrl = 4
-    case configError = 5
+    case configFile = 5
+    case writeToFile = 6
     
     func displayError() {
         print(errorString)
@@ -26,9 +27,11 @@ enum CommandError: Int {
         case .language:
             return "\(errorPrefix) Language is not recognized."
         case .validUrl:
-            return "Not a valid url."
-        case .configError:
-            return "Configuration Error: Check the config file."
+            return "\(errorPrefix) Not a valid url."
+        case .configFile:
+            return "\(errorPrefix) Check the config file."
+        case .writeToFile:
+            return "\(errorPrefix) Write to file error. Make sure the output folder specified in the configuration file is created."
         default:
             return "\(errorPrefix) Something went wrong!"
         }

@@ -11,7 +11,7 @@ import Foundation
 print("############### ModelSynchro v0.2.4 ###############")
 
 guard let config = ConfigurationParser().configFile else {
-    CommandError.configError.displayError()
+    CommandError.configFile.displayError()
     exit(1)
 }
 
