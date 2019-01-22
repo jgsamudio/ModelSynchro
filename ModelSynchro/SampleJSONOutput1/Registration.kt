@@ -1,10 +1,12 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Registration(
-	val status: String,
-	val response: Response
+	@Json(name = "status") val status: String,
+	@Json(name = "response") val response: Response
 )

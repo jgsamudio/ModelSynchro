@@ -1,12 +1,14 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Guests(
-	val fullName: String?,
-	val emailAddress: String?
-	val emailAddress: String?
-	val emailAddress: String?
+	@Json(name = "emailAddress") val emailAddress: String?,
+	@Json(name = "fullName") val fullName: String?
+	@Json(name = "fullName") val fullName: String?
+	@Json(name = "fullName") val fullName: String?
 )

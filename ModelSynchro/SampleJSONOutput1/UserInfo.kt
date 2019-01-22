@@ -1,15 +1,17 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class UserInfo(
-	val eventId: String,
-	val waitlisted: Boolean,
-	val bookmarked: Boolean,
-	val going: Boolean
-	val going: Boolean?,
-	val guests: Array<Guests>?,
-	val guestsCount: Int?
+	@Json(name = "waitlisted") val waitlisted: Boolean,
+	@Json(name = "bookmarked") val bookmarked: Boolean,
+	@Json(name = "eventId") val eventId: String,
+	@Json(name = "going") val going: Boolean
+	@Json(name = "guestsCount") val guestsCount: Int?,
+	@Json(name = "going") val going: Boolean?,
+	@Json(name = "guests") val guests: Array<Guests>?
 )

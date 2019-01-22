@@ -1,12 +1,14 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class FilterSection(
-	val section: String,
-	val filters: Array<Filters>
-	val filters: Array<Filters>?
-	val filters: Array<Filters>?
+	@Json(name = "filters") val filters: Array<Filters>,
+	@Json(name = "section") val section: String
+	@Json(name = "section") val section: String?
+	@Json(name = "section") val section: String?
 )

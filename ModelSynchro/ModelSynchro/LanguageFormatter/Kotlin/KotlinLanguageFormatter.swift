@@ -61,6 +61,8 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return """
         package \(localDirectory?.outputPackage ?? "")
 
+        import com.squareup.moshi.Json
+
         /*
             Auto-Generated using ModelSynchro
         */
@@ -79,7 +81,8 @@ final class KotlinLanguageFormatter: LanguageFormatter {
             generatedLine += customLine + " // "
         }
         
-        generatedLine += "\(constantVariable) " + line.property.lowercaseFirstLetter() + ": " + line.type +
+        let propertyName = line.property.lowercaseFirstLetter()
+        generatedLine += "@Json(name = \"\(propertyName)\") \(constantVariable) " + propertyName + ": " + line.type +
             (line.isOptional ? optional : "") + (isLastVariable ? "" : ",")
         
         return generatedLine
@@ -102,11 +105,6 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func keyedProperty(string: String) -> KeyedProperty? {
-        if string.contains("case"), let splitString = string.split(at: "=") {
-            let mappedProperty = splitString.leftString.removeLeading(startWith: "case").trimmingCharacters(in: .whitespaces)
-            let jsonProperty = splitString.rightString.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\"", with: "")
-            return KeyedProperty(mappedProperty: mappedProperty, jsonProperty: jsonProperty)
-        }
         return nil
     }
     

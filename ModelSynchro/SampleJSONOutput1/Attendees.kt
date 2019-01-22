@@ -1,31 +1,32 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Attendees(
-	val userId: String,
-	val checked_in: Boolean,
-	val updatedAt: String
-	val updatedAt: String?
-	val updatedAt: String?
-	val updatedAt: String?
-	val friendId: String?,
-	val name: String?,
-	val email: String?,
-	val guestToken: String?,
-	val updatedAt: String?
-	val lastName: String?,
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?
-	val firstName: String?,
-	val headline: String?,
-	val avatar: String?
+	@Json(name = "checked_in") val checked_in: Boolean,
+	@Json(name = "updatedAt") val updatedAt: String,
+	@Json(name = "userId") val userId: String
+	@Json(name = "userId") val userId: String?
+	@Json(name = "userId") val userId: String?
+	@Json(name = "userId") val userId: String?
+	@Json(name = "email") val email: String?,
+	@Json(name = "guestToken") val guestToken: String?,
+	@Json(name = "name") val name: String?,
+	@Json(name = "friendId") val friendId: String?
+	@Json(name = "lastName") val lastName: String?,
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "firstName") val firstName: String?
+	@Json(name = "headline") val headline: String?,
+	@Json(name = "firstName") val firstName: String?,
+	@Json(name = "avatar") val avatar: String?
 )

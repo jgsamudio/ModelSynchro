@@ -82,7 +82,7 @@ private extension GeneratorDataSource {
                                                       localDirectory: localDirectory))
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
-        fileLines += lines.sorted { $0 < $1 }
+        fileLines += lines // .sorted
         
         if let keyMapping = languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }) {
             fileLines.append(keyMapping)

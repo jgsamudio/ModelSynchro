@@ -1,13 +1,15 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Constraint(
-	val firstItem: String,
-	val firstAttribute: String,
-	val id: String,
-	val secondAttribute: String,
-	val secondItem: String
+	@Json(name = "firstAttribute") val firstAttribute: String,
+	@Json(name = "firstItem") val firstItem: String,
+	@Json(name = "id") val id: String,
+	@Json(name = "secondAttribute") val secondAttribute: String,
+	@Json(name = "secondItem") val secondItem: String
 )

@@ -1,18 +1,20 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Button(
-	val contentVerticalAlignment: String,
-	val translatesAutoresizingMaskIntoConstraints: String,
-	val state: State,
-	val contentMode: String,
-	val opaque: String,
-	val contentHorizontalAlignment: String,
-	val rect: Rect,
-	val id: String,
-	val lineBreakMode: String,
-	val buttonType: String
+	@Json(name = "lineBreakMode") val lineBreakMode: String,
+	@Json(name = "id") val id: String,
+	@Json(name = "contentMode") val contentMode: String,
+	@Json(name = "rect") val rect: Rect,
+	@Json(name = "buttonType") val buttonType: String,
+	@Json(name = "state") val state: State,
+	@Json(name = "contentVerticalAlignment") val contentVerticalAlignment: String,
+	@Json(name = "opaque") val opaque: String,
+	@Json(name = "translatesAutoresizingMaskIntoConstraints") val translatesAutoresizingMaskIntoConstraints: String,
+	@Json(name = "contentHorizontalAlignment") val contentHorizontalAlignment: String
 )

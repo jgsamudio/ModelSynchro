@@ -1,10 +1,12 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Capability(
-	val name: String,
-	val minToolsVersion: String
+	@Json(name = "minToolsVersion") val minToolsVersion: String,
+	@Json(name = "name") val name: String
 )

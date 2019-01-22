@@ -1,9 +1,11 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Deployment(
-	val identifier: String
+	@Json(name = "identifier") val identifier: String
 )

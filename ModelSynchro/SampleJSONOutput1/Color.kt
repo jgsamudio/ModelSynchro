@@ -1,16 +1,18 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Color(
-	val blue: String,
-	val alpha: String,
-	val colorSpace: String,
-	val red: String,
-	val key: String,
-	val customColorSpace: String,
-	val green: String
-	val green: String?
+	@Json(name = "alpha") val alpha: String,
+	@Json(name = "customColorSpace") val customColorSpace: String,
+	@Json(name = "key") val key: String,
+	@Json(name = "green") val green: String,
+	@Json(name = "colorSpace") val colorSpace: String,
+	@Json(name = "blue") val blue: String,
+	@Json(name = "red") val red: String
+	@Json(name = "red") val red: String?
 )

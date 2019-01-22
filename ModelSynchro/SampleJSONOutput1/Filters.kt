@@ -1,44 +1,46 @@
 package com.kapsch.android.base
 
+import com.squareup.moshi.Json
+
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Filters(
-	val parameter: String,
-	val displayName: String
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
-	val displayName: String?
+	@Json(name = "parameter") val parameter: String,
+	@Json(name = "displayName") val displayName: String
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
+	@Json(name = "displayName") val displayName: String?
 )
