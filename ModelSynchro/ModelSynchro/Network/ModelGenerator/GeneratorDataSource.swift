@@ -69,7 +69,11 @@ private extension GeneratorDataSource {
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
         fileLines += lines.sorted { $0 < $1 }
-        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
+        
+        if let keyMapping = languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }) {
+            fileLines.append(keyMapping)
+        }
+        
         fileLines.append(languageFormatter.modelClassEndLine)
 
         return fileLines.joined(separator: "\n")

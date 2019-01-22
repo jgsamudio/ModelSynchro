@@ -28,9 +28,9 @@ protocol LanguageFormatter {
 
     func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String
     func modelClassDeclaration(name: String) -> String
-    func variableString(line: Line) -> String
+    func variableString(line: Line, isLastVariable: Bool) -> String
     func property(variableString: String) -> String?
-    func keyMapping(lines: [Line]) -> String
+    func keyMapping(lines: [Line]) -> String?
     func isVariable(_ string: String) -> Bool
     func keyedProperty(string: String) -> KeyedProperty?
     func arrayFormat(type: String) -> String

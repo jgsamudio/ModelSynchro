@@ -21,12 +21,12 @@ class LineContent {
     
     /// String array of the properties.
     var propertyStringArray: [String] {
-        return propertyLines.map { $0.toString(languageFormatter: languageFormatter) }
+        return propertyLines.map { $0.toString(languageFormatter: languageFormatter, isLastVariable: $0 == propertyLines.last) }
     }
     
     /// String array of the file lines.
     var fileStringArray: [String] {
-        return fileLines.map { $0.toString(languageFormatter: languageFormatter) }
+        return fileLines.map { $0.toString(languageFormatter: languageFormatter, isLastVariable: $0 == fileLines.last) }
     }
 
     /// String array for the header file if available.
@@ -34,7 +34,7 @@ class LineContent {
         guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
             return []
         }
-        return fileLines.map { $0.toString(languageFormatter: languageFormatter) }
+        return fileLines.map { $0.toString(languageFormatter: languageFormatter, isLastVariable: $0 == fileLines.last) }
     }
     
     private var languageFormatter: LanguageFormatter
@@ -51,7 +51,8 @@ class LineContent {
     func checkOptional(otherLineContent: LineContent) {
         for line in propertyLines {
             if otherLineContent.propertyLines.find(line: line) == nil,
-                let index = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
+                let index = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter,
+                                                                    isLastVariable: line == propertyLines.last)) {
                 fileLines[index].isOptional = true
             }
         }
@@ -72,7 +73,8 @@ class LineContent {
                 let newType = typePriority(currentType: line.type, newType: type)
                 propertyLines[index].type = newType
 
-                if let fileIndex = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter)) {
+                if let fileIndex = fileStringArray.index(of: line.toString(languageFormatter: languageFormatter,
+                                                                           isLastVariable: line == propertyLines.last)) {
                     fileLines[fileIndex].type = newType
                 }
                 return true

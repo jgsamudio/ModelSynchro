@@ -71,7 +71,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "struct " + name + ": Codable {"
     }
     
-    func variableString(line: Line) -> String {
+    func variableString(line: Line, isLastVariable: Bool) -> String {
         var generatedLine = "\t"
         
         if let customLine = line.customProperty?.customLine {
@@ -90,7 +90,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return property.trimmingCharacters(in: .whitespaces)
     }
     
-    func keyMapping(lines: [Line]) -> String {
+    func keyMapping(lines: [Line]) -> String? {
         guard !lines.isEmpty else {
             return ""
         }

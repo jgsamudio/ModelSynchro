@@ -1,12 +1,12 @@
 package com.kapsch.android.signup
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 data class Document(
 	val colorMatched: String,
-	val dependencies: Dependencies,
+	val dependencies: Dependencies
 	val device: Device,
 	val objects: Objects,
 	val propertyAccessControl: String,
@@ -17,5 +17,4 @@ data class Document(
 	val useSafeAreas: String,
 	val useTraitCollections: String,
 	val version: String,
-
 )

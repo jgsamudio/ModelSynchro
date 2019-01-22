@@ -1,7 +1,7 @@
 package com.kapsch.android.signup
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 data class UserInfo(
@@ -10,6 +10,8 @@ data class UserInfo(
 	val going: Boolean,
 	val guests: [Guests]?,
 	val guestsCount: Int?,
-	val waitlisted: Boolean,
-
+	val waitlisted: Boolean
+	val waitlisted: Boolean?
+	val waitlisted: Boolean?
+	val waitlisted: Boolean?
 )

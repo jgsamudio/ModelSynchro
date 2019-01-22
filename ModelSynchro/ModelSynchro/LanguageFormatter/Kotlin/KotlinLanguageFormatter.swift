@@ -59,7 +59,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         package com.kapsch.android.signup
 
         /*
-        Auto-Generated using ModelSynchro
+            Auto-Generated using ModelSynchro
         */
         
         """
@@ -69,7 +69,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "data class " + name + "("
     }
     
-    func variableString(line: Line) -> String {
+    func variableString(line: Line, isLastVariable: Bool) -> String {
         var generatedLine = "\t"
         
         if let customLine = line.customProperty?.customLine {
@@ -77,7 +77,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         }
         
         generatedLine += "\(constantVariable) " + line.property.lowercaseFirstLetter() + ": " + line.type +
-            (line.isOptional ? optional : "") + ","
+            (line.isOptional ? optional : "") + (isLastVariable ? "" : ",")
         
         return generatedLine
     }
@@ -90,23 +90,8 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return property.trimmingCharacters(in: .whitespaces)
     }
     
-    func keyMapping(lines: [Line]) -> String {
-//        guard !lines.isEmpty else {
-//            return ""
-//        }
-//
-//        var keyMappingStrings = [String]()
-//        for line in lines {
-//            let keyedProperty = (line.customProperty?.keyedProperty?.mappedProperty ?? line.property).lowercaseFirstLetter()
-//            let jsonProperty = (line.customProperty?.keyedProperty?.jsonProperty ?? line.property).lowercaseFirstLetter()
-//            keyMappingStrings.append("\t\tcase " + keyedProperty + " = \"" + jsonProperty + "\"")
-//        }
-//
-//        keyMappingStrings = keyMappingStrings.sorted { $0 < $1 }
-//        keyMappingStrings.insert("\n\tenum CodingKeys: String, CodingKey {", at: 0)
-//        keyMappingStrings.append("\t}")
-//        return keyMappingStrings.joined(separator: "\n")
-        return ""
+    func keyMapping(lines: [Line]) -> String? {
+        return nil
     }
     
     func isVariable(_ string: String) -> Bool {

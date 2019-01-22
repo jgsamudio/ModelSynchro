@@ -1,7 +1,7 @@
 package com.kapsch.android.signup
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 data class Label(
@@ -20,6 +20,5 @@ data class Label(
 	val textAlignment: String,
 	val translatesAutoresizingMaskIntoConstraints: String,
 	val userInteractionEnabled: String,
-	val verticalHuggingPriority: String,
-
+	val verticalHuggingPriority: String
 )

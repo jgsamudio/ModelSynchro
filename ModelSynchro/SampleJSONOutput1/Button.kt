@@ -1,7 +1,7 @@
 package com.kapsch.android.signup
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 data class Button(
@@ -11,9 +11,8 @@ data class Button(
 	val contentVerticalAlignment: String,
 	val id: String,
 	val lineBreakMode: String,
-	val opaque: String,
+	val opaque: String
 	val rect: Rect,
 	val state: State,
 	val translatesAutoresizingMaskIntoConstraints: String,
-
 )

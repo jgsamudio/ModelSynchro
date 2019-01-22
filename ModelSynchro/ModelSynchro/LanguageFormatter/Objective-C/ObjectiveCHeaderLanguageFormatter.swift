@@ -95,7 +95,7 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return "@interface " + name + ": NSObject"
     }
 
-    func variableString(line: Line) -> String {
+    func variableString(line: Line, isLastVariable: Bool) -> String {
         var generatedLine = "\n"
 
         if let customLine = line.customProperty?.customLine {
@@ -126,7 +126,7 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return string.contains("@property (nonatomic")
     }
 
-    func keyMapping(lines: [Line]) -> String {
+    func keyMapping(lines: [Line]) -> String? {
         return """
 
         - (id)initWithDictionary:(NSDictionary *)dictionary;

@@ -9,6 +9,13 @@
 import Foundation
 
 struct LocalDirectory: Codable {
+    
+    /// Input direction of the local JSON files.
     let inputDirectory: String
+    
+    /// Directory to place the generated files.
     let outputDirectory: String
+    
+    /// Output package for Kotlin file generation.
+    let outputPackage: String?
 }

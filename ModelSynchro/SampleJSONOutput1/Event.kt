@@ -1,26 +1,29 @@
 package com.kapsch.android.signup
 
 /*
-Auto-Generated using ModelSynchro
+    Auto-Generated using ModelSynchro
 */
 
 data class Event(
-	val attendeesInfo: AttendeesInfo?,
+	val _id: String,
+	val attendees: [Attendees],
 	val cancelled: Boolean,
 	val capacity: Int,
+	val createdAt: String,
 	val description: String,
-	val fee: Double?,
 	val guest_capacity: Int,
 	val guest_per_member: Int,
-	val guestsInfo: GuestsInfo?,
+	val guests: [Guests],
 	val happening_photo: String,
+	val lastUpdated: String,
 	val location: String,
-	val objectID: String,
+	val locationClean: String,
 	val public: Boolean,
-	val rsvpStatus: String?,
-	val start_date: Int,
-	val title: String,
+	val reminderEmail: Boolean,
+	val rsvpStatus: String,
+	val start_date: String,
+	val title: String
 	val type: String,
-	val userInfo: UserInfo,
-
+	val waitlisted: [Waitlisted],
+	val waitlistedStatus: String,
 )
