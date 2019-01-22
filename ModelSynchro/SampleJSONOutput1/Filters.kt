@@ -1,4 +1,4 @@
-package com.kapsch.android.signup
+package com.kapsch.android.base
 
 /*
     Auto-Generated using ModelSynchro

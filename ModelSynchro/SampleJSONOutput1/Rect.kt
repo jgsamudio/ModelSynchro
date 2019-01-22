@@ -1,4 +1,4 @@
-package com.kapsch.android.signup
+package com.kapsch.android.base
 
 /*
     Auto-Generated using ModelSynchro
@@ -7,9 +7,9 @@ package com.kapsch.android.signup
 data class Rect(
 	val height: String,
 	val key: String,
-	val width: String,
-	val x: String
-	val x: String?
-	val x: String?
+	val width: String
+	val width: String?
+	val width: String?
+	val x: String,
 	val y: String,
 )

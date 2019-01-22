@@ -1,4 +1,4 @@
-package com.kapsch.android.signup
+package com.kapsch.android.base
 
 /*
     Auto-Generated using ModelSynchro
@@ -9,8 +9,8 @@ data class Document(
 	val dependencies: Dependencies,
 	val device: Device,
 	val objects: Objects,
-	val propertyAccessControl: String,
-	val targetRuntime: String
+	val propertyAccessControl: String
+	val targetRuntime: String,
 	val toolsVersion: String,
 	val type: String,
 	val useAutolayout: String,

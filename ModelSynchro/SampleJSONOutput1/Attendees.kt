@@ -1,11 +1,11 @@
-package com.kapsch.android.signup
+package com.kapsch.android.base
 
 /*
     Auto-Generated using ModelSynchro
 */
 
 data class Attendees(
-	val avatar: String?
+	val avatar: String?,
 	val checked_in: Boolean
 	val checked_in: Boolean?
 	val checked_in: Boolean?
@@ -24,7 +24,9 @@ data class Attendees(
 	val lastName: String?
 	val lastName: String?
 	val lastName: String?
-	val lastName: String?,
+	val lastName: String?
+	val lastName: String?
+	val lastName: String?
 	val name: String?,
 	val updatedAt: String,
 	val userId: String,

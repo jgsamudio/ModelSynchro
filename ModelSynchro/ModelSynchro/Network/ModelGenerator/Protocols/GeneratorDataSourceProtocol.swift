@@ -16,8 +16,8 @@ protocol GeneratorDataSourceProtocol {
     var allLines: [String] { get }
     var allHeaderLines: [String] { get }
 
-    func fileText(name: String, config: ConfigurationFile) -> String
-    func headerFileText(name: String, config: ConfigurationFile) -> String
+    func fileText(name: String, config: ConfigurationFile, localDirectory: LocalDirectory?) -> String
+    func headerFileText(name: String, config: ConfigurationFile, localDirectory: LocalDirectory?) -> String
     
     func incrementModelIteration()
     func appendContent(line: Line)

@@ -26,7 +26,11 @@ protocol LanguageFormatter {
     var bool: String { get }
     var double: String { get }
 
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    localDirectory: LocalDirectory?) -> String
+    
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line, isLastVariable: Bool) -> String
     func property(variableString: String) -> String?

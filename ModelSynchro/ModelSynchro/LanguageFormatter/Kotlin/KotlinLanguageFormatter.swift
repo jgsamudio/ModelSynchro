@@ -54,9 +54,12 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "val"
     }
     
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    localDirectory: LocalDirectory?) -> String {
         return """
-        package \(config.localJSONDirectory.)
+        package \(localDirectory?.outputPackage ?? "")
 
         /*
             Auto-Generated using ModelSynchro

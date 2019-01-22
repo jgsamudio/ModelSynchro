@@ -61,27 +61,29 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
-        guard modelContainsUpdates() else {
+        guard modelContainsUpdates(localDirectory: nil) else {
             return
         }
 
         let fileURL = fileURLString(outputDirectory: config.outputDirectory ?? "")
         let headerURL = headerFileURLString(outputDirectory: config.outputDirectory ?? "")
 
-        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURL)
+        dataSource.fileText(name: name, config: config, localDirectory: nil).writeToFile(directory: fileURL)
         if languageFormatter.containsHeader {
-            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerURL)
+            dataSource.headerFileText(name: name, config: config, localDirectory: nil).writeToFile(directory: headerURL)
         }
     }
 
-    func writeToFile(outputDirectory: String) {
-        guard modelContainsUpdates() else {
+    func writeToFile(directory: LocalDirectory) {
+        guard modelContainsUpdates(localDirectory: directory) else {
             return
         }
 
-        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString(outputDirectory: outputDirectory))
+        let outputDirectory = fileURLString(outputDirectory: directory.outputDirectory)
+        dataSource.fileText(name: name, config: config, localDirectory: directory).writeToFile(directory: outputDirectory)
         if languageFormatter.containsHeader {
-            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
+            let headerFileText = dataSource.headerFileText(name: name, config: config, localDirectory: directory)
+            headerFileText.writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
         }
     }
 }
@@ -118,8 +120,11 @@ private extension ModelGenerator {
         return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
     }
 
-    func modelContainsUpdates() -> Bool {
-        let newModelLines = dataSource.fileText(name: name, config: config).components(separatedBy: "\n")
+    func modelContainsUpdates(localDirectory: LocalDirectory?) -> Bool {
+        let newModelLines = dataSource.fileText(name: name,
+                                                config: config,
+                                                localDirectory: localDirectory).components(separatedBy: "\n")
+        
         guard let previousModelComponents = previousModelContent?.fileComponents,
             newModelLines.count == previousModelComponents.count else {
             return true

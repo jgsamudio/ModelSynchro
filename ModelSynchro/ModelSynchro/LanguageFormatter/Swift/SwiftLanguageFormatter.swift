@@ -50,7 +50,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "Double"
     }
     
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    localDirectory: LocalDirectory?) -> String {
         return """
         //
         //  \(name).swift

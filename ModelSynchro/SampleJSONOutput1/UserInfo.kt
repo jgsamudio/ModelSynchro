@@ -1,4 +1,4 @@
-package com.kapsch.android.signup
+package com.kapsch.android.base
 
 /*
     Auto-Generated using ModelSynchro
@@ -6,10 +6,12 @@ package com.kapsch.android.signup
 
 data class UserInfo(
 	val bookmarked: Boolean,
-	val eventId: String,
-	val going: Boolean
-	val going: Boolean?,
-	val guests: [Guests]?
+	val eventId: String
+	val eventId: String?
+	val eventId: String?
+	val eventId: String?
+	val going: Boolean,
+	val guests: [Guests]?,
 	val guestsCount: Int?,
 	val waitlisted: Boolean,
 )

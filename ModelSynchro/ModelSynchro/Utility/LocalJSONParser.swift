@@ -27,7 +27,7 @@ final class LocalJSONParser {
 
         for dir in localJSONDirectory {
             loadJSON(at: config.localPath(directory: dir.inputDirectory))
-            jsonParser.writeModelsToFile(outputDirectory: dir.outputDirectory)
+            jsonParser.writeModelsToFile(directory: dir)
             jsonParser.clearDataSource()
         }
     }

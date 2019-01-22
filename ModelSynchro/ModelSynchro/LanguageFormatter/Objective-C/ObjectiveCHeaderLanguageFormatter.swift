@@ -54,7 +54,10 @@ final class ObjectiveCHeaderLanguageFormatter: LanguageFormatter {
         return "double"
     }
 
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    localDirectory: LocalDirectory?) -> String {
         let header = """
         //
         //  \(name).h
