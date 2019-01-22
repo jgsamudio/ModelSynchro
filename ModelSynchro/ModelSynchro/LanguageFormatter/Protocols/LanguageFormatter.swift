@@ -29,7 +29,7 @@ protocol LanguageFormatter {
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
-                    localDirectory: LocalDirectory?) -> String
+                    directoryData: DirectoryData?) -> String
     
     func modelClassDeclaration(name: String) -> String
     func variableString(line: Line, isLastVariable: Bool) -> String

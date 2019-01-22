@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class PlugIn(
-	@Json(name = "identifier") val identifier: String,
-	@Json(name = "version") val version: String
+	@Json(name = "version") val version: String,
+	@Json(name = "identifier") val identifier: String
 )

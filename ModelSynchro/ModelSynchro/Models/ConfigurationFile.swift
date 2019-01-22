@@ -21,6 +21,9 @@ struct ServerAPIInfo: Codable {
     
     /// Authentication endpoint used to grab the auth token.
     let authEndpoint: AuthEndpoint?
+    
+    /// Output package for Kotlin file generation.
+    let outputPackage: String?
 }
 
 /// Configuration model for the config file.
@@ -42,7 +45,7 @@ struct ConfigurationFile: Codable {
     let serverAPIInfo: ServerAPIInfo?
     
     /// Local location of json files.
-    let localJSONDirectory: [LocalDirectory]?
+    let localJSONDirectory: [DirectoryData]?
 
     /// Mapped model names.
     let mappedModelNames: [MappedModelInfo]?

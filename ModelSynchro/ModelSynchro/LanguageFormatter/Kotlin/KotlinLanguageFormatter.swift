@@ -57,9 +57,9 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
-                    localDirectory: LocalDirectory?) -> String {
+                    directoryData: DirectoryData?) -> String {
         return """
-        package \(localDirectory?.outputPackage ?? "")
+        package \(directoryData?.outputPackage ?? "")
 
         import com.squareup.moshi.Json
 

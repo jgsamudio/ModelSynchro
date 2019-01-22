@@ -20,15 +20,15 @@ final class GeneratorDataSource: GeneratorDataSourceProtocol {
         contents = [LineContent(iteration: currentIteration, languageFormatter: languageFormatter)]
     }
     
-    func fileText(name: String, config: ConfigurationFile, localDirectory: LocalDirectory?) -> String {
+    func fileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         return fileString(name: name,
                           config: config,
                           languageFormatter: languageFormatter,
                           lines: allLines,
-                          localDirectory: localDirectory)
+                          directoryData: directoryData)
     }
 
-    func headerFileText(name: String, config: ConfigurationFile, localDirectory: LocalDirectory?) -> String {
+    func headerFileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
             return ""
         }
@@ -36,7 +36,7 @@ final class GeneratorDataSource: GeneratorDataSourceProtocol {
                           config: config,
                           languageFormatter: languageFormatter,
                           lines: allHeaderLines,
-                          localDirectory: localDirectory)
+                          directoryData: directoryData)
     }
     
     func incrementModelIteration() {
@@ -73,13 +73,13 @@ private extension GeneratorDataSource {
                     config: ConfigurationFile,
                     languageFormatter: LanguageFormatter,
                     lines: [String],
-                    localDirectory: LocalDirectory?) -> String {
+                    directoryData: DirectoryData?) -> String {
         
         var fileLines = [String]()
         fileLines.append(languageFormatter.fileHeader(name: name,
                                                       config: config,
                                                       propertyLines: contents.map { $0.fileLines }.flatMap { $0 },
-                                                      localDirectory: localDirectory))
+                                                      directoryData: directoryData))
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
         fileLines += lines // .sorted

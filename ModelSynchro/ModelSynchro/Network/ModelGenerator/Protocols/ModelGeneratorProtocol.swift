@@ -13,5 +13,5 @@ protocol ModelGeneratorProtocol {
     func add(property: String, type: String)
     func incrementIteration()
     func writeToFile()
-    func writeToFile(directory: LocalDirectory)
+    func writeToFile(directory: DirectoryData)
 }

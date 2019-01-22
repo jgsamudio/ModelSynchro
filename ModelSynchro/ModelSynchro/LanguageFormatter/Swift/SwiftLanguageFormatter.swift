@@ -53,7 +53,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
-                    localDirectory: LocalDirectory?) -> String {
+                    directoryData: DirectoryData?) -> String {
         return """
         //
         //  \(name).swift

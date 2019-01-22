@@ -1,5 +1,5 @@
 //
-//  LocalDirectory.swift
+//  DirectoryData.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 2/16/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LocalDirectory: Codable {
+struct DirectoryData: Codable {
     
     /// Input direction of the local JSON files.
     let inputDirectory: String
@@ -18,4 +18,10 @@ struct LocalDirectory: Codable {
     
     /// Output package for Kotlin file generation.
     let outputPackage: String?
+    
+    init(inputDirectory: String = "", outputDirectory: String = "", outputPackage: String? = nil) {
+        self.inputDirectory = inputDirectory
+        self.outputDirectory = outputDirectory
+        self.outputPackage = outputPackage
+    }
 }

@@ -13,11 +13,11 @@ data class Attendees(
 	@Json(name = "updatedAt") val updatedAt: String?
 	@Json(name = "updatedAt") val updatedAt: String?
 	@Json(name = "updatedAt") val updatedAt: String?
+	@Json(name = "guestToken") val guestToken: String?,
+	@Json(name = "email") val email: String?,
 	@Json(name = "name") val name: String?,
 	@Json(name = "updatedAt") val updatedAt: String?,
-	@Json(name = "friendId") val friendId: String?,
-	@Json(name = "email") val email: String?,
-	@Json(name = "guestToken") val guestToken: String?
+	@Json(name = "friendId") val friendId: String?
 	@Json(name = "firstName") val firstName: String?,
 	@Json(name = "lastName") val lastName: String?
 	@Json(name = "lastName") val lastName: String?
@@ -27,7 +27,9 @@ data class Attendees(
 	@Json(name = "lastName") val lastName: String?
 	@Json(name = "lastName") val lastName: String?
 	@Json(name = "lastName") val lastName: String?
+	@Json(name = "headline") val headline: String?,
 	@Json(name = "avatar") val avatar: String?,
-	@Json(name = "lastName") val lastName: String?,
-	@Json(name = "headline") val headline: String?
+	@Json(name = "lastName") val lastName: String?
+	@Json(name = "lastName") val lastName: String?
+	@Json(name = "lastName") val lastName: String?
 )

@@ -5,16 +5,33 @@
   "language": "kotlin",
   "serverAPIInfo": {
       "outputDirectory": "OpenAPIModels/",
+      "outputPackage": "com.kapsch.android.base",
       "endpoints": [
           {
-              "name": "Authentication",
+              "name": "AuthenticationToken",
               "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/register",
               "authorized": false,
-              "method": "get",
+              "method": "post",
               "parameters": {
                   "email": "sampleEmail.com",
                   "password": "samplePassword"
               }
+          },
+          {
+              "name": "AuthenticationToken",
+              "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/login",
+              "authorized": false,
+              "method": "post",
+              "parameters": {
+                  "email": "sampleEmail.com",
+                  "password": "samplePassword"
+              }
+          },
+          {
+              "name": "Account",
+              "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts",
+              "authorized": false,
+              "method": "get"
           }
       ]
   },

@@ -61,7 +61,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
-                    localDirectory: LocalDirectory?) -> String {
+                    directoryData: DirectoryData?) -> String {
         return """
         //
         //  \(name).m

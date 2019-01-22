@@ -85,8 +85,8 @@
 		208E0ED21FCCA98500EB25EA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED11FCCA98500EB25EA /* main.swift */; };
 		208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */; };
 		208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */; };
-		209DB7A62037375800467911 /* LocalDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* LocalDirectory.swift */; };
-		209DB7A720373ECC00467911 /* LocalDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* LocalDirectory.swift */; };
+		209DB7A62037375800467911 /* DirectoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* DirectoryData.swift */; };
+		209DB7A720373ECC00467911 /* DirectoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* DirectoryData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,7 +156,7 @@
 		208E0ED11FCCA98500EB25EA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
 		208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationParser.swift; sourceTree = "<group>"; };
-		209DB7A52037375800467911 /* LocalDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDirectory.swift; sourceTree = "<group>"; };
+		209DB7A52037375800467911 /* DirectoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,7 +341,7 @@
 				201F09BA1FD1C700005547A5 /* CustomProperty.swift */,
 				201F09BC1FD1C719005547A5 /* KeyedProperty.swift */,
 				20625B691FFBEF4E00CBE47D /* AuthEndpoint.swift */,
-				209DB7A52037375800467911 /* LocalDirectory.swift */,
+				209DB7A52037375800467911 /* DirectoryData.swift */,
 				2070426620AA387A008582F8 /* MappedModelInfo.swift */,
 				203B048521F570CF00F9E794 /* ModelContent.swift */,
 			);
@@ -537,7 +537,7 @@
 				2003E0A41FFC369100878F8A /* ConfigurationParser.swift in Sources */,
 				2003E0BC1FFD426D00878F8A /* FakeLineContent.swift in Sources */,
 				2003E08F1FFC366A00878F8A /* Data.swift in Sources */,
-				209DB7A720373ECC00467911 /* LocalDirectory.swift in Sources */,
+				209DB7A720373ECC00467911 /* DirectoryData.swift in Sources */,
 				2003E0821FFC339E00878F8A /* ArrayExtensionTests.swift in Sources */,
 				2003E0B31FFD28FC00878F8A /* FakeModelDataSource.swift in Sources */,
 				2003E0921FFC366E00878F8A /* Type.swift in Sources */,
@@ -575,7 +575,7 @@
 				2003E0BF1FFD43F700878F8A /* GeneratorDataSourceProtocol.swift in Sources */,
 				2059DA401FCCCE0600B020C3 /* ModelDataSource.swift in Sources */,
 				20642B281FCE044300E3AA2F /* Endpoint.swift in Sources */,
-				209DB7A62037375800467911 /* LocalDirectory.swift in Sources */,
+				209DB7A62037375800467911 /* DirectoryData.swift in Sources */,
 				203B048821F571A700F9E794 /* Language.swift in Sources */,
 				208E0EDA1FCCA9BD00EB25EA /* NetworkRequester.swift in Sources */,
 				201F09BB1FD1C700005547A5 /* CustomProperty.swift in Sources */,
