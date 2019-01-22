@@ -5,7 +5,7 @@ package com.kapsch.android.signup
 */
 
 data class Dependencies(
-	val capability: Capability,
-	val deployment: Deployment
+	val capability: Capability
+	val deployment: Deployment,
 	val plugIn: PlugIn,
 )

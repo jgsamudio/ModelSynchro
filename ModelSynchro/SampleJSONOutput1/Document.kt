@@ -6,11 +6,11 @@ package com.kapsch.android.signup
 
 data class Document(
 	val colorMatched: String,
-	val dependencies: Dependencies
+	val dependencies: Dependencies,
 	val device: Device,
 	val objects: Objects,
 	val propertyAccessControl: String,
-	val targetRuntime: String,
+	val targetRuntime: String
 	val toolsVersion: String,
 	val type: String,
 	val useAutolayout: String,

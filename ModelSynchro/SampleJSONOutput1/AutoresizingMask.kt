@@ -5,7 +5,7 @@ package com.kapsch.android.signup
 */
 
 data class AutoresizingMask(
-	val heightSizable: String,
-	val key: String
+	val heightSizable: String
+	val key: String,
 	val widthSizable: String,
 )

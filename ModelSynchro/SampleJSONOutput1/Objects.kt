@@ -5,6 +5,6 @@ package com.kapsch.android.signup
 */
 
 data class Objects(
-	val placeholder: Placeholder,
-	val view: View
+	val placeholder: Placeholder
+	val view: View,
 )

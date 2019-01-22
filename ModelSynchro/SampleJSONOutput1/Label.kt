@@ -10,7 +10,7 @@ data class Label(
 	val color: Color,
 	val contentMode: String,
 	val fontDescription: FontDescription,
-	val horizontalHuggingPriority: String,
+	val horizontalHuggingPriority: String
 	val id: String,
 	val lineBreakMode: String,
 	val nil: Nil,
@@ -20,5 +20,5 @@ data class Label(
 	val textAlignment: String,
 	val translatesAutoresizingMaskIntoConstraints: String,
 	val userInteractionEnabled: String,
-	val verticalHuggingPriority: String
+	val verticalHuggingPriority: String,
 )

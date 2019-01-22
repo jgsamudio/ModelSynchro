@@ -6,7 +6,8 @@
   "localJSONDirectory" : [
     {
       "inputDirectory" : "SampleJSON1/",
-      "outputDirectory" : "SampleJSONOutput1/"
+      "outputDirectory" : "SampleJSONOutput1/",
+      "outputPackage": "com.kapsch.android.base"
     }
   ],
   "language" : "kotlin"

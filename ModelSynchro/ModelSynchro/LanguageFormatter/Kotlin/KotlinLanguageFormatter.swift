@@ -56,7 +56,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     
     func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
         return """
-        package com.kapsch.android.signup
+        package \(config.localJSONDirectory.)
 
         /*
             Auto-Generated using ModelSynchro

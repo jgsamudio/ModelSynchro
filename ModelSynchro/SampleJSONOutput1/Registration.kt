@@ -5,6 +5,6 @@ package com.kapsch.android.signup
 */
 
 data class Registration(
-	val response: Response
-	val status: String,
+	val response: Response,
+	val status: String
 )

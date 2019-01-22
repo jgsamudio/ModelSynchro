@@ -5,6 +5,6 @@ package com.kapsch.android.signup
 */
 
 data class State(
-	val key: String
-	val title: String,
+	val key: String,
+	val title: String
 )

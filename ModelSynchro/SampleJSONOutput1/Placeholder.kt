@@ -5,7 +5,7 @@ package com.kapsch.android.signup
 */
 
 data class Placeholder(
-	val customClass: String,
+	val customClass: String
 	val id: String,
-	val placeholderIdentifier: String
+	val placeholderIdentifier: String,
 )
