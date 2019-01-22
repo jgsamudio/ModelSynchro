@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class Capability(
-	@Json(name = "name") val name: String,
-	@Json(name = "minToolsVersion") val minToolsVersion: String
+	@Json(name = "minToolsVersion") val minToolsVersion: String,
+	@Json(name = "name") val name: String
 )
