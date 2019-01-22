@@ -8,6 +8,21 @@
 
 import Foundation
 
+struct ServerAPIInfo: Codable {
+    
+    /// Output directory of the program.
+    let outputDirectory: String?
+    
+    /// List of endpoints to generate models for.
+    let endpoints: [Endpoint]?
+    
+    /// Header data for the endpoints.
+    let headers: [String : String]?
+    
+    /// Authentication endpoint used to grab the auth token.
+    let authEndpoint: AuthEndpoint?
+}
+
 /// Configuration model for the config file.
 struct ConfigurationFile: Codable {
 
@@ -23,18 +38,9 @@ struct ConfigurationFile: Codable {
     /// Language of the program.
     let language: Language?
 
-    /// Output directory of the program.
-    let outputDirectory: String?
-
-    /// List of endpoints to generate models for.
-    let endpoints: [Endpoint]?
-
-    /// Header data for the endpoints.
-    let headers: [String : String]?
-
-    /// Authentication endpoint used to grab the auth token.
-    let authEndpoint: AuthEndpoint?
-
+    /// Network endpoints and information to generate network models.
+    let serverAPIInfo: ServerAPIInfo?
+    
     /// Local location of json files.
     let localJSONDirectory: [LocalDirectory]?
 
@@ -46,7 +52,7 @@ extension ConfigurationFile {
     
     /// Model output path.
     var outputPath: String {
-        return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
+        return ConfigurationParser.projectDirectory + (serverAPIInfo?.outputDirectory ?? "")
     }
 
     /// The local directory path.

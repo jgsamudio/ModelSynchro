@@ -24,12 +24,12 @@ final class NetworkRequester {
     
     /// Generates the models specified from the config file.
     func generateModels() {
-        guard let endpoints = config.endpoints else {
+        guard let endpoints = config.serverAPIInfo?.endpoints else {
             return
         }
 
         endpoints.forEach {
-            guard let request = urlRequest(urlString: $0.url) else {
+            guard let request = urlRequest(endpoint: $0) else {
                 return
             }
             requestJSONData(request: request, name: $0.name)
@@ -51,22 +51,22 @@ final class NetworkRequester {
         sema.wait()
     }
     
-    func urlRequest(urlString: String) -> URLRequest?  {
-        guard let url = URL(string: urlString) else {
-            print("Error: Not a url")
+    func urlRequest(endpoint: Endpoint) -> URLRequest?  {
+        guard let url = URL(string: endpoint.url) else {
+            CommandError.validUrl.displayError()
             return nil
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = endpoint.method.rawValue.uppercased()
+        request.allHTTPHeaderFields = config.serverAPIInfo?.headers
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        // TODO: add parameters
-
-        config.headers?.forEach({ (key, value) in
-            request.setValue(key, forHTTPHeaderField: value)
-        })
         
+        if let parameters = endpoint.parameters {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .sortedKeys)
+        }
+
         return request
     }
 }

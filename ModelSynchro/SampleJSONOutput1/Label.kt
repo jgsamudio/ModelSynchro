@@ -7,20 +7,20 @@ import com.squareup.moshi.Json
 */
 
 data class Label(
-	@Json(name = "baselineAdjustment") val baselineAdjustment: String,
+	@Json(name = "nil") val nil: Nil,
+	@Json(name = "fontDescription") val fontDescription: FontDescription,
 	@Json(name = "horizontalHuggingPriority") val horizontalHuggingPriority: String,
 	@Json(name = "adjustsFontSizeToFit") val adjustsFontSizeToFit: String,
-	@Json(name = "textAlignment") val textAlignment: String,
 	@Json(name = "verticalHuggingPriority") val verticalHuggingPriority: String,
-	@Json(name = "color") val color: Color,
-	@Json(name = "fontDescription") val fontDescription: FontDescription,
-	@Json(name = "userInteractionEnabled") val userInteractionEnabled: String,
-	@Json(name = "nil") val nil: Nil,
-	@Json(name = "lineBreakMode") val lineBreakMode: String,
+	@Json(name = "rect") val rect: Rect,
 	@Json(name = "translatesAutoresizingMaskIntoConstraints") val translatesAutoresizingMaskIntoConstraints: String,
-	@Json(name = "text") val text: String,
+	@Json(name = "lineBreakMode") val lineBreakMode: String,
+	@Json(name = "color") val color: Color,
 	@Json(name = "opaque") val opaque: String,
-	@Json(name = "contentMode") val contentMode: String,
 	@Json(name = "id") val id: String,
-	@Json(name = "rect") val rect: Rect
+	@Json(name = "baselineAdjustment") val baselineAdjustment: String,
+	@Json(name = "contentMode") val contentMode: String,
+	@Json(name = "textAlignment") val textAlignment: String,
+	@Json(name = "text") val text: String,
+	@Json(name = "userInteractionEnabled") val userInteractionEnabled: String
 )

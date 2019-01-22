@@ -2,12 +2,26 @@
   "authorName" : "Jonathan Samudio",
   "companyName" : "Prolific Interactive",
   "projectName" : "ModelSynchro",
-  "outputDirectory" : "SampleModels/",
-  "localJSONDirectory" : [
+  "serverAPIInfo": {
+      "outputDirectory" : "SampleModels/",
+      "endpoints": [
+          {
+              "name" : "Authentication",
+              "url" : "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/register",
+              "authorized" : false,
+              "method" : "get",
+              "parameters" : {
+                  "email" : "sampleEmail.com",
+                  "password": "samplePassword"
+              }
+          }
+      ]
+  },
+  "localJSONDirectory": [
     {
       "inputDirectory" : "SampleJSON1/",
       "outputDirectory" : "SampleJSONOutput1/",
-      "outputPackage": "com.kapsch.android.base"
+      "outputPackage" : "com.kapsch.android.base"
     }
   ],
   "language" : "kotlin"
