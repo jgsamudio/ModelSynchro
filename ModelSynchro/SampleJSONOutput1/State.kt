@@ -5,6 +5,6 @@ package com.kapsch.android.base
 */
 
 data class State(
-	val key: String,
-	val title: String
+	val title: String,
+	val key: String
 )

@@ -5,6 +5,6 @@ package com.kapsch.android.base
 */
 
 data class AttendeesInfo(
-	val attendees: [Attendees],
-	val attendeesCount: Int
+	val attendeesCount: Int,
+	val attendees: Array<Attendees>
 )

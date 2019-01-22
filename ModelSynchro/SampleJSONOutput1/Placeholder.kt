@@ -5,7 +5,7 @@ package com.kapsch.android.base
 */
 
 data class Placeholder(
-	val customClass: String
 	val id: String,
-	val placeholderIdentifier: String,
+	val customClass: String,
+	val placeholderIdentifier: String
 )

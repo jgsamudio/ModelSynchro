@@ -5,6 +5,6 @@ package com.kapsch.android.base
 */
 
 data class PlugIn(
-	val identifier: String,
-	val version: String
+	val version: String,
+	val identifier: String
 )

@@ -5,13 +5,11 @@ package com.kapsch.android.base
 */
 
 data class UserInfo(
-	val bookmarked: Boolean,
-	val eventId: String
-	val eventId: String?
-	val eventId: String?
-	val eventId: String?
-	val going: Boolean,
-	val guests: [Guests]?,
-	val guestsCount: Int?,
+	val eventId: String,
 	val waitlisted: Boolean,
+	val bookmarked: Boolean,
+	val going: Boolean
+	val going: Boolean?,
+	val guests: Array<Guests>?,
+	val guestsCount: Int?
 )

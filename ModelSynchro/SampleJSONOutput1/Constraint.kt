@@ -5,9 +5,9 @@ package com.kapsch.android.base
 */
 
 data class Constraint(
-	val firstAttribute: String,
 	val firstItem: String,
+	val firstAttribute: String,
 	val id: String,
-	val secondAttribute: String
-	val secondItem: String,
+	val secondAttribute: String,
+	val secondItem: String
 )

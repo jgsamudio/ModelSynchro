@@ -5,25 +5,25 @@ package com.kapsch.android.base
 */
 
 data class Event(
-	val _id: String,
-	val attendees: [Attendees],
-	val cancelled: Boolean,
-	val capacity: Int,
-	val createdAt: String,
-	val description: String,
-	val guest_capacity: Int
-	val guest_per_member: Int,
-	val guests: [Guests],
-	val happening_photo: String,
-	val lastUpdated: String,
-	val location: String,
-	val locationClean: String,
-	val public: Boolean,
-	val reminderEmail: Boolean,
-	val rsvpStatus: String,
-	val start_date: String,
-	val title: String,
+	val attendeesInfo: AttendeesInfo?,
 	val type: String,
-	val waitlisted: [Waitlisted],
-	val waitlistedStatus: String,
+	val start_date: Int,
+	val rsvpStatus: String?,
+	val userInfo: UserInfo,
+	val guest_capacity: Int,
+	val objectID: String,
+	val location: String,
+	val capacity: Int,
+	val description: String,
+	val happening_photo: String,
+	val fee: Double?,
+	val guest_per_member: Int,
+	val cancelled: Boolean,
+	val public: Boolean,
+	val guestsInfo: GuestsInfo?,
+	val title: String
+	val title: String?
+	val title: String?
+	val title: String?
+	val title: String?
 )

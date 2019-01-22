@@ -6,6 +6,6 @@ package com.kapsch.android.base
 
 data class Response(
 	val event: Event,
-	val event_guests: [Event_guests],
-	val user_rsvpStatus: String
+	val user_rsvpStatus: String,
+	val event_guests: Array<Event_guests>
 )

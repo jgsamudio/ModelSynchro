@@ -5,14 +5,14 @@ package com.kapsch.android.base
 */
 
 data class Button(
-	val buttonType: String,
-	val contentHorizontalAlignment: String,
-	val contentMode: String
 	val contentVerticalAlignment: String,
+	val translatesAutoresizingMaskIntoConstraints: String,
+	val state: State,
+	val contentMode: String,
+	val opaque: String,
+	val contentHorizontalAlignment: String,
+	val rect: Rect,
 	val id: String,
 	val lineBreakMode: String,
-	val opaque: String,
-	val rect: Rect,
-	val state: State,
-	val translatesAutoresizingMaskIntoConstraints: String,
+	val buttonType: String
 )

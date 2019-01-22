@@ -5,12 +5,12 @@ package com.kapsch.android.base
 */
 
 data class Color(
-	val alpha: String
-	val alpha: String?
 	val blue: String,
+	val alpha: String,
 	val colorSpace: String,
-	val customColorSpace: String,
-	val green: String,
-	val key: String,
 	val red: String,
+	val key: String,
+	val customColorSpace: String,
+	val green: String
+	val green: String?
 )

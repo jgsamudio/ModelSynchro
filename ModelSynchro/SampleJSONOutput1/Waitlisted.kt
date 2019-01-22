@@ -5,9 +5,9 @@ package com.kapsch.android.base
 */
 
 data class Waitlisted(
-	val checked_in: Boolean
-	val checked_in: Boolean?
-	val checked_in: Boolean?
-	val updatedAt: String,
 	val userId: String,
+	val checked_in: Boolean,
+	val updatedAt: String
+	val updatedAt: String?
+	val updatedAt: String?
 )

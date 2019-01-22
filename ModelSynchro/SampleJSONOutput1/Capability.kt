@@ -5,6 +5,6 @@ package com.kapsch.android.base
 */
 
 data class Capability(
-	val minToolsVersion: String,
-	val name: String
+	val name: String,
+	val minToolsVersion: String
 )

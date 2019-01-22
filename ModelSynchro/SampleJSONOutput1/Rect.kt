@@ -5,11 +5,11 @@ package com.kapsch.android.base
 */
 
 data class Rect(
-	val height: String,
 	val key: String,
-	val width: String
-	val width: String?
-	val width: String?
+	val width: String,
 	val x: String,
-	val y: String,
+	val height: String,
+	val y: String
+	val y: String?
+	val y: String?
 )

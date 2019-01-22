@@ -5,8 +5,8 @@ package com.kapsch.android.base
 */
 
 data class FilterSection(
-	val filters: [Filters]
-	val filters: [Filters]?
-	val filters: [Filters]?
 	val section: String,
+	val filters: Array<Filters>
+	val filters: Array<Filters>?
+	val filters: Array<Filters>?
 )

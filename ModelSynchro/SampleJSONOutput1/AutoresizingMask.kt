@@ -6,6 +6,6 @@ package com.kapsch.android.base
 
 data class AutoresizingMask(
 	val heightSizable: String,
-	val key: String
 	val widthSizable: String,
+	val key: String
 )

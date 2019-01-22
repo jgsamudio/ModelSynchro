@@ -5,8 +5,8 @@ package com.kapsch.android.base
 */
 
 data class Guests(
-	val emailAddress: String?,
-	val fullName: String?
-	val fullName: String?
-	val fullName: String?
+	val fullName: String?,
+	val emailAddress: String?
+	val emailAddress: String?
+	val emailAddress: String?
 )

@@ -111,11 +111,11 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func arrayFormat(type: String) -> String {
-        return "[" + type.capitalizedFirstLetter() + "]"
+        return "Array<" + type.capitalizedFirstLetter() + ">"
     }
     
     func type(arrayString: String) -> String {
-        return arrayString.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+        return arrayString.replacingOccurrences(of: "Array<", with: "").replacingOccurrences(of: ">", with: "")
     }
     
     func customFormat(type: String) -> String {

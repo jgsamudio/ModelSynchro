@@ -5,7 +5,7 @@ package com.kapsch.android.base
 */
 
 data class Dependencies(
-	val capability: Capability,
+	val plugIn: PlugIn,
 	val deployment: Deployment,
-	val plugIn: PlugIn
+	val capability: Capability
 )

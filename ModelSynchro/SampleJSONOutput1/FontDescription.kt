@@ -5,7 +5,7 @@ package com.kapsch.android.base
 */
 
 data class FontDescription(
-	val key: String
 	val pointSize: String,
 	val type: String,
+	val key: String
 )

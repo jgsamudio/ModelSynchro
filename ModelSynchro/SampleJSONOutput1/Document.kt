@@ -5,16 +5,16 @@ package com.kapsch.android.base
 */
 
 data class Document(
-	val colorMatched: String,
-	val dependencies: Dependencies,
 	val device: Device,
+	val useTraitCollections: String,
+	val useSafeAreas: String,
+	val useAutolayout: String,
 	val objects: Objects,
-	val propertyAccessControl: String
-	val targetRuntime: String,
+	val colorMatched: String,
+	val propertyAccessControl: String,
+	val version: String,
 	val toolsVersion: String,
 	val type: String,
-	val useAutolayout: String,
-	val useSafeAreas: String,
-	val useTraitCollections: String,
-	val version: String,
+	val targetRuntime: String,
+	val dependencies: Dependencies
 )
