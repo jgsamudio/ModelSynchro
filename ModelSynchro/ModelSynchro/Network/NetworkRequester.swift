@@ -52,7 +52,14 @@ final class NetworkRequester {
     }
     
     func urlRequest(endpoint: Endpoint) -> URLRequest?  {
-        guard let url = URL(string: endpoint.url) else {
+
+        
+        var urlComponents = URLComponents(string: endpoint.url)
+        for (key, value) in endpoint.queries ?? [:] {
+            urlComponents?.queryItems?.append(URLQueryItem(name: key, value: value))
+        }
+        
+        guard let url = urlComponents?.url else {
             CommandError.validUrl.displayError()
             return nil
         }

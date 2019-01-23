@@ -14,16 +14,19 @@ enum CommandError: Int {
     case validUrl = 4
     case configFile = 5
     case writeToFile = 6
+    case modelParse = 7
     
-    func displayError() {
-        print(errorString)
-        #if RELEASE
-        exit(Int32(rawValue))
-        #endif
+    func displayError(with message: String? = nil) {
+        print(errorString(with: message))
+        if isFatalError {
+            #if RELEASE
+            exit(Int32(rawValue))
+            #endif
+        }
     }
     
-    var errorString: String {
-        let errorPrefix = "Error:"
+    func errorString(with message: String? = nil) -> String {
+        let errorPrefix = "Error(\(rawValue)):"
         
         switch self {
         case .language:
@@ -34,8 +37,25 @@ enum CommandError: Int {
             return "\(errorPrefix) Check the config file."
         case .writeToFile:
             return "\(errorPrefix) Write to file error. Make sure the output folder specified in the configuration file is created."
+        case .modelParse:
+            return """
+            \(errorPrefix) Received network response is not parceable.
+                Check network response for: \(message ?? "")
+            """
         default:
             return "\(errorPrefix) Something went wrong!"
+        }
+    }
+}
+
+private extension CommandError {
+    
+    var isFatalError: Bool {
+        switch self {
+        case .modelParse:
+            return false
+        default:
+            return true
         }
     }
 }

@@ -90,6 +90,10 @@
 		20D5B92221F8A40C00DFE7FA /* ModelContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048521F570CF00F9E794 /* ModelContent.swift */; };
 		20D5B92321F8A46000DFE7FA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048721F571A700F9E794 /* Language.swift */; };
 		20D5B92421F8A47E00DFE7FA /* KotlinLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048321F0268E00F9E794 /* KotlinLanguageFormatter.swift */; };
+		20D5B92621F8C0F300DFE7FA /* ServerAPIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5B92521F8C0F300DFE7FA /* ServerAPIInfo.swift */; };
+		20D5B92721F8C0F300DFE7FA /* ServerAPIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5B92521F8C0F300DFE7FA /* ServerAPIInfo.swift */; };
+		20D5B92921F8C10E00DFE7FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5B92821F8C10E00DFE7FA /* HTTPMethod.swift */; };
+		20D5B92A21F8C10E00DFE7FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5B92821F8C10E00DFE7FA /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,6 +164,8 @@
 		208E0ED81FCCA9BD00EB25EA /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
 		208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationParser.swift; sourceTree = "<group>"; };
 		209DB7A52037375800467911 /* DirectoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryData.swift; sourceTree = "<group>"; };
+		20D5B92521F8C0F300DFE7FA /* ServerAPIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPIInfo.swift; sourceTree = "<group>"; };
+		20D5B92821F8C10E00DFE7FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +326,7 @@
 				2059DA441FCCD16800B020C3 /* NetworkError.swift */,
 				205C80D91FD069060094404D /* PriorityType.swift */,
 				203B048721F571A700F9E794 /* Language.swift */,
+				20D5B92821F8C10E00DFE7FA /* HTTPMethod.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -347,6 +354,7 @@
 				209DB7A52037375800467911 /* DirectoryData.swift */,
 				2070426620AA387A008582F8 /* MappedModelInfo.swift */,
 				203B048521F570CF00F9E794 /* ModelContent.swift */,
+				20D5B92521F8C0F300DFE7FA /* ServerAPIInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -537,6 +545,7 @@
 				2003E0961FFC367700878F8A /* JsonParser.swift in Sources */,
 				2003E09F1FFC367C00878F8A /* KeyedProperty.swift in Sources */,
 				2003E0A71FFC397500878F8A /* ModelDataSourceTests.swift in Sources */,
+				20D5B92A21F8C10E00DFE7FA /* HTTPMethod.swift in Sources */,
 				2003E09B1FFC367C00878F8A /* ConfigurationFile.swift in Sources */,
 				2003E09C1FFC367C00878F8A /* Endpoint.swift in Sources */,
 				2003E0A41FFC369100878F8A /* ConfigurationParser.swift in Sources */,
@@ -550,6 +559,7 @@
 				204607981FFD82E40063A53E /* ModelGeneratorProtocol.swift in Sources */,
 				204DDA5821ECF6B4008A8E72 /* CommandError.swift in Sources */,
 				2003E09A1FFC367700878F8A /* ModelDataSource.swift in Sources */,
+				20D5B92721F8C0F300DFE7FA /* ServerAPIInfo.swift in Sources */,
 				2070427920AB2B72008582F8 /* MappedModelInfo.swift in Sources */,
 				2003E0A21FFC368200878F8A /* LanguageFormatter.swift in Sources */,
 				204607E71FFEA6EB0063A53E /* ObjectiveCHeaderLanguageFormatter.swift in Sources */,
@@ -561,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D5B92921F8C10E00DFE7FA /* HTTPMethod.swift in Sources */,
 				20642B1E1FCDCF4900E3AA2F /* DateExtension.swift in Sources */,
 				203B048421F0268E00F9E794 /* KotlinLanguageFormatter.swift in Sources */,
 				2059DA391FCCCC0700B020C3 /* Type.swift in Sources */,
@@ -597,6 +608,7 @@
 				208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */,
 				2003E08B1FFC358B00878F8A /* LanguageFormatter.swift in Sources */,
 				2059DA451FCCD16800B020C3 /* NetworkError.swift in Sources */,
+				20D5B92621F8C0F300DFE7FA /* ServerAPIInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

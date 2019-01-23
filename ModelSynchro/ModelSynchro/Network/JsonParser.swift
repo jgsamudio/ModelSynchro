@@ -38,8 +38,8 @@ final class JsonParser {
             if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [JSON] {
                 parse(jsonArray: jsonArray, modelName: config.mapped(filename: name))
             }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        } catch {
+            CommandError.modelParse.displayError(with: config.mapped(filename: name))
         }
     }
     

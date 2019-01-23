@@ -32,6 +32,99 @@
               "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts",
               "authorized": false,
               "method": "get"
+          },
+          {
+            "name": "ProviderAuthenticationInformation",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/provider_login",
+            "authorized": false,
+            "method": "post",
+            "parameters": {
+                "providerName": "google",
+                "providerToken": "4712948234y12783y",
+                "email": "prolific@prolificinteractive.com"
+            }
+          },
+          {
+            "name": "User",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/123456789",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "AuthenticationToken",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/token",
+            "authorized": false,
+            "method": "post",
+            "parameters": {
+                "refreshToken": "string"
+            }
+          },
+          {
+            "name": "AppConfiguration",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/configurations",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "PostalAvailablility",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/availability",
+            "authorized": false,
+            "method": "get",
+            "queries": {
+                "postalCode": "11375"
+            }
+          },
+          {
+            "name": "Account",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "PaymentMethods",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/payments",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Transponders",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/transponders",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Vehicles",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/vehicles",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Make",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/makes",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Model",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/models",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Color",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/colors",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "name": "Vehicles",
+            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/search",
+            "authorized": false,
+            "method": "post",
+            "parameters": {
+                "licensePlateNumber": "BROOK123",
+                "state": "NY"
+            }
           }
       ]
   },
