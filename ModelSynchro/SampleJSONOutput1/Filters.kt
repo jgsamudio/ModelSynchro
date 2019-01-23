@@ -7,7 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class Filters(
-	@Json(name = "parameter") val parameter: String,
-	@Json(name = "displayName") val displayName: String
-	@Json(name = "parameter") val parameter: String?
+	@Json(name = "displayName") val displayName: String,
+	@Json(name = "parameter") val parameter: String
 )

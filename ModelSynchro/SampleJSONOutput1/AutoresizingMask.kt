@@ -7,7 +7,7 @@ import com.squareup.moshi.Json
 */
 
 data class AutoresizingMask(
-	@Json(name = "key") val key: String,
 	@Json(name = "heightSizable") val heightSizable: String,
-	@Json(name = "widthSizable") val widthSizable: String
+	@Json(name = "widthSizable") val widthSizable: String,
+	@Json(name = "key") val key: String
 )

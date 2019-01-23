@@ -119,4 +119,18 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     func customFormat(type: String) -> String {
         return type.capitalizedFirstLetter()
     }
+    
+    func variableFound(property: String,
+                       type: String,
+                       customProperty: CustomProperty?,
+                       dataSource: GeneratorDataSourceProtocol) -> Bool {
+        
+        let foundVariables = dataSource.allLines.filter {
+            let currentProperty = $0.stringBetween(startString: constantVariable,
+                                                    endString: typeSeparator)?.trimmingCharacters(in: .whitespaces)
+            return currentProperty == property || currentProperty == customProperty?.property
+        }
+        
+        return !foundVariables.isEmpty
+    }
 }

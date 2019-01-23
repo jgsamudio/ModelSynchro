@@ -9,5 +9,4 @@ import com.squareup.moshi.Json
 data class FilterSection(
 	@Json(name = "section") val section: String,
 	@Json(name = "filters") val filters: Array<Filters>
-	@Json(name = "section") val section: String?
 )

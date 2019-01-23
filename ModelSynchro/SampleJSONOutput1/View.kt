@@ -7,12 +7,12 @@ import com.squareup.moshi.Json
 */
 
 data class View(
-	@Json(name = "contentMode") val contentMode: String,
-	@Json(name = "rect") val rect: Rect,
 	@Json(name = "subviews") val subviews: Subviews,
-	@Json(name = "viewLayoutGuide") val viewLayoutGuide: ViewLayoutGuide,
+	@Json(name = "id") val id: String,
 	@Json(name = "constraints") val constraints: Constraints,
+	@Json(name = "rect") val rect: Rect,
+	@Json(name = "contentMode") val contentMode: String,
 	@Json(name = "autoresizingMask") val autoresizingMask: AutoresizingMask,
-	@Json(name = "color") val color: Color,
-	@Json(name = "id") val id: String
+	@Json(name = "viewLayoutGuide") val viewLayoutGuide: ViewLayoutGuide,
+	@Json(name = "color") val color: Color
 )

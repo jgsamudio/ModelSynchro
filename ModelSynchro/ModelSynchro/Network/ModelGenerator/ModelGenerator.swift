@@ -46,9 +46,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
         let customProperty = previousModelContent?.customProperties.find(property: property)
         let variableLine = Line(property: property, type: type, isOptional: isOptional, customProperty: customProperty)
         
-        if !variableFound(property: property, type: type, customProperty: customProperty) &&
-            !typePriorityUpdated(property: property, type: type) {
-            
+        if !languageFormatter.variableFound(property: property,
+                                            type: type,
+                                            customProperty: customProperty,
+                                            dataSource: dataSource) && !typePriorityUpdated(property: property, type: type) {
             dataSource.appendContent(line: variableLine)
         }
         dataSource.appendProperty(line: variableLine)
@@ -95,18 +96,6 @@ private extension ModelGenerator {
         return dataSource.contents.reduce(false, { x, y in
             x || y.updatePriorityType(property: property, type: type)
         })
-    }
-    
-    // TODO: Streamline this
-    func variableFound(property: String, type: String, customProperty: CustomProperty?) -> Bool {
-        // HERE
-        var variableLine = Line(property: property, type: type, isOptional: true, customProperty: customProperty)
-        let optionalLine = variableLine.toString(languageFormatter: languageFormatter, isLastVariable: true)
-        
-        variableLine.isOptional = false
-        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter, isLastVariable: true)
-        
-        return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
     }
 
     func fileURLString(outputDirectory: String) -> String {
