@@ -90,7 +90,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     
     func property(variableString: String) -> String? {
         guard isVariable(variableString), let property = variableString.stringBetween(startString: constantVariable,
-                                                                                      endString: ":") else {
+                                                                                      endString: typeSeparator) else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
@@ -105,6 +105,11 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func keyedProperty(string: String) -> KeyedProperty? {
+        if let jsonProperty = string.stringBetween(startString: "@Json(name = ", endString: ")"),
+            let mappedProperty = property(variableString: string) {
+            return KeyedProperty(mappedProperty: mappedProperty,
+                                 jsonProperty: jsonProperty.replacingOccurrences(of: "\"", with: ""))
+        }
         return nil
     }
     
@@ -124,10 +129,8 @@ final class KotlinLanguageFormatter: LanguageFormatter {
                        type: String,
                        customProperty: CustomProperty?,
                        dataSource: GeneratorDataSourceProtocol) -> Bool {
-        
         let foundVariables = dataSource.allLines.filter {
-            let currentProperty = $0.stringBetween(startString: constantVariable,
-                                                    endString: typeSeparator)?.trimmingCharacters(in: .whitespaces)
+            let currentProperty = self.property(variableString: $0)
             return currentProperty == property || currentProperty == customProperty?.property
         }
         

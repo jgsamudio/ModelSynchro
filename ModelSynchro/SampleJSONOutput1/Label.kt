@@ -21,6 +21,6 @@ data class Label(
 	@Json(name = "text") val text: String,
 	@Json(name = "textAlignment") val textAlignment: String,
 	@Json(name = "translatesAutoresizingMaskIntoConstraints") val translatesAutoresizingMaskIntoConstraints: String,
-	@Json(name = "userInteractionEnabled") val userInteractionEnabled: String,
-	@Json(name = "verticalHuggingPriority") val verticalHuggingPriority: String
+	@Json(name = "userInteractionEnabled") val userInteractionEnabled: String
+	@Json(name = "verticalHuggingPriority") val verticalHuggingPriority: String,
 )

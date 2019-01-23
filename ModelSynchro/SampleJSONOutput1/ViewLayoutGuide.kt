@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class ViewLayoutGuide(
-	@Json(name = "id") val id: String
-	@Json(name = "key") val key: String,
+	@Json(name = "id") val id: String,
+	@Json(name = "key") val key: String
 )
