@@ -50,6 +50,10 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "Double"
     }
     
+    var constantVariable: String {
+        return "let"
+    }
+    
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
@@ -81,13 +85,18 @@ final class SwiftLanguageFormatter: LanguageFormatter {
             generatedLine += customLine + " // "
         }
         
-        generatedLine += "let " + line.property.lowercaseFirstLetter() + ": " + line.type + (line.isOptional ? optional : "")
+        generatedLine += "\(constantVariable) " +
+            line.property.lowercaseFirstLetter() +
+            ": " +
+            line.type +
+            (line.isOptional ? optional : "")
         
         return generatedLine
     }
     
     func property(variableString: String) -> String? {
-        guard isVariable(variableString), let property = variableString.stringBetween(startString: "let", endString: ":") else {
+        guard isVariable(variableString),
+            let property = variableString.stringBetween(startString: constantVariable, endString: ":") else {
             return nil
         }
         return property.trimmingCharacters(in: .whitespaces)
@@ -112,7 +121,7 @@ final class SwiftLanguageFormatter: LanguageFormatter {
     }
     
     func isVariable(_ string: String) -> Bool {
-        return string.contains("let") && string.contains(":")
+        return string.contains(constantVariable) && string.contains(":")
     }
     
     func keyedProperty(string: String) -> KeyedProperty? {

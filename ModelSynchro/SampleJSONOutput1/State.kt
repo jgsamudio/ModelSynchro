@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class State(
-	@Json(name = "title") val title: String,
-	@Json(name = "key") val key: String
+	@Json(name = "key") val key: String,
+	@Json(name = "title") val title: String
 )

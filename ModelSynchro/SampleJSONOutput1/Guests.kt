@@ -9,6 +9,5 @@ import com.squareup.moshi.Json
 data class Guests(
 	@Json(name = "emailAddress") val emailAddress: String?,
 	@Json(name = "fullName") val fullName: String?
-	@Json(name = "fullName") val fullName: String?
-	@Json(name = "fullName") val fullName: String?
+	@Json(name = "emailAddress") val emailAddress: String?
 )

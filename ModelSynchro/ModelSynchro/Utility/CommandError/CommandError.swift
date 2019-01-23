@@ -17,7 +17,9 @@ enum CommandError: Int {
     
     func displayError() {
         print(errorString)
+        #if RELEASE
         exit(Int32(rawValue))
+        #endif
     }
     
     var errorString: String {

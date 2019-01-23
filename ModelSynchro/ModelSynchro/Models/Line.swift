@@ -30,7 +30,7 @@ extension Line {
     ///
     /// - Parameter languageFormatter: Language formatter to format the string.
     /// - Returns: Formatted string.
-    func toString(languageFormatter: LanguageFormatter, isLastVariable: Bool = false) -> String {
+    func toString(languageFormatter: LanguageFormatter, isLastVariable: Bool = true) -> String {
         return languageFormatter.variableString(line: self, isLastVariable: isLastVariable)
     }
 }

@@ -20,11 +20,12 @@ class GeneratorDataSourceTests: XCTestCase {
         config = ConfigurationFile(authorName: "Author",
                                    companyName: "Company",
                                    projectName: "MyCoolProject",
-                                   language: "Swift",
-                                   outputDirectory: "/somewhere",
-                                   endpoints: [],
-                                   headers: nil,
-                                   authEndpoint: nil,
+                                   language: Language.swift,
+                                   serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
+                                                                endpoints: nil,
+                                                                headers: nil,
+                                                                authEndpoint: nil,
+                                                                outputPackage: nil),
                                    localJSONDirectory: nil,
                                    mappedModelNames: nil)
 
@@ -38,15 +39,20 @@ class GeneratorDataSourceTests: XCTestCase {
         var fileLines = [String]()
         fileLines.append(languageFormatter.fileHeader(name: "Sample",
                                                       config: config,
-                                                      propertyLines: sut.contents.map { $0.propertyLines }.flatMap { $0 }))
+                                                      propertyLines: sut.contents.map { $0.propertyLines }.flatMap { $0 },
+                                                      directoryData: nil))
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: "Sample"))
         fileLines += sut.allLines.sorted { $0 < $1 }
-        fileLines.append(languageFormatter.keyMapping(lines: sut.contents.map { $0.fileLines }.flatMap { $0 }))
+        
+        if let lines = languageFormatter.keyMapping(lines: sut.contents.map { $0.fileLines }.flatMap { $0 }) {
+            fileLines.append(lines)
+        }
+        
         fileLines.append(languageFormatter.modelClassEndLine)
         let expected = fileLines.joined(separator: "\n")
 
-        let result = sut.fileText(name: "Sample", config: config)
+        let result = sut.fileText(name: "Sample", config: config, directoryData: nil)
 
         XCTAssertEqual(result, expected)
     }

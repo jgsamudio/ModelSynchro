@@ -87,6 +87,9 @@
 		208E0EDB1FCCA9BD00EB25EA /* ConfigurationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E0ED91FCCA9BD00EB25EA /* ConfigurationParser.swift */; };
 		209DB7A62037375800467911 /* DirectoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* DirectoryData.swift */; };
 		209DB7A720373ECC00467911 /* DirectoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DB7A52037375800467911 /* DirectoryData.swift */; };
+		20D5B92221F8A40C00DFE7FA /* ModelContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048521F570CF00F9E794 /* ModelContent.swift */; };
+		20D5B92321F8A46000DFE7FA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048721F571A700F9E794 /* Language.swift */; };
+		20D5B92421F8A47E00DFE7FA /* KotlinLanguageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B048321F0268E00F9E794 /* KotlinLanguageFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -525,6 +528,8 @@
 				2003E0B81FFD323300878F8A /* ModelGeneratorTests.swift in Sources */,
 				2003E0AA1FFC3F9800878F8A /* PriorityTypeTests.swift in Sources */,
 				2003E0C11FFD44AE00878F8A /* GeneratorDataSourceTests.swift in Sources */,
+				20D5B92321F8A46000DFE7FA /* Language.swift in Sources */,
+				20D5B92421F8A47E00DFE7FA /* KotlinLanguageFormatter.swift in Sources */,
 				2003E0B51FFD291C00878F8A /* FakeModelGenerator.swift in Sources */,
 				2003E0901FFC366A00878F8A /* DateExtension.swift in Sources */,
 				2080B32920328F1500A41156 /* FileRetriever.swift in Sources */,
@@ -537,6 +542,7 @@
 				2003E0A41FFC369100878F8A /* ConfigurationParser.swift in Sources */,
 				2003E0BC1FFD426D00878F8A /* FakeLineContent.swift in Sources */,
 				2003E08F1FFC366A00878F8A /* Data.swift in Sources */,
+				20D5B92221F8A40C00DFE7FA /* ModelContent.swift in Sources */,
 				209DB7A720373ECC00467911 /* DirectoryData.swift in Sources */,
 				2003E0821FFC339E00878F8A /* ArrayExtensionTests.swift in Sources */,
 				2003E0B31FFD28FC00878F8A /* FakeModelDataSource.swift in Sources */,

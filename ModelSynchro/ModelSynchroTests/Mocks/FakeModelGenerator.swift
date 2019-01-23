@@ -33,7 +33,7 @@ class FakeModelGenerator: ModelGeneratorProtocol {
         writeToFileWasCalled = true
     }
 
-    func writeToFile(outputDirectory: String) {
+    func writeToFile(directory: DirectoryData) {
         writeToFileOutputWasCalled = true
     }
 

@@ -99,11 +99,12 @@ private extension ModelGenerator {
     
     // TODO: Streamline this
     func variableFound(property: String, type: String, customProperty: CustomProperty?) -> Bool {
+        // HERE
         var variableLine = Line(property: property, type: type, isOptional: true, customProperty: customProperty)
-        let optionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        let optionalLine = variableLine.toString(languageFormatter: languageFormatter, isLastVariable: true)
         
         variableLine.isOptional = false
-        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter)
+        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter, isLastVariable: true)
         
         return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
     }

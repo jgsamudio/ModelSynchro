@@ -19,11 +19,12 @@ class JsonParserTests: XCTestCase {
         let config = ConfigurationFile(authorName: "Author",
                                        companyName: "Company",
                                        projectName: "MyCoolProject",
-                                       language: "Swift",
-                                       outputDirectory: "/somewhere",
-                                       endpoints: [],
-                                       headers: nil,
-                                       authEndpoint: nil,
+                                       language: Language.swift,
+                                       serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
+                                                                    endpoints: nil,
+                                                                    headers: nil,
+                                                                    authEndpoint: nil,
+                                                                    outputPackage: nil),
                                        localJSONDirectory: nil,
                                        mappedModelNames: nil)
 
