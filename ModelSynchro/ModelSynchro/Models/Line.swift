@@ -51,6 +51,6 @@ extension Line: Equatable {
 extension Line: Comparable {
     
     static func < (lhs: Line, rhs: Line) -> Bool {
-        return lhs.customProperty?.customLine ?? lhs.property < rhs.customProperty?.customLine ?? rhs.property
+        return lhs.customProperty?.property ?? lhs.property < rhs.customProperty?.property ?? rhs.property
     }
 }
