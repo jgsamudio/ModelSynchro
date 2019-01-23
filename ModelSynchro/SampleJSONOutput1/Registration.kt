@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class Registration(
-	@Json(name = "response") val response: Response
-	@Json(name = "status") val status: String,
+	@Json(name = "response") val response: Response,
+	@Json(name = "status") val status: String
 )

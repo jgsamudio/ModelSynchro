@@ -12,6 +12,6 @@ data class Color(
 	@Json(name = "colorSpace") val colorSpace: String,
 	@Json(name = "customColorSpace") val customColorSpace: String,
 	@Json(name = "green") val green: String,
-	@Json(name = "key") val key: String
-	@Json(name = "red") val red: String,
+	@Json(name = "key") val key: String,
+	@Json(name = "red") val red: String
 )

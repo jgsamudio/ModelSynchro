@@ -8,6 +8,6 @@ import com.squareup.moshi.Json
 
 data class Dependencies(
 	@Json(name = "capability") val capability: Capability,
-	@Json(name = "deployment") val deployment: Deployment
-	@Json(name = "plugIn") val plugIn: PlugIn,
+	@Json(name = "deployment") val deployment: Deployment,
+	@Json(name = "plugIn") val plugIn: PlugIn
 )

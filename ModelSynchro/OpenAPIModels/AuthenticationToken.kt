@@ -8,6 +8,6 @@ import com.squareup.moshi.Json
 
 data class AuthenticationToken(
 	@Json(name = "accessToken") val accessTokenCool: String, // @Json(name = "accessToken") val accessToken: String,
-	@Json(name = "refreshToken") val refreshToken: String
-	@Json(name = "userId") val userId: String,
+	@Json(name = "refreshToken") val refreshToken: String,
+	@Json(name = "userId") val userId: String
 )
