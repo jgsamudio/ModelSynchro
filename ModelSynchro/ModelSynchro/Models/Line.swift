@@ -47,3 +47,10 @@ extension Line: Equatable {
         return lhs.property == rhs.property && lhs.type == rhs.type
     }
 }
+
+extension Line: Comparable {
+    
+    static func < (lhs: Line, rhs: Line) -> Bool {
+        return lhs.customProperty?.customLine ?? lhs.property < rhs.customProperty?.customLine ?? rhs.property
+    }
+}

@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class Objects(
-	@Json(name = "placeholder") val placeholder: Placeholder,
-	@Json(name = "view") val view: View
+	@Json(name = "placeholder") val placeholder: Placeholder
+	@Json(name = "view") val view: View,
 )

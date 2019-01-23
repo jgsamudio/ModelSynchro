@@ -21,7 +21,8 @@ class LineContent {
     
     /// String array of the file lines.
     var fileStringArray: [String] {
-        return fileLines.map { $0.toString(languageFormatter: languageFormatter, isLastVariable: $0 == fileLines.last) }
+        return fileLines.sorted().map { $0.toString(languageFormatter: languageFormatter,
+                                                    isLastVariable: $0 == fileLines.last) }
     }
 
     /// String array for the header file if available.
@@ -29,7 +30,8 @@ class LineContent {
         guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
             return []
         }
-        return fileLines.map { $0.toString(languageFormatter: languageFormatter, isLastVariable: $0 == fileLines.last) }
+        return fileLines.sorted().map { $0.toString(languageFormatter: languageFormatter,
+                                                    isLastVariable: $0 == fileLines.last) }
     }
     
     private var languageFormatter: LanguageFormatter
