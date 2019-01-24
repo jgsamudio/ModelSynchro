@@ -75,7 +75,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func variableString(line: Line, isLastVariable: Bool) -> String {
-        var generatedLine = "\t"
+        var generatedLine = "    "
         
         if let customLine = line.customProperty?.customLine {
             generatedLine += customLine + " // "
