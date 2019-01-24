@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class Adaptation(
-	@Json(name = "id") val id: String
+    @Json(name = "id") val id: String
 )

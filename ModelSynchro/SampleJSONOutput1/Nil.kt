@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class Nil(
-	@Json(name = "key") val key: String
+    @Json(name = "key") val key: String
 )

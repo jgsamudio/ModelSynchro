@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class ButtonXML(
-	@Json(name = "document") val document: Document
+    @Json(name = "document") val document: Document
 )

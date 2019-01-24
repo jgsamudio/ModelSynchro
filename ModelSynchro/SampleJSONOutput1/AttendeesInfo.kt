@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class AttendeesInfo(
-	@Json(name = "attendees") val attendees: Array<Attendees>,
-	@Json(name = "attendeesCount") val attendeesCount: Int
+    @Json(name = "attendees") val attendees: Array<Attendees>,
+    @Json(name = "attendeesCount") val attendeesCount: Int
 )

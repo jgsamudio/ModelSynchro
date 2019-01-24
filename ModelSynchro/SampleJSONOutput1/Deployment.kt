@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class Deployment(
-	@Json(name = "identifier") val identifier: String
+    @Json(name = "identifier") val identifier: String
 )

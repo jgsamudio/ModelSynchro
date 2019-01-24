@@ -7,8 +7,8 @@ import com.squareup.moshi.Json
 */
 
 data class PaymentMethods(
-	@Json(name = "isPrimary") val isPrimary: Boolean,
-	@Json(name = "paymentMethodId") val paymentMethodId: String,
-	@Json(name = "paymentObject") val paymentObject: PaymentObject,
-	@Json(name = "type") val type: String
+    @Json(name = "isPrimary") val isPrimary: Boolean,
+    @Json(name = "paymentMethodId") val paymentMethodId: String,
+    @Json(name = "paymentObject") val paymentObject: PaymentObject,
+    @Json(name = "type") val type: String
 )

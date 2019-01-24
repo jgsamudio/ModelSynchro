@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class Constraints(
-	@Json(name = "constraint") val constraint: Constraint
+    @Json(name = "constraint") val constraint: Constraint
 )

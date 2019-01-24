@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
 */
 
 data class Model(
-	@Json(name = "modelId") val modelId: String,
-	@Json(name = "name") val name: String
+    @Json(name = "modelId") val modelId: String,
+    @Json(name = "name") val name: String
 )
