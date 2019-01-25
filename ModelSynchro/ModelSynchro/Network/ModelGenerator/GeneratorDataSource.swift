@@ -20,15 +20,23 @@ final class GeneratorDataSource: GeneratorDataSourceProtocol {
         contents = [LineContent(iteration: currentIteration, languageFormatter: languageFormatter)]
     }
     
-    func fileText(name: String, config: ConfigurationFile) -> String {
-        return fileString(name: name, config: config, languageFormatter: languageFormatter, lines: allLines)
+    func fileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
+        return fileString(name: name,
+                          config: config,
+                          languageFormatter: languageFormatter,
+                          lines: allLines,
+                          directoryData: directoryData)
     }
 
-    func headerFileText(name: String, config: ConfigurationFile) -> String {
+    func headerFileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         guard let languageFormatter = languageFormatter.headerLanguageFormatter else {
             return ""
         }
-        return fileString(name: name, config: config, languageFormatter: languageFormatter, lines: allHeaderLines)
+        return fileString(name: name,
+                          config: config,
+                          languageFormatter: languageFormatter,
+                          lines: allHeaderLines,
+                          directoryData: directoryData)
     }
     
     func incrementModelIteration() {
@@ -61,15 +69,25 @@ private extension GeneratorDataSource {
         }
     }
 
-    func fileString(name: String, config: ConfigurationFile, languageFormatter: LanguageFormatter, lines: [String]) -> String {
+    func fileString(name: String,
+                    config: ConfigurationFile,
+                    languageFormatter: LanguageFormatter,
+                    lines: [String],
+                    directoryData: DirectoryData?) -> String {
+        
         var fileLines = [String]()
         fileLines.append(languageFormatter.fileHeader(name: name,
                                                       config: config,
-                                                      propertyLines: contents.map { $0.fileLines }.flatMap { $0 }))
+                                                      propertyLines: contents.map { $0.fileLines }.flatMap { $0 },
+                                                      directoryData: directoryData))
         
         fileLines.append(languageFormatter.modelClassDeclaration(name: name))
-        fileLines += lines.sorted { $0 < $1 }
-        fileLines.append(languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }))
+        fileLines += lines
+        
+        if let keyMapping = languageFormatter.keyMapping(lines: contents.map { $0.fileLines }.flatMap { $0 }) {
+            fileLines.append(keyMapping)
+        }
+        
         fileLines.append(languageFormatter.modelClassEndLine)
 
         return fileLines.joined(separator: "\n")

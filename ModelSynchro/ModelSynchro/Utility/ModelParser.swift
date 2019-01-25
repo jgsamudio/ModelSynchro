@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct ModelContent {
-    let fileComponents: [String]
-    let customProperties: [CustomProperty]
-}
-
 typealias ModelComponents = [String : ModelContent]
 
 final class ModelParser {
@@ -69,7 +64,7 @@ private extension ModelParser {
         let customProperties: [CustomProperty] = fileComponents.compactMap {
             if languageFormatter.isVariable($0),
                 let customString = $0.split(at: config.languageFormatter().lineComment),
-                let property = config.languageFormatter().property(variableString: customString.leftString) {
+                let property = languageFormatter.property(variableString: customString.leftString) {
                 
                 return CustomProperty(customLine: customString.leftString,
                                       property: property,

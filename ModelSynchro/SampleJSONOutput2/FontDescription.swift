@@ -2,8 +2,8 @@
 //  FontDescription.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 03/29/18.
-//  Copyright © 2018 Prolific Interactive. All rights reserved.
+//  Created by Jonathan Samudio on 01/14/19.
+//  Copyright © 2019 Prolific Interactive. All rights reserved.
 //
 
 /*

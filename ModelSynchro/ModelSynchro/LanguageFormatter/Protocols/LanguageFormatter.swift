@@ -26,16 +26,25 @@ protocol LanguageFormatter {
     var bool: String { get }
     var double: String { get }
 
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    directoryData: DirectoryData?) -> String
+    
     func modelClassDeclaration(name: String) -> String
-    func variableString(line: Line) -> String
+    func variableString(line: Line, isLastVariable: Bool) -> String
     func property(variableString: String) -> String?
-    func keyMapping(lines: [Line]) -> String
+    func keyMapping(lines: [Line]) -> String?
     func isVariable(_ string: String) -> Bool
     func keyedProperty(string: String) -> KeyedProperty?
     func arrayFormat(type: String) -> String
     func type(arrayString: String) -> String
     func customFormat(type: String) -> String
+    
+    func variableFound(property: String,
+                       type: String,
+                       customProperty: CustomProperty?,
+                       dataSource: GeneratorDataSourceProtocol) -> Bool
 }
 
 extension LanguageFormatter {
@@ -46,5 +55,19 @@ extension LanguageFormatter {
 
     var headerLanguageFormatter: LanguageFormatter? {
         return nil
+    }
+    
+    // TODO: TEST to review with kotlin language formatter. Do we need to check type?
+    func variableFound(property: String,
+                       type: String,
+                       customProperty: CustomProperty?,
+                       dataSource: GeneratorDataSourceProtocol) -> Bool {
+        var variableLine = Line(property: property, type: type, isOptional: true, customProperty: customProperty)
+        let optionalLine = variableLine.toString(languageFormatter: self, isLastVariable: true)
+        
+        variableLine.isOptional = false
+        let nonOptionalLine = variableLine.toString(languageFormatter: self, isLastVariable: true)
+        
+        return dataSource.allLines.contains(optionalLine) || dataSource.allLines.contains(nonOptionalLine)
     }
 }

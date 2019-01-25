@@ -1,35 +1,14 @@
 {
-  "authorName" : "Jonathan Samudio",
-  "companyName" : "Prolific Interactive",
-  "projectName" : "ModelSynchro",
-  "outputDirectory" : "SampleModels/",
-  "localJSONDirectory" : [
+  "authorName": "Jonathan Samudio",
+  "companyName": "Prolific Interactive",
+  "projectName": "ModelSynchro",
+  "language": "kotlin",
+  "verbose": false,
+  "localJSONDirectory": [
     {
-      "inputDirectory" : "SampleJSON1/",
-      "outputDirectory" : "SampleJSONOutput1/"
-    },
-    {
-      "inputDirectory" : "SampleJSON2/",
-      "outputDirectory" : "SampleJSONOutput2/"
-    }
-  ],
-  "language" : "swift",
-  "mappedModelNames" : [
-    {
-      "jsonKey" : "filters",
-      "mappedName" : "Filter"
-    },
-    {
-      "jsonKey" : "event_guests",
-      "mappedName" : "EventGuest"
-    },
-    {
-      "jsonKey" : "event",
-      "mappedName" : "RegistrationEvent"
-    },
-    {
-      "fileName": "Event",
-      "mappedName": "MappedEvent"
+      "inputDirectory": "SampleJSON1/",
+      "outputDirectory": "SampleKotlinModels/",
+      "outputPackage": "com.sample.android.base"
     }
   ]
 }

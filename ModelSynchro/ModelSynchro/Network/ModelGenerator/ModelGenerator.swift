@@ -46,9 +46,10 @@ final class ModelGenerator: ModelGeneratorProtocol {
         let customProperty = previousModelContent?.customProperties.find(property: property)
         let variableLine = Line(property: property, type: type, isOptional: isOptional, customProperty: customProperty)
         
-        if !variableFound(property: property, type: type, customProperty: customProperty) &&
-            !typePriorityUpdated(property: property, type: type) {
-            
+        if !languageFormatter.variableFound(property: property,
+                                            type: type,
+                                            customProperty: customProperty,
+                                            dataSource: dataSource) && !typePriorityUpdated(property: property, type: type) {
             dataSource.appendContent(line: variableLine)
         }
         dataSource.appendProperty(line: variableLine)
@@ -61,27 +62,30 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
-        guard modelContainsUpdates() else {
+        let directoryData = DirectoryData(outputPackage: config.serverAPIInfo?.outputPackage)
+        guard modelContainsUpdates(directoryData: directoryData) else {
             return
         }
 
-        let fileURL = fileURLString(outputDirectory: config.outputDirectory ?? "")
-        let headerURL = headerFileURLString(outputDirectory: config.outputDirectory ?? "")
+        let fileURL = fileURLString(outputDirectory: config.serverAPIInfo?.outputDirectory ?? "")
+        let headerURL = headerFileURLString(outputDirectory: config.serverAPIInfo?.outputDirectory ?? "")
 
-        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURL)
+        dataSource.fileText(name: name, config: config, directoryData: directoryData).writeToFile(directory: fileURL)
         if languageFormatter.containsHeader {
-            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerURL)
+            dataSource.headerFileText(name: name, config: config, directoryData: directoryData).writeToFile(directory: headerURL)
         }
     }
 
-    func writeToFile(outputDirectory: String) {
-        guard modelContainsUpdates() else {
+    func writeToFile(directory: DirectoryData) {
+        guard modelContainsUpdates(directoryData: directory) else {
             return
         }
 
-        dataSource.fileText(name: name, config: config).writeToFile(directory: fileURLString(outputDirectory: outputDirectory))
+        let outputDirectory = fileURLString(outputDirectory: directory.outputDirectory)
+        dataSource.fileText(name: name, config: config, directoryData: directory).writeToFile(directory: outputDirectory)
         if languageFormatter.containsHeader {
-            dataSource.headerFileText(name: name, config: config).writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
+            let headerFileText = dataSource.headerFileText(name: name, config: config, directoryData: directory)
+            headerFileText.writeToFile(directory: headerFileURLString(outputDirectory: outputDirectory))
         }
     }
 }
@@ -92,17 +96,6 @@ private extension ModelGenerator {
         return dataSource.contents.reduce(false, { x, y in
             x || y.updatePriorityType(property: property, type: type)
         })
-    }
-    
-    // TODO: Streamline this
-    func variableFound(property: String, type: String, customProperty: CustomProperty?) -> Bool {
-        var variableLine = Line(property: property, type: type, isOptional: true, customProperty: customProperty)
-        let optionalLine = variableLine.toString(languageFormatter: languageFormatter)
-        
-        variableLine.isOptional = false
-        let nonOptionalLine = variableLine.toString(languageFormatter: languageFormatter)
-        
-        return dataSource.allLines.index(of: optionalLine) != nil || dataSource.allLines.index(of: nonOptionalLine) != nil
     }
 
     func fileURLString(outputDirectory: String) -> String {
@@ -118,8 +111,11 @@ private extension ModelGenerator {
         return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
     }
 
-    func modelContainsUpdates() -> Bool {
-        let newModelLines = dataSource.fileText(name: name, config: config).components(separatedBy: "\n")
+    func modelContainsUpdates(directoryData: DirectoryData?) -> Bool {
+        let newModelLines = dataSource.fileText(name: name,
+                                                config: config,
+                                                directoryData: directoryData).components(separatedBy: "\n")
+        
         guard let previousModelComponents = previousModelContent?.fileComponents,
             newModelLines.count == previousModelComponents.count else {
             return true

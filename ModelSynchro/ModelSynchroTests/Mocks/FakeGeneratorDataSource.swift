@@ -20,19 +20,19 @@ class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
     var headerFileTextWasCalled = false
 
     var fakeContents: [FakeLineContent] {
-        return contents.flatMap { $0 as? FakeLineContent }
+        return contents.compactMap { $0 as? FakeLineContent }
     }
 
     init() {
         contents = [FakeLineContent(iteration: currentIteration, languageFormatter: SwiftLanguageFormatter())]
     }
 
-    func fileText(name: String, config: ConfigurationFile) -> String {
+    func fileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         fileTextWasCalled = true
         return ""
     }
 
-    func headerFileText(name: String, config: ConfigurationFile) -> String {
+    func headerFileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         headerFileTextWasCalled = true
         return ""
     }

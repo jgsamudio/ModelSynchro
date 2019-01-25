@@ -1,0 +1,12 @@
+package com.sample.android.base
+
+import com.squareup.moshi.Json
+
+/*
+    Auto-Generated using ModelSynchro
+*/
+
+data class FilterSection(
+    @Json(name = "filters") val filters: Array<Filters>,
+    @Json(name = "section") val section: String
+)

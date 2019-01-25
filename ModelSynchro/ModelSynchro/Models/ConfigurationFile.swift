@@ -21,22 +21,16 @@ struct ConfigurationFile: Codable {
     let projectName: String
 
     /// Language of the program.
-    let language: String?
+    let language: Language?
+    
+    /// Flag to output more detailed information.
+    let verbose: Bool?
 
-    /// Output directory of the program.
-    let outputDirectory: String?
-
-    /// List of endpoints to generate models for.
-    let endpoints: [Endpoint]?
-
-    /// Header data for the endpoints.
-    let headers: [String : String]?
-
-    /// Authentication endpoint used to grab the auth token.
-    let authEndpoint: AuthEndpoint?
-
+    /// Network endpoints and information to generate network models.
+    let serverAPIInfo: ServerAPIInfo?
+    
     /// Local location of json files.
-    let localJSONDirectory: [LocalDirectory]?
+    let localJSONDirectory: [DirectoryData]?
 
     /// Mapped model names.
     let mappedModelNames: [MappedModelInfo]?
@@ -46,7 +40,7 @@ extension ConfigurationFile {
     
     /// Model output path.
     var outputPath: String {
-        return ConfigurationParser.projectDirectory + (outputDirectory ?? "")
+        return ConfigurationParser.projectDirectory + (serverAPIInfo?.outputDirectory ?? "")
     }
 
     /// The local directory path.
@@ -61,13 +55,18 @@ extension ConfigurationFile {
     ///
     /// - Returns: Language formatter interface.
     func languageFormatter() -> LanguageFormatter {
-        switch (language ?? "").lowercased() {
-        case "swift":
+        guard let language = language else {
+            CommandError.language.displayError()
+            fatalError()
+        }
+        
+        switch language {
+        case .swift:
             return SwiftLanguageFormatter()
-        case "objective-c":
+        case .objectiveC:
             return ObjectiveCLanguageFormatter()
-        default:
-            return SwiftLanguageFormatter()
+        case .kotlin:
+            return KotlinLanguageFormatter()
         }
     }
 

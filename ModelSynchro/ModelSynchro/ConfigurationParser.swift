@@ -10,9 +10,11 @@ import Foundation
 
 final class ConfigurationParser {
     
-    var configFile: ConfigurationFile?
-    
     static var projectDirectory: String = ""
+    
+    var configFile: ConfigurationFile?
+        
+    private let configurationFileName = "configuration.json"
     
     init() {
     #if RELEASE
@@ -27,8 +29,9 @@ final class ConfigurationParser {
             return
         }
     #endif
-        ConfigurationParser.projectDirectory = projectDirectory
-        parseConfigurationFile(projectDirectory: projectDirectory)
+        let formattedProjectDirectory = format(projectDirectory: projectDirectory)
+        ConfigurationParser.projectDirectory = formattedProjectDirectory
+        parseConfigurationFile(projectDirectory: formattedProjectDirectory)
     }
 }
 
@@ -40,7 +43,7 @@ private extension ConfigurationParser {
     }
     
     private func parseConfigurationFile(projectDirectory: String) {
-        let fileToParse = projectDirectory + "configuration.json"
+        let fileToParse = projectDirectory + configurationFileName
         
         do {
             let content = try String(contentsOfFile: fileToParse, encoding: String.Encoding.utf8)
@@ -57,5 +60,14 @@ private extension ConfigurationParser {
         configData?.deserializeObject(completion: { (config, _) in
             self.configFile = config
         })
+    }
+    
+    private func format(projectDirectory: String) -> String {
+        if projectDirectory.prefix(2) == "./" {
+            let currentDirectory = FileManager.default.currentDirectoryPath
+            let startIndex = projectDirectory.index(projectDirectory.startIndex, offsetBy: 2)
+            return "\(currentDirectory)/\(String(projectDirectory[startIndex..<projectDirectory.endIndex]))"
+        }
+        return projectDirectory
     }
 }

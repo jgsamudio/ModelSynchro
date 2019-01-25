@@ -58,7 +58,10 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         return "double"
     }
 
-    func fileHeader(name: String, config: ConfigurationFile, propertyLines: [Line]) -> String {
+    func fileHeader(name: String,
+                    config: ConfigurationFile,
+                    propertyLines: [Line],
+                    directoryData: DirectoryData?) -> String {
         return """
         //
         //  \(name).m
@@ -88,7 +91,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         """
     }
 
-    func variableString(line: Line) -> String {
+    func variableString(line: Line, isLastVariable: Bool) -> String {
         var generatedLine = "\t"
 
         if let customLine = line.customProperty?.customLine {
@@ -122,7 +125,7 @@ final class ObjectiveCLanguageFormatter: LanguageFormatter {
         return string.contains("@property (nonatomic")
     }
 
-    func keyMapping(lines: [Line]) -> String {
+    func keyMapping(lines: [Line]) -> String? {
         guard !lines.isEmpty else {
             return """
 

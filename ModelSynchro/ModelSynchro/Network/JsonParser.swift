@@ -25,7 +25,7 @@ final class JsonParser {
         self.modelDataSource = modelDataSource
     }
 
-    func parse(data: Data?, name: String) {
+    func parse(data: Data?, name: String, response: URLResponse? = nil) {
         guard let data = data else {
             return
         }
@@ -34,12 +34,12 @@ final class JsonParser {
             if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON {
                 parse(json: json, modelName: config.mapped(filename: name))
             }
-
             if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [JSON] {
                 parse(jsonArray: jsonArray, modelName: config.mapped(filename: name))
             }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        } catch {
+            let verboseMessage = (config.verbose ?? false) ? response?.description : nil
+            CommandError.modelParse.displayError(with: config.mapped(filename: name), verboseMessage: verboseMessage)
         }
     }
     
@@ -84,9 +84,9 @@ final class JsonParser {
     /// Write datasource to specific output.
     ///
     /// - Parameter outputDirectory: Output file destination.
-    func writeModelsToFile(outputDirectory: String) {
+    func writeModelsToFile(directory: DirectoryData) {
         modelDataSource.modelDict.forEach({ (key, value) in
-            value.writeToFile(outputDirectory: outputDirectory)
+            value.writeToFile(directory: directory)
         })
     }
 

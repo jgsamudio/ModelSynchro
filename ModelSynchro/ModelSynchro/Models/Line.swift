@@ -30,8 +30,8 @@ extension Line {
     ///
     /// - Parameter languageFormatter: Language formatter to format the string.
     /// - Returns: Formatted string.
-    func toString(languageFormatter: LanguageFormatter) -> String {
-        return languageFormatter.variableString(line: self)
+    func toString(languageFormatter: LanguageFormatter, isLastVariable: Bool = true) -> String {
+        return languageFormatter.variableString(line: self, isLastVariable: isLastVariable)
     }
 }
 
@@ -45,5 +45,12 @@ extension Line: Equatable {
     /// - Returns: Flag if they are equal.
     static func ==(lhs: Line, rhs: Line) -> Bool {
         return lhs.property == rhs.property && lhs.type == rhs.type
+    }
+}
+
+extension Line: Comparable {
+    
+    static func < (lhs: Line, rhs: Line) -> Bool {
+        return lhs.customProperty?.property ?? lhs.property < rhs.customProperty?.property ?? rhs.property
     }
 }
