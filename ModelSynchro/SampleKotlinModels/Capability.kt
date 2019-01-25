@@ -1,4 +1,4 @@
-package com.kapsch.android.base
+package com.sample.android.base
 
 import com.squareup.moshi.Json
 
@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
     Auto-Generated using ModelSynchro
 */
 
-data class Make(
-    @Json(name = "makeId") val makeId: String,
+data class Capability(
+    @Json(name = "minToolsVersion") val minToolsVersion: String,
     @Json(name = "name") val name: String
 )
