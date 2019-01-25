@@ -38,11 +38,14 @@ enum CommandError: Int {
         case .writeToFile:
             return "\(errorPrefix) Write to file error. Make sure the output folder specified in the configuration file is created."
         case .modelParse:
-            return """
+            var errorMessage = """
             \(errorPrefix) Received network response is not parceable.
                 Check network response for: \(message ?? "")
-                \(verboseMessage ?? "")
             """
+            if let verboseMessage = verboseMessage {
+                errorMessage += "\n\(verboseMessage)"
+            }
+            return errorMessage
         default:
             return "\(errorPrefix) Something went wrong!"
         }
