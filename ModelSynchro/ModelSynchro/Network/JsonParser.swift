@@ -38,8 +38,8 @@ final class JsonParser {
                 parse(jsonArray: jsonArray, modelName: config.mapped(filename: name))
             }
         } catch {
-            CommandError.modelParse.displayError(with: config.mapped(filename: name),
-                                                 verboseMessage: response?.description)
+            let verboseMessage = (config.verbose ?? false) ? response?.description : nil
+            CommandError.modelParse.displayError(with: config.mapped(filename: name), verboseMessage: verboseMessage)
         }
     }
     
