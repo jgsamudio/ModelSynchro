@@ -52,7 +52,7 @@ final class NetworkRequester {
     }
     
     func urlRequest(endpoint: Endpoint) -> URLRequest?  {
-        var urlComponents = URLComponents(string: endpoint.url)
+        var urlComponents = endpoint.urlRequest(baseUrl: config.serverAPIInfo?.baseUrl)
         for (key, value) in endpoint.queries ?? [:] {
             urlComponents?.queryItems?.append(URLQueryItem(name: key, value: value))
         }

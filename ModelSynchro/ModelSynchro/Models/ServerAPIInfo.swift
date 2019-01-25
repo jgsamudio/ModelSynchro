@@ -24,4 +24,7 @@ struct ServerAPIInfo: Codable {
     
     /// Output package for Kotlin file generation.
     let outputPackage: String?
+    
+    /// Base URL of the API.
+    let baseUrl: String?
 }

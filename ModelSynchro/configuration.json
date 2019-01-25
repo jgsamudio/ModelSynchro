@@ -7,10 +7,11 @@
   "serverAPIInfo": {
       "outputDirectory": "OpenAPIModels/",
       "outputPackage": "com.kapsch.android.base",
+      "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/",
       "endpoints": [
           {
               "name": "AuthenticationToken",
-              "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/register",
+              "endpoint": "users/register",
               "authorized": false,
               "method": "post",
               "parameters": {
@@ -20,7 +21,7 @@
           },
           {
               "name": "AuthenticationToken",
-              "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/login",
+              "endpoint": "users/login",
               "authorized": false,
               "method": "post",
               "parameters": {
@@ -30,25 +31,25 @@
           },
           {
               "name": "Account",
-              "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts",
+              "endpoint": "accounts",
               "authorized": false,
               "method": "get"
           },
           {
             "name": "ProviderAuthenticationInformation",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/provider_login",
+            "endpoint": "users/provider_login",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "User",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/123456789",
+            "endpoint": "users/123456789",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "AuthenticationToken",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/token",
+            "endpoint": "users/token",
             "authorized": false,
             "method": "post",
             "parameters": {
@@ -57,13 +58,13 @@
           },
           {
             "name": "AppConfiguration",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/configurations",
+            "endpoint": "users/configurations",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "PostalAvailablility",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/users/availability",
+            "endpoint": "users/availability",
             "authorized": false,
             "method": "get",
             "queries": {
@@ -72,49 +73,49 @@
           },
           {
             "name": "Account",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817",
+            "endpoint": "accounts/2492349823817",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "PaymentMethods",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/payments",
+            "endpoint": "accounts/2492349823817/payments",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Transponders",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/transponders",
+            "endpoint": "accounts/2492349823817/transponders",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Vehicles",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/accounts/2492349823817/vehicles",
+            "endpoint": "accounts/2492349823817/vehicles",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Make",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/makes",
+            "endpoint": "vehicles/makes",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Model",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/models",
+            "endpoint": "vehicles/models",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Color",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/colors",
+            "endpoint": "vehicles/colors",
             "authorized": false,
             "method": "get"
           },
           {
             "name": "Vehicles",
-            "url": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/vehicles/search",
+            "endpoint": "vehicles/search",
             "authorized": false,
             "method": "post",
             "parameters": {
