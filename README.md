@@ -1,5 +1,4 @@
-# ModelSynchro
-A JSON model generator for Swift 4
+# ModelSynchro | [![Build Status](https://travis-ci.org/jgsamudio/ModelSynchro.svg?branch=master)](https://travis-ci.org/jgsamudio/ModelSynchro)
 
 ## Description
 
