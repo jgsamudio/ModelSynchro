@@ -3,14 +3,14 @@
   "companyName": "Prolific Interactive",
   "projectName": "ModelSynchro",
   "language": "kotlin",
-  "verbose": true,
+  "verbose": false,
   "serverAPIInfo": {
       "outputDirectory": "OpenAPIModels/",
       "outputPackage": "com.kapsch.android.base",
       "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.0/",
       "endpoints": [
           {
-              "name": "AuthenticationToken",
+              "responseModelName": "AuthenticationToken",
               "endpoint": "users/register",
               "authorized": false,
               "method": "post",
@@ -20,7 +20,7 @@
               }
           },
           {
-              "name": "AuthenticationToken",
+              "responseModelName": "AuthenticationToken",
               "endpoint": "users/login",
               "authorized": false,
               "method": "post",
@@ -30,25 +30,25 @@
               }
           },
           {
-              "name": "Account",
+              "responseModelName": "Account",
               "endpoint": "accounts",
               "authorized": false,
               "method": "get"
           },
           {
-            "name": "ProviderAuthenticationInformation",
+            "responseModelName": "ProviderAuthenticationInformation",
             "endpoint": "users/provider_login",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "User",
+            "responseModelName": "User",
             "endpoint": "users/123456789",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "AuthenticationToken",
+            "responseModelName": "AuthenticationToken",
             "endpoint": "users/token",
             "authorized": false,
             "method": "post",
@@ -57,13 +57,13 @@
             }
           },
           {
-            "name": "AppConfiguration",
+            "responseModelName": "AppConfiguration",
             "endpoint": "users/configurations",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "PostalAvailablility",
+            "responseModelName": "PostalAvailablility",
             "endpoint": "users/availability",
             "authorized": false,
             "method": "get",
@@ -72,49 +72,49 @@
             }
           },
           {
-            "name": "Account",
+            "responseModelName": "Account",
             "endpoint": "accounts/2492349823817",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "PaymentMethods",
+            "responseModelName": "PaymentMethods",
             "endpoint": "accounts/2492349823817/payments",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Transponders",
+            "responseModelName": "Transponders",
             "endpoint": "accounts/2492349823817/transponders",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Vehicles",
+            "responseModelName": "Vehicles",
             "endpoint": "accounts/2492349823817/vehicles",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Make",
+            "responseModelName": "Make",
             "endpoint": "vehicles/makes",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Model",
+            "responseModelName": "Model",
             "endpoint": "vehicles/models",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Color",
+            "responseModelName": "Color",
             "endpoint": "vehicles/colors",
             "authorized": false,
             "method": "get"
           },
           {
-            "name": "Vehicles",
+            "responseModelName": "Vehicles",
             "endpoint": "vehicles/search",
             "authorized": false,
             "method": "post",

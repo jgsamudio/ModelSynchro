@@ -9,7 +9,7 @@
 import Foundation
 
 struct Endpoint: Codable {
-    let name: String
+    let responseModelName: String
     let url: String?
     let endpoint: String?
     let authorized: Bool

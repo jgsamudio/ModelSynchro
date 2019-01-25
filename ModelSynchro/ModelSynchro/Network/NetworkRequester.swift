@@ -32,7 +32,7 @@ final class NetworkRequester {
             guard let request = urlRequest(endpoint: $0) else {
                 return
             }
-            requestJSONData(request: request, name: $0.name)
+            requestJSONData(request: request, name: $0.responseModelName)
         }
         jsonParser.writeModelsToFile()
     }
