@@ -43,7 +43,7 @@ final class NetworkRequester {
             guard let data = data else {
                 return
             }
-            self.jsonParser.parse(data: data, name: name)
+            self.jsonParser.parse(data: data, name: name, response: response)
             sema.signal()
         }
         

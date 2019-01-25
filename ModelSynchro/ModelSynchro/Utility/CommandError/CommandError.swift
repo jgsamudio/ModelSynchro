@@ -10,14 +10,14 @@ import Foundation
 
 enum CommandError: Int {
     case defaultError = 2
-    case language = 3
-    case validUrl = 4
-    case configFile = 5
-    case writeToFile = 6
-    case modelParse = 7
+    case language
+    case validUrl
+    case configFile
+    case writeToFile
+    case modelParse
     
-    func displayError(with message: String? = nil) {
-        print(errorString(with: message))
+    func displayError(with message: String? = nil, verboseMessage: String? = nil) {
+        print(errorString(with: message, verboseMessage: verboseMessage))
         if isFatalError {
             #if RELEASE
             exit(Int32(rawValue))
@@ -25,7 +25,7 @@ enum CommandError: Int {
         }
     }
     
-    func errorString(with message: String? = nil) -> String {
+    func errorString(with message: String? = nil, verboseMessage: String? = nil) -> String {
         let errorPrefix = "Error(\(rawValue)):"
         
         switch self {
@@ -41,6 +41,7 @@ enum CommandError: Int {
             return """
             \(errorPrefix) Received network response is not parceable.
                 Check network response for: \(message ?? "")
+                \(verboseMessage ?? "")
             """
         default:
             return "\(errorPrefix) Something went wrong!"

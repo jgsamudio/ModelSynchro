@@ -22,6 +22,9 @@ struct ConfigurationFile: Codable {
 
     /// Language of the program.
     let language: Language?
+    
+    /// Flag to output more detailed information.
+    let verbose: Bool?
 
     /// Network endpoints and information to generate network models.
     let serverAPIInfo: ServerAPIInfo?

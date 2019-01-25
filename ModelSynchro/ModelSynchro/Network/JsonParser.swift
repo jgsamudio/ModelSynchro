@@ -25,7 +25,7 @@ final class JsonParser {
         self.modelDataSource = modelDataSource
     }
 
-    func parse(data: Data?, name: String) {
+    func parse(data: Data?, name: String, response: URLResponse? = nil) {
         guard let data = data else {
             return
         }
@@ -34,12 +34,12 @@ final class JsonParser {
             if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON {
                 parse(json: json, modelName: config.mapped(filename: name))
             }
-
             if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [JSON] {
                 parse(jsonArray: jsonArray, modelName: config.mapped(filename: name))
             }
         } catch {
-            CommandError.modelParse.displayError(with: config.mapped(filename: name))
+            CommandError.modelParse.displayError(with: config.mapped(filename: name),
+                                                 verboseMessage: response?.description)
         }
     }
     
