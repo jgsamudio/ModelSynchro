@@ -20,6 +20,7 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: nil,
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
@@ -36,11 +37,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: outputDirectory,
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
 
@@ -57,6 +60,7 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: nil,
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
@@ -72,6 +76,7 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: nil,
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
@@ -89,11 +94,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
 
@@ -109,11 +116,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: [mappedModelInfo])
 
@@ -129,11 +138,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: [mappedModelInfo])
 
@@ -150,11 +161,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
 
@@ -170,11 +183,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: [mappedModelInfo])
 
@@ -190,11 +205,13 @@ class ConfigurationFileTests: XCTestCase {
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
                                 language: Language.swift,
+                                verbose: false,
                                 serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                              endpoints: nil,
                                                              headers: nil,
                                                              authEndpoint: nil,
-                                                             outputPackage: nil),
+                                                             outputPackage: nil,
+                                                             baseUrl: nil),
                                 localJSONDirectory: nil,
                                 mappedModelNames: [mappedModelInfo])
 

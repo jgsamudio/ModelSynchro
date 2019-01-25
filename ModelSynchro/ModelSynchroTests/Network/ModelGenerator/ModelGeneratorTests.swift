@@ -20,11 +20,13 @@ class ModelGeneratorTests: XCTestCase {
                                        companyName: "Company",
                                        projectName: "MyCoolProject",
                                        language: Language.swift,
+                                       verbose: false,
                                        serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                                     endpoints: nil,
                                                                     headers: nil,
                                                                     authEndpoint: nil,
-                                                                    outputPackage: nil),
+                                                                    outputPackage: nil,
+                                                                    baseUrl: nil),
                                        localJSONDirectory: nil,
                                        mappedModelNames: nil)
 
@@ -120,11 +122,13 @@ class ModelGeneratorTests: XCTestCase {
                                        companyName: "Company",
                                        projectName: "MyCoolProject",
                                        language: Language.objectiveC,
+                                       verbose: false,
                                        serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
                                                                     endpoints: nil,
                                                                     headers: nil,
                                                                     authEndpoint: nil,
-                                                                    outputPackage: nil),
+                                                                    outputPackage: nil,
+                                                                    baseUrl: nil),
                                        localJSONDirectory: nil,
                                        mappedModelNames: nil)
 
