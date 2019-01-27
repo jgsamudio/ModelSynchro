@@ -8,7 +8,6 @@
 
 import XCTest
 
-@testable import ModelSynchro
 class ArrayExtensionTests: XCTestCase {
 
     // MARK: Line

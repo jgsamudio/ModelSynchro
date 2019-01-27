@@ -69,7 +69,11 @@ final class NetworkRequester {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if let parameters = endpoint.parameters {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .sortedKeys)
+            if #available(OSX 10.13, *) {
+                request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .sortedKeys)
+            } else {
+                // TODO Fallback on earlier versions
+            }
         }
 
         return request

@@ -8,7 +8,7 @@
 
 import Foundation
 
-print("############### ModelSynchro v0.2.4 ###############")
+print("############### ModelSynchro v0.3.0 ###############")
 
 guard let config = ConfigurationParser().configFile else {
     CommandError.configFile.displayError()
@@ -28,5 +28,5 @@ if let _ = config.localJSONDirectory {
 }
 
 print("Models Generated!")
-print("############### ModelSynchro v0.2.4 ###############")
+print("############### ModelSynchro v0.3.0f ###############")
 exit(0)
