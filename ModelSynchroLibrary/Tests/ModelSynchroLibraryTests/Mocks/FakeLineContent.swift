@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import ModelSynchroLibrary
 
 class FakeLineContent: LineContent {
 

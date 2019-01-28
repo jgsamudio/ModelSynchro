@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+@testable import ModelSynchroLibrary
 
 class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
 

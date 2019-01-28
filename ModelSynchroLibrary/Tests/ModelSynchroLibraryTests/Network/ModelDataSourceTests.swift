@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import ModelSynchroLibrary
 
 class ModelDataSourceTests: XCTestCase {
 

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import ModelSynchroLibrary
 
 class LineContentTests: XCTestCase {
 
