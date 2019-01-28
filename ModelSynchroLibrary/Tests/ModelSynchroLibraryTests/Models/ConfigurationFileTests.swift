@@ -16,7 +16,7 @@ class ConfigurationFileTests: XCTestCase {
     // MARK: - outputPath: String
 
     func testOutputPath_Nil() {
-        ConfigurationParser.projectDirectory = "projectDirectory"
+        ConfigurationFile.projectDirectory = "projectDirectory"
         sut = ConfigurationFile(authorName: "Author",
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
@@ -28,12 +28,12 @@ class ConfigurationFileTests: XCTestCase {
 
         let result = sut.outputPath
 
-        XCTAssertEqual(result, ConfigurationParser.projectDirectory)
+        XCTAssertEqual(result, ConfigurationFile.projectDirectory)
     }
 
     func testOutputPath_NonNil() {
         let outputDirectory = "/somewhere"
-        ConfigurationParser.projectDirectory = "projectDirectory"
+        ConfigurationFile.projectDirectory = "projectDirectory"
         sut = ConfigurationFile(authorName: "Author",
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
@@ -50,13 +50,13 @@ class ConfigurationFileTests: XCTestCase {
 
         let result = sut.outputPath
 
-        XCTAssertEqual(result, ConfigurationParser.projectDirectory + outputDirectory)
+        XCTAssertEqual(result, ConfigurationFile.projectDirectory + outputDirectory)
     }
 
     // MARK: - localPath(directory: String) -> String
 
     func testLocalPath_EmptyDirectory() {
-        ConfigurationParser.projectDirectory = "projectDirectory"
+        ConfigurationFile.projectDirectory = "projectDirectory"
         sut = ConfigurationFile(authorName: "Author",
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
@@ -68,11 +68,11 @@ class ConfigurationFileTests: XCTestCase {
 
         let result = sut.localPath(directory: "")
 
-        XCTAssertEqual(result, ConfigurationParser.projectDirectory)
+        XCTAssertEqual(result, ConfigurationFile.projectDirectory)
     }
 
     func testLocalPath_NonEmptyDirectory() {
-        ConfigurationParser.projectDirectory = "projectDirectory"
+        ConfigurationFile.projectDirectory = "projectDirectory"
         sut = ConfigurationFile(authorName: "Author",
                                 companyName: "Company",
                                 projectName: "MyCoolProject",
@@ -84,7 +84,7 @@ class ConfigurationFileTests: XCTestCase {
 
         let result = sut.localPath(directory: "something")
 
-        XCTAssertEqual(result, ConfigurationParser.projectDirectory + "something")
+        XCTAssertEqual(result, ConfigurationFile.projectDirectory + "something")
     }
 
     // MARK: - mapped(jsonKey: String) -> String
