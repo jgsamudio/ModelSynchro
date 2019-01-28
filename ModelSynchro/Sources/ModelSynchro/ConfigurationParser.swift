@@ -16,18 +16,10 @@ final class ConfigurationParser {
     private let configurationFileName = "configuration.json"
     
     init() {
-    #if RELEASE
-        let userDefaults = UserDefaults.standard.dictionaryRepresentation()
-        guard let projectDirectory = userDefaults["projectDirectory"] as? String else {
-            print("Error: Project Directory Not Found")
+        guard let projectDirectory = retreiveProjectDirectory() else {
+            print("Error: Project Directory Not Found 2")
             return
         }
-    #else
-        guard let projectDirectory = ConfigurationParser.getEnvironmentVar("PROJECT_DIR") else {
-            print("Error: Project Directory Not Found")
-            return
-        }
-    #endif
         let formattedProjectDirectory = format(projectDirectory: projectDirectory)
         parseConfigurationFile(projectDirectory: formattedProjectDirectory)
         ConfigurationFile.projectDirectory = formattedProjectDirectory
@@ -35,10 +27,20 @@ final class ConfigurationParser {
 }
 
 private extension ConfigurationParser {
+    
+    func retreiveProjectDirectory() -> String? {
+        let userDefaults = UserDefaults.standard.dictionaryRepresentation()
+        if let commandLineProjectDirectory = userDefaults["projectDirectory"] as? String {
+            return commandLineProjectDirectory
+        } else if let xcodeProjectDirectory = ConfigurationParser.getEnvironmentVar("PROJECT_DIR") {
+            return xcodeProjectDirectory
+        }
+        return nil
+    }
   
     private static func getEnvironmentVar(_ name: String) -> String? {
         guard let rawValue = getenv(name) else {
-            return "./ModelSynchro/"
+            return nil
         }
         return String(utf8String: rawValue)
     }
