@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import ModelSynchro
 
 class TypeTests: XCTestCase {
 

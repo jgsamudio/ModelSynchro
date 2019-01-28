@@ -195,7 +195,7 @@
 /* Begin PBXFileReference section */
 		20A5300921FD5197001BEB99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		20A5300A21FD5197001BEB99 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
-		"ModelSynchro::ModelSynchro::Product" /* ModelSynchro */ = {isa = PBXFileReference; lastKnownFileType = text; path = ModelSynchro; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ModelSynchro::ModelSynchro::Product" /* ModelSynchro */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = ModelSynchro; sourceTree = BUILT_PRODUCTS_DIR; };
 		"ModelSynchro::ModelSynchroTests::Product" /* ModelSynchroTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ModelSynchroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* Include.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Include.swift; sourceTree = "<group>"; };
 		OBJ_101 /* Inheritence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inheritence.swift; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				20A5300921FD5197001BEB99 /* README.md */,
@@ -474,7 +474,6 @@
 				OBJ_88 /* Dependencies */,
 				OBJ_114 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_53 /* Utility */ = {
@@ -765,7 +764,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_114 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -988,6 +987,7 @@
 		OBJ_121 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1009,6 +1009,7 @@
 		OBJ_122 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
