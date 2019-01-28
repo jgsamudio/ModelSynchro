@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ModelSynchro
+
 
 class ConfigurationFileTests: XCTestCase {
 

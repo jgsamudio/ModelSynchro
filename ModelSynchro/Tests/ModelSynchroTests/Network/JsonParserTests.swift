@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import ModelSynchro
 
 class JsonParserTests: XCTestCase {
 
