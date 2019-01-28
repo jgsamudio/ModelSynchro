@@ -5,5 +5,6 @@ xcode_scheme: ModelSynchro
 xcode_destination: platform=macOS
 before_install:
 - cd ModelSynchro
+- swift package generate-xcodeproj
 script:
   - set -o pipefail && xcodebuild -project ModelSynchro.xcodeproj -scheme ModelSynchro -destination platform\=macOS build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty

@@ -28,5 +28,5 @@ if let _ = config.localJSONDirectory {
 }
 
 print("Models Generated!")
-print("############### ModelSynchro v0.3.0f ###############")
+print("############### ModelSynchro v0.3.0 ###############")
 exit(0)
