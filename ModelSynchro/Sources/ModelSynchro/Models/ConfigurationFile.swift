@@ -69,7 +69,7 @@ extension ConfigurationFile {
             return KotlinLanguageFormatter()
         }
     }
-
+    
     /// Maps the json key to the correct name.
     ///
     /// - Parameter jsonKey: Json key to search for.
