@@ -8,4 +8,4 @@ before_install:
 - swift package update
 - swift package generate-xcodeproj
 script:
-  - set -o pipefail && xcodebuild -project ModelSynchroLibrary.xcodeproj -scheme ModelSynchroLibrary -destination platform\=macOS build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+  - set -o pipefail && xcodebuild -project ModelSynchroLibrary.xcodeproj -scheme ModelSynchroLibrary-Package -destination platform\=macOS build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
