@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ModelSynchroLibrary
 
 print("############### ModelSynchro v0.3.0 ###############")
 
@@ -21,7 +22,7 @@ print("Fetching JSON...")
 let requester = NetworkRequester(config: config, currentModels: modelParser.customComponents)
 requester.generateModels()
 
-if let _ = config.localJSONDirectory {
+if config.containsLocalDirectory {
     print("Parsing Local Files")
     let localJSONParser = LocalJSONParser(config: config, currentModels: modelParser.customComponents)
     localJSONParser.parseLocalJSON()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ModelContent {
+public struct ModelContent {
     let fileComponents: [String]
     let customProperties: [CustomProperty]
 }

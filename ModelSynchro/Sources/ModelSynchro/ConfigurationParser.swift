@@ -7,10 +7,9 @@
 //
 
 import Foundation
+import ModelSynchroLibrary
 
 final class ConfigurationParser {
-    
-    static var projectDirectory: String = ""
     
     var configFile: ConfigurationFile?
         
@@ -30,15 +29,17 @@ final class ConfigurationParser {
         }
     #endif
         let formattedProjectDirectory = format(projectDirectory: projectDirectory)
-        ConfigurationParser.projectDirectory = formattedProjectDirectory
         parseConfigurationFile(projectDirectory: formattedProjectDirectory)
+        ConfigurationFile.projectDirectory = formattedProjectDirectory
     }
 }
 
 private extension ConfigurationParser {
   
     private static func getEnvironmentVar(_ name: String) -> String? {
-        guard let rawValue = getenv(name) else { return nil }
+        guard let rawValue = getenv(name) else {
+            return "./ModelSynchro/"
+        }
         return String(utf8String: rawValue)
     }
     

@@ -52,6 +52,13 @@
             ReferencedContainer = "container:ModelSynchro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "PROJECT_DIR"
+            value = "/Users/jonathansamudio/JustBinaryProjects/ModelSynchro/ModelSynchro/"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

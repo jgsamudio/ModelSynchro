@@ -12,18 +12,18 @@ import Foundation
 typealias JSON = [String : Any]
 
 /// Loads network requests.
-final class NetworkRequester {
+open class NetworkRequester {
     
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
     
-    init(config: ConfigurationFile, currentModels: ModelComponents) {
+    public init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
     
     /// Generates the models specified from the config file.
-    func generateModels() {
+    public func generateModels() {
         guard let endpoints = config.serverAPIInfo?.endpoints else {
             return
         }
@@ -37,7 +37,7 @@ final class NetworkRequester {
         jsonParser.writeModelsToFile()
     }
     
-    func requestJSONData(request: URLRequest, name: String) {
+    public func requestJSONData(request: URLRequest, name: String) {
         let sema = DispatchSemaphore(value: 0)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
@@ -51,7 +51,7 @@ final class NetworkRequester {
         sema.wait()
     }
     
-    func urlRequest(endpoint: Endpoint) -> URLRequest?  {
+    public func urlRequest(endpoint: Endpoint) -> URLRequest?  {
         var urlComponents = endpoint.urlRequest(baseUrl: config.serverAPIInfo?.baseUrl)
         for (key, value) in endpoint.queries ?? [:] {
             urlComponents?.queryItems?.append(URLQueryItem(name: key, value: value))

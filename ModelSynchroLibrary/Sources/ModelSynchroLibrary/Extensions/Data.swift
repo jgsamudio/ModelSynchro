@@ -10,7 +10,7 @@ import Foundation
 
 extension Data {
     
-    func deserializeObject<T: Decodable>(completion: (T?, Error?)->()) {
+    public func deserializeObject<T: Decodable>(completion: (T?, Error?)->()) {
         let decoder = JSONDecoder()
         do {
             let object = try decoder.decode(T.self, from: self)
@@ -21,7 +21,7 @@ extension Data {
         }
     }
     
-    func deserializeArray<T: Decodable>(completion: ([T]?, Error?)->()) {
+    public func deserializeArray<T: Decodable>(completion: ([T]?, Error?)->()) {
         let decoder = JSONDecoder()
         do {
             let object = try decoder.decode([T].self, from: self)

@@ -108,7 +108,7 @@ private extension ModelGenerator {
     }
 
     func fileDirectory(outputDirectory: String) -> String {
-        return "file://" + ConfigurationParser.projectDirectory + outputDirectory + name
+        return "file://" + ConfigurationFile.projectDirectory + outputDirectory + name
     }
 
     func modelContainsUpdates(directoryData: DirectoryData?) -> Bool {

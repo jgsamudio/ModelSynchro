@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CommandError: Int {
+public enum CommandError: Int {
     case defaultError = 2
     case language
     case validUrl
@@ -16,7 +16,7 @@ enum CommandError: Int {
     case writeToFile
     case modelParse
     
-    func displayError(with message: String? = nil, verboseMessage: String? = nil) {
+    public func displayError(with message: String? = nil, verboseMessage: String? = nil) {
         print(errorString(with: message, verboseMessage: verboseMessage))
         if isFatalError {
             #if RELEASE
@@ -25,7 +25,7 @@ enum CommandError: Int {
         }
     }
     
-    func errorString(with message: String? = nil, verboseMessage: String? = nil) -> String {
+    public func errorString(with message: String? = nil, verboseMessage: String? = nil) -> String {
         let errorPrefix = "Error(\(rawValue)):"
         
         switch self {

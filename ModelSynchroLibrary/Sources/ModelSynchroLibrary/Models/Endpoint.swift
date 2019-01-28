@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Endpoint: Codable {
+public struct Endpoint: Codable {
     let responseModelName: String
     let url: String?
     let endpoint: String?

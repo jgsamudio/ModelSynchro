@@ -9,7 +9,7 @@
 import Foundation
 
 /// Configuration model for the config file.
-struct ConfigurationFile: Codable {
+public struct ConfigurationFile: Codable {
 
     /// Name of the author / developer.
     let authorName: String
@@ -38,9 +38,15 @@ struct ConfigurationFile: Codable {
 
 extension ConfigurationFile {
     
+    public static var projectDirectory = ""
+    
+    public var containsLocalDirectory: Bool {
+        return localJSONDirectory != nil
+    }
+    
     /// Model output path.
     var outputPath: String {
-        return ConfigurationParser.projectDirectory + (serverAPIInfo?.outputDirectory ?? "")
+        return ConfigurationFile.projectDirectory + (serverAPIInfo?.outputDirectory ?? "")
     }
 
     /// The local directory path.
@@ -48,7 +54,7 @@ extension ConfigurationFile {
     /// - Parameter directory: Directory of the local json.
     /// - Returns: Full directory path.
     func localPath(directory: String) -> String {
-        return ConfigurationParser.projectDirectory + directory
+        return ConfigurationFile.projectDirectory + directory
     }
     
     /// Current language formatter for the output.

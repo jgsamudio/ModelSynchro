@@ -8,12 +8,12 @@
 
 import Foundation
 
-typealias ModelComponents = [String : ModelContent]
+public typealias ModelComponents = [String : ModelContent]
 
-final class ModelParser {
+open class ModelParser {
     
     // [Filename: [Lines]]
-    var customComponents: ModelComponents = [:]
+    public var customComponents: ModelComponents = [:]
 
     private let config: ConfigurationFile
     
@@ -21,7 +21,7 @@ final class ModelParser {
         return config.languageFormatter()
     }
     
-    init(config: ConfigurationFile) {
+    public init(config: ConfigurationFile) {
         self.config = config
         loadModels()
         loadLocalModels()

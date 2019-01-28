@@ -8,19 +8,19 @@
 
 import Foundation
 
-final class LocalJSONParser {
+open class LocalJSONParser {
 
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
 
     fileprivate let jsonFileExtension = ".json"
 
-    init(config: ConfigurationFile, currentModels: ModelComponents) {
+    public init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
 
-    func parseLocalJSON() {
+    public func parseLocalJSON() {
         guard let localJSONDirectory = config.localJSONDirectory else {
             return
         }
