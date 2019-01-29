@@ -1,0 +1,18 @@
+import kotlinx.coroutines.Deferred
+
+{% for modelImport in modelImports %}
+import {{ modelImport.name }}
+{% endfor %}
+
+{% for retrofitImport in retrofitImports %}
+import {{ retrofitImport.name }}
+{% endfor %}
+
+interface {{ api.name }} {
+    {% for apiRequest in apiRequests %}
+
+    {{ apiRequest.methodAnnotation }}
+    fun {{ apiRequest.name }}({{ apiRequest.parameters }}): Deferred<{{ apiRequest.returnType }}>
+    {% endfor %}
+}
+

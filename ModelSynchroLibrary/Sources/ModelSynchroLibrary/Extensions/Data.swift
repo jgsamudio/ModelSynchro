@@ -15,8 +15,7 @@ extension Data {
         do {
             let object = try decoder.decode(T.self, from: self)
             completion(object, nil)
-        }
-        catch {
+        } catch {
             completion(nil, NetworkError.objectSerialization(reason: "Object Serialization Failed"))
         }
     }
@@ -26,8 +25,7 @@ extension Data {
         do {
             let object = try decoder.decode([T].self, from: self)
             completion(object, nil)
-        }
-        catch {
+        } catch {
             completion(nil, NetworkError.objectSerialization(reason: "Array Serialization Failed"))
         }
     }
