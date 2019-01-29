@@ -17,6 +17,15 @@
             "endpoint": "accounts",
             "authorized": false,
             "method": "get"
+          },
+          {
+            "responseModelName": "PaymentMethods",
+            "endpoint": "accounts/{account_id}/payments",
+            "authorized": false,
+            "method": "get",
+            "queries": {
+              "account_id": "2492349823817",
+            }
           }
         ]
       }

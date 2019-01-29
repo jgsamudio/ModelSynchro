@@ -17,7 +17,7 @@ final class ConfigurationParser {
     
     init() {
         guard let projectDirectory = retreiveProjectDirectory() else {
-            print("Error: Project Directory Not Found 2")
+            print("Error: Project Directory Not Found")
             return
         }
         let formattedProjectDirectory = format(projectDirectory: projectDirectory)
