@@ -28,6 +28,9 @@ if config.containsLocalDirectory {
     localJSONParser.parseLocalJSON()
 }
 
+let templateParser = StencilParser(config: config)
+templateParser.generateAPI()
+
 print("Models Generated!")
 print("############### ModelSynchro v0.3.0 ###############")
 exit(0)

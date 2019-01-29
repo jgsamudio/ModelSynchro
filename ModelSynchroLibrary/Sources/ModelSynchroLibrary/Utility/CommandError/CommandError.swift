@@ -15,6 +15,7 @@ public enum CommandError: Int {
     case configFile
     case writeToFile
     case modelParse
+    case fetchTemplates
     
     public func displayError(with message: String? = nil, verboseMessage: String? = nil) {
         print(errorString(with: message, verboseMessage: verboseMessage))
@@ -46,6 +47,11 @@ public enum CommandError: Int {
                 errorMessage += "\n\(verboseMessage)"
             }
             return errorMessage
+        case .fetchTemplates:
+            return """
+            \(errorPrefix) Unable to fetch templates."
+                Error Message: \(message ?? "")
+            """
         default:
             return "\(errorPrefix) Something went wrong!"
         }
@@ -56,7 +62,8 @@ private extension CommandError {
     
     var isFatalError: Bool {
         switch self {
-        case .modelParse:
+        case .modelParse,
+             .fetchTemplates:
             return false
         default:
             return true
