@@ -23,6 +23,7 @@ open class StencilParser {
     public func generateAPI() {
         let environment = Environment()
         // Add template name to language / config
+        // Ability to add multiple templates per language.
         guard let content = templateDict[Template.api.rawValue] else {
             // TODO: Generate error
             return
