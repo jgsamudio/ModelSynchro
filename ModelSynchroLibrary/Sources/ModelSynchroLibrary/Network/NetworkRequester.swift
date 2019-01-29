@@ -24,7 +24,7 @@ open class NetworkRequester {
     
     /// Generates the models specified from the config file.
     public func generateModels() {
-        guard let endpoints = config.serverAPIInfo?.endpoints else {
+        guard let endpoints = config.serverAPIInfo?.endpoints() else {
             return
         }
 

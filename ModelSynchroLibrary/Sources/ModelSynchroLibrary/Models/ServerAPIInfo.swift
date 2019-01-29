@@ -14,7 +14,7 @@ struct ServerAPIInfo: Codable {
     let outputDirectory: String?
     
     /// List of endpoints to generate models for.
-    let endpoints: [Endpoint]?
+    let apis: [Api]?
     
     /// Header data for the endpoints.
     let headers: [String : String]?
@@ -27,4 +27,28 @@ struct ServerAPIInfo: Codable {
     
     /// Base URL of the API.
     let baseUrl: String?
+}
+
+extension ServerAPIInfo {
+    
+    func endpoints() -> [Endpoint]? {
+        guard let apis = apis else {
+            return nil
+        }
+        var endpoints = [Endpoint]()
+        for api in apis {
+            if let apiEndpoints = api.endpoints {
+                endpoints.append(contentsOf: apiEndpoints)
+            }
+        }
+        return endpoints
+    }
+}
+
+struct Api: Codable {
+    
+    let name: String
+    
+    /// List of endpoints to generate models for.
+    let endpoints: [Endpoint]?
 }
