@@ -62,6 +62,7 @@ private extension StencilParser {
         }
     }
     
+    // TODO: Have this be returned from the language formatter?
     func apiTemplateModels() -> APITemplate? {
         guard let api = config.serverAPIInfo?.apis?.first else {
             return nil

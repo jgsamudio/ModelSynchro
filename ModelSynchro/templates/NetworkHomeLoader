@@ -1,0 +1,38 @@
+//
+//  NetworkHomeLoader.swift
+//  TheWing
+//
+//  Created by Jonathan Samudio on 7/6/18.
+//  Copyright © 2018 Prolific Interactive. All rights reserved.
+//
+
+import Alamofire
+
+final class NetworkHomeLoader: Loader, HomeLoader {
+    
+    // MARK: - Public Functions
+    
+    func acknowledgeTask(identifier: String, completion: @escaping (_ result: Result<ResponseData<Acknowledge>>) -> Void) {
+        let request = apiRequest(method: .post, endpoint: Endpoints.acknowledge(identifier: identifier))
+        httpClient.perform(request: request, completion: completion)
+    }
+    
+    func loadHome(eventsLimit: Int, postLimit: Int, completion: @escaping (_ result: Result<Home>) -> Void) {
+        let request = apiRequest(method: .get,
+                                 endpoint: Endpoints.home,
+                                 queryItems: [URLQueryItem(name: "eventsLimit", value: "\(eventsLimit)"),
+                                              URLQueryItem(name: "postsLimit", value: "\(postLimit)")])
+        httpClient.perform(request: request) { [weak self] (result: Result<Home>) in
+            result.ifSuccess {
+                let bookmarkTotal = result.value?.response.myHappenings?.bookmarks.totalCount ?? 0
+                let events = result.value?.response.myHappenings?.events ?? []
+                let rsvpTotalCount = result.value?.response.myHappenings?.totalCount ?? 0
+                self?.eventLocalCache.cacheBookmarkTotalCount(bookmarkTotal)
+                self?.eventLocalCache.cacheEventsFromApi(events: events,
+                                                         rsvpTotalCount: rsvpTotalCount)
+            }
+            completion(result)
+        }
+    }
+    
+}
