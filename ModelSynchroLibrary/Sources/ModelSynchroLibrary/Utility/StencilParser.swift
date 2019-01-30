@@ -28,14 +28,17 @@ open class StencilParser {
             // TODO: Generate error
             return
         }
-        let context = [
+        let context: [String: Codable] = [
             "modelImports": [
                 FileImport(name: "sampleModelImport")
             ],
             "retrofitImports": [
                 FileImport(name: "sampleRetrofitImport")
-            ]
+            ],
+            "api": apiTemplateModels()
         ]
+        print(context)
+        print("Rendering")
         let rendered = try? environment.renderTemplate(string: content, context: context)
         print(rendered ?? "nil")
     }
@@ -57,6 +60,38 @@ private extension StencilParser {
                 CommandError.fetchTemplates.displayError(with: error.localizedDescription)
             }
         }
-        
     }
+    
+    func apiTemplateModels() -> APITemplate? {
+        guard let api = config.serverAPIInfo?.apis?.first else {
+            return nil
+        }
+        
+        var requestTemplates = [APIRequestTemplate]()
+        for endpoint in api.endpoints ?? [] {
+            let methodAnnotation = config.languageFormatter().httpMethodAnnotation(method: endpoint.method)
+            let requestName = "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
+            let requestTemplate = APIRequestTemplate(name: requestName,
+                                                     httpMethodAnnotation: methodAnnotation,
+                                                     endpoint: endpoint.endpoint ?? "",
+                                                     parameters: nil,
+                                                     returnType: endpoint.responseModelName)
+            requestTemplates.append(requestTemplate)
+        }
+        
+        return APITemplate(name: api.name, apiRequests: requestTemplates)
+    }
+}
+
+struct APITemplate: Codable {
+    let name: String
+    let apiRequests: [APIRequestTemplate]
+}
+
+struct APIRequestTemplate: Codable {
+    let name: String
+    let httpMethodAnnotation: String
+    let endpoint: String
+    let parameters: String?
+    let returnType: String
 }

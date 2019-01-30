@@ -45,6 +45,8 @@ protocol LanguageFormatter {
                        type: String,
                        customProperty: CustomProperty?,
                        dataSource: GeneratorDataSourceProtocol) -> Bool
+    
+    func httpMethodAnnotation(method: HTTPMethod) -> String
 }
 
 extension LanguageFormatter {
@@ -69,5 +71,9 @@ extension LanguageFormatter {
         let nonOptionalLine = variableLine.toString(languageFormatter: self, isLastVariable: true)
         
         return dataSource.allLines.contains(optionalLine) || dataSource.allLines.contains(nonOptionalLine)
+    }
+    
+    func httpMethodAnnotation(method: HTTPMethod) -> String {
+        return ""
     }
 }

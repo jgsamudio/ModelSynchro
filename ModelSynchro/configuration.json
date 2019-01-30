@@ -8,7 +8,7 @@
     "outputDirectory": "./SampleKotlinModels/",
     "outputPackage": "com.kapsch.android.api.models",
     "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.6/",
-    "api": [
+    "apis": [
       {
         "name": "Account",
         "endpoints": [

@@ -136,4 +136,8 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         
         return !foundVariables.isEmpty
     }
+    
+    func httpMethodAnnotation(method: HTTPMethod) -> String {
+        return "@\(method.rawValue.uppercased())"
+    }
 }

@@ -5,8 +5,8 @@ import {{ modelImport.name }} {% endfor %}
 import {{ retrofitImport.name }} {% endfor %}
 
 interface {{ api.name }} {
-    {% for apiRequest in apiRequests %}
-    {{ apiRequest.methodAnnotation }}({{ apiRequest.endpoint }})
+    {% for apiRequest in api.apiRequests %}
+    {{ apiRequest.httpMethodAnnotation }}("{{ apiRequest.endpoint }}")
     fun {{ apiRequest.name }}({{ apiRequest.parameters }}): Deferred<{{ apiRequest.returnType }}>
     {% endfor %}
 }
