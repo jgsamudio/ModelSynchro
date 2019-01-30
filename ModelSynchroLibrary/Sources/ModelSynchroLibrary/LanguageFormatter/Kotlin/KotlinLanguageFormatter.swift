@@ -137,7 +137,53 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return !foundVariables.isEmpty
     }
     
+    func apiTemplateContext(config: ConfigurationFile) -> [String: Codable] {
+        let context: [String: Codable] = [
+            "modelImports": [
+                FileImport(name: "sampleModelImport")
+            ],
+            "retrofitImports": retrofitImports(endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
+            "api": apiTemplateModels(config: config)
+        ]
+        return context
+    }
+    
     func httpMethodAnnotation(method: HTTPMethod) -> String {
         return "@\(method.rawValue.uppercased())"
+    }
+}
+
+private extension KotlinLanguageFormatter {
+    
+    // TODO: Have this be returned from the language formatter?
+    // How to handle mulitple apis
+    func apiTemplateModels(config: ConfigurationFile) -> APITemplate? {
+        guard let api = config.serverAPIInfo?.apis?.first else {
+            return nil
+        }
+        
+        var requestTemplates = [APIRequestTemplate]()
+        for endpoint in api.endpoints ?? [] {
+            let methodAnnotation = config.languageFormatter().httpMethodAnnotation(method: endpoint.method)
+            let requestName = "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
+            let requestTemplate = APIRequestTemplate(name: requestName,
+                                                     httpMethodAnnotation: methodAnnotation,
+                                                     endpoint: endpoint.endpoint ?? "",
+                                                     parameters: nil,
+                                                     returnType: endpoint.responseModelName)
+            requestTemplates.append(requestTemplate)
+        }
+        
+        return APITemplate(name: api.name, apiRequests: requestTemplates)
+    }
+    
+    func retrofitImports(endpoints: [Endpoint]?) -> [FileImport] {
+        var endpointDict = [String: Endpoint]()
+        for endpoint in endpoints ?? [] {
+            if endpointDict[endpoint.method.rawValue] == nil {
+                endpointDict[endpoint.method.rawValue] = endpoint
+            }
+        }
+        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key.uppercased())" )}
     }
 }

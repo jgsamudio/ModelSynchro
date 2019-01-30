@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol LanguageFormatter {
+protocol LanguageFormatter: APIGeneratorLanguageFormatter {
 
     var containsHeader: Bool { get }
     var headerLanguageFormatter: LanguageFormatter? { get }
@@ -46,7 +46,8 @@ protocol LanguageFormatter {
                        customProperty: CustomProperty?,
                        dataSource: GeneratorDataSourceProtocol) -> Bool
     
-    func httpMethodAnnotation(method: HTTPMethod) -> String
+    // API GENERATION PROTOCOL
+    
 }
 
 extension LanguageFormatter {
@@ -71,6 +72,21 @@ extension LanguageFormatter {
         let nonOptionalLine = variableLine.toString(languageFormatter: self, isLastVariable: true)
         
         return dataSource.allLines.contains(optionalLine) || dataSource.allLines.contains(nonOptionalLine)
+    }
+}
+
+protocol APIGeneratorLanguageFormatter {
+    
+    func apiTemplateContext(config: ConfigurationFile) -> [String: Codable]
+
+    func httpMethodAnnotation(method: HTTPMethod) -> String
+    
+}
+
+extension APIGeneratorLanguageFormatter {
+    
+    func apiTemplateContext(config: ConfigurationFile) -> [String: Codable] {
+        return [:]
     }
     
     func httpMethodAnnotation(method: HTTPMethod) -> String {
