@@ -70,7 +70,7 @@ open class NetworkRequester {
         
         if let parameters = endpoint.parameters {
             if #available(OSX 10.13, *) {
-                request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .sortedKeys)
+                request.httpBody = try? JSONSerialization.data(withJSONObject: parameters.body, options: .sortedKeys)
             } else {
                 // TODO Fallback on earlier versions
             }

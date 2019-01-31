@@ -139,9 +139,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     
     func apiTemplateContext(config: ConfigurationFile) -> [String: Codable] {
         let context: [String: Codable] = [
-            "modelImports": [
-                FileImport(name: "sampleModelImport")
-            ],
+            "modelImports": modelImports(config: config, endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
             "retrofitImports": retrofitImports(endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
             "api": apiTemplateModels(config: config)
         ]
@@ -164,12 +162,12 @@ private extension KotlinLanguageFormatter {
         
         var requestTemplates = [APIRequestTemplate]()
         for endpoint in api.endpoints ?? [] {
-            let methodAnnotation = config.languageFormatter().httpMethodAnnotation(method: endpoint.method)
+            let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
             let requestName = "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
             let requestTemplate = APIRequestTemplate(name: requestName,
                                                      httpMethodAnnotation: methodAnnotation,
                                                      endpoint: endpoint.endpoint ?? "",
-                                                     parameters: nil,
+                                                     parameters: parameters(config: config, endpoint: endpoint),
                                                      returnType: endpoint.responseModelName)
             requestTemplates.append(requestTemplate)
         }
@@ -178,12 +176,59 @@ private extension KotlinLanguageFormatter {
     }
     
     func retrofitImports(endpoints: [Endpoint]?) -> [FileImport] {
-        var endpointDict = [String: Endpoint]()
+        var endpointDict = [String: Bool]()
         for endpoint in endpoints ?? [] {
             if endpointDict[endpoint.method.rawValue] == nil {
-                endpointDict[endpoint.method.rawValue] = endpoint
+                endpointDict[endpoint.method.rawValue] = true
+            }
+            if endpoint.queries != nil {
+                endpointDict["Path"] = true
+            }
+            if endpoint.parameters != nil {
+                endpointDict["Body"] = true
             }
         }
-        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key.uppercased())" )}
+        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key.uppercased())") }
+    }
+    
+    func modelImports(config: ConfigurationFile, endpoints: [Endpoint]?) -> [FileImport] {
+        guard let endpoints = endpoints, let package = config.serverAPIInfo?.outputPackage else {
+            return []
+        }
+        var modelDict = [String: Bool]()
+        for endpoint in endpoints {
+            if modelDict[endpoint.responseModelName] == nil {
+                modelDict[endpoint.responseModelName] = true
+            }
+            if let parameters = endpoint.parameters {
+                if modelDict[parameters.modelName] == nil {
+                    modelDict[parameters.modelName] = true
+                }
+            }
+        }
+        return modelDict.map { FileImport(name: "\(package).\($0.key)") }
+    }
+    
+    func parameters(config: ConfigurationFile, endpoint: Endpoint) -> String {
+        var parameterString = ""
+        let containsBody = endpoint.parameters != nil
+        
+        if let queries = endpoint.queries {
+            var count = 0
+            parameterString += queries.map {
+                count += 1
+                let jsonParser = JsonParser(config: config, currentModels: ModelComponents())
+                let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
+                let typeString = type.toString(formatter: self)
+                let lastVariable = (count == queries.count && !containsBody)
+                return "@Path(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",")"
+            }.joined(separator: "\n")
+        }
+        
+        if let parameters = endpoint.parameters {
+            parameterString += "@Body \(parameters.modelName.lowercaseFirstLetter()): \(parameters.modelName)"
+        }
+        
+        return parameterString
     }
 }

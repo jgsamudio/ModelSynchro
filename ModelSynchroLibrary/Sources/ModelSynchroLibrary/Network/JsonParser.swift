@@ -93,9 +93,6 @@ final class JsonParser {
     func clearDataSource() {
         modelDataSource.resetDataSource()
     }
-}
-
-private extension JsonParser {
     
     func parse(key: String, value: Any) -> Type? {
         if let array = value as? Array<Any> {
@@ -111,9 +108,12 @@ private extension JsonParser {
         } else if let json = value as? JSON {
             parse(json: json, modelName: key)
             return .custom(config.mapped(jsonKey: key))
-        }        
+        }
         return nil
     }
+}
+
+private extension JsonParser {
     
     private func parse(array: Array<Any>, key: String) -> String {
         if let firstItem = array.first, let type = parse(key: key, value: firstItem), type.isPrimitiveType  {

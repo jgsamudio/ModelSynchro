@@ -2,9 +2,9 @@
 
 import kotlinx.coroutines.Deferred
 {% for modelImport in modelImports %}
-import {{ modelImport.name }}{% endfor %}
+import {{ modelImport.name }} {% endfor %}
 {% for retrofitImport in retrofitImports %}
-import {{ retrofitImport.name }}{% endfor %}
+import {{ retrofitImport.name }} {% endfor %}
 
 interface {{ api.name }}Api {
     {% for apiRequest in api.apiRequests %}

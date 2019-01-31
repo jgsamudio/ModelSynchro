@@ -14,7 +14,7 @@ public struct Endpoint: Codable {
     let endpoint: String?
     let authorized: Bool
     let method: HTTPMethod
-    let parameters: [String: String]?
+    let parameters: Parameters?
     let queries: [String: String]?
 }
 
@@ -30,3 +30,7 @@ extension Endpoint {
     }
 }
 
+public struct Parameters: Codable {
+    let modelName: String
+    let body: [String: String]
+}

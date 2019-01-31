@@ -24,7 +24,21 @@
             "authorized": false,
             "method": "get",
             "queries": {
-              "account_id": "2492349823817",
+              "account_id": "2492349823817"
+            }
+          },
+          {
+            "responseModelName": "ProviderAuthenticationInformation",
+            "endpoint": "users/provider_login",
+            "authorized": false,
+            "method": "post",
+            "parameters": {
+              "modelName": "UpdateProviderInformation",
+              "body": {
+                "providerName": "google",
+                "providerToken": "4712948234y12783y",
+                "email": "prolific@prolificinteractive.com"
+              }
             }
           }
         ]
