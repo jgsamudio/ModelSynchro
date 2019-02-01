@@ -26,7 +26,7 @@ class ConfigurationFileTests: XCTestCase {
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
 
-        let result = sut.outputPath
+        let result = sut.outputModelPath
 
         XCTAssertEqual(result, ConfigurationFile.projectDirectory)
     }
@@ -48,7 +48,7 @@ class ConfigurationFileTests: XCTestCase {
                                 localJSONDirectory: nil,
                                 mappedModelNames: nil)
 
-        let result = sut.outputPath
+        let result = sut.outputModelPath
 
         XCTAssertEqual(result, ConfigurationFile.projectDirectory + outputDirectory)
     }

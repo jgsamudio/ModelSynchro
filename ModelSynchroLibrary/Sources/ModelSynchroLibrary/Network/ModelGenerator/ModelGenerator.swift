@@ -67,8 +67,8 @@ final class ModelGenerator: ModelGeneratorProtocol {
             return
         }
 
-        let fileURL = fileURLString(outputDirectory: config.serverAPIInfo?.outputDirectory ?? "")
-        let headerURL = headerFileURLString(outputDirectory: config.serverAPIInfo?.outputDirectory ?? "")
+        let fileURL = fileURLString(outputDirectory: config.directoryInfo.outputModelDirectory ?? "")
+        let headerURL = headerFileURLString(outputDirectory: config.directoryInfo.outputModelDirectory ?? "")
 
         dataSource.fileText(name: name, config: config, directoryData: directoryData).writeToFile(directory: fileURL)
         if languageFormatter.containsHeader {

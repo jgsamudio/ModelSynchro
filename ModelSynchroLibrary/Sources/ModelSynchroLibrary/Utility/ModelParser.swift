@@ -31,13 +31,13 @@ open class ModelParser {
 private extension ModelParser {
 
     func loadModels() {
-        let fileNames = FileRetriever.retrieveFilenames(at: config.outputPath,
+        let fileNames = FileRetriever.retrieveFilenames(at: config.outputModelPath,
                                                         fileExtension: config.languageFormatter().fileExtension)
-        load(fileNames: fileNames, outputPath: config.outputPath)
+        load(fileNames: fileNames, outputPath: config.outputModelPath)
     }
 
     func loadLocalModels() {
-        config.localJSONDirectory?.forEach {
+        config.directoryInfo.localJSONDirectory?.forEach {
             let localFilenames = FileRetriever.retrieveFilenames(at: config.localPath(directory: $0.outputDirectory),
                                                                  fileExtension: config.languageFormatter().fileExtension)
             load(fileNames: localFilenames, outputPath: config.localPath(directory: $0.outputDirectory))

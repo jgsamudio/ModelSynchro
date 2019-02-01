@@ -8,11 +8,13 @@
 import Foundation
 import Stencil
 
+typealias TemplateContext = [String: Codable]
+
 open class StencilParser {
     
     private var templateDict = [String: String]()
     
-    private let stencilFileExtension = ".stencil"
+    private let stencilFileExtension = ".mustache"
     private let config: ConfigurationFile
     
     public init(config: ConfigurationFile) {
@@ -29,11 +31,13 @@ open class StencilParser {
             return
         }
 
-        let context = config.languageFormatter().apiTemplateContext(config: config)
-        print(context)
-        print("Rendering")
-        let rendered = try? environment.renderTemplate(string: content, context: context)
-        print(rendered ?? "nil")
+        let contextArray = config.languageFormatter().apiTemplateContext(config: config)
+        for context in contextArray {
+            print(context)
+            print("Rendering")
+            let rendered = try? environment.renderTemplate(string: content, context: context)
+            print(rendered ?? "nil")
+        }
     }
 }
 
@@ -54,17 +58,4 @@ private extension StencilParser {
             }
         }
     }
-}
-
-struct APITemplate: Codable {
-    let name: String
-    let apiRequests: [APIRequestTemplate]
-}
-
-struct APIRequestTemplate: Codable {
-    let name: String
-    let httpMethodAnnotation: String
-    let endpoint: String
-    let parameters: String?
-    let returnType: String
 }

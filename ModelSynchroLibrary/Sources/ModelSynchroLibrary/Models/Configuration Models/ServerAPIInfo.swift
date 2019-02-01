@@ -10,8 +10,6 @@ import Foundation
 
 struct ServerAPIInfo: Codable {
     
-    /// Output directory of the program.
-    let outputDirectory: String?
     
     /// List of endpoints to generate models for.
     let apis: [Api]?
@@ -43,12 +41,4 @@ extension ServerAPIInfo {
         }
         return endpoints
     }
-}
-
-struct Api: Codable {
-    
-    let name: String
-    
-    /// List of endpoints to generate models for.
-    let endpoints: [Endpoint]?
 }

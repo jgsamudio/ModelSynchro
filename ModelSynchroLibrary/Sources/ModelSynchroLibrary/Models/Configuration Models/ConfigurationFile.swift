@@ -25,13 +25,13 @@ public struct ConfigurationFile: Codable {
     
     /// Flag to output more detailed information.
     let verbose: Bool?
+    
+    /// Directory information for code generation.
+    let directoryInfo: DirectoryInfo
 
     /// Network endpoints and information to generate network models.
     let serverAPIInfo: ServerAPIInfo?
     
-    /// Local location of json files.
-    let localJSONDirectory: [DirectoryData]?
-
     /// Mapped model names.
     let mappedModelNames: [MappedModelInfo]?
 }
@@ -41,12 +41,12 @@ extension ConfigurationFile {
     public static var projectDirectory = ""
     
     public var containsLocalDirectory: Bool {
-        return localJSONDirectory != nil
+        return directoryInfo.localJSONDirectory != nil
     }
     
     /// Model output path.
-    var outputPath: String {
-        return ConfigurationFile.projectDirectory + (serverAPIInfo?.outputDirectory ?? "")
+    var outputModelPath: String {
+        return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
     }
 
     /// The local directory path.

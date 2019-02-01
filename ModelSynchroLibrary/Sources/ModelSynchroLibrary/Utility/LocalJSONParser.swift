@@ -21,7 +21,7 @@ open class LocalJSONParser {
     }
 
     public func parseLocalJSON() {
-        guard let localJSONDirectory = config.localJSONDirectory else {
+        guard let localJSONDirectory = config.directoryInfo.localJSONDirectory else {
             return
         }
 

@@ -137,13 +137,17 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return !foundVariables.isEmpty
     }
     
-    func apiTemplateContext(config: ConfigurationFile) -> [String: Codable] {
-        let context: [String: Codable] = [
-            "modelImports": modelImports(config: config, endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
-            "retrofitImports": retrofitImports(endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
-            "api": apiTemplateModels(config: config)
-        ]
-        return context
+    func apiTemplateContext(config: ConfigurationFile) -> [TemplateContext] {
+        var contextArray = [TemplateContext]()
+        for api in config.serverAPIInfo?.apis ?? [] {
+            let context: TemplateContext = [
+                "modelImports": modelImports(config: config, endpoints: api.endpoints),
+                "retrofitImports": retrofitImports(endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
+                "api": apiTemplateModels(config: config)
+            ]
+            contextArray.append(context)
+        }
+        return contextArray
     }
     
     func httpMethodAnnotation(method: HTTPMethod) -> String {
