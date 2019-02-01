@@ -32,18 +32,23 @@ open class NetworkRequester {
             guard let request = urlRequest(endpoint: $0) else {
                 return
             }
-            requestJSONData(request: request, name: $0.responseModelName)
+            requestJSONData(request: request, endpoint: $0)
         }
         jsonParser.writeModelsToFile()
     }
     
-    public func requestJSONData(request: URLRequest, name: String) {
+    public func requestJSONData(request: URLRequest, endpoint: Endpoint) {
         let sema = DispatchSemaphore(value: 0)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
                 return
             }
-            self.jsonParser.parse(data: data, name: name, response: response)
+            self.jsonParser.parse(data: data, name: endpoint.responseModelName, response: response)
+            
+            if let parameters = endpoint.parameters {
+                self.jsonParser.parse(json: parameters.body, modelName: parameters.modelName)
+            }
+            
             sema.signal()
         }
         

@@ -7,7 +7,7 @@
   "serverAPIInfo": {
     "outputDirectory": "./SampleKotlinModels/",
     "outputPackage": "com.kapsch.android.api.models",
-    "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.6/",
+    "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.7/",
     "apis": [
       {
         "name": "Account",
@@ -40,16 +40,27 @@
                 "email": "prolific@prolificinteractive.com"
               }
             }
+          },
+        ]
+      },
+      {
+        "name": "Authentication",
+        "endpoints": [
+          {
+            "responseModelName": "AuthenticationToken",
+            "endpoint": "users/register",
+            "authorized": false,
+            "method": "post",
+            "parameters": {
+              "modelName": "AuthenticationInformation",
+              "body": {
+                "email": "string",
+                "password": "string"
+              }
+            }
           }
         ]
       }
     ]
-},
-  "localJSONDirectory": [
-    {
-      "inputDirectory": "SampleJSON1/",
-      "outputDirectory": "SampleKotlinModels/",
-      "outputPackage": "com.sample.android.base"
-    }
-  ]
+  }
 }
