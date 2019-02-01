@@ -26,17 +26,18 @@ open class StencilParser {
         let environment = Environment()
         // Add template name to language / config
         // Ability to add multiple templates per language.
-        guard let content = templateDict[Template.api.rawValue] else {
+        guard let content = templateDict[Template.api.rawValue],
+            let outputDirectory = config.directoryInfo.outputApiDirectory else {
             // TODO: Generate error
             return
         }
 
-        let contextArray = config.languageFormatter().apiTemplateContext(config: config)
-        for context in contextArray {
-            print(context)
-            print("Rendering")
-            let rendered = try? environment.renderTemplate(string: content, context: context)
-            print(rendered ?? "nil")
+        for api in config.serverAPIInfo?.apis ?? [] {
+            let context = config.languageFormatter().apiTemplateContext(api: api, config: config)
+            if let renderedTemplate = try? environment.renderTemplate(string: content, context: context) {
+                let directory = "file://\(ConfigurationFile.projectDirectory)\(outputDirectory)\(api.name)"
+                renderedTemplate.writeToFile(directory: directory)
+            }
         }
     }
 }

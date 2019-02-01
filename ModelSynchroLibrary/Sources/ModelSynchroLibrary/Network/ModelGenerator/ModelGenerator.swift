@@ -62,7 +62,7 @@ final class ModelGenerator: ModelGeneratorProtocol {
     
     /// Writes the current model to file
     func writeToFile() {
-        let directoryData = DirectoryData(outputPackage: config.serverAPIInfo?.outputPackage)
+        let directoryData = DirectoryData(outputPackage: config.directoryInfo.outputModelPackage)
         guard modelContainsUpdates(directoryData: directoryData) else {
             return
         }

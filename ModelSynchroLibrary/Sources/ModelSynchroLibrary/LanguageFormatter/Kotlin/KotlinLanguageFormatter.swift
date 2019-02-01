@@ -137,17 +137,13 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return !foundVariables.isEmpty
     }
     
-    func apiTemplateContext(config: ConfigurationFile) -> [TemplateContext] {
-        var contextArray = [TemplateContext]()
-        for api in config.serverAPIInfo?.apis ?? [] {
-            let context: TemplateContext = [
-                "modelImports": modelImports(config: config, endpoints: api.endpoints),
-                "retrofitImports": retrofitImports(endpoints: config.serverAPIInfo?.apis?.first?.endpoints),
-                "api": apiTemplateModels(config: config)
-            ]
-            contextArray.append(context)
-        }
-        return contextArray
+    func apiTemplateContext(api: Api, config: ConfigurationFile) -> TemplateContext {
+        let context: TemplateContext = [
+            "modelImports": modelImports(config: config, endpoints: api.endpoints),
+            "retrofitImports": retrofitImports(endpoints: api.endpoints),
+            "api": apiTemplateModels(config: config, api: api)
+        ]
+        return context
     }
     
     func httpMethodAnnotation(method: HTTPMethod) -> String {
@@ -159,11 +155,7 @@ private extension KotlinLanguageFormatter {
     
     // TODO: Have this be returned from the language formatter?
     // How to handle mulitple apis
-    func apiTemplateModels(config: ConfigurationFile) -> APITemplate? {
-        guard let api = config.serverAPIInfo?.apis?.first else {
-            return nil
-        }
-        
+    func apiTemplateModels(config: ConfigurationFile, api: Api) -> APITemplate? {
         var requestTemplates = [APIRequestTemplate]()
         for endpoint in api.endpoints ?? [] {
             let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
@@ -196,7 +188,7 @@ private extension KotlinLanguageFormatter {
     }
     
     func modelImports(config: ConfigurationFile, endpoints: [Endpoint]?) -> [FileImport] {
-        guard let endpoints = endpoints, let package = config.serverAPIInfo?.outputPackage else {
+        guard let endpoints = endpoints, let package = config.directoryInfo.outputModelPackage else {
             return []
         }
         var modelDict = [String: Bool]()

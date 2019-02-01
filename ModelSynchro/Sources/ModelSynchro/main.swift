@@ -28,8 +28,11 @@ if config.containsLocalDirectory {
     localJSONParser.parseLocalJSON()
 }
 
-let templateParser = StencilParser(config: config)
-templateParser.generateAPI()
+if config.containsOutputApiDirectory {
+    print("Parsing API Template Files")
+    let templateParser = StencilParser(config: config)
+    templateParser.generateAPI()
+}
 
 print("Models Generated!")
 print("############### ModelSynchro v0.3.0 ###############")

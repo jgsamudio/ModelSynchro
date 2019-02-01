@@ -77,7 +77,7 @@ extension LanguageFormatter {
 
 protocol APIGeneratorLanguageFormatter {
     
-    func apiTemplateContext(config: ConfigurationFile) -> [TemplateContext]
+    func apiTemplateContext(api: Api, config: ConfigurationFile) -> TemplateContext
 
     func httpMethodAnnotation(method: HTTPMethod) -> String
     
@@ -85,8 +85,8 @@ protocol APIGeneratorLanguageFormatter {
 
 extension APIGeneratorLanguageFormatter {
     
-    func apiTemplateContext(config: ConfigurationFile) -> [TemplateContext] {
-        return [[:]]
+    func apiTemplateContext(api: Api, config: ConfigurationFile) -> TemplateContext {
+        return [:]
     }
     
     func httpMethodAnnotation(method: HTTPMethod) -> String {

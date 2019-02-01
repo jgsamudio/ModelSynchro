@@ -4,13 +4,17 @@
   "projectName": "ModelSynchro",
   "language": "kotlin",
   "verbose": false,
+  "directoryInfo": {
+    "outputModelDirectory": "./SampleKotlinModels/",
+    "outputModelPackage": "com.kapsch.android.api.models",
+    "outputApiDirectory": "./SampleKotlinService/",
+    "outputApiPackage": "com.kapsch.android.api.service",
+  },
   "serverAPIInfo": {
-    "outputDirectory": "./SampleKotlinModels/",
-    "outputPackage": "com.kapsch.android.api.models",
     "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.7/",
     "apis": [
       {
-        "name": "Account",
+        "name": "AccountApi",
         "endpoints": [
           {
             "responseModelName": "Account",
@@ -44,7 +48,7 @@
         ]
       },
       {
-        "name": "Authentication",
+        "name": "AuthenticationApi",
         "endpoints": [
           {
             "responseModelName": "AuthenticationToken",

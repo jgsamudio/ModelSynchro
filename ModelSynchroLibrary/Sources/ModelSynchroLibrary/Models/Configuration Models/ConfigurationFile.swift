@@ -44,6 +44,10 @@ extension ConfigurationFile {
         return directoryInfo.localJSONDirectory != nil
     }
     
+    public var containsOutputApiDirectory: Bool {
+        return directoryInfo.outputApiDirectory != nil
+    }
+    
     /// Model output path.
     var outputModelPath: String {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
