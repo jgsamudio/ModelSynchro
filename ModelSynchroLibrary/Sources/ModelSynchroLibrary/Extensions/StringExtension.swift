@@ -24,8 +24,8 @@ extension String {
     /// - Returns: The string separated by the provided `string` parameter as a tuple
     func split(at string: String) -> (leftString: String, rightString: String)? {
         if let range = range(of: string)  {
-            let leftString = substring(with: Range(uncheckedBounds: (lower: startIndex, upper: range.lowerBound)))
-            let rightString = substring(with: Range(uncheckedBounds: (lower: range.upperBound, upper: endIndex)))
+            let leftString = self[startIndex..<range.lowerBound]
+            let rightString = self[range.lowerBound..<endIndex]
             return (leftString.trimmingCharacters(in: .whitespaces), rightString.trimmingCharacters(in: .whitespaces))
         }
         return nil
@@ -42,7 +42,7 @@ extension String {
             let endRange = range(of: endString),
             startRange.upperBound < endRange.lowerBound {
             
-            return substring(with: Range(uncheckedBounds: (lower: startRange.upperBound, upper: endRange.lowerBound)))
+            return String(self[startRange.upperBound..<endRange.lowerBound])
         }
         return nil
     }

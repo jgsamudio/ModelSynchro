@@ -21,19 +21,7 @@ class ModelGeneratorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let config = ConfigurationFile(authorName: "Author",
-                                       companyName: "Company",
-                                       projectName: "MyCoolProject",
-                                       language: Language.swift,
-                                       verbose: false,
-                                       serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
-                                                                    endpoints: nil,
-                                                                    headers: nil,
-                                                                    authEndpoint: nil,
-                                                                    outputPackage: nil,
-                                                                    baseUrl: nil),
-                                       localJSONDirectory: nil,
-                                       mappedModelNames: nil)
+        let config = configFile()
 
         generatorDataSource = FakeGeneratorDataSource()
         sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)
@@ -123,19 +111,7 @@ class ModelGeneratorTests: XCTestCase {
     }
 
     func testWriteToFile_Header() {
-        let config = ConfigurationFile(authorName: "Author",
-                                       companyName: "Company",
-                                       projectName: "MyCoolProject",
-                                       language: Language.objectiveC,
-                                       verbose: false,
-                                       serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
-                                                                    endpoints: nil,
-                                                                    headers: nil,
-                                                                    authEndpoint: nil,
-                                                                    outputPackage: nil,
-                                                                    baseUrl: nil),
-                                       localJSONDirectory: nil,
-                                       mappedModelNames: nil)
+        let config =  configFile(language: .objectiveC)
 
         generatorDataSource = FakeGeneratorDataSource()
         sut = ModelGenerator(name: "MyModel", config: config, dataSource: generatorDataSource)
@@ -144,5 +120,26 @@ class ModelGeneratorTests: XCTestCase {
 
         XCTAssertTrue(generatorDataSource.fileTextWasCalled)
         XCTAssertTrue(generatorDataSource.headerFileTextWasCalled)
+    }
+}
+
+extension ModelGeneratorTests {
+    
+    func configFile(language: Language = .swift) -> ConfigurationFile {
+        return ConfigurationFile(authorName: "Author",
+                                 companyName: "Company",
+                                 projectName: "MyCoolProject",
+                                 language: language,
+                                 verbose: false,
+                                 directoryInfo: DirectoryInfo(outputModelDirectory: "",
+                                                              outputApiDirectory: "",
+                                                              outputModelPackage: "",
+                                                              outputApiPackage: "",
+                                                              localJSONDirectory: nil),
+                                 serverAPIInfo: ServerAPIInfo(apis: nil,
+                                                              headers: nil,
+                                                              authEndpoint: nil,
+                                                              baseUrl: nil),
+                                 mappedModelNames: nil)
     }
 }

@@ -27,13 +27,15 @@ class GeneratorDataSourceTests: XCTestCase {
                                    projectName: "MyCoolProject",
                                    language: Language.swift,
                                    verbose: false,
-                                   serverAPIInfo: ServerAPIInfo(outputDirectory: "/somewhere",
-                                                                endpoints: nil,
+                                   directoryInfo: DirectoryInfo(outputModelDirectory: "",
+                                                                outputApiDirectory: "",
+                                                                outputModelPackage: "",
+                                                                outputApiPackage: "",
+                                                                localJSONDirectory: nil),
+                                   serverAPIInfo: ServerAPIInfo(apis: nil,
                                                                 headers: nil,
                                                                 authEndpoint: nil,
-                                                                outputPackage: nil,
                                                                 baseUrl: nil),
-                                   localJSONDirectory: nil,
                                    mappedModelNames: nil)
 
         languageFormatter = SwiftLanguageFormatter()
@@ -112,5 +114,26 @@ class GeneratorDataSourceTests: XCTestCase {
         let result = sut.currentLineContent.propertyLines.contains(line)
 
         XCTAssertTrue(result)
+    }
+}
+
+extension GeneratorDataSourceTests {
+    
+    func configFile(language: Language = .swift) -> ConfigurationFile {
+        return ConfigurationFile(authorName: "Author",
+                                 companyName: "Company",
+                                 projectName: "MyCoolProject",
+                                 language: language,
+                                 verbose: false,
+                                 directoryInfo: DirectoryInfo(outputModelDirectory: "",
+                                                              outputApiDirectory: "",
+                                                              outputModelPackage: "",
+                                                              outputApiPackage: "",
+                                                              localJSONDirectory: nil),
+                                 serverAPIInfo: ServerAPIInfo(apis: nil,
+                                                              headers: nil,
+                                                              authEndpoint: nil,
+                                                              baseUrl: nil),
+                                 mappedModelNames: nil)
     }
 }

@@ -15,6 +15,26 @@ enum Type {
     case double
     case array(String)
     case custom(String)
+    
+    // MARK: - Public Properties
+    
+    var isPrimitiveType: Bool {
+        switch self {
+        case .int, .string, .bool, .double:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var isPrimitiveCType: Bool {
+        switch self {
+        case .int, .bool, .double:
+            return true
+        default:
+            return false
+        }
+    }
 
     // MARK: - Public Functions
     
@@ -36,26 +56,6 @@ enum Type {
             return .array(formatter.type(arrayString: typeString))
         } else {
             return .custom(typeString)
-        }
-    }
-
-    // MARK: - Public Properties
-    
-    var isPrimitiveType: Bool {
-        switch self {
-        case .int, .string, .bool, .double:
-            return true
-        default:
-            return false
-        }
-    }
-
-    var isPrimitiveCType: Bool {
-        switch self {
-        case .int, .bool, .double:
-            return true
-        default:
-            return false
         }
     }
     
