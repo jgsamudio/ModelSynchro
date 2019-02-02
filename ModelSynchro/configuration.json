@@ -3,7 +3,7 @@
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
   "language": "kotlin",
-  "verbose": false,
+  "verbose": true,
   "directoryInfo": {
     "outputModelDirectory": "./SampleKotlinModels/",
     "outputModelPackage": "com.kapsch.android.api.models",
@@ -14,6 +14,37 @@
     "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.7/",
     "apis": [
       {
+        "name": "AuthenticationApi",
+        "endpoints": [
+          {
+            "responseModelName": "AuthenticationToken",
+            "endpoint": "users/register",
+            "authorized": false,
+            "method": "post",
+            "bodyInfo": {
+              "modelName": "AuthenticationInformation",
+              "data": {
+                "email": "string",
+                "password": "string"
+              }
+            }
+          },
+          {
+            "responseModelName": "AuthenticationToken",
+            "endpoint": "users/login",
+            "authorized": false,
+            "method": "post",
+            "bodyInfo": {
+              "modelName": "AuthenticationInformation",
+              "data": {
+                "email": "string",
+                "password": "string"
+              }
+            }
+          }
+        ]
+      },
+      {
         "name": "AccountApi",
         "endpoints": [
           {
@@ -23,43 +54,88 @@
             "method": "get"
           },
           {
-            "responseModelName": "PaymentMethods",
-            "endpoint": "accounts/{account_id}/payments",
+            "responseModelName": "Account",
+            "endpoint": "accounts/{account_id}",
             "authorized": false,
             "method": "get",
-            "queries": {
-              "account_id": "2492349823817"
-            }
-          },
-          {
-            "responseModelName": "ProviderAuthenticationInformation",
-            "endpoint": "users/provider_login",
-            "authorized": false,
-            "method": "post",
-            "parameters": {
-              "modelName": "UpdateProviderInformation",
-              "body": {
-                "providerName": "google",
-                "providerToken": "4712948234y12783y",
-                "email": "prolific@prolificinteractive.com"
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
               }
             }
-          },
+          }
         ]
       },
       {
-        "name": "AuthenticationApi",
+        "name": "PaymentApi",
         "endpoints": [
           {
-            "responseModelName": "AuthenticationToken",
-            "endpoint": "users/register",
+            "responseModelName": "PaymentMethod",
+            "endpoint": "accounts/{account_id}/payments",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            }
+          },
+          {
+            "responseModelName": "PaymentMethod",
+            "endpoint": "accounts/{account_id}/payments",
             "authorized": false,
             "method": "post",
-            "parameters": {
-              "modelName": "AuthenticationInformation",
-              "body": {
-                "email": "string",
-                "password": "string"
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
+            "bodyInfo": {
+              "modelName": "AddPaymentMethodRequest",
+              "data": {
+                "token": "string"
+              }
+            }
+          },
+          {
+            "responseModelName": "PaymentMethod",
+            "endpoint": "accounts/{account_id}/payments/{payment_id}",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "payment_id": "5267442"
+              }
+            }
+          },
+          {
+            "responseModelName": "PaymentMethod",
+            "endpoint": "accounts/{account_id}/payments/{payment_id}",
+            "authorized": false,
+            "method": "patch",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "payment_id": "5267442"
+              }
+            },
+            "bodyInfo": {
+              "modelName": "UpdatePaymentMethodRequest",
+              "data": {
+                "isPrimary": true
+              }
+            }
+          },
+          {
+            "responseModelName": "PaymentMethod",
+            "endpoint": "accounts/{account_id}/payments/{payment_id}",
+            "authorized": false,
+            "method": "delete",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "payment_id": "5267442"
               }
             }
           }

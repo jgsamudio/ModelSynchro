@@ -175,16 +175,19 @@ private extension KotlinLanguageFormatter {
         var endpointDict = [String: Bool]()
         for endpoint in endpoints ?? [] {
             if endpointDict[endpoint.method.rawValue] == nil {
-                endpointDict[endpoint.method.rawValue] = true
+                endpointDict[endpoint.method.rawValue.uppercased()] = true
             }
-            if endpoint.queries != nil {
+            if endpoint.pathInfo != nil {
                 endpointDict["Path"] = true
             }
-            if endpoint.parameters != nil {
+            if endpoint.bodyInfo != nil {
                 endpointDict["Body"] = true
             }
+            if endpoint.queryInfo != nil {
+                endpointDict["Query"] = true
+            }
         }
-        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key.uppercased())") }
+        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key)") }
     }
     
     func modelImports(config: ConfigurationFile, endpoints: [Endpoint]?) -> [FileImport] {
@@ -196,9 +199,9 @@ private extension KotlinLanguageFormatter {
             if modelDict[endpoint.responseModelName] == nil {
                 modelDict[endpoint.responseModelName] = true
             }
-            if let parameters = endpoint.parameters {
-                if modelDict[parameters.modelName] == nil {
-                    modelDict[parameters.modelName] = true
+            for modelName in endpoint.requestModelNames {
+                if modelDict[modelName] == nil {
+                    modelDict[modelName] = true
                 }
             }
         }
@@ -207,24 +210,40 @@ private extension KotlinLanguageFormatter {
     
     func parameters(config: ConfigurationFile, endpoint: Endpoint) -> String {
         var parameterString = ""
-        let containsBody = endpoint.parameters != nil
+        var parameterCount = 0
+    
+        parameterString += generateParameterString(config: config,
+                                                   requsetData: endpoint.pathInfo?.data,
+                                                   annotation: "@Path",
+                                                   currentCount: &parameterCount,
+                                                   totalCount: endpoint.totalDataCount)
         
-        if let queries = endpoint.queries {
-            var count = 0
-            parameterString += queries.map {
-                count += 1
-                let jsonParser = JsonParser(config: config, currentModels: ModelComponents())
-                let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
-                let typeString = type.toString(formatter: self)
-                let lastVariable = (count == queries.count && !containsBody)
-                return "@Path(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",")"
-            }.joined(separator: "\n")
-        }
+        parameterString += generateParameterString(config: config,
+                                                   requsetData: endpoint.queryInfo?.data,
+                                                   annotation: "@Query",
+                                                   currentCount: &parameterCount,
+                                                   totalCount: endpoint.totalDataCount)
         
-        if let parameters = endpoint.parameters {
-            parameterString += "@Body \(parameters.modelName.lowercaseFirstLetter()): \(parameters.modelName)"
+        if let modelName = endpoint.bodyInfo?.modelName {
+            parameterString += "@Body \(modelName.lowercaseFirstLetter()): \(modelName)"
         }
         
         return parameterString
+    }
+    
+    private func generateParameterString(config: ConfigurationFile,
+                                         requsetData: JSON?,
+                                         annotation: String,
+                                         currentCount: inout Int,
+                                         totalCount: Int) -> String {
+        let requsetData = requsetData ?? [:]
+        return requsetData.map {
+            currentCount += 1
+            let jsonParser = JsonParser(config: config, currentModels: ModelComponents())
+            let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
+            let typeString = type.toString(formatter: self)
+            let lastVariable = (currentCount == totalCount)
+            return "\(annotation)(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",\n")"
+        }.joined(separator: "\n")
     }
 }

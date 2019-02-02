@@ -51,8 +51,8 @@ open class NetworkRequester {
             }
             self.jsonParser.parse(data: data, name: endpoint.responseModelName, response: response)
             
-            if let parameters = endpoint.parameters {
-                self.jsonParser.parse(json: parameters.body, modelName: parameters.modelName)
+            if let bodyInfo = endpoint.bodyInfo, let modelName = bodyInfo.modelName {
+                self.jsonParser.parse(json: bodyInfo.data, modelName: modelName)
             }
             
             sema.signal()
@@ -64,8 +64,8 @@ open class NetworkRequester {
     
     public func urlRequest(endpoint: Endpoint) -> URLRequest?  {
         var urlComponents = endpoint.urlRequest(baseUrl: config.serverAPIInfo?.baseUrl)
-        for (key, value) in endpoint.queries ?? [:] {
-            urlComponents?.queryItems?.append(URLQueryItem(name: key, value: value))
+        for (key, value) in endpoint.queryInfo?.data ?? [:] {
+            urlComponents?.queryItems?.append(URLQueryItem(name: key, value: value as? String ?? ""))
         }
         
         guard let url = urlComponents?.url else {
@@ -79,9 +79,9 @@ open class NetworkRequester {
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        if let parameters = endpoint.parameters {
+        if let requestBody = endpoint.bodyInfo?.data {
             if #available(OSX 10.13, *) {
-                request.httpBody = try? JSONSerialization.data(withJSONObject: parameters.body, options: .sortedKeys)
+                request.httpBody = try? JSONSerialization.data(withJSONObject: requestBody, options: .sortedKeys)
             } else {
                 // TODO Fallback on earlier versions
             }

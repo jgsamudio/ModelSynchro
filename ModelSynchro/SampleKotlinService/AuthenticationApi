@@ -2,15 +2,18 @@
 
 import kotlinx.coroutines.Deferred
 
-import com.kapsch.android.api.models.AuthenticationToken 
-import com.kapsch.android.api.models.AuthenticationInformation 
+import com.kapsch.android.api.models.AuthenticationToken
+import com.kapsch.android.api.models.AuthenticationInformation
 
-import retrofit2.http.POST 
-import retrofit2.http.BODY 
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface AuthenticationApi {
     
     @POST("users/register")
+    fun postAuthenticationToken(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
+    
+    @POST("users/login")
     fun postAuthenticationToken(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
     
 }
