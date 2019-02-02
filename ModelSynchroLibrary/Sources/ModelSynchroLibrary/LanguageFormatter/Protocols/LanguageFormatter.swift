@@ -52,6 +52,8 @@ protocol LanguageFormatter: APIGeneratorLanguageFormatter {
 
 extension LanguageFormatter {
 
+    // MARK: - Public Properties
+    
     var containsHeader: Bool {
         return false
     }

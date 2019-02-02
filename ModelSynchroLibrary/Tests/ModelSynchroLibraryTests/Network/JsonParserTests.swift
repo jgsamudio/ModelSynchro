@@ -11,9 +11,13 @@ import XCTest
 
 class JsonParserTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: JsonParser!
     var modelDataSource: FakeModelDataSource!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
 

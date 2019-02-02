@@ -11,7 +11,11 @@ import XCTest
 
 class ModelDataSourceTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: ModelDataSource!
+    
+    // MARK: - Public Functions
     
     override func setUp() {
         super.setUp()

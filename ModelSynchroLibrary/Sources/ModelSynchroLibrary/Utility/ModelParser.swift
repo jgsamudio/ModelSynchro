@@ -12,14 +12,20 @@ public typealias ModelComponents = [String : ModelContent]
 
 open class ModelParser {
     
+    // MARK: - Public Properties
+    
     // [Filename: [Lines]]
     public var customComponents: ModelComponents = [:]
 
+    // MARK: - Private Properties
+    
     private let config: ConfigurationFile
     
     private var languageFormatter: LanguageFormatter {
         return config.languageFormatter()
     }
+    
+    // MARK: - Initialization
     
     public init(config: ConfigurationFile) {
         self.config = config
@@ -28,6 +34,7 @@ open class ModelParser {
     }
 }
 
+// MARK: - Private Functions
 private extension ModelParser {
 
     func loadModels() {

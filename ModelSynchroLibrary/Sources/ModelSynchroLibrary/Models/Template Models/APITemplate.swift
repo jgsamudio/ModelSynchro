@@ -8,6 +8,9 @@
 import Foundation
 
 struct APITemplate: Codable {
+    
+    // MARK: - Public Properties
+    
     let name: String
     let apiRequests: [APIRequestTemplate]
 }

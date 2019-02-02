@@ -9,6 +9,8 @@ import Foundation
 
 struct DirectoryInfo: Codable {
     
+    // MARK: - Public Properties
+    
     /// Output directory of the program for generating the models.
     let outputModelDirectory: String?
     

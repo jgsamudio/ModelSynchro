@@ -11,9 +11,13 @@ import XCTest
 
 class PriorityTypeTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: PriorityType!
     var formatter: LanguageFormatter!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
         sut = .bool

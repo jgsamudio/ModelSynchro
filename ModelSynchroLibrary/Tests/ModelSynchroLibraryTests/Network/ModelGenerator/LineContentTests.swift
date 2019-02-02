@@ -11,9 +11,13 @@ import XCTest
 
 class LineContentTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: LineContent!
     var languageFormatter: LanguageFormatter!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
 

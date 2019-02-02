@@ -9,6 +9,9 @@
 import Foundation
 
 public struct ModelContent {
+    
+    // MARK: - Public Properties
+    
     let fileComponents: [String]
     let customProperties: [CustomProperty]
 }

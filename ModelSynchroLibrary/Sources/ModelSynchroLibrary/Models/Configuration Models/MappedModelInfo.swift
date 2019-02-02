@@ -10,6 +10,8 @@ import Foundation
 
 struct MappedModelInfo: Codable {
 
+    // MARK: - Public Properties
+    
     /// JSON key used to find the model name to map to.
     let jsonKey: String?
 

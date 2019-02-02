@@ -13,6 +13,8 @@ enum PriorityType: Int {
     case int
     case double
     
+    // MARK: - Public Functions
+    
     /// Compares the priority types and returns the one that is the greater priority.
     ///
     /// - Parameters:

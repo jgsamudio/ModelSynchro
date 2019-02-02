@@ -11,10 +11,14 @@ import Foundation
 /// Parses the json from the returned network response.
 final class JsonParser {
     
+    // MARK: - Private Properties
+    
     /// Data source that contains model information. Public for testing.
     private let modelDataSource: ModelDataSourceProtocol
     private let config: ConfigurationFile
 
+    // MARK: - Initialization
+    
     init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
@@ -25,6 +29,8 @@ final class JsonParser {
         self.modelDataSource = modelDataSource
     }
 
+    // MARK: - Public Functions
+    
     func parse(data: Data?, name: String, response: URLResponse? = nil) {
         guard let data = data else {
             return
@@ -113,6 +119,7 @@ final class JsonParser {
     }
 }
 
+// MARK: - Private Functions
 private extension JsonParser {
     
     private func parse(array: Array<Any>, key: String) -> String {

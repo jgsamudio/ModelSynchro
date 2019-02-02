@@ -12,15 +12,21 @@ typealias TemplateContext = [String: Codable]
 
 open class StencilParser {
     
+    // MARK: - Private Properties
+    
     private var templateDict = [String: String]()
     
     private let stencilFileExtension = ".mustache"
     private let config: ConfigurationFile
     
+    // MARK: - Initialization
+    
     public init(config: ConfigurationFile) {
         self.config = config
         loadTemplates()
     }
+    
+    // MARK: - Public Functions
     
     public func generateAPI() {
         let environment = Environment()
@@ -42,6 +48,7 @@ open class StencilParser {
     }
 }
 
+// MARK: - Private Functions
 private extension StencilParser {
     
     func loadTemplates() {

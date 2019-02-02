@@ -9,6 +9,8 @@ import Foundation
 
 struct Api: Codable {
     
+    // MARK: - Public Properties
+    
     let name: String
     
     /// List of endpoints to generate models for.

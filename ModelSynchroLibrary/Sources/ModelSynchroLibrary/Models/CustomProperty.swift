@@ -11,6 +11,8 @@ import Foundation
 /// Custom property of custom key declaration.
 struct CustomProperty {
 
+    // MARK: - Public Properties
+    
     /// Custom line determined by the developer.
     let customLine: String
 

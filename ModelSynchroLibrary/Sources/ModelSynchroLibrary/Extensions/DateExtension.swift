@@ -10,6 +10,8 @@ import Foundation
 
 extension Date {
     
+    // MARK: - Public Properties
+    
     static var currentDateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"

@@ -10,16 +10,22 @@ import Foundation
 
 open class LocalJSONParser {
 
+    // MARK: - Private Properties
+    
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
 
     fileprivate let jsonFileExtension = ".json"
 
+    // MARK: - Initialization
+    
     public init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
 
+    // MARK: - Public Functions
+    
     public func parseLocalJSON() {
         guard let localJSONDirectory = config.directoryInfo.localJSONDirectory else {
             return
@@ -33,6 +39,7 @@ open class LocalJSONParser {
     }
 }
 
+// MARK: - Private Functions
 private extension LocalJSONParser {
 
     func loadJSON(at inputPath: String) {

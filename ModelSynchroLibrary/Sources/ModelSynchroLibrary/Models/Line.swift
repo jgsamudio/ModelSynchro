@@ -11,6 +11,8 @@ import Foundation
 /// Model describing a line from a network JSON response.
 struct Line {
 
+    // MARK: - Public Properties
+    
     /// Property of name.
     let property: String
 
@@ -35,6 +37,7 @@ extension Line {
     }
 }
 
+// MARK: - Equatable
 extension Line: Equatable {
     
     /// Compares two variable lines. Ignores if the variable is optional.
@@ -48,6 +51,7 @@ extension Line: Equatable {
     }
 }
 
+// MARK: - Comparable
 extension Line: Comparable {
     
     static func < (lhs: Line, rhs: Line) -> Bool {

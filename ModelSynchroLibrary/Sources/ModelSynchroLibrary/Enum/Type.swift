@@ -16,6 +16,8 @@ enum Type {
     case array(String)
     case custom(String)
 
+    // MARK: - Public Functions
+    
     static func initialize(typeString: String, formatter: LanguageFormatter) -> Type {
         switch typeString {
         case formatter.int:
@@ -37,6 +39,8 @@ enum Type {
         }
     }
 
+    // MARK: - Public Properties
+    
     var isPrimitiveType: Bool {
         switch self {
         case .int, .string, .bool, .double:

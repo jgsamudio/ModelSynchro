@@ -1,0 +1,84 @@
+{
+	"authorName" : "Jonathan Samudio",
+  	"companyName" : "Prolific Interactive",
+  	"projectName" : "CodeGen",
+	"generators": [
+		{
+			"name": "declarationHeader",
+			"enabled": false,
+			"insertString":[
+				"/// <Description of the class>",
+				"///",
+				"/// **Subspec: Folder/Filename**",
+				"///",
+				"/// ```",
+				"/// Code Snippet",
+				"/// ```",
+				"///",
+				"/// <Real world example of how someone would use this class with code snippet>",
+			],
+			"visitors": ["class", "enum", "protocol", "struct"]
+		},
+		{
+			"name": "privateExtensionMark",
+			"enabled": true,
+			"insertString":["// MARK: - Private Functions"],
+			"visitors": ["extension"]
+		},
+		{
+			"name": "delegateExtensionMark",
+			"enabled": true,
+			"insertString":["// MARK: - %@"],
+			"visitors": ["extension"]
+		},
+		{
+			"name": "initializationMark",
+			"enabled": true,
+			"insertString":["", "// MARK: - Initialization", ""],
+			"visitors": ["initializer"]
+		},
+		{
+			"name": "publicVariableMarkGenerator",
+			"enabled": true,
+			"insertString":["", "// MARK: - Public Properties", ""],
+			"visitors": ["variable", "constant"],
+		},
+		{
+			"name": "privateVariableMarkGenerator",
+			"enabled": true,
+			"insertString":["", "// MARK: - Private Properties", ""],
+			"visitors": ["variable", "constant"]
+		},
+		{
+			"name": "publicFunctionMarkGenerator",
+			"enabled": true,
+			"insertString":["", "// MARK: - Public Functions", ""],
+			"visitors": ["function"]
+		},
+		{
+			"name": "protocolComformanceGenerator",
+			"enabled": true,
+			"insertString":[
+				"struct CodeGeneratorDataSource {",
+				"",
+				"\tstatic var availableGeneratorDict: [String: CodeGenerator.Type] {",
+				"\t\treturn [",
+				"<CommaList>\t\t\t%name%.name: %name%.self</CommaList>",
+				"\t\t]",
+				"\t}",
+				"",
+				"}",
+				""
+			],
+			"visitors": ["struct", "enum", "class"],
+			"conformance": "CodeGenerator",
+			"newFileGenerator": {
+				"name": "CodeGeneratorDataSource.swift",
+				"path": "CodeGen/Utility/CodeGenerators/",
+				"singleFileGeneration": false
+			},
+		},
+	],
+	"excludedFiles": [],
+	"excludedDirectories": ["Pods", "Constants"]
+}

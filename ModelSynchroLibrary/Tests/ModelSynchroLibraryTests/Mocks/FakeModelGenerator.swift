@@ -11,6 +11,8 @@ import Foundation
 
 class FakeModelGenerator: ModelGeneratorProtocol {
 
+    // MARK: - Public Properties
+    
     var source: GeneratorDataSourceProtocol {
         return GeneratorDataSource(languageFormatter: SwiftLanguageFormatter())
     }
@@ -21,6 +23,8 @@ class FakeModelGenerator: ModelGeneratorProtocol {
     var lastAddCall = (property: "", type: "")
     var addWasCalled = false
 
+    // MARK: - Public Functions
+    
     func add(property: String, type: String) {
         addWasCalled = true
         lastAddCall = (property, type)

@@ -11,6 +11,8 @@ import Foundation
 
 class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
 
+    // MARK: - Public Properties
+    
     var contents: [LineContent]
     var currentIteration: Int = 1
 
@@ -24,10 +26,14 @@ class FakeGeneratorDataSource: GeneratorDataSourceProtocol {
         return contents.compactMap { $0 as? FakeLineContent }
     }
 
+    // MARK: - Initialization
+    
     init() {
         contents = [FakeLineContent(iteration: currentIteration, languageFormatter: SwiftLanguageFormatter())]
     }
 
+    // MARK: - Public Functions
+    
     func fileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         fileTextWasCalled = true
         return ""

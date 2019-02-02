@@ -17,16 +17,24 @@ protocol ModelDataSourceProtocol {
 /// Data source handles creation and insertion of models generated.
 final class ModelDataSource: ModelDataSourceProtocol {
 
+    // MARK: - Public Properties
+    
     /// Contains all information for the models generated.
     var modelDict = [String : ModelGeneratorProtocol]()
 
+    // MARK: - Private Properties
+    
     private let config: ConfigurationFile
     private let currentModels: ModelComponents
+    
+    // MARK: - Initialization
     
     init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         self.currentModels = currentModels
     }
+    
+    // MARK: - Public Functions
     
     /// Creates a model generator for the given model name.
     ///

@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+    // MARK: - Public Properties
+    
 let package = Package(
     name: "ModelSynchroLibrary",
     products: [

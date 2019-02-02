@@ -10,6 +10,8 @@ import Foundation
 
 struct DirectoryData: Codable {
     
+    // MARK: - Public Properties
+    
     /// Input direction of the local JSON files.
     let inputDirectory: String
     
@@ -18,6 +20,8 @@ struct DirectoryData: Codable {
     
     /// Output package for Kotlin file generation.
     let outputPackage: String?
+    
+    // MARK: - Initialization
     
     init(inputDirectory: String = "", outputDirectory: String = "", outputPackage: String? = nil) {
         self.inputDirectory = inputDirectory

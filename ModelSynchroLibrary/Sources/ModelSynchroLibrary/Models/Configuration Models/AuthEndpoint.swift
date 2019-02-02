@@ -9,6 +9,9 @@
 import Foundation
 
 struct AuthEndpoint: Codable {
+    
+    // MARK: - Public Properties
+    
     var url: String
     var authTokenKey: String
     var parameters: [String: String]?

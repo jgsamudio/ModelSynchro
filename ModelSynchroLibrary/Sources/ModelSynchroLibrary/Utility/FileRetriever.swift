@@ -10,6 +10,8 @@ import Foundation
 
 struct FileRetriever {
 
+    // MARK: - Public Functions
+    
     static func retrieveFilenames(at path: String, fileExtension: String) -> [String] {
         let fileEnumerator = FileManager.default.enumerator(atPath: path)
         let enumerator = fileEnumerator?.filter{ ($0 as? String)?.contains(fileExtension) ?? false }

@@ -10,11 +10,15 @@ import Foundation
 
 final class ModelGenerator: ModelGeneratorProtocol {
 
+    // MARK: - Public Properties
+    
     /// Source of the model generator. Used for testing.
     var source: GeneratorDataSourceProtocol {
         return dataSource
     }
 
+    // MARK: - Private Properties
+    
     private var name: String
     private var config: ConfigurationFile
     private var dataSource: GeneratorDataSourceProtocol
@@ -25,6 +29,8 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
     
     private var previousModelContent: ModelContent?
+    
+    // MARK: - Initialization
     
     init(name: String, config: ConfigurationFile, currentModels: ModelComponents) {
         self.name = name
@@ -41,6 +47,8 @@ final class ModelGenerator: ModelGeneratorProtocol {
         self.dataSource = dataSource
         languageFormatter = config.languageFormatter()
     }
+    
+    // MARK: - Public Functions
     
     func add(property: String, type: String) {
         let customProperty = previousModelContent?.customProperties.find(property: property)
@@ -90,6 +98,7 @@ final class ModelGenerator: ModelGeneratorProtocol {
     }
 }
 
+// MARK: - Private Functions
 private extension ModelGenerator {
     
     func typePriorityUpdated(property: String, type: String) -> Bool {

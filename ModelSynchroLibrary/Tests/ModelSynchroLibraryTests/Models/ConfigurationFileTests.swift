@@ -11,10 +11,14 @@ import XCTest
 
 class ConfigurationFileTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: ConfigurationFile!
 
     // MARK: - outputPath: String
 
+    // MARK: - Public Functions
+    
     func testOutputPath_Nil() {
         ConfigurationFile.projectDirectory = "projectDirectory"
         sut = ConfigurationFile(authorName: "Author",

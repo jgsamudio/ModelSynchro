@@ -11,12 +11,16 @@ import Foundation
 
 class FakeModelDataSource: ModelDataSourceProtocol {
 
+    // MARK: - Public Properties
+    
     var modelDict = [String : ModelGeneratorProtocol]()
     var fakeGenerator = FakeModelGenerator()
 
     var modelGeneratorWasCalled = false
     var resetDataSourceWasCalled = false
 
+    // MARK: - Public Functions
+    
     func modelGenerator(modelName: String) -> ModelGeneratorProtocol {
         modelGeneratorWasCalled = true
         modelDict[modelName] = fakeGenerator

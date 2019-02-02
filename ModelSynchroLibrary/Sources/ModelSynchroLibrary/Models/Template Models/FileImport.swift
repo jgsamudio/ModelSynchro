@@ -9,6 +9,8 @@ import Foundation
 
 struct FileImport: Codable {
     
+    // MARK: - Public Properties
+    
     /// Name of the import
     let name: String
 }

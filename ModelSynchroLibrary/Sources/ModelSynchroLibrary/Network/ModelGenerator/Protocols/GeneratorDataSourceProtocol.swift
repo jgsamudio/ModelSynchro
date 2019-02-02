@@ -26,6 +26,8 @@ protocol GeneratorDataSourceProtocol {
 
 extension GeneratorDataSourceProtocol {
 
+    // MARK: - Public Properties
+    
     var currentLineContent: LineContent {
         get {
             return contents[currentIteration - 1]

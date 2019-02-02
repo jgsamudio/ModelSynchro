@@ -17,6 +17,8 @@ public enum CommandError: Int {
     case modelParse
     case fetchTemplates
     
+    // MARK: - Public Functions
+    
     public func displayError(with message: String? = nil, verboseMessage: String? = nil) {
         print(errorString(with: message, verboseMessage: verboseMessage))
         if isFatalError {
@@ -58,7 +60,10 @@ public enum CommandError: Int {
     }
 }
 
+// MARK: - Private Functions
 private extension CommandError {
+    
+    // MARK: - Public Properties
     
     var isFatalError: Bool {
         switch self {

@@ -9,6 +9,9 @@
 import Foundation
 
 public struct Endpoint: Codable {
+    
+    // MARK: - Public Properties
+    
     let responseModelName: String
     let url: String?
     let endpoint: String?

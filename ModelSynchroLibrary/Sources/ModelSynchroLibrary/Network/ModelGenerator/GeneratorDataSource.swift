@@ -10,15 +10,23 @@ import Foundation
 
 final class GeneratorDataSource: GeneratorDataSourceProtocol {
     
+    // MARK: - Public Properties
+    
     var contents: [LineContent]
     var currentIteration: Int = 1
     
+    // MARK: - Private Properties
+    
     private var languageFormatter: LanguageFormatter
+    
+    // MARK: - Initialization
     
     init(languageFormatter: LanguageFormatter) {
         self.languageFormatter = languageFormatter
         contents = [LineContent(iteration: currentIteration, languageFormatter: languageFormatter)]
     }
+    
+    // MARK: - Public Functions
     
     func fileText(name: String, config: ConfigurationFile, directoryData: DirectoryData?) -> String {
         return fileString(name: name,
@@ -54,6 +62,7 @@ final class GeneratorDataSource: GeneratorDataSourceProtocol {
     }
 }
 
+// MARK: - Private Functions
 private extension GeneratorDataSource {
     
     func updateModelOptionals() {

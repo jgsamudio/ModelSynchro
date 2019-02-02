@@ -11,10 +11,14 @@ import XCTest
 
 class GeneratorDataSourceTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: GeneratorDataSource!
     var languageFormatter: LanguageFormatter!
     var config: ConfigurationFile!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
 

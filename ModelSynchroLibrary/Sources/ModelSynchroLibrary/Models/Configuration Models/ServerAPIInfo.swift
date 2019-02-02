@@ -10,6 +10,7 @@ import Foundation
 
 struct ServerAPIInfo: Codable {
     
+    // MARK: - Public Properties
     
     /// List of endpoints to generate models for.
     let apis: [Api]?

@@ -11,9 +11,13 @@ import XCTest
 
 class ModelGeneratorTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var sut: ModelGenerator!
     var generatorDataSource: FakeGeneratorDataSource!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
 

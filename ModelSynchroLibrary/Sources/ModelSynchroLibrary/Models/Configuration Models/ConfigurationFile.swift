@@ -11,6 +11,8 @@ import Foundation
 /// Configuration model for the config file.
 public struct ConfigurationFile: Codable {
 
+    // MARK: - Public Properties
+    
     /// Name of the author / developer.
     let authorName: String
 

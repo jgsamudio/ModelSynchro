@@ -13,6 +13,8 @@ class ArrayExtensionTests: XCTestCase {
 
     // MARK: Line
 
+    // MARK: - Public Functions
+    
     func testLineArrayFind_Found() {
         let array = [Line(property: "Sample", type: "Type", isOptional: false, customProperty: nil)]
         let line = Line(property: "Sample", type: "Type", isOptional: false, customProperty: nil)

@@ -11,10 +11,14 @@ import Foundation
 
 class FakeLineContent: LineContent {
 
+    // MARK: - Public Properties
+    
     var shouldUpdatePriority = true
 
     var checkOptionalWasCalled = false
 
+    // MARK: - Public Functions
+    
     override func updatePriorityType(property: String, type: String) -> Bool {
         return shouldUpdatePriority
     }

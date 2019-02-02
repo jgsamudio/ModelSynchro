@@ -10,6 +10,8 @@ import Foundation
 
 class LineContent {
     
+    // MARK: - Public Properties
+    
     /// Iteration id.
     let iteration: Int
 
@@ -36,12 +38,18 @@ class LineContent {
                                                  isLastVariable: $0 == sortedFileLines.last) }
     }
     
+    // MARK: - Private Properties
+    
     private var languageFormatter: LanguageFormatter
+    
+    // MARK: - Initialization
     
     init(iteration: Int, languageFormatter: LanguageFormatter) {
         self.iteration = iteration
         self.languageFormatter = languageFormatter
     }
+    
+    // MARK: - Public Functions
     
     /// Checks the current line content with another line content with a different iteration. If a property
     /// is found in this line content and not in the other then the property needs to be optional.
@@ -83,6 +91,7 @@ class LineContent {
     }
 }
 
+// MARK: - Private Functions
 private extension LineContent {
     
     func typePriority(currentType: String, newType: String) -> String {

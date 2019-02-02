@@ -11,6 +11,8 @@ import Foundation
 /// Contains information from an existing model.
 struct KeyedProperty {
 
+    // MARK: - Public Properties
+    
     /// Custom property mapped by the developer.
     let mappedProperty: String
 

@@ -11,8 +11,12 @@ import XCTest
 
 class TypeTests: XCTestCase {
 
+    // MARK: - Public Properties
+    
     var formatter: LanguageFormatter!
 
+    // MARK: - Public Functions
+    
     override func setUp() {
         super.setUp()
         formatter = SwiftLanguageFormatter()

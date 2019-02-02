@@ -14,13 +14,19 @@ typealias JSON = [String : Any]
 /// Loads network requests.
 open class NetworkRequester {
     
+    // MARK: - Private Properties
+    
     private let config: ConfigurationFile
     private let jsonParser: JsonParser
+    
+    // MARK: - Initialization
     
     public init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         jsonParser = JsonParser(config: config, currentModels: currentModels)
     }
+    
+    // MARK: - Public Functions
     
     /// Generates the models specified from the config file.
     public func generateModels() {
