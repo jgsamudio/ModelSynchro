@@ -4,8 +4,8 @@ import kotlinx.coroutines.Deferred
 
 import com.kapsch.android.api.models.Account
 
-import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.GET
 
 /**
     Auto-Generated using ModelSynchro

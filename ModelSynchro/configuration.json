@@ -361,6 +361,240 @@
             }
           }
         ]
+      },
+      {
+        "name": "NotificationApi",
+        "endpoints": [
+          {
+            "functionName": "getUserNotifications",
+            "responseModelName": "NotificationCenter",
+            "endpoint": "users/notifications",
+            "authorized": false,
+            "method": "get",
+            "queryInfo": {
+              "data": {
+                "limit": 1,
+                "offset": 1,
+                "sort": "",
+                "filter": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "TransactionApi",
+        "endpoints": [
+          {
+            "functionName": "getUserTransactions",
+            "responseModelName": "Transaction",
+            "endpoint": "accounts/{account_id}/transactions",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            }, 
+            "queryInfo": {
+              "data": {
+                "limit": 1,
+                "offset": 1, 
+                "sort": "",
+                "dateFrom": "",
+                "dateTo": ""
+              }
+            }
+          },
+          {
+            "functionName": "getUserTransactionById",
+            "responseModelName": "Transaction",
+            "endpoint": "accounts/{account_id}/transactions/{transaction_id}",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transaction_id": "123456321"
+              }
+            }
+          },
+          {
+            "functionName": "updateUserTransactionById",
+            "responseModelName": "Transaction",
+            "endpoint": "accounts/{account_id}/transactions/{transaction_id}",
+            "authorized": false,
+            "method": "patch",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transaction_id": "123456321"
+              }
+            }, 
+            "bodyInfo": {
+              "modelName": "UpdateTransactionRequest",
+              "data": {
+                "vehicleId": "string"
+              }
+            }
+          },
+          {
+            "functionName": "deleteUserTransactionById",
+            "responseModelName": "Transaction",
+            "endpoint": "accounts/{account_id}/transactions/{transaction_id}",
+            "authorized": false,
+            "method": "delete",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transaction_id": "123456321"
+              }
+            }
+          },
+          {
+            "functionName": "disputeTransactionById",
+            "responseModelName": "Transaction",
+            "endpoint": "accounts/{account_id}/transactions/{transaction_id}/dispute",
+            "authorized": false,
+            "method": "post",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transaction_id": "123456321"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "BalanceApi",
+        "endpoints": [
+          {
+            "functionName": "getUserBalance",
+            "responseModelName": "Balance",
+            "endpoint": "accounts/{account_id}/balance",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            }
+          },
+          {
+            "functionName": "addBalance",
+            "responseModelName": "Balance",
+            "endpoint": "accounts/{account_id}/balance",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
+            "bodyInfo": {
+              "modelName": "AddFundsToBalanceRequest",
+              "data": {
+                "amount": 25
+              }
+            }
+          },
+          {
+            "functionName": "getAvailablePaymentSchemes",
+            "responseModelName": "PaymentScheme",
+            "endpoint": "accounts/{account_id}/balance/payment_schemes",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            }
+          },
+          {
+            "functionName": "updatePaymentScheme",
+            "responseModelName": "PaymentScheme",
+            "endpoint": "accounts/{account_id}/balance/payment_schemes/{payment_scheme_id}",
+            "authorized": false,
+            "method": "post",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "payment_scheme_id": "423145"
+              }
+            },
+            "bodyInfo": {
+              "modelName": "UpdatePaymentSchemeRequest",
+              "data": {
+                "threshold": 0,
+                "amountToAdd": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "FinancialApi",
+        "endpoints": [
+          {
+            "functionName": "getFinancialTransactions",
+            "responseModelName": "Finance",
+            "endpoint": "accounts/{account_id}/financial",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
+            "queryInfo": {
+              "data": {
+                "dateFrom": "",
+                "dateTo": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "UtilitiesApi",
+        "endpoints": [
+          {
+            "functionName": "getStates",
+            "responseModelName": "State",
+            "endpoint": "utilities/states",
+            "authorized": false,
+            "method": "get",
+            "queryInfo": {
+              "data": {
+                "country": "US",
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "StatementsApi",
+        "endpoints": [
+          {
+            "functionName": "getStatements",
+            "responseModelName": "Statement",
+            "endpoint": "accounts/{account_id}/statements",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
+            "queryInfo": {
+              "data": {
+                "dateFrom": "",
+                "dateTo": ""
+              }
+            }
+          }
+        ]
       }
     ]
   }
