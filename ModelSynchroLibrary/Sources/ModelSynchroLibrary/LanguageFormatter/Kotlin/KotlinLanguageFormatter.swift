@@ -244,6 +244,6 @@ private extension KotlinLanguageFormatter {
             let typeString = type.toString(formatter: self)
             let lastVariable = (currentCount == totalCount)
             return "\(annotation)(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",\n")"
-        }.joined(separator: "\n")
+        }.joined()
     }
 }
