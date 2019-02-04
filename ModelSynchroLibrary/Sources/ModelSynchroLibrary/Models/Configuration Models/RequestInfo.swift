@@ -13,13 +13,11 @@ public struct RequestInfo: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case modelName
-        case data
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         modelName = try? container.decode(String.self, forKey: .modelName)
-        data = nil
     }
     
     public func encode(to encoder: Encoder) throws {

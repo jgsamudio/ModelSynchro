@@ -39,7 +39,10 @@ public enum CommandError: Int {
         case .language:
             return "\(errorPrefix) Language is not recognized."
         case .validUrl:
-            return "\(errorPrefix) Not a valid url."
+            return """
+            \(errorPrefix) Not a valid url.
+                Error Message: \(message ?? "")
+            """
         case .configFile:
             return "\(errorPrefix) Check the config file."
         case .writeToFile:

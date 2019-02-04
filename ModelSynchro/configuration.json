@@ -3,7 +3,7 @@
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
   "language": "kotlin",
-  "verbose": false,
+  "verbose": true,
   "directoryInfo": {
     "outputModelDirectory": "./SampleKotlinModels/",
     "outputModelPackage": "com.kapsch.android.api.models",
@@ -218,7 +218,7 @@
           {
             "functionName": "getVehicles",
             "responseModelName": "Vehicle",
-            "endpoint": "/accounts/{account_id}/vehicles",
+            "endpoint": "accounts/{account_id}/vehicles",
             "authorized": false,
             "method": "get",
             "pathInfo": {
@@ -230,9 +230,14 @@
           {
             "functionName": "addVehicle",
             "responseModelName": "Vehicle",
-            "endpoint": "/accounts/{account_id}/vehicles",
+            "endpoint": "accounts/{account_id}/vehicles",
             "authorized": false,
             "method": "post",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
             "bodyInfo": {
               "modelName": "AddVehicleRequest",
               "data": {
@@ -255,7 +260,7 @@
           {
             "functionName": "getVehicleById",
             "responseModelName": "Vehicle",
-            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "endpoint": "accounts/{account_id}/vehicles/{vehicle_id}",
             "authorized": false,
             "method": "get",
             "pathInfo": {
@@ -268,7 +273,7 @@
           {
             "functionName": "updateVehicleById",
             "responseModelName": "Vehicle",
-            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "endpoint": "accounts/{account_id}/vehicles/{vehicle_id}",
             "authorized": false,
             "method": "patch",
             "pathInfo": {
@@ -302,7 +307,7 @@
           {
             "functionName": "deleteVehicleById",
             "responseModelName": "Vehicle",
-            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "endpoint": "accounts/{account_id}/vehicles/{vehicle_id}",
             "authorized": false,
             "method": "delete",
             "pathInfo": {
@@ -315,7 +320,7 @@
           {
             "functionName": "getVehicleMakes",
             "responseModelName": "Make",
-            "endpoint": "/vehicles/makes",
+            "endpoint": "vehicles/makes",
             "authorized": false,
             "method": "get",
             "queryInfo": {
@@ -327,21 +332,21 @@
           {
             "functionName": "getVehicleModels",
             "responseModelName": "Model",
-            "endpoint": "/vehicles/models",
+            "endpoint": "vehicles/models",
             "authorized": false,
             "method": "get"
           },
           {
             "functionName": "getVehicleColors",
             "responseModelName": "Color",
-            "endpoint": "/vehicles/colors",
+            "endpoint": "vehicles/colors",
             "authorized": false,
             "method": "get"
           },
           {
             "functionName": "searchForVehicle",
             "responseModelName": "Vehicle",
-            "endpoint": "/vehicles/search",
+            "endpoint": "vehicles/search",
             "authorized": false,
             "method": "post",
             "bodyInfo": {

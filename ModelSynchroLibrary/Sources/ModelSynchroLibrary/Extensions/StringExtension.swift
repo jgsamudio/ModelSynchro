@@ -74,7 +74,7 @@ extension String {
 
     func writeToFile(directory: String) {
         guard let fileURL = URL(string: directory) else {
-            CommandError.validUrl.displayError()
+            CommandError.validUrl.displayError(with: directory)
             return
         }
 

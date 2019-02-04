@@ -2,14 +2,14 @@ package com.kapsch.android.api.service
 
 import kotlinx.coroutines.Deferred
 
-import com.kapsch.android.api.models.AddTransponderRequest
 import com.kapsch.android.api.models.Transponder
+import com.kapsch.android.api.models.AddTransponderRequest
 
-import retrofit2.http.Path
 import retrofit2.http.POST
-import retrofit2.http.GET
 import retrofit2.http.DELETE
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 /**
     Auto-Generated using ModelSynchro

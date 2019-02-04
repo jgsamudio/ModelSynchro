@@ -73,7 +73,7 @@ open class NetworkRequester {
         }
         
         guard let url = urlComponents?.url else {
-            CommandError.validUrl.displayError()
+            CommandError.validUrl.displayError(with: endpoint.endpoint)
             return nil
         }
         

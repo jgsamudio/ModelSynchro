@@ -44,8 +44,6 @@ extension Endpoint {
     }
     
     mutating func updateConfiguration(with json: JSON) {
-        print(json)
-        
         if let pathInfoJson = json["pathInfo"] as? JSON, let dataJson = pathInfoJson["data"] as? JSON {
             pathInfo?.data = dataJson
         }
