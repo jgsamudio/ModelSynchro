@@ -32,7 +32,7 @@ public struct ConfigurationFile: Codable {
     let directoryInfo: DirectoryInfo
 
     /// Network endpoints and information to generate network models.
-    let serverAPIInfo: ServerAPIInfo?
+    var serverAPIInfo: ServerAPIInfo?
     
     /// Mapped model names.
     let mappedModelNames: [MappedModelInfo]?
@@ -53,6 +53,12 @@ extension ConfigurationFile {
     /// Model output path.
     var outputModelPath: String {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
+    }
+    
+    public mutating func updateConfiguration(with json: JSON) {
+        if let apiJson = json["serverAPIInfo"] as? JSON {
+            serverAPIInfo?.updateConfiguration(with: apiJson)
+        }
     }
 
     /// The local directory path.

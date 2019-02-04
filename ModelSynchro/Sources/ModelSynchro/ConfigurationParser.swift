@@ -60,8 +60,11 @@ private extension ConfigurationParser {
     private func setupConfigurationFile(fileLines: [String]) {
         let configString = fileLines.joined()
         let configData = configString.data(using: .utf8)
-        configData?.deserializeObject(completion: { (config, _) in
+        configData?.deserializeObject(completion: { (config: ConfigurationFile?, _) in
             self.configFile = config
+            if let configJson = configData?.serializeToJsonObject() {
+                configFile?.updateConfiguration(with: configJson)
+            }
         })
     }
     

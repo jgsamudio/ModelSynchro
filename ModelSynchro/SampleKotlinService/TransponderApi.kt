@@ -5,10 +5,10 @@ import kotlinx.coroutines.Deferred
 import com.kapsch.android.api.models.AddTransponderRequest
 import com.kapsch.android.api.models.Transponder
 
-import retrofit2.http.DELETE
 import retrofit2.http.Path
-import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.GET
+import retrofit2.http.DELETE
 import retrofit2.http.Body
 
 /**
@@ -25,11 +25,11 @@ interface TransponderApi {
 @Body addTransponderRequest: AddTransponderRequest): Deferred<ArrayList<Transponder>>
     
     @GET("accounts/{account_id}/transponders/{transponder_id}")
-    fun getTransponder(@Path("transponder_id") transponder_id: String,
-@Path("account_id") account_id: String): Deferred<Transponder>
+    fun getTransponder(@Path("account_id") account_id: String,
+@Path("transponder_id") transponder_id: String): Deferred<Transponder>
     
     @DELETE("accounts/{account_id}/transponders/{transponder_id}")
-    fun deleteTransponder(@Path("transponder_id") transponder_id: String,
-@Path("account_id") account_id: String): Deferred<Transponder>
+    fun deleteTransponder(@Path("account_id") account_id: String,
+@Path("transponder_id") transponder_id: String): Deferred<Transponder>
     
 }

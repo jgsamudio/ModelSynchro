@@ -3,7 +3,7 @@
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
   "language": "kotlin",
-  "verbose": true,
+  "verbose": false,
   "directoryInfo": {
     "outputModelDirectory": "./SampleKotlinModels/",
     "outputModelPackage": "com.kapsch.android.api.models",
@@ -207,6 +207,148 @@
               "data": {
                 "account_id": "2492349823817",
                 "transponder_id": "1234523109123"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "VehicleApi",
+        "endpoints": [
+          {
+            "functionName": "getVehicles",
+            "responseModelName": "Vehicle",
+            "endpoint": "/accounts/{account_id}/vehicles",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817"
+              }
+            }
+          },
+          {
+            "functionName": "addVehicle",
+            "responseModelName": "Vehicle",
+            "endpoint": "/accounts/{account_id}/vehicles",
+            "authorized": false,
+            "method": "post",
+            "bodyInfo": {
+              "modelName": "AddVehicleRequest",
+              "data": {
+                "nickName": "string",
+                "licensePlate": "string",
+                "make": "string",
+                "model": "string",
+                "color": "string",
+                "year": "string",
+                "isWindshieldMetalized": true,
+                "isLicensePlateTemporary": true,
+                "licensePlateExpirationDate": "string",
+                "vehicleClass": "string",
+                "country": "string",
+                "state": "string",
+                "licensePlateNumberType": "string"
+              }
+            }
+          },
+          {
+            "functionName": "getVehicleById",
+            "responseModelName": "Vehicle",
+            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "vehicle_id": "1"
+              }
+            }
+          },
+          {
+            "functionName": "updateVehicleById",
+            "responseModelName": "Vehicle",
+            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "authorized": false,
+            "method": "patch",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "vehicle_id": "1"
+              }
+            },
+            "bodyInfo": {
+              "modelName": "UpdateVehicleRequest",
+              "data": {
+                "nickName": "string",
+                "licensePlate": "string",
+                "make": "string",
+                "model": "string",
+                "color": "string",
+                "year": "string",
+                "isWindshieldMetalized": true,
+                "isLicensePlateTemporary": true,
+                "licensePlateExpirationDate": "string",
+                "vehicleClass": "string",
+                "country": "string",
+                "state": "string",
+                "licensePlateNumberType": "string",
+                "transponderId": "string",
+                "paymentMethodId": "string",
+                "bluetoothId": "string"
+              }
+            }
+          },
+          {
+            "functionName": "deleteVehicleById",
+            "responseModelName": "Vehicle",
+            "endpoint": "/accounts/{account_id}/vehicles/{vehicle_id}",
+            "authorized": false,
+            "method": "delete",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "vehicle_id": "1"
+              }
+            }
+          },
+          {
+            "functionName": "getVehicleMakes",
+            "responseModelName": "Make",
+            "endpoint": "/vehicles/makes",
+            "authorized": false,
+            "method": "get",
+            "queryInfo": {
+              "data": {
+                "makeId": "118929"
+              }
+            }
+          },
+          {
+            "functionName": "getVehicleModels",
+            "responseModelName": "Model",
+            "endpoint": "/vehicles/models",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "functionName": "getVehicleColors",
+            "responseModelName": "Color",
+            "endpoint": "/vehicles/colors",
+            "authorized": false,
+            "method": "get"
+          },
+          {
+            "functionName": "searchForVehicle",
+            "responseModelName": "Vehicle",
+            "endpoint": "/vehicles/search",
+            "authorized": false,
+            "method": "post",
+            "bodyInfo": {
+              "modelName": "SearchVehicleRequest",
+              "data": {
+                "licensePlateNumber": "BROOK123",
+                "state": "NY"
               }
             }
           }

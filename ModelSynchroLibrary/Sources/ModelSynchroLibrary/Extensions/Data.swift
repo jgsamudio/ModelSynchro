@@ -31,4 +31,12 @@ extension Data {
             completion(nil, NetworkError.objectSerialization(reason: "Array Serialization Failed"))
         }
     }
+    
+    public func serializeToJsonObject() -> JSON? {
+        do {
+            return try JSONSerialization.jsonObject(with: self, options: .allowFragments) as? JSON
+        } catch {
+            return nil
+        }
+    }
 }

@@ -5,8 +5,8 @@ import kotlinx.coroutines.Deferred
 import com.kapsch.android.api.models.AuthenticationToken
 import com.kapsch.android.api.models.AuthenticationInformation
 
-import retrofit2.http.POST
 import retrofit2.http.Body
+import retrofit2.http.POST
 
 /**
     Auto-Generated using ModelSynchro

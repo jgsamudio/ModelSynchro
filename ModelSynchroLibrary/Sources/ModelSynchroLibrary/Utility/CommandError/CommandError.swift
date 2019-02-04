@@ -15,10 +15,11 @@ public enum CommandError: Int {
     case configFile
     case writeToFile
     case modelParse
-    case fetchTemplates
+    case loadTemplates
     case deserialization
     case templateDirectory
     case templateNotFound
+    case bodyInfoModelName
     
     // MARK: - Public Functions
     
@@ -52,17 +53,16 @@ public enum CommandError: Int {
                 errorMessage += "\n\(verboseMessage)"
             }
             return errorMessage
-        case .fetchTemplates:
+        case .loadTemplates:
             return """
-            \(errorPrefix) Unable to fetch templates."
+            \(errorPrefix) Unable to load templates."
                 Error Message: \(message ?? "")
             """
         case .deserialization:
-            var errorMessage = "\(errorPrefix) Deserialization Error."
-            if let verboseMessage = verboseMessage {
-                errorMessage += "\n\(verboseMessage)"
-            }
-            return errorMessage
+            return """
+            "\(errorPrefix) Deserialization Error."
+                "Serialization Message: \(message ?? "")"
+            """
         case .templateDirectory:
             return "\(errorPrefix) No Template Directory Specified. Check the config file."
         case .templateNotFound:
@@ -70,6 +70,8 @@ public enum CommandError: Int {
             \(errorPrefix) Api Template is not found."
                 Check template name: \(message ?? "").
             """
+        case .bodyInfoModelName:
+            return "\(errorPrefix) No model name given for body info."
         default:
             return "\(errorPrefix) Something went wrong!"
         }
@@ -84,7 +86,7 @@ private extension CommandError {
     var isFatalError: Bool {
         switch self {
         case .modelParse,
-             .fetchTemplates:
+             .loadTemplates:
             return false
         default:
             return true

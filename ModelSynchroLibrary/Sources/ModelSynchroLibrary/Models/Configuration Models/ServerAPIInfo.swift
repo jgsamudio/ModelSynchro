@@ -13,7 +13,7 @@ struct ServerAPIInfo: Codable {
     // MARK: - Public Properties
     
     /// List of endpoints to generate models for.
-    let apis: [Api]?
+    var apis: [Api]?
     
     /// Header data for the endpoints.
     let headers: [String : String]?
@@ -38,5 +38,13 @@ extension ServerAPIInfo {
             }
         }
         return endpoints
+    }
+    
+    mutating func updateConfiguration(with json: JSON) {
+        if let apiJsonArray = json["apis"] as? [JSON], let apis = apis, apis.count == apiJsonArray.count {
+            for (index, _) in apis.enumerated() {
+                self.apis?[index].updateConfiguration(with: apiJsonArray[index])
+            }
+        }
     }
 }

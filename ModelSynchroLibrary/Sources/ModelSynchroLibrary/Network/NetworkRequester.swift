@@ -9,7 +9,7 @@
 import Foundation
 
 /// JSON network type alias.
-typealias JSON = [String : Any]
+public typealias JSON = [String : Any]
 
 /// Loads network requests.
 open class NetworkRequester {
@@ -51,8 +51,12 @@ open class NetworkRequester {
             }
             self.jsonParser.parse(data: data, name: endpoint.responseModelName, response: response)
             
-            if let bodyInfo = endpoint.bodyInfo, let modelName = bodyInfo.modelName {
-                self.jsonParser.parse(json: bodyInfo.data, modelName: modelName)
+            if let bodyInfo = endpoint.bodyInfo {
+                if let modelName = bodyInfo.modelName, let data = bodyInfo.data {
+                    self.jsonParser.parse(json: data, modelName: modelName)
+                } else {
+                    CommandError.bodyInfoModelName.displayError()
+                }
             }
             
             sema.signal()

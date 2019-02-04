@@ -73,7 +73,7 @@ private extension StencilParser {
                 let fileName = file.removeTrailing(startWith: stencilFileExtension)
                 templateDict[fileName] = content
             } catch {
-                CommandError.fetchTemplates.displayError(with: error.localizedDescription)
+                CommandError.loadTemplates.displayError(with: error.localizedDescription)
             }
         }
     }
