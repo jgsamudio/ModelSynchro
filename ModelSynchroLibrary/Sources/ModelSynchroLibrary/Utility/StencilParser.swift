@@ -18,11 +18,11 @@ open class StencilParser {
     
     private let stencilFileExtension = ".mustache"
     private let config: ConfigurationFile
-    private let urlModelDict: [String: String]
+    private let urlModelDict: UrlModelDict
     
     // MARK: - Initialization
     
-    public init(config: ConfigurationFile, urlModelDict: [String: String]) {
+    public init(config: ConfigurationFile, urlModelDict: UrlModelDict) {
         self.config = config
         self.urlModelDict = urlModelDict
         loadTemplates()
@@ -32,11 +32,12 @@ open class StencilParser {
     
     public func generateAPI() {
         let environment = Environment()
-        // Add template name to language / config
-        // Ability to add multiple templates per language.
-        guard let content = templateDict[Template.api.rawValue],
+
+        // TODO: Ability to add multiple templates per language.
+        let templateName = config.languageFormatter().apiTemplateName
+        guard let content = templateDict[templateName],
             let outputDirectory = config.directoryInfo.outputApiDirectory else {
-            // TODO: Generate template not found error.
+                CommandError.templateNotFound.displayError(with: templateName)
             return
         }
 
@@ -58,7 +59,11 @@ open class StencilParser {
 private extension StencilParser {
     
     func loadTemplates() {
-        let inputPath = "\(ConfigurationFile.projectDirectory)/templates/"
+        guard let templateDirectory = config.directoryInfo.templateDirectory else {
+            CommandError.templateDirectory.displayError()
+            return
+        }
+        let inputPath = "\(ConfigurationFile.projectDirectory)\(templateDirectory)"
         let fileNames = FileRetriever.retrieveFilenames(at: inputPath, fileExtension: stencilFileExtension)
         
         for file in fileNames {

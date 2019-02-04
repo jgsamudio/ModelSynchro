@@ -25,7 +25,7 @@ protocol LanguageFormatter: APIGeneratorLanguageFormatter {
     var string: String { get }
     var bool: String { get }
     var double: String { get }
-
+    
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
@@ -79,7 +79,9 @@ extension LanguageFormatter {
 
 protocol APIGeneratorLanguageFormatter {
     
-    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: [String: String]) -> TemplateContext
+    var apiTemplateName: String { get }
+    
+    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext
 
     func httpMethodAnnotation(method: HTTPMethod) -> String
     
@@ -87,7 +89,11 @@ protocol APIGeneratorLanguageFormatter {
 
 extension APIGeneratorLanguageFormatter {
     
-    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: [String: String]) -> TemplateContext {
+    var apiTemplateName: String {
+        return ""
+    }
+    
+    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext {
         return [:]
     }
     

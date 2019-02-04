@@ -8,11 +8,13 @@
 
 import Foundation
 
+public typealias UrlModelDict = [String: String]
+
 /// Parses the json from the returned network response.
 open class JsonParser {
     
     /// A dictionary with the request url and the model name for the response.
-    public var urlModelDict = [String: String]()
+    public var urlModelDict = UrlModelDict()
     
     // MARK: - Private Properties
     

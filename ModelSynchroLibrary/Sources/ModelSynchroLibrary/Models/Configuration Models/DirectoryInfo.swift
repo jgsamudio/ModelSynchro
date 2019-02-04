@@ -23,6 +23,9 @@ struct DirectoryInfo: Codable {
     /// Package for the generated APIs.
     let outputApiPackage: String?
     
+    /// Directory for the templates.
+    let templateDirectory: String?
+    
     /// Local location of json files.
     let localJSONDirectory: [DirectoryData]?
 }

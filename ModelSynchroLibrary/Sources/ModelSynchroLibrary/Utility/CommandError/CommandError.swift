@@ -17,6 +17,8 @@ public enum CommandError: Int {
     case modelParse
     case fetchTemplates
     case deserialization
+    case templateDirectory
+    case templateNotFound
     
     // MARK: - Public Functions
     
@@ -61,6 +63,13 @@ public enum CommandError: Int {
                 errorMessage += "\n\(verboseMessage)"
             }
             return errorMessage
+        case .templateDirectory:
+            return "\(errorPrefix) No Template Directory Specified. Check the config file."
+        case .templateNotFound:
+            return """
+            \(errorPrefix) Api Template is not found."
+                Check template name: \(message ?? "").
+            """
         default:
             return "\(errorPrefix) Something went wrong!"
         }

@@ -54,6 +54,10 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "val"
     }
     
+    var apiTemplateName: String {
+        return "KotlinApiTemplate"
+    }
+    
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
@@ -137,8 +141,9 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return !foundVariables.isEmpty
     }
     
-    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: [String: String]) -> TemplateContext {
+    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext {
         let context: TemplateContext = [
+            "package": config.directoryInfo.outputApiPackage,
             "modelImports": modelImports(config: config, endpoints: api.endpoints),
             "retrofitImports": retrofitImports(endpoints: api.endpoints),
             "api": apiTemplateModels(config: config, api: api, urlModelDict: urlModelDict)
@@ -155,11 +160,9 @@ private extension KotlinLanguageFormatter {
     
     // TODO: Have this be returned from the language formatter?
     // How to handle mulitple apis
-    func apiTemplateModels(config: ConfigurationFile, api: Api, urlModelDict: [String: String]) -> APITemplate? {
+    func apiTemplateModels(config: ConfigurationFile, api: Api, urlModelDict: UrlModelDict) -> APITemplate? {
         var requestTemplates = [APIRequestTemplate]()
         for endpoint in api.endpoints ?? [] {
-            let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
-            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
             
             // Retreive the return type.
             let baseUrl = config.serverAPIInfo?.baseUrl
@@ -167,6 +170,9 @@ private extension KotlinLanguageFormatter {
                 let returnType = urlModelDict[url] else {
                 continue
             }
+            
+            let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
+            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
             
             let requestTemplate = APIRequestTemplate(name: requestName,
                                                      httpMethodAnnotation: methodAnnotation,
