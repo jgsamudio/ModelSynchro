@@ -64,7 +64,7 @@ open class JsonParser {
     ///   - json: JSON data from the network response used to generate the models.
     ///   - modelName: Name of the first model.
     func parse(json: JSON, modelName: String) {
-        let model = modelDataSource.modelGenerator(modelName: config.mapped(jsonKey: modelName))
+        let model = modelDataSource.modelGenerator(modelName: config.mapped(filename: modelName))
         
         for (key, value) in json {
             guard let type = parse(key: key, value: value) else {
@@ -111,7 +111,7 @@ open class JsonParser {
     
     func parse(key: String, value: Any) -> Type? {
         if let array = value as? Array<Any> {
-            return .array(config.mapped(jsonKey: parse(array: array, key: key)))
+            return .array(config.mapped(filename: parse(array: array, key: key)))
         } else if let _ = value as? Bool {
             return .bool
         } else if let _ = value as? Int {
@@ -122,7 +122,7 @@ open class JsonParser {
             return .string
         } else if let json = value as? JSON {
             parse(json: json, modelName: key)
-            return .custom(config.mapped(jsonKey: key))
+            return .custom(config.mapped(filename: key))
         }
         return nil
     }

@@ -3,7 +3,10 @@
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
   "language": "kotlin",
-  "verbose": true,
+  "verbose": false,
+  "namingConventions":[
+    "removePluralNamesForModels"
+  ],
   "directoryInfo": {
     "outputModelDirectory": "./SampleKotlinModels/",
     "outputModelPackage": "com.kapsch.android.api.models",

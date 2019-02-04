@@ -28,6 +28,9 @@ public struct ConfigurationFile: Codable {
     /// Flag to output more detailed information.
     let verbose: Bool?
     
+    /// Naming conventions
+    let namingConventions: [NamingConvention]?
+    
     /// Directory information for code generation.
     let directoryInfo: DirectoryInfo
 
@@ -88,19 +91,6 @@ extension ConfigurationFile {
         }
     }
 
-    /// Maps the json key to the correct name.
-    ///
-    /// - Parameter jsonKey: Json key to search for.
-    /// - Returns: Mapped model name if found.
-    func mapped(jsonKey: String) -> String {
-        for modelInfo in mappedModelNames ?? [] {
-            if modelInfo.jsonKey == jsonKey {
-                return modelInfo.mappedName
-            }
-        }
-        return jsonKey
-    }
-
     /// Maps the filename to the correct name.
     ///
     /// - Parameter filename: Filename to search for.
@@ -109,8 +99,18 @@ extension ConfigurationFile {
         for modelInfo in mappedModelNames ?? [] {
             if modelInfo.fileName == filename {
                 return modelInfo.mappedName
+            } else if modelInfo.jsonKey == filename {
+                return modelInfo.mappedName
             }
+        }
+        if namingConventions?.contains(.removePluralNamesForModels) ?? false,
+            filename[filename.index(before: filename.endIndex)] == "s" {
+            return String(filename[filename.startIndex..<filename.index(before: filename.endIndex)])
         }
         return filename
     }
+}
+
+enum NamingConvention: String, Codable {
+    case removePluralNamesForModels
 }

@@ -12,8 +12,8 @@ data class Account(
     @Json(name = "default") val default: Boolean,
     @Json(name = "isBlocked") val isBlocked: Boolean,
     @Json(name = "name") val name: String,
-    @Json(name = "paymentMethods") val paymentMethods: ArrayList<PaymentMethods>,
+    @Json(name = "paymentMethods") val paymentMethods: ArrayList<PaymentMethod>,
     @Json(name = "status") val status: String,
-    @Json(name = "transponders") val transponders: ArrayList<Transponders>,
-    @Json(name = "vehicles") val vehicles: ArrayList<Vehicles>
+    @Json(name = "transponders") val transponders: ArrayList<Transponder>,
+    @Json(name = "vehicles") val vehicles: ArrayList<Vehicle>
 )
