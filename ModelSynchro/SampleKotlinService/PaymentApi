@@ -1,41 +1,43 @@
-// language: kotlin 
-
 import kotlinx.coroutines.Deferred
 
+import com.kapsch.android.api.models.PaymentMethod
 import com.kapsch.android.api.models.UpdatePaymentMethodRequest
 import com.kapsch.android.api.models.AddPaymentMethodRequest
-import com.kapsch.android.api.models.PaymentMethod
 
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.PATCH
 import retrofit2.http.Path
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Body
+import retrofit2.http.PATCH
+import retrofit2.http.DELETE
+
+/*
+    Auto-Generated using ModelSynchro
+*/
 
 interface PaymentApi {
     
     @GET("accounts/{account_id}/payments")
-    fun getPaymentMethod(@Path("account_id") account_id: String): Deferred<PaymentMethod>
+    fun getPayments(@Path("account_id") account_id: String): Deferred<PaymentMethod>
     
     @POST("accounts/{account_id}/payments")
-    fun postPaymentMethod(@Path("account_id") account_id: String,
+    fun addPaymentMethod(@Path("account_id") account_id: String,
 @Body addPaymentMethodRequest: AddPaymentMethodRequest): Deferred<PaymentMethod>
     
     @GET("accounts/{account_id}/payments/{payment_id}")
-    fun getPaymentMethod(@Path("payment_id") payment_id: String,
+    fun getPaymentMethod(@Path("account_id") account_id: String,
 
-@Path("account_id") account_id: String): Deferred<PaymentMethod>
+@Path("payment_id") payment_id: String): Deferred<PaymentMethod>
     
     @PATCH("accounts/{account_id}/payments/{payment_id}")
-    fun patchPaymentMethod(@Path("payment_id") payment_id: String,
+    fun updatePaymentMethod(@Path("account_id") account_id: String,
 
-@Path("account_id") account_id: String,
+@Path("payment_id") payment_id: String,
 @Body updatePaymentMethodRequest: UpdatePaymentMethodRequest): Deferred<PaymentMethod>
     
     @DELETE("accounts/{account_id}/payments/{payment_id}")
-    fun deletePaymentMethod(@Path("payment_id") payment_id: String,
+    fun deletePaymentMethod(@Path("account_id") account_id: String,
 
-@Path("account_id") account_id: String): Deferred<PaymentMethod>
+@Path("payment_id") payment_id: String): Deferred<PaymentMethod>
     
 }

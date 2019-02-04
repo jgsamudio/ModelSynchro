@@ -16,6 +16,7 @@ extension Data {
             let object = try decoder.decode(T.self, from: self)
             completion(object, nil)
         } catch {
+            CommandError.deserialization.displayError(with: error.localizedDescription)
             completion(nil, NetworkError.objectSerialization(reason: "Object Serialization Failed"))
         }
     }
@@ -26,6 +27,7 @@ extension Data {
             let object = try decoder.decode([T].self, from: self)
             completion(object, nil)
         } catch {
+            CommandError.deserialization.displayError(with: error.localizedDescription)
             completion(nil, NetworkError.objectSerialization(reason: "Array Serialization Failed"))
         }
     }

@@ -16,6 +16,7 @@ public enum CommandError: Int {
     case writeToFile
     case modelParse
     case fetchTemplates
+    case deserialization
     
     // MARK: - Public Functions
     
@@ -54,6 +55,12 @@ public enum CommandError: Int {
             \(errorPrefix) Unable to fetch templates."
                 Error Message: \(message ?? "")
             """
+        case .deserialization:
+            var errorMessage = "\(errorPrefix) Deserialization Error."
+            if let verboseMessage = verboseMessage {
+                errorMessage += "\n\(verboseMessage)"
+            }
+            return errorMessage
         default:
             return "\(errorPrefix) Something went wrong!"
         }

@@ -17,6 +17,7 @@
         "name": "AuthenticationApi",
         "endpoints": [
           {
+            "functionName": "createUser",
             "responseModelName": "AuthenticationToken",
             "endpoint": "users/register",
             "authorized": false,
@@ -30,6 +31,7 @@
             }
           },
           {
+            "functionName": "loginUser",
             "responseModelName": "AuthenticationToken",
             "endpoint": "users/login",
             "authorized": false,
@@ -48,12 +50,14 @@
         "name": "AccountApi",
         "endpoints": [
           {
+            "functionName": "getAccounts",
             "responseModelName": "Account",
             "endpoint": "accounts",
             "authorized": false,
             "method": "get"
           },
           {
+            "functionName": "getAccountById",
             "responseModelName": "Account",
             "endpoint": "accounts/{account_id}",
             "authorized": false,
@@ -70,6 +74,7 @@
         "name": "PaymentApi",
         "endpoints": [
           {
+            "functionName": "getPayments",
             "responseModelName": "PaymentMethod",
             "endpoint": "accounts/{account_id}/payments",
             "authorized": false,
@@ -81,6 +86,7 @@
             }
           },
           {
+            "functionName": "addPaymentMethod",
             "responseModelName": "PaymentMethod",
             "endpoint": "accounts/{account_id}/payments",
             "authorized": false,
@@ -98,6 +104,7 @@
             }
           },
           {
+            "functionName": "getPaymentMethod",
             "responseModelName": "PaymentMethod",
             "endpoint": "accounts/{account_id}/payments/{payment_id}",
             "authorized": false,
@@ -110,6 +117,7 @@
             }
           },
           {
+            "functionName": "updatePaymentMethod",            
             "responseModelName": "PaymentMethod",
             "endpoint": "accounts/{account_id}/payments/{payment_id}",
             "authorized": false,
@@ -128,6 +136,7 @@
             }
           },
           {
+            "functionName": "deletePaymentMethod",
             "responseModelName": "PaymentMethod",
             "endpoint": "accounts/{account_id}/payments/{payment_id}",
             "authorized": false,
@@ -136,6 +145,67 @@
               "data": {
                 "account_id": "2492349823817",
                 "payment_id": "5267442"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "TransponderApi",
+        "endpoints": [
+          {
+            "functionName": "getTransponders",
+            "responseModelName": "Transponder",
+            "endpoint": "accounts/{account_id}/transponders",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            }
+          },
+          {
+            "functionName": "addTransponder",
+            "responseModelName": "Transponder",
+            "endpoint": "accounts/{account_id}/transponders",
+            "authorized": false,
+            "method": "post",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+              }
+            },
+            "bodyInfo": {
+              "modelName": "AddTransponderRequest",
+              "data": {
+                "number": "string"
+              }
+            }
+          },
+          {
+            "functionName": "getTransponder",
+            "responseModelName": "Transponder",
+            "endpoint": "accounts/{account_id}/transponders/{transponder_id}",
+            "authorized": false,
+            "method": "get",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transponder_id": "1234523109123"
+              }
+            }
+          },
+          {
+            "functionName": "deleteTransponder",
+            "responseModelName": "Transponder",
+            "endpoint": "accounts/{account_id}/transponders/{transponder_id}",
+            "authorized": false,
+            "method": "delete",
+            "pathInfo": {
+              "data": {
+                "account_id": "2492349823817",
+                "transponder_id": "1234523109123"
               }
             }
           }

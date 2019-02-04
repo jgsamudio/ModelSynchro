@@ -159,7 +159,7 @@ private extension KotlinLanguageFormatter {
         var requestTemplates = [APIRequestTemplate]()
         for endpoint in api.endpoints ?? [] {
             let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
-            let requestName = "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
+            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
             let requestTemplate = APIRequestTemplate(name: requestName,
                                                      httpMethodAnnotation: methodAnnotation,
                                                      endpoint: endpoint.endpoint ?? "",

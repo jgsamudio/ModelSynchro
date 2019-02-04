@@ -1,5 +1,3 @@
-// language: kotlin 
-
 import kotlinx.coroutines.Deferred
 
 import com.kapsch.android.api.models.AuthenticationToken
@@ -8,12 +6,16 @@ import com.kapsch.android.api.models.AuthenticationInformation
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+/*
+    Auto-Generated using ModelSynchro
+*/
+
 interface AuthenticationApi {
     
     @POST("users/register")
-    fun postAuthenticationToken(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
+    fun createUser(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
     
     @POST("users/login")
-    fun postAuthenticationToken(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
+    fun loginUser(@Body authenticationInformation: AuthenticationInformation): Deferred<AuthenticationToken>
     
 }

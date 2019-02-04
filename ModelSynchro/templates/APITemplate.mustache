@@ -1,10 +1,12 @@
-// language: kotlin 
-
 import kotlinx.coroutines.Deferred
 {% for modelImport in modelImports %}
 import {{ modelImport.name }}{% endfor %}
 {% for retrofitImport in retrofitImports %}
 import {{ retrofitImport.name }}{% endfor %}
+
+/*
+    Auto-Generated using ModelSynchro
+*/
 
 interface {{ api.name }} {
     {% for apiRequest in api.apiRequests %}
