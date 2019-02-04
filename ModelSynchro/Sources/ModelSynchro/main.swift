@@ -17,20 +17,21 @@ guard let config = ConfigurationParser().configFile else {
 }
 
 let modelParser = ModelParser(config: config)
+let jsonParser = JsonParser(config: config, currentModels: modelParser.customComponents)
 
 print("Fetching JSON...")
-let requester = NetworkRequester(config: config, currentModels: modelParser.customComponents)
+let requester = NetworkRequester(config: config, jsonParser: jsonParser)
 requester.generateModels()
 
 if config.containsLocalDirectory {
     print("Parsing Local Files")
-    let localJSONParser = LocalJSONParser(config: config, currentModels: modelParser.customComponents)
+    let localJSONParser = LocalJSONParser(config: config, jsonParser: jsonParser)
     localJSONParser.parseLocalJSON()
 }
 
 if config.containsOutputApiDirectory {
     print("Parsing API Template Files")
-    let templateParser = StencilParser(config: config)
+    let templateParser = StencilParser(config: config, urlModelDict: jsonParser.urlModelDict)
     templateParser.generateAPI()
 }
 

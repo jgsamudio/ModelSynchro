@@ -9,7 +9,10 @@
 import Foundation
 
 /// Parses the json from the returned network response.
-final class JsonParser {
+open class JsonParser {
+    
+    /// A dictionary with the request url and the model name for the response.
+    public var urlModelDict = [String: String]()
     
     // MARK: - Private Properties
     
@@ -19,11 +22,12 @@ final class JsonParser {
 
     // MARK: - Initialization
     
-    init(config: ConfigurationFile, currentModels: ModelComponents) {
+    public init(config: ConfigurationFile, currentModels: ModelComponents) {
         self.config = config
         modelDataSource = ModelDataSource(config: config, currentModels: currentModels)
     }
 
+    // Used for testing proposes.
     init(config: ConfigurationFile, modelDataSource: ModelDataSourceProtocol) {
         self.config = config
         self.modelDataSource = modelDataSource
@@ -35,17 +39,20 @@ final class JsonParser {
         guard let data = data else {
             return
         }
-
+        
+        let mappedFilename = config.mapped(filename: name)
         do {
             if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSON {
-                parse(json: json, modelName: config.mapped(filename: name))
+                updateUrlModelDict(responseUrl: response?.url, type: Type.custom(mappedFilename))
+                parse(json: json, modelName: mappedFilename)
             }
             if let jsonArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [JSON] {
-                parse(jsonArray: jsonArray, modelName: config.mapped(filename: name))
+                updateUrlModelDict(responseUrl: response?.url, type: Type.array(mappedFilename))
+                parse(jsonArray: jsonArray, modelName: mappedFilename)
             }
         } catch {
             let verboseMessage = (config.verbose ?? false) ? response?.description : nil
-            CommandError.modelParse.displayError(with: config.mapped(filename: name), verboseMessage: verboseMessage)
+            CommandError.modelParse.displayError(with: mappedFilename, verboseMessage: verboseMessage)
         }
     }
     
@@ -140,4 +147,10 @@ private extension JsonParser {
         return key
     }
 
+    private func updateUrlModelDict(responseUrl: URL?, type: Type) {
+        guard let urlString = responseUrl?.absoluteString else {
+            return
+        }
+        urlModelDict[urlString] = type.toString(formatter: config.languageFormatter())
+    }
 }

@@ -41,12 +41,15 @@ extension Endpoint {
     var totalDataCount: Int {
         return (pathInfo?.data.count ?? 0) + (queryInfo?.data.count ?? 0) + (bodyInfo?.data.count ?? 0)
     }
+}
+
+private extension Endpoint {
     
-    private var requestInfoArray: [RequestInfo] {
+    var requestInfoArray: [RequestInfo] {
         return [pathInfo, queryInfo, bodyInfo].compactMap { $0 }
     }
     
-    private func sanitize(url: String) -> String {
+    func sanitize(url: String) -> String {
         var urlString = url
         pathInfo?.data.forEach { urlString = urlString.replacingOccurrences(of: "{\($0.key)}",
             with: $0.value as? String ?? "") }

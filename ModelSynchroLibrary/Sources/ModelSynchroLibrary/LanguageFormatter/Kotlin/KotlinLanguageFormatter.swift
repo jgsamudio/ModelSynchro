@@ -31,7 +31,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     var array: String {
-        return "Array"
+        return "ArrayList"
     }
     
     var int: String {
@@ -114,11 +114,11 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     func arrayFormat(type: String) -> String {
-        return "Array<" + type.capitalizedFirstLetter() + ">"
+        return "\(array)<" + type.capitalizedFirstLetter() + ">"
     }
     
     func type(arrayString: String) -> String {
-        return arrayString.replacingOccurrences(of: "Array<", with: "").replacingOccurrences(of: ">", with: "")
+        return arrayString.replacingOccurrences(of: "\(array)<", with: "").replacingOccurrences(of: ">", with: "")
     }
     
     func customFormat(type: String) -> String {
@@ -137,11 +137,11 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return !foundVariables.isEmpty
     }
     
-    func apiTemplateContext(api: Api, config: ConfigurationFile) -> TemplateContext {
+    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: [String: String]) -> TemplateContext {
         let context: TemplateContext = [
             "modelImports": modelImports(config: config, endpoints: api.endpoints),
             "retrofitImports": retrofitImports(endpoints: api.endpoints),
-            "api": apiTemplateModels(config: config, api: api)
+            "api": apiTemplateModels(config: config, api: api, urlModelDict: urlModelDict)
         ]
         return context
     }
@@ -155,16 +155,24 @@ private extension KotlinLanguageFormatter {
     
     // TODO: Have this be returned from the language formatter?
     // How to handle mulitple apis
-    func apiTemplateModels(config: ConfigurationFile, api: Api) -> APITemplate? {
+    func apiTemplateModels(config: ConfigurationFile, api: Api, urlModelDict: [String: String]) -> APITemplate? {
         var requestTemplates = [APIRequestTemplate]()
         for endpoint in api.endpoints ?? [] {
             let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
             let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
+            
+            // Retreive the return type.
+            let baseUrl = config.serverAPIInfo?.baseUrl
+            guard let url = endpoint.urlRequest(baseUrl: baseUrl)?.url?.absoluteString,
+                let returnType = urlModelDict[url] else {
+                continue
+            }
+            
             let requestTemplate = APIRequestTemplate(name: requestName,
                                                      httpMethodAnnotation: methodAnnotation,
                                                      endpoint: endpoint.endpoint ?? "",
                                                      parameters: parameters(config: config, endpoint: endpoint),
-                                                     returnType: endpoint.responseModelName)
+                                                     returnType: returnType)
             requestTemplates.append(requestTemplate)
         }
         

@@ -21,9 +21,9 @@ open class NetworkRequester {
     
     // MARK: - Initialization
     
-    public init(config: ConfigurationFile, currentModels: ModelComponents) {
+    public init(config: ConfigurationFile, jsonParser: JsonParser) {
         self.config = config
-        jsonParser = JsonParser(config: config, currentModels: currentModels)
+        self.jsonParser = jsonParser
     }
     
     // MARK: - Public Functions
