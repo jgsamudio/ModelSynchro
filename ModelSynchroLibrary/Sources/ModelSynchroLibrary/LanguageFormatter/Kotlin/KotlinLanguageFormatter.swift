@@ -31,7 +31,7 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
     
     var array: String {
-        return "ArrayList"
+        return "Array"
     }
     
     var int: String {
@@ -257,7 +257,7 @@ private extension KotlinLanguageFormatter {
             let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
             let typeString = type.toString(formatter: self)
             let lastVariable = (currentCount == totalCount)
-            return "\(annotation)(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",\n\t\t\t")"
+            return "\(annotation)(\"\($0.key)\") \(config.applyNamingConventions(for: $0.key)): \(typeString)\(lastVariable ? "" : ",\n\t\t\t")"
         }.joined() ?? ""
     }
 }

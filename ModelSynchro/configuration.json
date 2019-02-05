@@ -5,7 +5,8 @@
   "language": "kotlin",
   "verbose": false,
   "namingConventions":[
-    "removePluralNamesForModels"
+    "removePluralNamesForModels",
+    "camelCaseNames"
   ],
   "directoryInfo": {
     "outputModelDirectory": "./SampleKotlinModels/",
