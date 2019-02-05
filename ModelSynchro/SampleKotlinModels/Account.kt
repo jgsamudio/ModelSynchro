@@ -7,5 +7,13 @@ import com.squareup.moshi.Json
 */
 
 data class Account(
-    @Json(name = "error") val error: String
+    @Json(name = "accountId") val accountId: String,
+    @Json(name = "balance") val balance: Balance,
+    @Json(name = "default") val default: Boolean,
+    @Json(name = "isBlocked") val isBlocked: Boolean,
+    @Json(name = "name") val name: String,
+    @Json(name = "paymentMethods") val paymentMethods: Array<PaymentMethod>,
+    @Json(name = "status") val status: String,
+    @Json(name = "transponders") val transponders: Array<Transponder>,
+    @Json(name = "vehicles") val vehicles: Array<Vehicle>
 )

@@ -106,34 +106,13 @@ extension ConfigurationFile {
         return applyNamingConventions(for: filename)
     }
     
+    /// Applies the naming conventions to the given string.
+    ///
+    /// - Parameter string: String to apply the naming conventions to.
+    /// - Returns: Formatted string.
     func applyNamingConventions(for string: String) -> String {
         return namingConventions?.reduce(string, { (string, namingConvention) -> String in
             namingConvention.apply(to: string)
         }) ?? string
-    }
-}
-
-enum NamingConvention: String, Codable {
-    case removePluralNamesForModels
-    case camelCaseNames
-    
-    func apply(to string: String) -> String {
-        switch self {
-        case .removePluralNamesForModels:
-            if string[string.index(string.endIndex, offsetBy: -2)..<string.endIndex] == "es" {
-                return String(string[string.startIndex..<string.index(string.endIndex, offsetBy: -2)])
-            } else if string[string.index(before: string.endIndex)] == "s" {
-                return String(string[string.startIndex..<string.index(before: string.endIndex)])
-            }
-        case .camelCaseNames:
-            for (index, char) in string.enumerated() {
-                if char == "_" {
-                    let beginningString = string[string.startIndex..<string.index(string.startIndex, offsetBy: index)]
-                    let tailString = string[string.index(string.startIndex, offsetBy: index)..<string.endIndex]
-                    return "\(beginningString)\(tailString.capitalized)"
-                }
-            }
-        }
-        return string
     }
 }

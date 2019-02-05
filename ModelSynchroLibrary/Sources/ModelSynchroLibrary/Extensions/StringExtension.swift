@@ -10,6 +10,14 @@ import Foundation
 
 extension String {
     
+    var pluralized: String {
+        return StringInflector.sharedInstance.pluralize(string: self)
+    }
+    
+    var singularized: String {
+        return StringInflector.sharedInstance.singularize(string: self)
+    }
+    
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + dropFirst()
     }

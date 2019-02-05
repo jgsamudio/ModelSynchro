@@ -7,5 +7,9 @@ import com.squareup.moshi.Json
 */
 
 data class Finance(
-    @Json(name = "error") val error: String
+    @Json(name = "amount") val amount: Int,
+    @Json(name = "balanceAmount") val balanceAmount: Int,
+    @Json(name = "description") val description: String,
+    @Json(name = "time") val time: String,
+    @Json(name = "type") val type: String
 )

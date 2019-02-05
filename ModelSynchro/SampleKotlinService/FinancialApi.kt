@@ -4,9 +4,9 @@ import kotlinx.coroutines.Deferred
 
 import com.kapsch.android.api.models.Finance
 
-import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.Path
+import retrofit2.http.GET
 
 /**
     Auto-Generated using ModelSynchro
@@ -15,8 +15,8 @@ import retrofit2.http.Query
 interface FinancialApi {
     
     @GET("accounts/{account_id}/financial")
-    fun getFinancialTransactions(@Path("account_id") account_id: String,
-		@Query("dateFrom") dateFrom: String,
-		@Query("dateTo") dateTo: String): Deferred<Finance>
+    fun getFinancialTransactions(@Path("account_id") accountId: String,
+			@Query("dateFrom") dateFrom: String,
+			@Query("dateTo") dateTo: String): Deferred<Array<Finance>>
     
 }

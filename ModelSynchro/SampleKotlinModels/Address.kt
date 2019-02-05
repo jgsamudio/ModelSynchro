@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
     Auto-Generated using ModelSynchro
 */
 
-data class Addresse(
+data class Address(
     @Json(name = "address1") val address1: String,
     @Json(name = "address2") val address2: String,
     @Json(name = "addressId") val addressId: String,

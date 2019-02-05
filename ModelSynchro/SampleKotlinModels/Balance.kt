@@ -7,5 +7,7 @@ import com.squareup.moshi.Json
 */
 
 data class Balance(
-    @Json(name = "error") val error: String
+    @Json(name = "balance") val balance: Double,
+    @Json(name = "paymentScheme") val paymentScheme: PaymentScheme,
+    @Json(name = "pendingBalance") val pendingBalance: Double
 )
