@@ -7,6 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class State(
-    @Json(name = "name") val name: String,
-    @Json(name = "stateCode") val stateCode: String
+    @Json(name = "error") val error: String
 )

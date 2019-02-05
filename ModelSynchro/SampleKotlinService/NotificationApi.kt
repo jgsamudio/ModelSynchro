@@ -15,8 +15,8 @@ interface NotificationApi {
     
     @GET("users/notifications")
     fun getUserNotifications(@Query("filter") filter: String,
-@Query("offset") offset: Boolean,
-@Query("sort") sort: String,
-@Query("limit") limit: Boolean): Deferred<NotificationCenter>
+		@Query("limit") limit: Boolean,
+		@Query("offset") offset: Boolean,
+		@Query("sort") sort: String): Deferred<NotificationCenter>
     
 }

@@ -7,6 +7,5 @@ import com.squareup.moshi.Json
 */
 
 data class Color(
-    @Json(name = "colorId") val colorId: String,
-    @Json(name = "name") val name: String
+    @Json(name = "error") val error: String
 )

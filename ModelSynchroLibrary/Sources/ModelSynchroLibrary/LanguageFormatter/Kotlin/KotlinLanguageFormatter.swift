@@ -227,13 +227,13 @@ private extension KotlinLanguageFormatter {
         var parameterCount = 0
     
         parameterString += generateParameterString(config: config,
-                                                   requsetData: endpoint.pathInfo?.data,
+                                                   requestData: endpoint.pathInfo?.data,
                                                    annotation: "@Path",
                                                    currentCount: &parameterCount,
                                                    totalCount: endpoint.totalDataCount)
         
         parameterString += generateParameterString(config: config,
-                                                   requsetData: endpoint.queryInfo?.data,
+                                                   requestData: endpoint.queryInfo?.data,
                                                    annotation: "@Query",
                                                    currentCount: &parameterCount,
                                                    totalCount: endpoint.totalDataCount)
@@ -246,18 +246,18 @@ private extension KotlinLanguageFormatter {
     }
     
     private func generateParameterString(config: ConfigurationFile,
-                                         requsetData: JSON?,
+                                         requestData: JSON?,
                                          annotation: String,
                                          currentCount: inout Int,
                                          totalCount: Int) -> String {
-        let requsetData = requsetData ?? [:]
-        return requsetData.map {
+        let requestData = requestData?.sorted(by: { $0.key < $1.key })
+        return requestData?.map {
             currentCount += 1
             let jsonParser = JsonParser(config: config, currentModels: ModelComponents())
             let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
             let typeString = type.toString(formatter: self)
             let lastVariable = (currentCount == totalCount)
-            return "\(annotation)(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",\n")"
-        }.joined()
+            return "\(annotation)(\"\($0.key)\") \($0.key): \(typeString)\(lastVariable ? "" : ",\n\t\t\t")"
+        }.joined() ?? ""
     }
 }

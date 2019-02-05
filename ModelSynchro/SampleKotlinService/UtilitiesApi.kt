@@ -14,6 +14,6 @@ import retrofit2.http.Query
 interface UtilitiesApi {
     
     @GET("utilities/states")
-    fun getStates(@Query("country") country: String): Deferred<ArrayList<State>>
+    fun getStates(@Query("country") country: String): Deferred<State>
     
 }

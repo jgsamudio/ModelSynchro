@@ -18,3 +18,6 @@ update-exe:
 update-library:
 	@echo "Updating ModelSynchro Library"
 	@sh -l ./Install-Scripts/update-library.sh
+
+release:
+	@cd ./ModelSynchro && swift build -c release -Xswiftc -static-stdlib

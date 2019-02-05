@@ -4,8 +4,8 @@ import kotlinx.coroutines.Deferred
 
 import com.kapsch.android.api.models.Account
 
-import retrofit2.http.Path
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 /**
     Auto-Generated using ModelSynchro
@@ -14,7 +14,7 @@ import retrofit2.http.GET
 interface AccountApi {
     
     @GET("accounts")
-    fun getAccounts(): Deferred<ArrayList<Account>>
+    fun getAccounts(): Deferred<Account>
     
     @GET("accounts/{account_id}")
     fun getAccountById(@Path("account_id") account_id: String): Deferred<Account>

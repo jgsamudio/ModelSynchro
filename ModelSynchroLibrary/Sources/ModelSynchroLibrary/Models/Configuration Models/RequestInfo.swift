@@ -8,6 +8,9 @@
 import Foundation
 
 public struct RequestInfo: Codable {
+    
+    // MARK: - Public Properties
+    
     let modelName: String?
     var data: JSON?
     
@@ -15,10 +18,14 @@ public struct RequestInfo: Codable {
         case modelName
     }
     
+    // MARK: - Initialization
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         modelName = try? container.decode(String.self, forKey: .modelName)
     }
+    
+    // MARK: - Public Functions
     
     public func encode(to encoder: Encoder) throws {
         // Not Implemented

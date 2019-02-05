@@ -58,6 +58,7 @@ extension Endpoint {
     }
 }
 
+// MARK: - Private Functions
 private extension Endpoint {
     
     var requestInfoArray: [RequestInfo] {
