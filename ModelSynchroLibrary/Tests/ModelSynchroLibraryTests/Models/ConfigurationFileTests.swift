@@ -64,7 +64,7 @@ class ConfigurationFileTests: XCTestCase {
         let key = "jsonKey"
         sut = configFile()
 
-        let result = sut.mapped(jsonKey: key)
+        let result = sut.mapped(filename: key)
 
         XCTAssertEqual(result, key)
     }
@@ -74,7 +74,7 @@ class ConfigurationFileTests: XCTestCase {
         let mappedModelInfo = MappedModelInfo(jsonKey: "OtherJsonKey", fileName: nil, mappedName: "MappedName")
         sut = configFile(mappedModelNames: [mappedModelInfo])
         
-        let result = sut.mapped(jsonKey: key)
+        let result = sut.mapped(filename: key)
 
         XCTAssertEqual(result, key)
     }
@@ -84,7 +84,7 @@ class ConfigurationFileTests: XCTestCase {
         let mappedModelInfo = MappedModelInfo(jsonKey: key, fileName: nil, mappedName: "MappedName")
         sut = configFile(mappedModelNames: [mappedModelInfo])
 
-        let result = sut.mapped(jsonKey: key)
+        let result = sut.mapped(filename: key)
 
         XCTAssertEqual(result, mappedModelInfo.mappedName)
     }
@@ -132,10 +132,12 @@ extension ConfigurationFileTests {
                                  projectName: "MyCoolProject",
                                  language: language,
                                  verbose: false,
+                                 namingConventions: nil,
                                  directoryInfo: DirectoryInfo(outputModelDirectory: outputDirectory,
                                                               outputApiDirectory: "",
                                                               outputModelPackage: "",
                                                               outputApiPackage: "",
+                                                              templateDirectory: "",
                                                               localJSONDirectory: nil),
                                  serverAPIInfo: ServerAPIInfo(apis: nil,
                                                               headers: nil,
