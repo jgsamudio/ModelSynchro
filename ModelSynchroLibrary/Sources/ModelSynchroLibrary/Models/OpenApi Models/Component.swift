@@ -11,13 +11,29 @@
 */
 
 struct Component: Codable {
-	let schemas: JSON? // Should be JSON
 	let securitySchemes: SecurityScheme
-
+    var schemas: JSON?
+    
 	enum CodingKeys: String, CodingKey {
-		case requestBodies = "requestBodies"
-		case responses = "responses"
 		case schemas = "schemas"
 		case securitySchemes = "securitySchemes"
 	}
+    
+    // MARK: - Initialization
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        securitySchemes = try container.decode(SecurityScheme.self, forKey: .securitySchemes)
+        schemas = nil
+    }
+    
+    // MARK: - Public Functions
+    
+    public func encode(to encoder: Encoder) throws {
+        // Not Implemented
+    }
+    
+    public mutating func updateModel(with json: JSON) {
+        schemas = json["schemas"] as? JSON
+    }
 }
