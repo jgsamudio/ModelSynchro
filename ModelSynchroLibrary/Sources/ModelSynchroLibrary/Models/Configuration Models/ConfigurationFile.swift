@@ -63,6 +63,15 @@ extension ConfigurationFile {
             serverAPIInfo?.updateConfiguration(with: apiJson)
         }
     }
+    
+    public mutating func updateServerApi(with openApiData: Data?) {
+        openApiData?.deserializeObject { (api: Openapi?, _) in
+            if let openApiJson = openApiData?.serializeToJsonObject(), var openApi = api {
+                openApi.updateModel(with: openApiJson)
+                serverAPIInfo = OpenApiParser(openApi: openApi).convertToServerApi(currentServerApiInfo: serverAPIInfo)
+            }
+        }
+    }
 
     /// The local directory path.
     ///
@@ -114,5 +123,26 @@ extension ConfigurationFile {
         return namingConventions?.reduce(string, { (string, namingConvention) -> String in
             namingConvention.apply(to: string)
         }) ?? string
+    }
+}
+
+final class OpenApiParser {
+    
+    private var openApi: Openapi
+    
+    init(openApi: Openapi) {
+        self.openApi = openApi
+    }
+    
+    func convertToServerApi(currentServerApiInfo: ServerAPIInfo?) -> ServerAPIInfo {
+        var serverApiInfo = currentServerApiInfo ?? defaultServerAPIInfo
+        return serverApiInfo
+    }
+}
+
+private extension OpenApiParser {
+    
+    var defaultServerAPIInfo: ServerAPIInfo {
+        return ServerAPIInfo(apis: nil, headers: nil, authEndpoint: nil, baseUrl: nil)
     }
 }

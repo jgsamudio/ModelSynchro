@@ -28,4 +28,7 @@ struct DirectoryInfo: Codable {
     
     /// Local location of json files.
     let localJSONDirectory: [DirectoryData]?
+    
+    /// Directory to the open api directory.
+    let openApiJsonDirectory: String?
 }
