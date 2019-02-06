@@ -11,12 +11,12 @@
 */
 
 struct ApiKey: Codable {
-	let in: String
+	let `in`: String
 	let name: String
 	let type: String
 
 	enum CodingKeys: String, CodingKey {
-		case in = "in"
+		case `in` = "in"
 		case name = "name"
 		case type = "type"
 	}

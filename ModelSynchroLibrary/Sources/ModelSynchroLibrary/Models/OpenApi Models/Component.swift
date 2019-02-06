@@ -11,9 +11,7 @@
 */
 
 struct Component: Codable {
-	let requestBodies: RequestBodie // Remove
-	let responses: Response
-	let schemas: Schema // Should be JSON
+	let schemas: JSON? // Should be JSON
 	let securitySchemes: SecurityScheme
 
 	enum CodingKeys: String, CodingKey {

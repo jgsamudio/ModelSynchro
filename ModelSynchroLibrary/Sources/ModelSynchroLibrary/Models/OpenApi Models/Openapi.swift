@@ -15,7 +15,7 @@ struct Openapi: Codable {
 	let externalDocs: ExternalDoc
 	let info: Info
 	let openapi: String
-	let paths: Path // Convert to JSON
+	let paths: JSON? // Convert to JSON
 	let security: [Security]
 	let servers: [Server]
 	let tags: [Tag]
