@@ -68,7 +68,7 @@ extension ConfigurationFile {
         openApiData?.deserializeObject { (api: Openapi?, _) in
             if let openApiJson = openApiData?.serializeToJsonObject(), var openApi = api {
                 openApi.updateModel(with: openApiJson)
-                serverAPIInfo = OpenApiParser(openApi: openApi).convertToServerApi(currentServerApiInfo: serverAPIInfo)
+                serverAPIInfo = OpenApiParser(openApi: openApi).convertToServerApi()
             }
         }
     }
@@ -134,9 +134,40 @@ final class OpenApiParser {
         self.openApi = openApi
     }
     
-    func convertToServerApi(currentServerApiInfo: ServerAPIInfo?) -> ServerAPIInfo {
-        var serverApiInfo = currentServerApiInfo ?? defaultServerAPIInfo
-        return serverApiInfo
+    func convertToServerApi() -> ServerAPIInfo {
+        
+        if let pathsJson = openApi.paths {
+            for (endpointUrl, endpointJson) in pathsJson {
+                guard let endpointJson = endpointJson as? JSON else {
+                    continue
+                }
+                for (endpointInfoKey, endpointInfoValue) in endpointJson {
+                    guard  let endpointInfoValue = endpointInfoValue as? JSON else {
+                        continue
+                    }
+                    if let httpMethod = HTTPMethod.init(rawValue: endpointInfoKey) {
+                        let apiTags = endpointInfoValue["tags"] as? [String]
+                        let apiName = apiTags?.first
+                        
+                        // Path, Query, Body Parsing.
+                        
+                    } else if endpointInfoKey == "responses" {
+                        let successResponse = endpointInfoValue["200"] as? JSON
+                        let content = successResponse?["content"] as? JSON
+                        let applicationJson = content?["application/json"] as? JSON
+                        let schema = applicationJson?["schema"] as? JSON
+                        let pathSchema = schema?["$ref"] as? String
+                        
+                        // Convert Schema to responseModelName
+                        let responseModelName = pathSchema?.split(separator: "/").last
+                    }
+                }
+            }
+        }
+        
+        let baseUrl = openApi.servers.first?.url
+
+        return ServerAPIInfo(apis: nil, headers: nil, authEndpoint: nil, baseUrl: baseUrl)
     }
 }
 
