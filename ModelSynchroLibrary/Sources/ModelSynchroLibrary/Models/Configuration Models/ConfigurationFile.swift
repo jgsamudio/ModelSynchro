@@ -156,35 +156,45 @@ final class OpenApiParser {
                         let apiFunctionName = endpointInfoValue["operationId"] as? String
                         
                         // TODO: Path, Query, Body Parsing.
-                
-                        if endpointInfoKey == "responses" {
-                            let successResponse = endpointInfoValue["200"] as? JSON
-                            let content = successResponse?["content"] as? JSON
-                            let applicationJson = content?["application/json"] as? JSON
-                            let schema = applicationJson?["schema"] as? JSON
-                            let pathSchema = schema?["$ref"] as? String
-                            
-                            // Convert Schema to responseModelName
-                            guard let responseModelName = pathSchema?.split(separator: "/").last,
-                                let apiName = apiTags?.first else {
-                                continue
-                            }
-                            
-                            let endpoint = Endpoint(functionName: apiFunctionName,
-                                                    responseModelName: String(responseModelName),
-                                                    url: nil,
-                                                    endpoint: endpointUrl,
-                                                    authorized: false,
-                                                    method: httpMethod,
-                                                    pathInfo: nil,
-                                                    queryInfo: nil,
-                                                    bodyInfo: nil)
-                            
-                            if apisDict[apiName] == nil {
-                                apisDict[apiName] = [Endpoint]()
-                            }
-                            apisDict[apiName]?.append(endpoint)
+                        
+                        let parameters = endpointInfoValue["parameters"] as? JSON
+                        let requestBodyJson = endpointInfoValue["requestBody"] as? JSON
+                        let responsesJson = endpointInfoValue["responses"] as? JSON
+                        let successResponse = responsesJson?["200"] as? JSON
+                        
+                        let pathInfo: RequestInfo? = nil
+                        let queryInfo: RequestInfo? = nil
+                        let bodyInfo: RequestInfo? = nil
+                        
+                        if let requestModelName = extractSchema(from: requestBodyJson) {
+                            // Body Info
+                            // Need work on components
                         }
+
+                        if let parameters = parameters {
+                            // Query Info & PathInfo
+                        }
+                        
+                        // Convert Schema to responseModelName
+                        guard let responseModelName = extractSchema(from: successResponse),
+                            let apiName = apiTags?.first else {
+                            continue
+                        }
+                        
+                        let endpoint = Endpoint(functionName: apiFunctionName,
+                                                responseModelName: responseModelName,
+                                                url: nil,
+                                                endpoint: endpointUrl,
+                                                authorized: false,
+                                                method: httpMethod,
+                                                pathInfo: pathInfo,
+                                                queryInfo: queryInfo,
+                                                bodyInfo: bodyInfo)
+                        
+                        if apisDict[apiName] == nil {
+                            apisDict[apiName] = [Endpoint]()
+                        }
+                        apisDict[apiName]?.append(endpoint)
                     }
                 }
             }
@@ -199,5 +209,17 @@ private extension OpenApiParser {
     
     var defaultServerAPIInfo: ServerAPIInfo {
         return ServerAPIInfo(apis: nil, headers: nil, authEndpoint: nil, baseUrl: nil)
+    }
+    
+    func extractSchema(from contentJson: JSON?) -> String? {
+        let content = contentJson?["content"] as? JSON
+        let applicationJson = content?["application/json"] as? JSON
+        let schema = applicationJson?["schema"] as? JSON
+        let pathSchema = schema?["$ref"] as? String
+        
+        if let schema = pathSchema?.split(separator: "/").last {
+            return String(schema)
+        }
+        return nil
     }
 }
