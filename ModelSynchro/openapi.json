@@ -1,0 +1,2856 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "CBO Proposal",
+    "description" : "This is a proposal for the CBO API for the BlueJay mobile app based on the documentation available [here](https://confluence.kapschtraffic.com/display/BLUEJ/CBO+Mobile+API+List).\n",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "thibault@prolificinteractive.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.8"
+  },
+  "externalDocs" : {
+    "description" : "Find out more about Swagger",
+    "url" : "http://swagger.io"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.7",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ],
+  "tags" : [ {
+    "name" : "authentication",
+    "description" : "Operations about authenticating users"
+  }, {
+    "name" : "user",
+    "description" : "Operations about user"
+  }, {
+    "name" : "account",
+    "description" : "Operations about the user's accounts"
+  }, {
+    "name" : "payment",
+    "description" : "Operations about the user's payments"
+  }, {
+    "name" : "transponder",
+    "description" : "Operations about the user's transponders"
+  }, {
+    "name" : "vehicle",
+    "description" : "Operations about the user's vehicles"
+  }, {
+    "name" : "notification",
+    "description" : "Operations about the user's notifications center"
+  }, {
+    "name" : "transaction",
+    "description" : "Operations about the user's transactions"
+  }, {
+    "name" : "balance",
+    "description" : "Operations about the user's balance"
+  }, {
+    "name" : "financial",
+    "description" : "Operations about the user's finance adding up to the balance"
+  }, {
+    "name" : "utilities",
+    "description" : "Operations about utility endpoints (states, currencies, etc.)"
+  } ],
+  "paths" : {
+    "/users/register" : {
+      "post" : {
+        "tags" : [ "authentication" ],
+        "summary" : "Creates a new user",
+        "operationId" : "createUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthenticationInformation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthenticationTokens"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Validation exception"
+          }
+        }
+      }
+    },
+    "/users/login" : {
+      "post" : {
+        "tags" : [ "authentication" ],
+        "summary" : "Logs a user in",
+        "operationId" : "loginUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthenticationInformation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthenticationTokens"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/users/provider_login" : {
+      "post" : {
+        "tags" : [ "authentication" ],
+        "summary" : "Logs a user in through an authentication provider",
+        "description" : "For MVP, Google and Facebook are the 2 providers used",
+        "operationId" : "loginUserWithAuth",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProviderAuthenticationInformation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthenticationTokens"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "We could not authentication you. Please try again."
+          }
+        }
+      }
+    },
+    "/users/{user_id}" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "Get a user information",
+        "description" : "This can only be done by the logged in user.",
+        "operationId" : "getUserInfo",
+        "parameters" : [ {
+          "name" : "user_id",
+          "in" : "path",
+          "description" : "The user ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "user" ],
+        "summary" : "Update user information",
+        "operationId" : "updateUserInfo",
+        "parameters" : [ {
+          "name" : "user_id",
+          "in" : "path",
+          "description" : "The user ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/users/token" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "Refresh the user's access token",
+        "operationId" : "refreshToken",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthenticationRefreshTokenRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthenticationTokens"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid refresh token supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          }
+        }
+      }
+    },
+    "/users/logout" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "Logs out current logged in user session",
+        "operationId" : "logoutUser",
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          }
+        }
+      }
+    },
+    "/users/forgot_password" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "Sends a request to the back office to reset the user's password",
+        "operationId" : "resetPassword",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/body"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/users/configurations" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "Return the app configuration parameters",
+        "operationId" : "getAppConfiguration",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AppConfiguration"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/availability" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "Return the availability of the service given a zip code",
+        "operationId" : "getAvailability",
+        "parameters" : [ {
+          "name" : "postalCode",
+          "in" : "query",
+          "description" : "The user postal code",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid postal code"
+          }
+        }
+      }
+    },
+    "/accounts" : {
+      "get" : {
+        "tags" : [ "account" ],
+        "summary" : "Get all the user's accounts.",
+        "operationId" : "getUserAccounts",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Account"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}" : {
+      "get" : {
+        "tags" : [ "account" ],
+        "summary" : "Get the user's account details.",
+        "operationId" : "getUserAccountDetails",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Account"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid user_id / account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "account" ],
+        "summary" : "Close the user's account.",
+        "description" : "The system initiates the account closure process.",
+        "operationId" : "deleteAccount",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "Account not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/statements" : {
+      "get" : {
+        "tags" : [ "statements" ],
+        "summary" : "Get statements of an account",
+        "description" : "Get the statments of an account filtered by issuing date.",
+        "operationId" : "getStatements",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dateFrom",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-01"
+          }
+        }, {
+          "name" : "dateTo",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-31"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Statement"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/payments" : {
+      "get" : {
+        "tags" : [ "payment" ],
+        "summary" : "Get all the user payment methods",
+        "operationId" : "getAllPaymentMethods",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/PaymentMethod"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "payment" ],
+        "summary" : "Add a new payment method to the user",
+        "operationId" : "addNewPaymentMethod",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddPaymentMethodRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/PaymentMethod"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/payments/{payment_id}" : {
+      "get" : {
+        "tags" : [ "payment" ],
+        "summary" : "Get a specific user payment method",
+        "operationId" : "getPaymentMethod",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment_id",
+          "in" : "path",
+          "description" : "The payment ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PaymentMethod"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / payment_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Payment not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "payment" ],
+        "summary" : "Delete a given payment method",
+        "operationId" : "deletePaymentMethod",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment_id",
+          "in" : "path",
+          "description" : "The payment ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid account_id / payment_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Payment not found"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "payment" ],
+        "summary" : "Update a given payment method to make it primary",
+        "operationId" : "updatePaymentMethod",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment_id",
+          "in" : "path",
+          "description" : "The payment ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdatePaymentMethodRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PaymentMethod"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / payment_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Payment not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/transponders" : {
+      "get" : {
+        "tags" : [ "transponder" ],
+        "summary" : "Get all the user transponders",
+        "operationId" : "getAllTransponders",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Transponder"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "transponder" ],
+        "summary" : "Add a new transponder",
+        "operationId" : "addTransponder",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddTransponderRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Transponder"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/transponders/{transponder_id}" : {
+      "get" : {
+        "tags" : [ "transponder" ],
+        "summary" : "Get the information about a given transponder",
+        "operationId" : "getTransponderInfo",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transponder_id",
+          "in" : "path",
+          "description" : "The transponder ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Transponder"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / transponder_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User / Transponder not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "transponder" ],
+        "summary" : "Delete a given transponder",
+        "operationId" : "deleteTransponder",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transponder_id",
+          "in" : "path",
+          "description" : "The transponder ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid account_id / transponder_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User / Transponder not found'"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/vehicles" : {
+      "get" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Get all the user vehicles",
+        "operationId" : "getAllVehicles",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Add a new vehicle to the user",
+        "operationId" : "addVehicle",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddVehicleRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/vehicles/{vehicle_id}" : {
+      "get" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Get the information about a given vehicle",
+        "operationId" : "getVehicleInfo",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "vehicle_id",
+          "in" : "path",
+          "description" : "The vehicle ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / vehicle_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User / Vehicle not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Delete the information about a given vehicle",
+        "operationId" : "deleteVehicleInfo",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "vehicle_id",
+          "in" : "path",
+          "description" : "The vehicle ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid account_id / vehicle_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User / Vehicle not found"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Update the information about a given vehicle",
+        "operationId" : "updateVehicleInfo",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "vehicle_id",
+          "in" : "path",
+          "description" : "The vehicle ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateVehicleRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / vehicle_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User / Vehicle not found"
+          }
+        }
+      }
+    },
+    "/vehicles/makes" : {
+      "get" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Return the list of all available vehicle makes",
+        "operationId" : "getAllVehicleMakes",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Make"
+                  }
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          }
+        }
+      }
+    },
+    "/vehicles/models" : {
+      "get" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Return the list of all available vehicle models",
+        "operationId" : "getAllVehicleModels",
+        "parameters" : [ {
+          "name" : "makeId",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Model"
+                  }
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          }
+        }
+      }
+    },
+    "/vehicles/colors" : {
+      "get" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Return the list of all available vehicle colors",
+        "operationId" : "getAllVehicleColors",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/VehicleColor"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicles/search" : {
+      "post" : {
+        "tags" : [ "vehicle" ],
+        "summary" : "Search for a vehicle given a license plate number and state",
+        "operationId" : "getVehicleForPlate",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SearchVehicleRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Vehicle not found"
+          }
+        }
+      }
+    },
+    "/users/notifications" : {
+      "get" : {
+        "tags" : [ "notification" ],
+        "summary" : "Returns all the notifications for this user",
+        "operationId" : "getAllNotifications",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotificationCenter"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/transactions" : {
+      "get" : {
+        "tags" : [ "transaction" ],
+        "summary" : "Get all the user transactions",
+        "operationId" : "getAllTransactions",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "most-recent"
+          }
+        }, {
+          "name" : "dateFrom",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-01"
+          }
+        }, {
+          "name" : "dateTo",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-31"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Transaction"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/transactions/{transaction_id}" : {
+      "get" : {
+        "tags" : [ "transaction" ],
+        "summary" : "Get a specific transaction",
+        "operationId" : "getTransaction",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transaction_id",
+          "in" : "path",
+          "description" : "The transaction ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / transaction_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Transaction not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "transaction" ],
+        "summary" : "Delete a given transaction",
+        "description" : "Can only work if the transaction is a shadow transaction",
+        "operationId" : "deleteTransaction",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transaction_id",
+          "in" : "path",
+          "description" : "The transaction ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid account_id / transaction_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Transaction not found"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "transaction" ],
+        "summary" : "Update a given transaction",
+        "operationId" : "updateTransaction",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transaction_id",
+          "in" : "path",
+          "description" : "The transaction ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateTransactionRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / transaction_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Transaction not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/transactions/{transaction_id}/dispute" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "Dispute a transaction",
+        "description" : "The transaction has to be confirmed and coming from a tolling agency for it to be disputed. If the transaction is pending, use the DELETE API instead.",
+        "operationId" : "disputeTransaction",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "transaction_id",
+          "in" : "path",
+          "description" : "The transaction ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id / transaction_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found / Transaction not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/balance" : {
+      "get" : {
+        "tags" : [ "balance" ],
+        "summary" : "Get the user's balance",
+        "operationId" : "getBalance",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Balance"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "balance" ],
+        "summary" : "Add funds to the user's balance",
+        "operationId" : "addFundsToBalance",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddFundsToBalanceRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Balance"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/balance/payment_schemes" : {
+      "get" : {
+        "tags" : [ "balance" ],
+        "summary" : "Get the list of available payment schemes for this user",
+        "operationId" : "getAvailablePaymentSchemes",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/PaymentScheme"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/balance/payment_schemes/{payment_scheme_id}" : {
+      "post" : {
+        "tags" : [ "balance" ],
+        "summary" : "Update the user's payment scheme",
+        "operationId" : "updatePaymentScheme",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment_scheme_id",
+          "in" : "path",
+          "description" : "The payment scheme ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdatePaymentSchemeRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/PaymentScheme"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/financial" : {
+      "get" : {
+        "tags" : [ "financial" ],
+        "summary" : "Return all the financial transactions",
+        "description" : "This API returns all the financial transactions that add up to the balance, like users adding money to their balance.",
+        "operationId" : "getAllFinancialTransactions",
+        "parameters" : [ {
+          "name" : "account_id",
+          "in" : "path",
+          "description" : "The user account ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dateFrom",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-01"
+          }
+        }, {
+          "name" : "dateTo",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "2018-12-31"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Finance"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid account_id supplied"
+          },
+          "401" : {
+            "description" : "Access token is missing or invalid"
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        }
+      }
+    },
+    "/utilities/states" : {
+      "get" : {
+        "tags" : [ "utilities" ],
+        "summary" : "Return all the available states in the USA",
+        "operationId" : "getAvailableStates",
+        "parameters" : [ {
+          "name" : "country",
+          "in" : "query",
+          "description" : "Use the country code (e.g. US for United States, CA for Canada).",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "US"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/State"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AppConfiguration" : {
+        "type" : "object",
+        "properties" : {
+          "regularExpressions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RegularExpression"
+            }
+          }
+        }
+      },
+      "RegularExpression" : {
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string",
+            "enum" : [ "email", "password" ]
+          },
+          "value" : {
+            "type" : "string",
+            "example" : "[A-Z0-9a-z._%+-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+          }
+        }
+      },
+      "AuthenticationInformation" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "description" : "The user email to use"
+          },
+          "password" : {
+            "type" : "string",
+            "description" : "The user password to use"
+          }
+        }
+      },
+      "ProviderAuthenticationInformation" : {
+        "type" : "object",
+        "properties" : {
+          "providerName" : {
+            "type" : "string",
+            "description" : "The authentication provider name",
+            "example" : "google",
+            "enum" : [ "google", "facebook" ]
+          },
+          "providerToken" : {
+            "type" : "string",
+            "description" : "The authentication token returned by the provider",
+            "example" : "4712948234y12783y"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "The email used by the user for the authentication provider",
+            "example" : "prolific@prolificinteractive.com"
+          }
+        }
+      },
+      "AuthenticationTokens" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string",
+            "description" : "The user ID",
+            "example" : "123456789"
+          },
+          "accessToken" : {
+            "type" : "string",
+            "description" : "The access token for authentication",
+            "example" : "74289314781828593498171"
+          },
+          "refreshToken" : {
+            "type" : "string",
+            "description" : "The refresh token to refresh the session",
+            "example" : "39478123901948192831498"
+          },
+          "accounts" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Account"
+            }
+          }
+        }
+      },
+      "AuthenticationRefreshTokenRequest" : {
+        "type" : "object",
+        "properties" : {
+          "refreshToken" : {
+            "type" : "string",
+            "description" : "The refresh token to refresh the session"
+          }
+        }
+      },
+      "Account" : {
+        "type" : "object",
+        "properties" : {
+          "accountId" : {
+            "type" : "string",
+            "example" : "2492349823817"
+          },
+          "virtualTransponderId" : {
+            "type" : "string",
+            "description" : "ID used to identify a user across CBO, Proxy and App",
+            "example" : "184382831"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "Personal Account"
+          },
+          "status" : {
+            "type" : "string",
+            "example" : "active",
+            "enum" : [ "pre-active", "active", "blocked", "suspended", "pre-closed", "closed" ]
+          },
+          "isBlocked" : {
+            "type" : "boolean"
+          },
+          "default" : {
+            "type" : "boolean"
+          },
+          "balance" : {
+            "$ref" : "#/components/schemas/Balance"
+          },
+          "transponders" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Transponder"
+            }
+          },
+          "vehicles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Vehicle"
+            }
+          },
+          "paymentMethods" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PaymentMethod"
+            }
+          }
+        }
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string",
+            "example" : "123456789"
+          },
+          "email" : {
+            "type" : "string",
+            "example" : "prolific@prolificinteractive.com"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Bruce"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Wayne"
+          },
+          "phone" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "1231231234"
+          },
+          "addresses" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Address"
+            }
+          },
+          "accounts" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Account"
+            }
+          }
+        },
+        "xml" : {
+          "name" : "User"
+        }
+      },
+      "UserUpdateRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "firstName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "lastName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "phone" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "address" : {
+            "nullable" : true,
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Address"
+            } ]
+          }
+        }
+      },
+      "Address" : {
+        "type" : "object",
+        "properties" : {
+          "addressId" : {
+            "type" : "string",
+            "example" : "1"
+          },
+          "address1" : {
+            "type" : "string",
+            "example" : "77 Sands St"
+          },
+          "address2" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "Floor 10"
+          },
+          "city" : {
+            "type" : "string",
+            "example" : "Brooklyn"
+          },
+          "state" : {
+            "type" : "string",
+            "example" : "NY"
+          },
+          "country" : {
+            "type" : "string",
+            "example" : "US"
+          },
+          "postalCode" : {
+            "type" : "string",
+            "example" : "11201"
+          }
+        }
+      },
+      "Error" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 11000
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "A user-friendly error"
+          }
+        }
+      },
+      "AddTransponderRequest" : {
+        "type" : "object",
+        "properties" : {
+          "number" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Transponder" : {
+        "type" : "object",
+        "properties" : {
+          "transponderId" : {
+            "type" : "string",
+            "example" : "1234523109123"
+          },
+          "number" : {
+            "type" : "string",
+            "example" : "8732FEFWEFH12831"
+          },
+          "tollingAgencyName" : {
+            "type" : "string",
+            "example" : "E-ZPass"
+          }
+        }
+      },
+      "AddVehicleRequest" : {
+        "type" : "object",
+        "properties" : {
+          "nickName" : {
+            "type" : "string"
+          },
+          "licensePlate" : {
+            "type" : "string"
+          },
+          "make" : {
+            "type" : "string"
+          },
+          "model" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "year" : {
+            "type" : "string"
+          },
+          "isWindshieldMetalized" : {
+            "type" : "boolean"
+          },
+          "isLicensePlateTemporary" : {
+            "type" : "boolean"
+          },
+          "licensePlateExpirationDate" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "vehicleClass" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "state" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "licensePlateNumberType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UpdateVehicleRequest" : {
+        "type" : "object",
+        "properties" : {
+          "nickName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "licensePlate" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "make" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "model" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "color" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "year" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "isWindshieldMetalized" : {
+            "type" : "boolean",
+            "nullable" : true
+          },
+          "isLicensePlateTemporary" : {
+            "type" : "boolean",
+            "nullable" : true
+          },
+          "licensePlateExpirationDate" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "vehicleClass" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "country" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "state" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "licensePlateNumberType" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "transponderId" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "paymentMethodId" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "bluetoothId" : {
+            "type" : "string",
+            "nullable" : true
+          }
+        }
+      },
+      "SearchVehicleRequest" : {
+        "type" : "object",
+        "properties" : {
+          "licensePlateNumber" : {
+            "type" : "string",
+            "example" : "BROOK123"
+          },
+          "state" : {
+            "type" : "string",
+            "example" : "NY"
+          }
+        }
+      },
+      "Vehicle" : {
+        "type" : "object",
+        "properties" : {
+          "vehicleId" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "1"
+          },
+          "nickName" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "Eleanor"
+          },
+          "licensePlate" : {
+            "type" : "string",
+            "example" : "BLUEJAY123"
+          },
+          "make" : {
+            "type" : "string",
+            "example" : "Ford"
+          },
+          "model" : {
+            "type" : "string",
+            "example" : "Shelby Mustang GT500"
+          },
+          "color" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "Black"
+          },
+          "year" : {
+            "type" : "string",
+            "example" : "1971"
+          },
+          "isWindshieldMetalized" : {
+            "type" : "boolean"
+          },
+          "isLicensePlateTemporary" : {
+            "type" : "boolean"
+          },
+          "licensePlateExpirationDate" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "vehicleClass" : {
+            "type" : "string",
+            "example" : "Car"
+          },
+          "country" : {
+            "type" : "string",
+            "example" : "US"
+          },
+          "state" : {
+            "type" : "string",
+            "example" : "NY"
+          },
+          "licensePlateNumberType" : {
+            "type" : "string",
+            "example" : "Default"
+          },
+          "transponderId" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "232847234892191"
+          },
+          "bluetoothId" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "823928394824892"
+          },
+          "imageUrl" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "https://img.io/vehicle/1"
+          }
+        }
+      },
+      "Make" : {
+        "type" : "object",
+        "properties" : {
+          "makeId" : {
+            "type" : "string",
+            "example" : "118929"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "Ford"
+          }
+        }
+      },
+      "Model" : {
+        "type" : "object",
+        "properties" : {
+          "modelId" : {
+            "type" : "string",
+            "example" : "92438"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "Shelby Mustang GT500"
+          }
+        }
+      },
+      "VehicleColor" : {
+        "type" : "object",
+        "properties" : {
+          "colorId" : {
+            "type" : "string",
+            "example" : "black"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "Black"
+          }
+        }
+      },
+      "AddPaymentMethodRequest" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UpdatePaymentMethodRequest" : {
+        "type" : "object",
+        "properties" : {
+          "isPrimary" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "PaymentMethod" : {
+        "type" : "object",
+        "properties" : {
+          "paymentMethodId" : {
+            "type" : "string",
+            "example" : "5267442"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "credit_card",
+            "enum" : [ "credit_card", "bank_account", "paypal", "venmo" ]
+          },
+          "isPrimary" : {
+            "type" : "boolean"
+          },
+          "paymentObject" : {
+            "$ref" : "#/components/schemas/PaymentObject"
+          }
+        }
+      },
+      "PaymentObject" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "example" : "Bruce Wayne"
+          },
+          "cardType" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "amex",
+            "enum" : [ "visa", "mastercard", "amex" ]
+          },
+          "lastFourDigits" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "1234"
+          },
+          "expirationMonth" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "example" : 1
+          },
+          "expirationYear" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "example" : 2020
+          },
+          "accountNumber" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "bankName" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "routingNumber" : {
+            "type" : "string",
+            "nullable" : true
+          }
+        }
+      },
+      "NotificationCenter" : {
+        "type" : "object",
+        "properties" : {
+          "notifications" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Notification"
+            }
+          },
+          "sortOptions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SortOption"
+            }
+          }
+        }
+      },
+      "Notification" : {
+        "type" : "object",
+        "properties" : {
+          "notificationId" : {
+            "type" : "string",
+            "example" : "12342345"
+          },
+          "description" : {
+            "type" : "string",
+            "example" : "You just passed a toll and paid $2.75"
+          },
+          "deeplink" : {
+            "type" : "string",
+            "example" : "bluejay://bluejay/transactions/12345"
+          },
+          "accountId" : {
+            "type" : "string",
+            "example" : "2498284"
+          }
+        }
+      },
+      "SortOption" : {
+        "type" : "object",
+        "properties" : {
+          "sortOptionId" : {
+            "type" : "string",
+            "example" : "most_recents"
+          },
+          "label" : {
+            "type" : "string",
+            "example" : "Most Recents",
+            "enum" : [ "Most Recents", "Oldest" ]
+          },
+          "isSelected" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "UpdateTransactionRequest" : {
+        "type" : "object",
+        "properties" : {
+          "vehicleId" : {
+            "type" : "string",
+            "nullable" : true
+          }
+        }
+      },
+      "Transaction" : {
+        "type" : "object",
+        "properties" : {
+          "transactionId" : {
+            "type" : "string",
+            "example" : "123456321"
+          },
+          "price" : {
+            "type" : "number",
+            "example" : 2.75
+          },
+          "discountedPrice" : {
+            "type" : "number",
+            "nullable" : true
+          },
+          "isConfirmed" : {
+            "type" : "boolean"
+          },
+          "time" : {
+            "type" : "string",
+            "example" : "2018-12-12'T'22:00:00-05:00"
+          },
+          "isPeakHours" : {
+            "type" : "boolean"
+          },
+          "tollGantry" : {
+            "$ref" : "#/components/schemas/TollGantry"
+          },
+          "vehicle" : {
+            "nullable" : true,
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Vehicle"
+            } ]
+          },
+          "transponder" : {
+            "nullable" : true,
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Transponder"
+            } ]
+          }
+        }
+      },
+      "TollGantry" : {
+        "type" : "object",
+        "properties" : {
+          "tollGantryId" : {
+            "type" : "string",
+            "example" : "423123"
+          },
+          "latitude" : {
+            "type" : "number",
+            "example" : 85.38224298
+          },
+          "longitude" : {
+            "type" : "number",
+            "example" : 83.38224298
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "E-ZPass Gantry I-93"
+          }
+        }
+      },
+      "Balance" : {
+        "type" : "object",
+        "properties" : {
+          "balance" : {
+            "type" : "number",
+            "example" : 34.12
+          },
+          "pendingBalance" : {
+            "type" : "number",
+            "example" : 35.47
+          },
+          "paymentScheme" : {
+            "$ref" : "#/components/schemas/PaymentScheme"
+          }
+        }
+      },
+      "AddFundsToBalanceRequest" : {
+        "type" : "object",
+        "properties" : {
+          "amount" : {
+            "type" : "number",
+            "example" : 25
+          }
+        }
+      },
+      "UpdatePaymentSchemeRequest" : {
+        "type" : "object",
+        "properties" : {
+          "threshold" : {
+            "type" : "number",
+            "description" : "Only available if the payment scheme is auto-replenishment",
+            "nullable" : true
+          },
+          "amountToAdd" : {
+            "type" : "number",
+            "description" : "Only available if the payment scheme is auto-replenishment",
+            "nullable" : true
+          }
+        }
+      },
+      "PaymentScheme" : {
+        "type" : "object",
+        "properties" : {
+          "paymentSchemeId" : {
+            "type" : "string",
+            "example" : "423145"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "auto-replenishment",
+            "enum" : [ "auto-replenishment", "manual-replenishment", "pay-as-you-go" ]
+          },
+          "threshold" : {
+            "type" : "number",
+            "description" : "Only available if the payment scheme is auto-replenishment",
+            "nullable" : true,
+            "example" : 5
+          },
+          "amountToAdd" : {
+            "type" : "number",
+            "description" : "Only available if the payment scheme is auto-replenishment",
+            "nullable" : true,
+            "example" : 20
+          }
+        }
+      },
+      "Statement" : {
+        "type" : "object",
+        "properties" : {
+          "statementId" : {
+            "type" : "string",
+            "example" : "01000000005983"
+          },
+          "issuingDate" : {
+            "type" : "string",
+            "example" : "2018-12-31"
+          },
+          "outstandingBalance" : {
+            "type" : "number",
+            "example" : 36.22
+          }
+        }
+      },
+      "Finance" : {
+        "type" : "object",
+        "properties" : {
+          "time" : {
+            "type" : "string",
+            "example" : "2018-12-12'T'22:00:00-05:00"
+          },
+          "amount" : {
+            "type" : "number",
+            "example" : 15
+          },
+          "description" : {
+            "type" : "string",
+            "example" : "Automatic replenishment"
+          },
+          "type" : {
+            "type" : "string",
+            "example" : "replenishment",
+            "enum" : [ "replenishment", "fee", "reimbursment" ]
+          },
+          "balanceAmount" : {
+            "type" : "number",
+            "example" : 50
+          }
+        }
+      },
+      "State" : {
+        "type" : "object",
+        "properties" : {
+          "stateCode" : {
+            "type" : "string",
+            "example" : "NY"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "New York"
+          }
+        }
+      },
+      "body" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "prolific@prolificinteractive.com"
+          }
+        }
+      },
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "isAvailable" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    },
+    "responses" : {
+      "UnauthorizedError" : {
+        "description" : "Access token is missing or invalid"
+      }
+    },
+    "requestBodies" : {
+      "Auth" : {
+        "description" : "Authentication object to create a user or log a user in",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/AuthenticationInformation"
+            }
+          }
+        },
+        "required" : true
+      },
+      "UserArray" : {
+        "description" : "List of user object",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "required" : true
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      },
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "api_key",
+        "in" : "header"
+      }
+    }
+  }
+}

@@ -6,7 +6,6 @@ import com.squareup.moshi.Json
     Auto-Generated using ModelSynchro
 */
 
-data class Color(
-    @Json(name = "colorId") val colorId: String,
-    @Json(name = "name") val name: String
+data class AddPaymentMethodRequest(
+    @Json(name = "token") val token: String
 )
