@@ -2,7 +2,7 @@
   "authorName": "Jonathan Samudio",
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
-  "language": "kotlin",
+  "language": "swift",
   "verbose": false,
   "namingConventions":[
     "removePluralNamesForModels",
@@ -13,7 +13,13 @@
     "outputModelPackage": "com.kapsch.android.api.models",
     "outputApiDirectory": "./SampleKotlinService/",
     "outputApiPackage": "com.kapsch.android.api.service",
-    "templateDirectory": "./templates/"
+    "templateDirectory": "./templates/",
+    "localJSONDirectory": [
+      {
+        "inputDirectory": "./openApiJSON/",
+        "outputDirectory": "./outputOpenApiJSON/"
+      }
+    ]
   },
   "serverAPIInfo": {
     "baseUrl": "https://virtserver.swaggerhub.com/Kapsch_TrafficCom/CBO_Proposal/1.0.7/",
