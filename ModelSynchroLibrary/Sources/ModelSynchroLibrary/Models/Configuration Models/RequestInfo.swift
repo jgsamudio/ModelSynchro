@@ -20,6 +20,11 @@ public struct RequestInfo: Codable {
     
     // MARK: - Initialization
     
+    public init(modelName: String?, data: JSON?) {
+        self.modelName = modelName
+        self.data = data
+    }
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         modelName = try? container.decode(String.self, forKey: .modelName)

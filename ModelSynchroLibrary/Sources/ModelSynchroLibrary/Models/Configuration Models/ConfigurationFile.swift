@@ -68,7 +68,7 @@ extension ConfigurationFile {
         openApiData?.deserializeObject { (api: Openapi?, _) in
             if let openApiJson = openApiData?.serializeToJsonObject(), var openApi = api {
                 openApi.updateModel(with: openApiJson)
-                serverAPIInfo = OpenApiParser(openApi: openApi).convertToServerApi()
+                serverAPIInfo = OpenApiParser(openApi: openApi).convertToServerApi(config: self)
             }
         }
     }
@@ -134,7 +134,7 @@ final class OpenApiParser {
         self.openApi = openApi
     }
     
-    func convertToServerApi() -> ServerAPIInfo {
+    func convertToServerApi(config: ConfigurationFile) -> ServerAPIInfo {
         let baseUrl = openApi.servers.first?.url
         var apisDict = [String: [Endpoint]]()
 
@@ -157,14 +157,14 @@ final class OpenApiParser {
                         
                         // TODO: Path, Query, Body Parsing.
                         
-                        let parameters = endpointInfoValue["parameters"] as? JSON
+                        let parameters = endpointInfoValue["parameters"] as? [JSON]
                         let requestBodyJson = endpointInfoValue["requestBody"] as? JSON
                         let responsesJson = endpointInfoValue["responses"] as? JSON
                         let successResponse = responsesJson?["200"] as? JSON
                         
-                        let pathInfo: RequestInfo? = nil
-                        let queryInfo: RequestInfo? = nil
-                        let bodyInfo: RequestInfo? = nil
+                        var pathInfo: RequestInfo? = nil
+                        var queryInfo: RequestInfo? = nil
+                        var bodyInfo: RequestInfo? = nil
                         
                         if let requestModelName = extractSchema(from: requestBodyJson) {
                             // Body Info
@@ -173,6 +173,25 @@ final class OpenApiParser {
 
                         if let parameters = parameters {
                             // Query Info & PathInfo
+                            
+                            for parameter in parameters {
+                                if let name = parameter["name"] as? String {
+                                    if let location = parameter["in"] as? String, location == "path" {
+                                        if pathInfo == nil {
+                                            pathInfo = RequestInfo(modelName: nil, data: JSON())
+                                        }
+                                        // Need example from components
+                                        pathInfo?.data?[name] = ""
+                                    }
+                                    if let location = parameter["in"] as? String, location == "query" {
+                                        if queryInfo == nil {
+                                            queryInfo = RequestInfo(modelName: nil, data: JSON())
+                                        }
+                                        // Need example from components
+                                        queryInfo?.data?[name] = ""
+                                    }
+                                }
+                            }
                         }
                         
                         // Convert Schema to responseModelName
