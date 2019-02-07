@@ -21,3 +21,11 @@ update-library:
 
 release:
 	@cd ./ModelSynchro && swift build -c release -Xswiftc -static-stdlib
+
+generate-projects: generate-library generate-exe
+
+generate-library:
+	@cd ./ModelSynchroLibrary && swift package generate-xcodeproj
+
+generate-exe:
+	@cd ./ModelSynchro && swift package generate-xcodeproj
