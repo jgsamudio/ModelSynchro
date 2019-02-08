@@ -2,7 +2,7 @@
   "authorName": "Jonathan Samudio",
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
-  "language": "swift",
+  "language": "kotlin",
   "verbose": false,
   "namingConventions":[
     "removePluralNamesForModels",

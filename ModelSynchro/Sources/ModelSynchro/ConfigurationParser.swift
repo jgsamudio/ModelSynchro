@@ -64,8 +64,23 @@ private extension ConfigurationParser {
             self.configFile = config
             if let configJson = configData?.serializeToJsonObject() {
                 configFile?.updateConfiguration(with: configJson)
+                parseOpenApiJson()
             }
         })
+    }
+    
+    private func parseOpenApiJson() {
+        if let openApiDirectory = configFile?.openApiDirectory, let projectDirectory = retreiveProjectDirectory() {
+            do {
+                let formattedProjectDirectory = format(projectDirectory: projectDirectory)
+                let content = try String(contentsOfFile: "\(formattedProjectDirectory)\(openApiDirectory)openapi.json",
+                                         encoding: String.Encoding.utf8)
+                let data = content.data(using: .utf8)
+                configFile?.updateServerApi(with: data)
+            } catch {
+                print("Error caught with message: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func format(projectDirectory: String) -> String {

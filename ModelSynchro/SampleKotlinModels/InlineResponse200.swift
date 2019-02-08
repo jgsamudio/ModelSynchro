@@ -1,5 +1,5 @@
 //
-//  NotificationCenter.swift
+//  InlineResponse200.swift
 //  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/08/19.
@@ -10,7 +10,7 @@
     Auto-Generated using ModelSynchro
 */
 
-struct NotificationCenter: Codable {
+struct InlineResponse200: Codable {
 	let accounts: [Account]
 	let addresses: [Address]
 	let email: String

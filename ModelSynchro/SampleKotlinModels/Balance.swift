@@ -2,7 +2,7 @@
 //  Balance.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/06/19.
+//  Created by Jonathan Samudio on 02/08/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
 //
 
@@ -11,9 +11,13 @@
 */
 
 struct Balance: Codable {
-	let error: String
+	let balance: Double
+	let paymentScheme: PaymentScheme
+	let pendingBalance: Double
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case balance = "balance"
+		case paymentScheme = "paymentScheme"
+		case pendingBalance = "pendingBalance"
 	}
 }

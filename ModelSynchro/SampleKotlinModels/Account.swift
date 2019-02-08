@@ -2,7 +2,7 @@
 //  Account.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/06/19.
+//  Created by Jonathan Samudio on 02/08/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
 //
 

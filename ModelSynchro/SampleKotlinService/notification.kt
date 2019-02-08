@@ -11,12 +11,12 @@ import retrofit2.http.GET
     Auto-Generated using ModelSynchro
 */
 
-interface NotificationApi {
+interface notification {
     
-    @GET("users/notifications")
-    fun getUserNotifications(@Query("filter") filter: String,
-			@Query("limit") limit: Boolean,
-			@Query("offset") offset: Boolean,
+    @GET("/users/notifications")
+    fun getAllNotifications(@Query("filter") filter: String,
+			@Query("limit") limit: String,
+			@Query("offset") offset: String,
 			@Query("sort") sort: String): Deferred<NotificationCenter>
     
 }

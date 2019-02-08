@@ -2,7 +2,7 @@
 //  PaymentMethod.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/06/19.
+//  Created by Jonathan Samudio on 02/08/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
 //
 
@@ -11,14 +11,12 @@
 */
 
 struct PaymentMethod: Codable {
-	let isPrimary: Bool?
-	let paymentMethodId: String?
-	let paymentObject: PaymentObject?
-	let type: String?
-	let error: String?
+	let isPrimary: Bool
+	let paymentMethodId: String
+	let paymentObject: PaymentObject
+	let type: String
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
 		case isPrimary = "isPrimary"
 		case paymentMethodId = "paymentMethodId"
 		case paymentObject = "paymentObject"

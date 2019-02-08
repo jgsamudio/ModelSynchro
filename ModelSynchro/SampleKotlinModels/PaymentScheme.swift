@@ -2,7 +2,7 @@
 //  PaymentScheme.swift
 //  ModelSynchro
 //
-//  Created by Jonathan Samudio on 02/06/19.
+//  Created by Jonathan Samudio on 02/08/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
 //
 
@@ -11,9 +11,15 @@
 */
 
 struct PaymentScheme: Codable {
-	let error: String
+	let amountToAdd: Int
+	let paymentSchemeId: String
+	let threshold: Int
+	let type: String
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case amountToAdd = "amountToAdd"
+		case paymentSchemeId = "paymentSchemeId"
+		case threshold = "threshold"
+		case type = "type"
 	}
 }

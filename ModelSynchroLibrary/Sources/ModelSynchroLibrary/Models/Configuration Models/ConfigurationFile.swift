@@ -53,6 +53,10 @@ extension ConfigurationFile {
         return directoryInfo.outputApiDirectory != nil
     }
     
+    public var openApiDirectory: String? {
+        return directoryInfo.openApiJsonDirectory
+    }
+    
     /// Model output path.
     var outputModelPath: String {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
