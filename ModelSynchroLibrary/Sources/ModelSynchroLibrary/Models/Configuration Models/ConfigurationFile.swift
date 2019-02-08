@@ -130,6 +130,7 @@ extension ConfigurationFile {
     }
 }
 
+// TODO: Move to new file.
 final class OpenApiParser {
     
     private var openApi: Openapi
@@ -142,6 +143,9 @@ final class OpenApiParser {
         let baseUrl = openApi.servers.first?.url
         var apisDict = [String: [Endpoint]]()
 
+        // TODO: API Naming conventions, currently account not AccountApi
+        // InlineResponse200 for Unit related responses.
+        
         if let pathsJson = openApi.paths {
             for (endpointUrl, endpointJson) in pathsJson {
                 guard let endpointJson = endpointJson as? JSON else {
@@ -160,6 +164,8 @@ final class OpenApiParser {
                         let apiFunctionName = endpointInfoValue["operationId"] as? String
                         
                         // Components
+                        
+                        // TODO: Move to another function.
                         var exampleModelInfo = [String: JSON]()
                         if let schemaJson = openApi.components.schemas {
                             for (modelName, modelValue) in schemaJson {
@@ -186,6 +192,7 @@ final class OpenApiParser {
                         
                         // TODO: Path, Query, Body Parsing.
                         
+                        // TODO: Move to another function.
                         let parameters = endpointInfoValue["parameters"] as? [JSON]
                         let requestBodyJson = endpointInfoValue["requestBody"] as? JSON
                         let responsesJson = endpointInfoValue["responses"] as? JSON
