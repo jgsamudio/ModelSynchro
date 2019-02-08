@@ -155,6 +155,31 @@ final class OpenApiParser {
                         let apiTags = endpointInfoValue["tags"] as? [String]
                         let apiFunctionName = endpointInfoValue["operationId"] as? String
                         
+                        // Components
+                        var exampleModelInfo = [String: JSON]()
+                        if let schemaJson = openApi.components.schemas {
+                            for (modelName, modelValue) in schemaJson {
+                                if let modelValue = modelValue as? JSON,
+                                    let propertyJSON = modelValue["properties"] as? JSON {
+                                    
+                                    for (propertyName, propertyValue) in propertyJSON {
+                                        if let propertyValue = propertyValue as? JSON,
+                                            let exampleValue = propertyValue["example"] {
+                                            
+                                            if exampleModelInfo[modelName] == nil {
+                                                exampleModelInfo[modelName] = JSON()
+                                            }
+                                            
+                                            if var modelExampleJson = exampleModelInfo[modelName] {
+                                                modelExampleJson[propertyName] = exampleValue
+                                                exampleModelInfo[modelName] = modelExampleJson
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
                         // TODO: Path, Query, Body Parsing.
                         
                         let parameters = endpointInfoValue["parameters"] as? [JSON]
@@ -168,12 +193,11 @@ final class OpenApiParser {
                         
                         if let requestModelName = extractSchema(from: requestBodyJson) {
                             // Body Info
-                            // Need work on components
+                            bodyInfo = RequestInfo(modelName: requestModelName, data: exampleModelInfo[requestModelName])
                         }
 
                         if let parameters = parameters {
                             // Query Info & PathInfo
-                            
                             for parameter in parameters {
                                 if let name = parameter["name"] as? String {
                                     if let location = parameter["in"] as? String, location == "path" {
