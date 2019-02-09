@@ -11,28 +11,30 @@
 */
 
 struct Vehicle: Codable {
-	let bluetoothId: String
-	let color: String
+	let bluetoothId: String?
+	let color: String?
 	let country: String
 	let imageUrl: String
-	let isLicensePlateTemporary: Bool
-	let isWindshieldMetalized: Bool
+	let isLicensePlateTemporary: Bool?
+	let isWindshieldMetalized: Bool?
 	let licensePlate: String
-	let licensePlateExpirationDate: String
-	let licensePlateNumberType: String
-	let make: String
+	let licensePlateExpirationDate: String?
+	let licensePlateNumberType: String?
+	let make: String?
 	let model: String
-	let nickName: String
+	let nickName: String?
 	let state: String
-	let transponderId: String
+	let transponderId: String?
 	let vehicleClass: String
-	let vehicleId: String
-	let year: String
+	let vehicleId: String?
+	let year: String?
+	let error: String?
 
 	enum CodingKeys: String, CodingKey {
 		case bluetoothId = "bluetoothId"
 		case color = "color"
 		case country = "country"
+		case error = "error"
 		case imageUrl = "imageUrl"
 		case isLicensePlateTemporary = "isLicensePlateTemporary"
 		case isWindshieldMetalized = "isWindshieldMetalized"

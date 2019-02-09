@@ -1,6 +1,6 @@
 //
 //  StatementsApi.swift
-//  TheWing
+//  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/09/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
@@ -17,6 +17,6 @@ protocol StatementsApi {
     func getStatements(accountId: String,
 			dateFrom: String,
 			dateTo: String,
-			completion: @escaping (_ result: Result<[Statement]>))
+			completion: @escaping (_ result: Result<[Statement]>) -> Void)
     
 }

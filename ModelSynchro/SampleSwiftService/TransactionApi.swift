@@ -1,6 +1,6 @@
 //
 //  TransactionApi.swift
-//  TheWing
+//  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/09/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
@@ -16,11 +16,11 @@ protocol TransactionApi {
     
     func deleteTransaction(accountId: String,
 			transactionId: String,
-			completion: @escaping (_ result: Result<Transaction>))
+			completion: @escaping (_ result: Result<Transaction>) -> Void)
     
     func disputeTransaction(accountId: String,
 			transactionId: String,
-			completion: @escaping (_ result: Result<Transaction>))
+			completion: @escaping (_ result: Result<Transaction>) -> Void)
     
     func getAllTransactions(accountId: String,
 			dateFrom: String,
@@ -28,15 +28,15 @@ protocol TransactionApi {
 			limit: Int,
 			offset: Int,
 			sort: String,
-			completion: @escaping (_ result: Result<Transaction>))
+			completion: @escaping (_ result: Result<[Transaction]>) -> Void)
     
     func getTransaction(accountId: String,
 			transactionId: String,
-			completion: @escaping (_ result: Result<Transaction>))
+			completion: @escaping (_ result: Result<Transaction>) -> Void)
     
     func updateTransaction(accountId: String,
 			transactionId: String,
 			updateTransactionRequest: UpdateTransactionRequest,
-			completion: @escaping (_ result: Result<Transaction>))
+			completion: @escaping (_ result: Result<Transaction>) -> Void)
     
 }

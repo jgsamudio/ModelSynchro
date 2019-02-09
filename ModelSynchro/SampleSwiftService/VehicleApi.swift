@@ -1,6 +1,6 @@
 //
 //  VehicleApi.swift
-//  TheWing
+//  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/09/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
@@ -16,34 +16,32 @@ protocol VehicleApi {
     
     func addVehicle(accountId: String,
 			addVehicleRequest: AddVehicleRequest,
-			completion: @escaping (_ result: Result<[Vehicle]>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
     func deleteVehicleInfo(accountId: String,
 			vehicleId: String,
-			completion: @escaping (_ result: Result<Vehicle>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
-    func getAllVehicleColors(,
-			completion: @escaping (_ result: Result<[VehicleColor]>))
+    func getAllVehicleColors(completion: @escaping (_ result: Result<[VehicleColor]>) -> Void)
     
-    func getAllVehicleMakes(,
-			completion: @escaping (_ result: Result<[Make]>))
+    func getAllVehicleMakes(completion: @escaping (_ result: Result<[Make]>) -> Void)
     
     func getAllVehicleModels(makeId: String,
-			completion: @escaping (_ result: Result<[Model]>))
+			completion: @escaping (_ result: Result<[Model]>) -> Void)
     
     func getAllVehicles(accountId: String,
-			completion: @escaping (_ result: Result<[Vehicle]>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
     func getVehicleForPlate(searchVehicleRequest: SearchVehicleRequest,
-			completion: @escaping (_ result: Result<Vehicle>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
     func getVehicleInfo(accountId: String,
 			vehicleId: String,
-			completion: @escaping (_ result: Result<Vehicle>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
     func updateVehicleInfo(accountId: String,
 			vehicleId: String,
 			updateVehicleRequest: UpdateVehicleRequest,
-			completion: @escaping (_ result: Result<Vehicle>))
+			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
 }

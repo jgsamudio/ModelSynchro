@@ -1,6 +1,6 @@
 //
 //  TransponderApi.swift
-//  TheWing
+//  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/09/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
@@ -16,17 +16,17 @@ protocol TransponderApi {
     
     func addTransponder(accountId: String,
 			addTransponderRequest: AddTransponderRequest,
-			completion: @escaping (_ result: Result<[Transponder]>))
+			completion: @escaping (_ result: Result<[Transponder]>) -> Void)
     
     func deleteTransponder(accountId: String,
 			transponderId: String,
-			completion: @escaping (_ result: Result<Transponder>))
+			completion: @escaping (_ result: Result<Transponder>) -> Void)
     
     func getAllTransponders(accountId: String,
-			completion: @escaping (_ result: Result<[Transponder]>))
+			completion: @escaping (_ result: Result<[Transponder]>) -> Void)
     
     func getTransponderInfo(accountId: String,
 			transponderId: String,
-			completion: @escaping (_ result: Result<Transponder>))
+			completion: @escaping (_ result: Result<Transponder>) -> Void)
     
 }

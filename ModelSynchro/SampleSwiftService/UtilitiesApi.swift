@@ -1,6 +1,6 @@
 //
 //  UtilitiesApi.swift
-//  TheWing
+//  ModelSynchro
 //
 //  Created by Jonathan Samudio on 02/09/19.
 //  Copyright © 2019 JustBinary. All rights reserved.
@@ -15,6 +15,6 @@ import Alamofire
 protocol UtilitiesApi {
     
     func getAvailableStates(country: String,
-			completion: @escaping (_ result: Result<[State]>))
+			completion: @escaping (_ result: Result<[State]>) -> Void)
     
 }
