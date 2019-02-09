@@ -13,16 +13,21 @@ final class OpenApiParser {
     
     private var openApi: Openapi
     
+    private var schemaKey = "schema"
+    
     init(openApi: Openapi) {
         self.openApi = openApi
     }
     
+    /// Converts the open api model to a server api info model to generate the api and models.
+    ///
+    /// - Parameter config: User's configuration file.
+    /// - Returns: Server api info.
     func convertToServerApi(config: ConfigurationFile) -> ServerAPIInfo {
         let baseUrl = openApi.servers.first?.url
         var apisDict = [String: [Endpoint]]()
         
         // TODO: API Naming conventions, currently account not AccountApi
-        // InlineResponse200 for Unit related responses.
         
         if let pathsJson = openApi.paths {
             for (endpointUrl, endpointJson) in pathsJson {
@@ -90,7 +95,7 @@ private extension OpenApiParser {
     func extractSchema(from contentJson: JSON?) -> String? {
         let content = contentJson?["content"] as? JSON
         let applicationJson = content?["application/json"] as? JSON
-        let schema = applicationJson?["schema"] as? JSON
+        let schema = applicationJson?[schemaKey] as? JSON
         let pathSchema = schema?["$ref"] as? String
         
         if let schema = pathSchema?.split(separator: "/").last {
@@ -155,14 +160,14 @@ private extension OpenApiParser {
                         if pathInfo == nil {
                             pathInfo = RequestInfo(modelName: nil, data: JSON())
                         }
-                        if let schemaJson = parameter["schema"] as? JSON {
+                        if let schemaJson = parameter[schemaKey] as? JSON {
                             pathInfo?.data?[name] = extractExampleValue(from: schemaJson)
                         }
                     } else if let location = parameter["in"] as? String, location == "query" {
                         if queryInfo == nil {
                             queryInfo = RequestInfo(modelName: nil, data: JSON())
                         }
-                        if let schemaJson = parameter["schema"] as? JSON {
+                        if let schemaJson = parameter[schemaKey] as? JSON {
                             queryInfo?.data?[name] = extractExampleValue(from: schemaJson)
                         }
                     }

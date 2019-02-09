@@ -58,9 +58,6 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "KotlinApiTemplate"
     }
     
-    var defaultResponseModel: String {
-        return "Unit"
-    }
     
     func fileHeader(name: String,
                     config: ConfigurationFile,
@@ -154,19 +151,21 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         ]
         return context
     }
-    
-    func httpMethodAnnotation(method: HTTPMethod) -> String {
-        return "@\(method.rawValue.uppercased())"
-    }
 }
 
+// MARK: - APIGeneratorLanguageFormatter
 private extension KotlinLanguageFormatter {
+    
+    var defaultResponseModel: String {
+        return "Unit"
+    }
     
     // TODO: Have this be returned from the language formatter?
     // How to handle mulitple apis
     func apiTemplateModels(config: ConfigurationFile, api: Api, urlModelDict: UrlModelDict) -> APITemplate? {
         var requestTemplates = [APIRequestTemplate]()
-        for endpoint in api.endpoints ?? [] {
+        let sortedEndpoints = api.endpoints?.sorted(by: { ($0.functionName ?? "") < ($1.functionName ?? "") })
+        for endpoint in sortedEndpoints ?? [] {
             
             // Retreive the return type.
             let baseUrl = config.serverAPIInfo?.baseUrl
@@ -189,6 +188,10 @@ private extension KotlinLanguageFormatter {
         return APITemplate(name: api.name, apiRequests: requestTemplates)
     }
     
+    func httpMethodAnnotation(method: HTTPMethod) -> String {
+        return "@\(method.rawValue.uppercased())"
+    }
+    
     func retrofitImports(endpoints: [Endpoint]?) -> [FileImport] {
         var endpointDict = [String: Bool]()
         for endpoint in endpoints ?? [] {
@@ -205,7 +208,7 @@ private extension KotlinLanguageFormatter {
                 endpointDict["Query"] = true
             }
         }
-        return endpointDict.map { FileImport(name: "retrofit2.http.\($0.key)") }
+        return (endpointDict.map { FileImport(name: "retrofit2.http.\($0.key)") }).sorted(by: { $0.name < $1.name })
     }
     
     func modelImports(config: ConfigurationFile, endpoints: [Endpoint]?) -> [FileImport] {
@@ -226,7 +229,7 @@ private extension KotlinLanguageFormatter {
                 }
             }
         }
-        return modelDict.map { FileImport(name: "\(package).\($0.key)") }
+        return (modelDict.map { FileImport(name: "\(package).\($0.key)") }).sorted(by: { $0.name < $1.name })
     }
     
     func parameters(config: ConfigurationFile, endpoint: Endpoint) -> String {

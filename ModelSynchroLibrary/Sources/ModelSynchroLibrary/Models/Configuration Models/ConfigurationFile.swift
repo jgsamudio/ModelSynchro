@@ -62,12 +62,19 @@ extension ConfigurationFile {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
     }
     
+    /// Updates the configuration file and models with the json from the configuration source. Used to update the models
+    /// with the JSON data for the RequestInfo in Endpoints.
+    ///
+    /// - Parameter json: Source file configuration JSON.
     public mutating func updateConfiguration(with json: JSON) {
         if let apiJson = json["serverAPIInfo"] as? JSON {
             serverAPIInfo?.updateConfiguration(with: apiJson)
         }
     }
     
+    /// Updates the config's server api info with the OpenApi Data.
+    ///
+    /// - Parameter openApiData: Source data for the OpenApi JSON file.
     public mutating func updateServerApi(with openApiData: Data?) {
         openApiData?.deserializeObject { (api: Openapi?, _) in
             if let openApiJson = openApiData?.serializeToJsonObject(), var openApi = api {

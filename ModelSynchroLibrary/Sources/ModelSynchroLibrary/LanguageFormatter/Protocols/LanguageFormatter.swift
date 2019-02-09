@@ -62,7 +62,6 @@ extension LanguageFormatter {
         return nil
     }
     
-    // TODO: TEST to review with kotlin language formatter. Do we need to check type?
     func variableFound(property: String,
                        type: String,
                        customProperty: CustomProperty?,
@@ -74,36 +73,5 @@ extension LanguageFormatter {
         let nonOptionalLine = variableLine.toString(languageFormatter: self, isLastVariable: true)
         
         return dataSource.allLines.contains(optionalLine) || dataSource.allLines.contains(nonOptionalLine)
-    }
-}
-
-protocol APIGeneratorLanguageFormatter {
-    
-    var defaultResponseModel: String { get }
-    
-    var apiTemplateName: String { get }
-    
-    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext
-
-    func httpMethodAnnotation(method: HTTPMethod) -> String
-    
-}
-
-extension APIGeneratorLanguageFormatter {
-    
-    var defaultResponseModel: String {
-        return ""
-    }
-    
-    var apiTemplateName: String {
-        return ""
-    }
-    
-    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext {
-        return [:]
-    }
-    
-    func httpMethodAnnotation(method: HTTPMethod) -> String {
-        return ""
     }
 }
