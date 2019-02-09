@@ -13,7 +13,7 @@ public struct Endpoint: Codable {
     // MARK: - Public Properties
     
     let functionName: String?
-    let responseModelName: String
+    let responseModelName: String?
     let url: String?
     let endpoint: String?
     let authorized: Bool

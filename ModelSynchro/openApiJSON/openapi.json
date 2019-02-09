@@ -2798,14 +2798,6 @@
             "example" : "prolific@prolificinteractive.com"
           }
         }
-      },
-      "inline_response_200" : {
-        "type" : "object",
-        "properties" : {
-          "isAvailable" : {
-            "type" : "boolean"
-          }
-        }
       }
     },
     "responses" : {

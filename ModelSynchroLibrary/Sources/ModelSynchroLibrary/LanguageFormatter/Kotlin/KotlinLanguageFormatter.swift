@@ -58,6 +58,10 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "KotlinApiTemplate"
     }
     
+    var defaultResponseModel: String {
+        return "Unit"
+    }
+    
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
@@ -166,13 +170,13 @@ private extension KotlinLanguageFormatter {
             
             // Retreive the return type.
             let baseUrl = config.serverAPIInfo?.baseUrl
-            guard let url = endpoint.urlRequest(baseUrl: baseUrl)?.url?.absoluteString,
-                let returnType = urlModelDict[url] else {
+            guard let url = endpoint.urlRequest(baseUrl: baseUrl)?.url?.absoluteString else {
                 continue
             }
             
+            let returnType = urlModelDict[url] ?? defaultResponseModel
             let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
-            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName)"
+            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName ?? "")"
             
             let requestTemplate = APIRequestTemplate(name: requestName,
                                                      httpMethodAnnotation: methodAnnotation,
@@ -210,8 +214,11 @@ private extension KotlinLanguageFormatter {
         }
         var modelDict = [String: Bool]()
         for endpoint in endpoints {
-            if modelDict[endpoint.responseModelName] == nil {
-                modelDict[endpoint.responseModelName] = true
+            guard let responseModelName = endpoint.responseModelName else {
+                continue
+            }
+            if modelDict[responseModelName] == nil {
+                modelDict[responseModelName] = true
             }
             for modelName in endpoint.requestModelNames {
                 if modelDict[modelName] == nil {

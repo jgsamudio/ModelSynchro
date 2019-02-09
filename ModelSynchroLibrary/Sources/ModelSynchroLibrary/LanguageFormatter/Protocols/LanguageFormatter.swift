@@ -79,6 +79,8 @@ extension LanguageFormatter {
 
 protocol APIGeneratorLanguageFormatter {
     
+    var defaultResponseModel: String { get }
+    
     var apiTemplateName: String { get }
     
     func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext
@@ -88,6 +90,10 @@ protocol APIGeneratorLanguageFormatter {
 }
 
 extension APIGeneratorLanguageFormatter {
+    
+    var defaultResponseModel: String {
+        return ""
+    }
     
     var apiTemplateName: String {
         return ""

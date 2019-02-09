@@ -11,10 +11,10 @@ import retrofit2.http.GET
     Auto-Generated using ModelSynchro
 */
 
-interface transponder {
+interface TransponderApi {
     
     @GET("/accounts/{account_id}/transponders/{transponder_id}")
     fun getTransponderInfo(@Path("account_id") accountId: String,
-			@Path("transponder_id") transponderId: String): Deferred<Array<Transponder>>
+			@Path("transponder_id") transponderId: String): Deferred<Transponder>
     
 }

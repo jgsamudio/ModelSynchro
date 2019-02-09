@@ -49,7 +49,10 @@ open class NetworkRequester {
             guard let data = data else {
                 return
             }
-            self.jsonParser.parse(data: data, name: endpoint.responseModelName, response: response)
+            
+            if let responseModelName = endpoint.responseModelName {
+                self.jsonParser.parse(data: data, name: responseModelName, response: response)
+            }
             
             if let bodyInfo = endpoint.bodyInfo {
                 if let modelName = bodyInfo.modelName, let data = bodyInfo.data {
