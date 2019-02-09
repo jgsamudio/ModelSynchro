@@ -4,8 +4,8 @@ import kotlinx.coroutines.Deferred
 
 import com.kapsch.android.api.models.NotificationCenter
 
-import retrofit2.http.Query
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
     Auto-Generated using ModelSynchro

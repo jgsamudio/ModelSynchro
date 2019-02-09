@@ -5,10 +5,10 @@ import kotlinx.coroutines.Deferred
 import com.kapsch.android.api.models.Transaction
 import com.kapsch.android.api.models.UpdateTransactionRequest
 
-import retrofit2.http.Path
 import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.PATCH
+import retrofit2.http.POST
 import retrofit2.http.Body
 
 /**

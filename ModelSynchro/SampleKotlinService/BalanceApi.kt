@@ -2,13 +2,13 @@ package com.kapsch.android.api.service
 
 import kotlinx.coroutines.Deferred
 
-import com.kapsch.android.api.models.AddFundsToBalanceRequest
 import com.kapsch.android.api.models.Balance
+import com.kapsch.android.api.models.AddFundsToBalanceRequest
 
-import retrofit2.http.Path
 import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Body
+import retrofit2.http.POST
 
 /**
     Auto-Generated using ModelSynchro
