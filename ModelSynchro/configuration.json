@@ -2,17 +2,15 @@
   "authorName": "Jonathan Samudio",
   "companyName": "JustBinary",
   "projectName": "ModelSynchro",
-  "language": "kotlin",
+  "language": "swift",
   "verbose": false,
   "namingConventions":[
     "removePluralNamesForModels",
     "camelCaseNames"
   ],
   "directoryInfo": {
-    "outputModelDirectory": "./SampleKotlinModels/",
-    "outputModelPackage": "com.kapsch.android.api.models",
-    "outputApiDirectory": "./SampleKotlinService/",
-    "outputApiPackage": "com.kapsch.android.api.service",
+    "outputModelDirectory": "./SampleSwiftModels/",
+    "outputApiDirectory": "./SampleSwiftService/",
     "templateDirectory": "./templates/",
     "openApiJsonDirectory": "./openApiJSON/"
   }

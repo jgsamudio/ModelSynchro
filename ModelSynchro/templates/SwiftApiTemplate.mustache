@@ -1,0 +1,19 @@
+//
+//  {{ api.name }}.swift
+//  TheWing
+//
+//  Created by {{ config.authorName }} on {{ config.date }}.
+//  Copyright © {{ config.year }} {{ config.companyName }}. All rights reserved.
+//
+
+import Alamofire
+
+/**
+    Auto-Generated using ModelSynchro
+*/
+
+protocol {{ api.name }} {
+    {% for apiRequest in api.apiRequests %}
+    func {{ apiRequest.name }}({{ apiRequest.parameters }}, completion: @escaping (_ result: Result<{{ apiRequest.returnType}}>))
+    {% endfor %}
+}

@@ -145,3 +145,88 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return type.capitalizedFirstLetter()
     }
 }
+
+// MARK: - APIGeneratorLanguageFormatter
+extension SwiftLanguageFormatter {
+    
+    var apiTemplateName: String {
+        return "SwiftApiTemplate"
+    }
+    
+    func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext {
+        let context: TemplateContext = [
+            "config": config.configDict,
+            "api": apiTemplateModels(config: config, api: api, urlModelDict: urlModelDict)
+        ]
+        return context
+    }
+}
+
+private extension SwiftLanguageFormatter {
+    
+    func apiTemplateModels(config: ConfigurationFile, api: Api, urlModelDict: UrlModelDict) -> APITemplate? {
+        var requestTemplates = [APIRequestTemplate]()
+        let sortedEndpoints = api.endpoints?.sorted(by: { ($0.functionName ?? "") < ($1.functionName ?? "") })
+        for endpoint in sortedEndpoints ?? [] {
+            
+            // Retreive the return type.
+            let baseUrl = config.serverAPIInfo?.baseUrl
+            guard let url = endpoint.urlRequest(baseUrl: baseUrl)?.url?.absoluteString else {
+                continue
+            }
+            
+            let returnType = urlModelDict[url] ?? "Void"
+            let methodAnnotation = httpMethodAnnotation(method: endpoint.method)
+            let requestName = endpoint.functionName ?? "\(endpoint.method.rawValue.lowercased())\(endpoint.responseModelName ?? "")"
+            
+            let requestTemplate = APIRequestTemplate(name: requestName,
+                                                     httpMethodAnnotation: methodAnnotation,
+                                                     endpoint: endpoint.endpoint ?? "",
+                                                     parameters: parameters(config: config, endpoint: endpoint),
+                                                     returnType: returnType)
+            requestTemplates.append(requestTemplate)
+        }
+        
+        return APITemplate(name: api.name, apiRequests: requestTemplates)
+    }
+    
+    func httpMethodAnnotation(method: HTTPMethod) -> String {
+        return ".\(method.rawValue.lowercased())"
+    }
+    
+    func parameters(config: ConfigurationFile, endpoint: Endpoint) -> String {
+        var parameterString = ""
+        var parameterCount = 0
+        
+        parameterString += generateParameterString(config: config,
+                                                   requestData: endpoint.pathInfo?.data,
+                                                   currentCount: &parameterCount,
+                                                   totalCount: endpoint.totalDataCount)
+        
+        parameterString += generateParameterString(config: config,
+                                                   requestData: endpoint.queryInfo?.data,
+                                                   currentCount: &parameterCount,
+                                                   totalCount: endpoint.totalDataCount)
+        
+        if let modelName = endpoint.bodyInfo?.modelName {
+            parameterString += "\(modelName.lowercaseFirstLetter()): \(modelName)"
+        }
+        
+        return parameterString
+    }
+    
+    private func generateParameterString(config: ConfigurationFile,
+                                         requestData: JSON?,
+                                         currentCount: inout Int,
+                                         totalCount: Int) -> String {
+        let requestData = requestData?.sorted(by: { $0.key < $1.key })
+        return requestData?.map {
+            currentCount += 1
+            let jsonParser = JsonParser(config: config, currentModels: ModelComponents())
+            let type = jsonParser.parse(key: $0.key, value: $0.value) ?? Type.string
+            let typeString = type.toString(formatter: self)
+            let lastVariable = (currentCount == totalCount)
+            return "\(config.applyNamingConventions(for: $0.key)): \(typeString)\(lastVariable ? "" : ",\n\t\t\t")"
+        }.joined() ?? ""
+    }
+}

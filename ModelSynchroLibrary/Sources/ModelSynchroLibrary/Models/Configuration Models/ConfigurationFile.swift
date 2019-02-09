@@ -62,6 +62,14 @@ extension ConfigurationFile {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
     }
     
+    var configDict: [String: String] {
+        return ["authorName": authorName,
+                "companyName": companyName,
+                "projectName": projectName,
+                "year": Date.currentYearString,
+                "date": Date.currentDateString]
+    }
+    
     /// Updates the configuration file and models with the json from the configuration source. Used to update the models
     /// with the JSON data for the RequestInfo in Endpoints.
     ///

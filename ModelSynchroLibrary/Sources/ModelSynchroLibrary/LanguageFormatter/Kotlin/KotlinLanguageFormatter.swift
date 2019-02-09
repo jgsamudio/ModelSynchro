@@ -54,11 +54,6 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         return "val"
     }
     
-    var apiTemplateName: String {
-        return "KotlinApiTemplate"
-    }
-    
-    
     func fileHeader(name: String,
                     config: ConfigurationFile,
                     propertyLines: [Line],
@@ -141,6 +136,15 @@ final class KotlinLanguageFormatter: LanguageFormatter {
         
         return !foundVariables.isEmpty
     }
+
+}
+
+// MARK: - APIGeneratorLanguageFormatter
+extension KotlinLanguageFormatter {
+    
+    var apiTemplateName: String {
+        return "KotlinApiTemplate"
+    }
     
     func apiTemplateContext(api: Api, config: ConfigurationFile, urlModelDict: UrlModelDict) -> TemplateContext {
         let context: TemplateContext = [
@@ -153,7 +157,6 @@ final class KotlinLanguageFormatter: LanguageFormatter {
     }
 }
 
-// MARK: - APIGeneratorLanguageFormatter
 private extension KotlinLanguageFormatter {
     
     var defaultResponseModel: String {
