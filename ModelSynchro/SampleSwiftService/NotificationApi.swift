@@ -17,6 +17,7 @@ protocol NotificationApi {
     func getAllNotifications(filter: String,
 			limit: Int,
 			offset: Int,
-			sort: String, completion: @escaping (_ result: Result<NotificationCenter>))
+			sort: String,
+			completion: @escaping (_ result: Result<NotificationCenter>))
     
 }

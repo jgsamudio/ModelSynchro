@@ -15,8 +15,10 @@ import Alamofire
 protocol BalanceApi {
     
     func addFundsToBalance(accountId: String,
-			addFundsToBalanceRequest: AddFundsToBalanceRequest, completion: @escaping (_ result: Result<Balance>))
+			addFundsToBalanceRequest: AddFundsToBalanceRequest,
+			completion: @escaping (_ result: Result<Balance>))
     
-    func getBalance(accountId: String, completion: @escaping (_ result: Result<Balance>))
+    func getBalance(accountId: String,
+			completion: @escaping (_ result: Result<Balance>))
     
 }

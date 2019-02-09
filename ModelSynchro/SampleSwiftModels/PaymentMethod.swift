@@ -11,9 +11,15 @@
 */
 
 struct PaymentMethod: Codable {
-	let error: String
+	let isPrimary: Bool
+	let paymentMethodId: String
+	let paymentObject: PaymentObject
+	let type: String
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case isPrimary = "isPrimary"
+		case paymentMethodId = "paymentMethodId"
+		case paymentObject = "paymentObject"
+		case type = "type"
 	}
 }

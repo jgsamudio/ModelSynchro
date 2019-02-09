@@ -15,10 +15,12 @@ import Alamofire
 protocol PaymentApi {
     
     func getPaymentMethod(accountId: String,
-			paymentId: String, completion: @escaping (_ result: Result<PaymentMethod>))
+			paymentId: String,
+			completion: @escaping (_ result: Result<PaymentMethod>))
     
     func updatePaymentMethod(accountId: String,
 			paymentId: String,
-			updatePaymentMethodRequest: UpdatePaymentMethodRequest, completion: @escaping (_ result: Result<PaymentMethod>))
+			updatePaymentMethodRequest: UpdatePaymentMethodRequest,
+			completion: @escaping (_ result: Result<PaymentMethod>))
     
 }

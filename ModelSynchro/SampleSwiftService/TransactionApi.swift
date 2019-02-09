@@ -15,13 +15,16 @@ import Alamofire
 protocol TransactionApi {
     
     func disputeTransaction(accountId: String,
-			transactionId: String, completion: @escaping (_ result: Result<Transaction>))
+			transactionId: String,
+			completion: @escaping (_ result: Result<Transaction>))
     
     func getTransaction(accountId: String,
-			transactionId: String, completion: @escaping (_ result: Result<Transaction>))
+			transactionId: String,
+			completion: @escaping (_ result: Result<Transaction>))
     
     func updateTransaction(accountId: String,
 			transactionId: String,
-			updateTransactionRequest: UpdateTransactionRequest, completion: @escaping (_ result: Result<Transaction>))
+			updateTransactionRequest: UpdateTransactionRequest,
+			completion: @escaping (_ result: Result<Transaction>))
     
 }

@@ -15,6 +15,7 @@ import Alamofire
 protocol TransponderApi {
     
     func getTransponderInfo(accountId: String,
-			transponderId: String, completion: @escaping (_ result: Result<Transponder>))
+			transponderId: String,
+			completion: @escaping (_ result: Result<Transponder>))
     
 }

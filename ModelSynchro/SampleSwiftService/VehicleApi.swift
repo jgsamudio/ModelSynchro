@@ -14,13 +14,16 @@ import Alamofire
 
 protocol VehicleApi {
     
-    func getVehicleForPlate(searchVehicleRequest: SearchVehicleRequest, completion: @escaping (_ result: Result<Vehicle>))
+    func getVehicleForPlate(searchVehicleRequest: SearchVehicleRequest,
+			completion: @escaping (_ result: Result<Vehicle>))
     
     func getVehicleInfo(accountId: String,
-			vehicleId: String, completion: @escaping (_ result: Result<Vehicle>))
+			vehicleId: String,
+			completion: @escaping (_ result: Result<Vehicle>))
     
     func updateVehicleInfo(accountId: String,
 			vehicleId: String,
-			updateVehicleRequest: UpdateVehicleRequest, completion: @escaping (_ result: Result<Vehicle>))
+			updateVehicleRequest: UpdateVehicleRequest,
+			completion: @escaping (_ result: Result<Vehicle>))
     
 }

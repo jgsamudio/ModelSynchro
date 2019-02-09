@@ -11,9 +11,21 @@
 */
 
 struct User: Codable {
-	let error: String
+	let accounts: [Account]
+	let addresses: [Address]
+	let email: String
+	let firstName: String
+	let lastName: String
+	let phone: String
+	let userId: String
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case accounts = "accounts"
+		case addresses = "addresses"
+		case email = "email"
+		case firstName = "firstName"
+		case lastName = "lastName"
+		case phone = "phone"
+		case userId = "userId"
 	}
 }

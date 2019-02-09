@@ -11,9 +11,13 @@
 */
 
 struct Transponder: Codable {
-	let error: String
+	let number: String
+	let tollingAgencyName: String
+	let transponderId: String
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case number = "number"
+		case tollingAgencyName = "tollingAgencyName"
+		case transponderId = "transponderId"
 	}
 }

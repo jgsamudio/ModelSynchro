@@ -11,9 +11,25 @@
 */
 
 struct Account: Codable {
-	let error: String
+	let accountId: String
+	let balance: Balance
+	let default: Bool
+	let isBlocked: Bool
+	let name: String
+	let paymentMethods: [PaymentMethod]
+	let status: String
+	let transponders: [Transponder]
+	let vehicles: [Vehicle]
 
 	enum CodingKeys: String, CodingKey {
-		case error = "error"
+		case accountId = "accountId"
+		case balance = "balance"
+		case default = "default"
+		case isBlocked = "isBlocked"
+		case name = "name"
+		case paymentMethods = "paymentMethods"
+		case status = "status"
+		case transponders = "transponders"
+		case vehicles = "vehicles"
 	}
 }
