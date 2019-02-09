@@ -15,12 +15,10 @@ struct AuthenticationToken: Codable {
 	let accounts: [Account]
 	let refreshToken: String
 	let userId: String
-	let error: String?
 
 	enum CodingKeys: String, CodingKey {
 		case accessToken = "accessToken"
 		case accounts = "accounts"
-		case error = "error"
 		case refreshToken = "refreshToken"
 		case userId = "userId"
 	}

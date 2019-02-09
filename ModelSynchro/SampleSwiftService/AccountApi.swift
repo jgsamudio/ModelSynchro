@@ -14,7 +14,13 @@ import Alamofire
 
 protocol AccountApi {
     
+    func deleteAccount(accountId: String,
+			completion: @escaping (_ result: Result<Account>))
+    
     func getUserAccountDetails(accountId: String,
 			completion: @escaping (_ result: Result<Account>))
+    
+    func getUserAccounts(,
+			completion: @escaping (_ result: Result<[Account]>))
     
 }

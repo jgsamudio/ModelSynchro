@@ -14,8 +14,20 @@ import Alamofire
 
 protocol TransactionApi {
     
+    func deleteTransaction(accountId: String,
+			transactionId: String,
+			completion: @escaping (_ result: Result<Transaction>))
+    
     func disputeTransaction(accountId: String,
 			transactionId: String,
+			completion: @escaping (_ result: Result<Transaction>))
+    
+    func getAllTransactions(accountId: String,
+			dateFrom: String,
+			dateTo: String,
+			limit: Int,
+			offset: Int,
+			sort: String,
 			completion: @escaping (_ result: Result<Transaction>))
     
     func getTransaction(accountId: String,

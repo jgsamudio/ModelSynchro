@@ -18,7 +18,15 @@ protocol BalanceApi {
 			addFundsToBalanceRequest: AddFundsToBalanceRequest,
 			completion: @escaping (_ result: Result<Balance>))
     
+    func getAvailablePaymentSchemes(accountId: String,
+			completion: @escaping (_ result: Result<[PaymentScheme]>))
+    
     func getBalance(accountId: String,
 			completion: @escaping (_ result: Result<Balance>))
+    
+    func updatePaymentScheme(accountId: String,
+			paymentSchemeId: String,
+			updatePaymentSchemeRequest: UpdatePaymentSchemeRequest,
+			completion: @escaping (_ result: Result<[PaymentScheme]>))
     
 }

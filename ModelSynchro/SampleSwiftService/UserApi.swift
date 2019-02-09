@@ -23,8 +23,14 @@ protocol UserApi {
     func getUserInfo(userId: String,
 			completion: @escaping (_ result: Result<User>))
     
+    func logoutUser(,
+			completion: @escaping (_ result: Result<Void>))
+    
     func refreshToken(authenticationRefreshTokenRequest: AuthenticationRefreshTokenRequest,
 			completion: @escaping (_ result: Result<AuthenticationToken>))
+    
+    func resetPassword(body: body,
+			completion: @escaping (_ result: Result<Void>))
     
     func updateUserInfo(userId: String,
 			userUpdateRequest: UserUpdateRequest,

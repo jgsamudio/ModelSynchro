@@ -38,7 +38,7 @@ final class OpenApiParser {
                 for (endpointInfoKey, endpointInfoValue) in endpointJson {
                     guard  let endpointInfoValue = endpointInfoValue as? JSON,
                         let httpMethod = HTTPMethod.init(rawValue: endpointInfoKey) else {
-                        continue
+                            continue
                     }
                     
                     let apiTags = endpointInfoValue["tags"] as? [String]
@@ -54,12 +54,12 @@ final class OpenApiParser {
                                                         exampleModelInfo: exampleModelInfo,
                                                         parameters: parameters)
                     
-                    guard let schemaName = extractSchema(from: successResponse),
-                        let apiName = apiTags?.first else {
-                            continue
+                    guard let apiName = apiTags?.first else {
+                        continue
                     }
                     
-                    let responseModelName = exampleModelInfo[schemaName] == nil ? nil : schemaName
+                    let schemaName = extractSchema(from: successResponse)
+                    let responseModelName = exampleModelInfo[schemaName ?? ""] == nil ? nil : schemaName
                     let endpoint = Endpoint(functionName: apiFunctionName,
                                             responseModelName: responseModelName,
                                             url: nil,
@@ -96,7 +96,8 @@ private extension OpenApiParser {
         let content = contentJson?["content"] as? JSON
         let applicationJson = content?["application/json"] as? JSON
         let schema = applicationJson?[schemaKey] as? JSON
-        let pathSchema = schema?["$ref"] as? String
+        let items = schema?["items"] as? JSON
+        let pathSchema = items?["$ref"] as? String ?? schema?["$ref"] as? String
         
         if let schema = pathSchema?.split(separator: "/").last {
             return String(schema)

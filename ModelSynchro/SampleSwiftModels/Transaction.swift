@@ -12,17 +12,19 @@
 
 struct Transaction: Codable {
 	let discountedPrice: Double
-	let isConfirmed: Bool
-	let isPeakHours: Bool
+	let isConfirmed: Bool?
+	let isPeakHours: Bool?
 	let price: Double
-	let time: String
-	let tollGantry: TollGantry
+	let time: String?
+	let tollGantry: TollGantry?
 	let transactionId: String
-	let transponder: Transponder
-	let vehicle: Vehicle
+	let transponder: Transponder?
+	let vehicle: Vehicle?
+	let error: String?
 
 	enum CodingKeys: String, CodingKey {
 		case discountedPrice = "discountedPrice"
+		case error = "error"
 		case isConfirmed = "isConfirmed"
 		case isPeakHours = "isPeakHours"
 		case price = "price"

@@ -14,6 +14,26 @@ import Alamofire
 
 protocol VehicleApi {
     
+    func addVehicle(accountId: String,
+			addVehicleRequest: AddVehicleRequest,
+			completion: @escaping (_ result: Result<[Vehicle]>))
+    
+    func deleteVehicleInfo(accountId: String,
+			vehicleId: String,
+			completion: @escaping (_ result: Result<Vehicle>))
+    
+    func getAllVehicleColors(,
+			completion: @escaping (_ result: Result<[VehicleColor]>))
+    
+    func getAllVehicleMakes(,
+			completion: @escaping (_ result: Result<[Make]>))
+    
+    func getAllVehicleModels(makeId: String,
+			completion: @escaping (_ result: Result<[Model]>))
+    
+    func getAllVehicles(accountId: String,
+			completion: @escaping (_ result: Result<[Vehicle]>))
+    
     func getVehicleForPlate(searchVehicleRequest: SearchVehicleRequest,
 			completion: @escaping (_ result: Result<Vehicle>))
     
