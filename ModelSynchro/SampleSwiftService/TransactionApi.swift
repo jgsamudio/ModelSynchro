@@ -36,7 +36,7 @@ protocol TransactionApi {
     
     func updateTransaction(accountId: String,
 			transactionId: String,
-			updateTransactionRequest: UpdateTransactionRequest,
+			updateTransactionRequest: Updatetransactionrequest,
 			completion: @escaping (_ result: Result<Transaction>) -> Void)
     
 }

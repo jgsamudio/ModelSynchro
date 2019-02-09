@@ -209,7 +209,7 @@ private extension SwiftLanguageFormatter {
                                                    totalCount: endpoint.totalDataCount)
         
         if let modelName = endpoint.bodyInfo?.modelName {
-            parameterString += "\(modelName.lowercaseFirstLetter()): \(modelName)"
+            parameterString += "\(modelName.lowercaseFirstLetter()): \(modelName.capitalized)"
         }
         
         return parameterString

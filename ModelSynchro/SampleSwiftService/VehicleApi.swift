@@ -15,8 +15,8 @@ import Alamofire
 protocol VehicleApi {
     
     func addVehicle(accountId: String,
-			addVehicleRequest: AddVehicleRequest,
-			completion: @escaping (_ result: Result<Vehicle>) -> Void)
+			addVehicleRequest: Addvehiclerequest,
+			completion: @escaping (_ result: Result<[Vehicle]>) -> Void)
     
     func deleteVehicleInfo(accountId: String,
 			vehicleId: String,
@@ -24,15 +24,15 @@ protocol VehicleApi {
     
     func getAllVehicleColors(completion: @escaping (_ result: Result<[VehicleColor]>) -> Void)
     
-    func getAllVehicleMakes(completion: @escaping (_ result: Result<[Make]>) -> Void)
+    func getAllVehicleMakes(completion: @escaping (_ result: Result<Make>) -> Void)
     
     func getAllVehicleModels(makeId: String,
 			completion: @escaping (_ result: Result<[Model]>) -> Void)
     
     func getAllVehicles(accountId: String,
-			completion: @escaping (_ result: Result<Vehicle>) -> Void)
+			completion: @escaping (_ result: Result<[Vehicle]>) -> Void)
     
-    func getVehicleForPlate(searchVehicleRequest: SearchVehicleRequest,
+    func getVehicleForPlate(searchVehicleRequest: Searchvehiclerequest,
 			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
     func getVehicleInfo(accountId: String,
@@ -41,7 +41,7 @@ protocol VehicleApi {
     
     func updateVehicleInfo(accountId: String,
 			vehicleId: String,
-			updateVehicleRequest: UpdateVehicleRequest,
+			updateVehicleRequest: Updatevehiclerequest,
 			completion: @escaping (_ result: Result<Vehicle>) -> Void)
     
 }

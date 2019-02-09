@@ -11,11 +11,9 @@
 */
 
 struct Make: Codable {
-	let makeId: String
-	let name: String
+	let error: String
 
 	enum CodingKeys: String, CodingKey {
-		case makeId = "makeId"
-		case name = "name"
+		case error = "error"
 	}
 }

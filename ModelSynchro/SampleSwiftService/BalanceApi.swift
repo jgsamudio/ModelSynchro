@@ -15,7 +15,7 @@ import Alamofire
 protocol BalanceApi {
     
     func addFundsToBalance(accountId: String,
-			addFundsToBalanceRequest: AddFundsToBalanceRequest,
+			addFundsToBalanceRequest: Addfundstobalancerequest,
 			completion: @escaping (_ result: Result<Balance>) -> Void)
     
     func getAvailablePaymentSchemes(accountId: String,
@@ -26,7 +26,7 @@ protocol BalanceApi {
     
     func updatePaymentScheme(accountId: String,
 			paymentSchemeId: String,
-			updatePaymentSchemeRequest: UpdatePaymentSchemeRequest,
+			updatePaymentSchemeRequest: Updatepaymentschemerequest,
 			completion: @escaping (_ result: Result<[PaymentScheme]>) -> Void)
     
 }

@@ -15,7 +15,7 @@ import Alamofire
 protocol TransponderApi {
     
     func addTransponder(accountId: String,
-			addTransponderRequest: AddTransponderRequest,
+			addTransponderRequest: Addtransponderrequest,
 			completion: @escaping (_ result: Result<[Transponder]>) -> Void)
     
     func deleteTransponder(accountId: String,

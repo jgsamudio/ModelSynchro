@@ -14,13 +14,13 @@ import Alamofire
 
 protocol AuthenticationApi {
     
-    func createUser(authenticationInformation: AuthenticationInformation,
+    func createUser(authenticationInformation: Authenticationinformation,
 			completion: @escaping (_ result: Result<AuthenticationToken>) -> Void)
     
-    func loginUser(authenticationInformation: AuthenticationInformation,
+    func loginUser(authenticationInformation: Authenticationinformation,
 			completion: @escaping (_ result: Result<AuthenticationToken>) -> Void)
     
-    func loginUserWithAuth(providerAuthenticationInformation: ProviderAuthenticationInformation,
+    func loginUserWithAuth(providerAuthenticationInformation: Providerauthenticationinformation,
 			completion: @escaping (_ result: Result<AuthenticationToken>) -> Void)
     
 }

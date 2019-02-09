@@ -24,14 +24,14 @@ protocol UserApi {
     
     func logoutUser(completion: @escaping (_ result: Result<Void>) -> Void)
     
-    func refreshToken(authenticationRefreshTokenRequest: AuthenticationRefreshTokenRequest,
+    func refreshToken(authenticationRefreshTokenRequest: Authenticationrefreshtokenrequest,
 			completion: @escaping (_ result: Result<AuthenticationToken>) -> Void)
     
-    func resetPassword(body: body,
+    func resetPassword(body: Body,
 			completion: @escaping (_ result: Result<Void>) -> Void)
     
     func updateUserInfo(userId: String,
-			userUpdateRequest: UserUpdateRequest,
+			userUpdateRequest: Userupdaterequest,
 			completion: @escaping (_ result: Result<User>) -> Void)
     
 }

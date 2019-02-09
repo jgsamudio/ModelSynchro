@@ -15,7 +15,7 @@ import Alamofire
 protocol PaymentApi {
     
     func addNewPaymentMethod(accountId: String,
-			addPaymentMethodRequest: AddPaymentMethodRequest,
+			addPaymentMethodRequest: Addpaymentmethodrequest,
 			completion: @escaping (_ result: Result<[PaymentMethod]>) -> Void)
     
     func deletePaymentMethod(accountId: String,
@@ -31,7 +31,7 @@ protocol PaymentApi {
     
     func updatePaymentMethod(accountId: String,
 			paymentId: String,
-			updatePaymentMethodRequest: UpdatePaymentMethodRequest,
+			updatePaymentMethodRequest: Updatepaymentmethodrequest,
 			completion: @escaping (_ result: Result<PaymentMethod>) -> Void)
     
 }
