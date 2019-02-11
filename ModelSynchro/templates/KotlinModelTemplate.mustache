@@ -1,0 +1,13 @@
+{{ model.package }}}
+
+import com.squareup.moshi.Json
+
+/*
+    Auto-Generated using ModelSynchro
+*/
+
+data class {{ model.name }}(
+	{% for property in model.properties %}
+	@JSON(name = "{{ property.key }}") val {{ property.name }}: {{ property.type}}{{property.comment}}
+	{% endfor %}
+)

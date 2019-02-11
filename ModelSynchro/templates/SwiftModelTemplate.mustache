@@ -1,0 +1,23 @@
+//
+//  {{ model.name }}.swift
+//  {{ config.projectName }}
+//
+//  Created by {{ config.authorName }} on {{ config.date }}.
+//  Copyright © {{ config.year }} {{ config.companyName }}. All rights reserved.
+//
+
+/*
+    Auto-Generated using ModelSynchro
+*/
+
+struct {{ model.name }}: Codable {
+	{% for property in model.properties %}
+	let {{ property.name }}: {{ property.type }}{{property.comment}}
+	{% endfor %}
+
+	enum CodingKeys: String, CodingKey {
+		{% for property in model.properties %}
+		case {{ property.name }} = {{ property.key }}
+		{% endfor %}
+	}
+}
