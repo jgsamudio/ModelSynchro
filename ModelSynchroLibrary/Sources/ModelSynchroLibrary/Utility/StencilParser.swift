@@ -31,8 +31,6 @@ open class StencilParser {
     // MARK: - Public Functions
     
     public func generateAPI() {
-        let environment = Environment()
-
         // TODO: Ability to add multiple templates per language.
         let templateName = config.languageFormatter().apiTemplateName
         guard let content = templateDict[templateName],
@@ -41,6 +39,7 @@ open class StencilParser {
             return
         }
 
+        let environment = Environment()
         for api in config.serverAPIInfo?.apis ?? [] {
             let context = config.languageFormatter().apiTemplateContext(api: api,
                                                                         config: config,
@@ -52,6 +51,10 @@ open class StencilParser {
                 renderedTemplate.writeToFile(directory: directory)
             }
         }
+    }
+    
+    public func generateModels() {
+        
     }
 }
 

@@ -62,6 +62,7 @@ extension ConfigurationFile {
         return ConfigurationFile.projectDirectory + (directoryInfo.outputModelDirectory ?? "")
     }
     
+    /// Dictionary used for template generation
     var configDict: [String: String] {
         return ["authorName": authorName,
                 "companyName": companyName,

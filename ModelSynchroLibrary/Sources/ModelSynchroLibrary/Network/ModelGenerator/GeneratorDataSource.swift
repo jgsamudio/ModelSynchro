@@ -101,4 +101,8 @@ private extension GeneratorDataSource {
 
         return fileLines.joined(separator: "\n")
     }
+    
+    func modelFileString() {
+        
+    }
 }
