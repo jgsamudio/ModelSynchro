@@ -11,5 +11,5 @@ struct PropertyTemplate: Codable {
     let name: String
     let key: String
     let type: String
-    let commnt: String
+    let comment: String?
 }

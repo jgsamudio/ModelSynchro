@@ -58,19 +58,24 @@ final class SwiftLanguageFormatter: LanguageFormatter {
         return "SwiftModelTemplate"
     }
     
-    func apiTemplateContext(config: ConfigurationFile, name: String, lines: [Line]) -> TemplateContext {
+    func modelTemplateContext(config: ConfigurationFile, name: String, lines: [Line]) -> TemplateContext {
         let context: TemplateContext = [
             "config": config.configDict,
-            "api": apiTemplateModels(config: config, api: api, urlModelDict: urlModelDict)
+            "model": modelTemplateModel(name: name, lines: lines)
         ]
         return context
     }
     
-    func modelTemplateModel(name: String, lines: [Line]) {
-        let modelTemplate = ModelTemplate(name: name, properties: [], package: nil)
-        for line in lines {
-            let property = PropertyTemplate(
+    func modelTemplateModel(name: String, lines: [Line]) -> ModelTemplate? {
+        var properties = [String]()
+        let sortedLines = lines.sorted(by: { $0.property < $1.property })
+        
+        for line in sortedLines {
+            // Need to update to Property Types.
+            properties.append(variableString(line: line, isLastVariable: sortedLines.last == line))
+            
         }
+        return ModelTemplate(name: name, properties: properties, package: nil)
     }
     
     func fileHeader(name: String,

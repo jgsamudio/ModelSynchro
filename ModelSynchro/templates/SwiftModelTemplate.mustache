@@ -12,7 +12,7 @@
 
 struct {{ model.name }}: Codable {
 	{% for property in model.properties %}
-	let {{ property.name }}: {{ property.type }}{{property.comment}}
+	property
 	{% endfor %}
 
 	enum CodingKeys: String, CodingKey {

@@ -10,6 +10,6 @@ import Foundation
 struct ModelTemplate: Codable {
     
     let name: String
-    let properties: [PropertyTemplate]
+    let properties: [String]
     let package: String?
 }
